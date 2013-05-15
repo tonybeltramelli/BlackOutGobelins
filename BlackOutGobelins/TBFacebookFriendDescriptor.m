@@ -9,16 +9,40 @@
 #import "TBFacebookFriendDescriptor.h"
 
 @implementation TBFacebookFriendDescriptor
+{
+    int _dataLoaded;
+}
 
 @synthesize mutualFriendsNumber = _mutualFriendsNumber;
+@synthesize friendsNumber = _friendsNumber;
 
 -(id)initWithDictionnary:(NSDictionary *)userData
 {
     self = [super initWithDictionnary:userData];
     if (self) {
         _mutualFriendsNumber = [(NSString *)[userData objectForKey:@"MUTUAL_FRIENDS_NUMBER"] integerValue];
+        
+        _dataLoaded = -1;
     }
     return self;
+}
+
+- (void)loadFriendData
+{
+    _dataLoaded ++;
+    
+    switch (_dataLoaded) {
+        case 0:
+            [self loadMutualFriends];
+            break;
+        case 1:
+            [self loadFriends];
+            break;
+        case 2:
+            _dataLoaded = 0;
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
+            break;
+    }
 }
 
 - (void)loadMutualFriends
@@ -35,7 +59,24 @@
             NSArray* mutualFriends = [result objectForKey:@"data"];
             _mutualFriendsNumber = [mutualFriends count];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
+            [self loadFriendData];
+        }
+    }];
+}
+
+- (void)loadFriends
+{
+    if(!_graphUser) return;
+    
+    FBRequest* request = [FBRequest requestForGraphPath:@"me/friends/"];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        if (!error)
+        {
+            NSArray* mutualFriends = [result objectForKey:@"data"];
+            _friendsNumber = [mutualFriends count];
+            
+            [self loadFriendData];
         }
     }];
 }

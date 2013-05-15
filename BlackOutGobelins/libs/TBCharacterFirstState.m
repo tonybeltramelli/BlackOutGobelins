@@ -10,4 +10,17 @@
 
 @implementation TBCharacterFirstState
 
+- (id)init
+{
+    self = [super initWithPrefix:@"friend_first_state_"];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end

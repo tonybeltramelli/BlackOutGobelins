@@ -11,7 +11,8 @@
 #import "TBGameController.h"
 #import "TBEnvironment.h"
 #import "TBHeroFirstState.h"
-#import "TBBot.h"
+#import "TBBotFirstState.h"
+#import "TBCharacterFirstState.h"
 #import "TBResources.h"
 #import "TypeDef.c"
 #import "TBLine.h"
@@ -36,7 +37,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBEnvironment *_environment;
     TBHeroFirstState *_hero;
     NSMutableArray *_bots;
-    TBBot *_targetedBot;
+    TBBotFirstState *_targetedBot;
+    NSMutableArray *_characters;
     NSMutableArray *_obstacles;
     
     CGSize _size;
@@ -75,6 +77,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [self addOrMoveHeroAtPosition:startPosition];
         
         [self addBotsAtPositions:[_environment getBotsStartPositions:1]];
+        [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
         
         _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
@@ -124,7 +127,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     for(i = 0; i < length; i++)
     {
-        TBBot *bot = (TBBot *) [_bots objectAtIndex:i];
+        TBBotFirstState *bot = (TBBotFirstState *) [_bots objectAtIndex:i];
         
         if([self isCharacter:bot touchedAt:location])
         {
@@ -237,36 +240,33 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
 -(void) addBotsAtPositions:(NSMutableArray *)positions
 {
-    _bots = [[NSMutableArray alloc] init];
-    
-    int i = 0;
-    int length = [positions count];
-    
-    for(i = 0; i < length; i++)
-    {
-        TBBot *bot = [[TBBot alloc] init];
-        [bot drawAt:[[positions objectAtIndex:i] CGPointValue]];
-        
-        [_bots addObject:bot];
-        [_mainContainer addChild:bot];
-    }
+    [self addElements:@"TBBotFirstState" atPositions:positions andSaveThemIn:_bots];
+}
+
+-(void) addCharactersAtPositions:(NSMutableArray *)positions
+{
+    [self addElements:@"TBCharacterFirstState" atPositions:positions andSaveThemIn:_characters];
 }
 
 -(void) addObstaclesAtPositions:(NSMutableArray *)positions
 {
-    _obstacles = [[NSMutableArray alloc] init];
+    [self addElements:@"TBPlantOne" atPositions:positions andSaveThemIn:_obstacles];
+}
+
+-(void) addElements:(NSString *)className atPositions:(NSMutableArray *)positions andSaveThemIn:(NSMutableArray *)array
+{
+    array = [[NSMutableArray alloc] init];
     
     int i = 0;
     int length = [positions count];
     
     for(i = 0; i < length; i++)
     {
-        TBPlantOne *plantOne = [[TBPlantOne alloc] init];
+        id element = [[NSClassFromString(className) alloc] init];
+        [element drawAt:[[positions objectAtIndex:i] CGPointValue]];
         
-        [plantOne drawAt:[[positions objectAtIndex:i] CGPointValue]];
-        
-        [_obstacles addObject:plantOne];
-        [_mainContainer addChild:plantOne];
+        [array addObject:element];
+        [_mainContainer addChild:(CCLayer *)element];
     }
 }
 

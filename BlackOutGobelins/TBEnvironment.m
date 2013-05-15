@@ -26,11 +26,13 @@
     self = [super init];
     if (self) {
         NSMutableArray *elementLayers = [[NSMutableArray alloc] init];
-        [elementLayers addObject:@"raw"];
+        [elementLayers addObject:@"sets"];
+        [elementLayers addObject:@"wall3"];
+        [elementLayers addObject:@"wall2"];
+        [elementLayers addObject:@"wall"];
+        [elementLayers addObject:@"effect"];
+        [elementLayers addObject:@"floor"];
         [elementLayers addObject:@"background"];
-        [elementLayers addObject:@"top2"];
-        [elementLayers addObject:@"top"];
-        [elementLayers addObject:@"big"];
         
         _elementLayer = [[TBMap alloc] initWith:[TBResources getAsset:ASSETS_MAP_LEVEL1_TMX] andDisplay:elementLayers];
         [self addChild:_elementLayer z:-1 tag:elementLayer];
@@ -52,6 +54,11 @@
 - (NSMutableArray *)getBotsStartPositions:(int)botNumber
 {
     return [self getAllMetaWithKey:@"bot" andValue:[NSString stringWithFormat:@"%d", botNumber]];
+}
+
+- (NSMutableArray *)getCharactersPositions:(int)charactersNumber
+{
+    return [self getAllMetaWithKey:@"character" andValue:[NSString stringWithFormat:@"%d", charactersNumber]];
 }
 
 - (NSMutableArray *)getObstaclesPositions

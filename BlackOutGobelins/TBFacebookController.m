@@ -59,7 +59,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
             
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendIsLoaded:) name:[NSString stringWithFormat:@"LOADED_%@",friend.id] object:nil];
             
-                [friendDescriptor loadMutualFriends];
+                [friendDescriptor loadFriendData];
             }
         }
     }];

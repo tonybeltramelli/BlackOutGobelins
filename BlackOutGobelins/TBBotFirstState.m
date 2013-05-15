@@ -10,4 +10,17 @@
 
 @implementation TBBotFirstState
 
+- (id)init
+{
+    self = [super initWithPrefix:@"bot_first_state_"];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end

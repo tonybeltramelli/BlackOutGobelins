@@ -13,6 +13,7 @@
 
 - (CGPoint)getStartPositionFromMeta;
 - (NSMutableArray *)getBotsStartPositions:(int)botNumber;
+- (NSMutableArray *)getCharactersPositions:(int)charactersNumber;
 - (NSMutableArray *)getObstaclesPositions;
 - (BOOL)isCollisionAt:(CGPoint)position;
 - (BOOL)isObstacleAt:(CGPoint)position;
