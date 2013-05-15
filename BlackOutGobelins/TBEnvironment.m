@@ -30,7 +30,7 @@
         [elementLayers addObject:@"background"];
         [elementLayers addObject:@"top2"];
         [elementLayers addObject:@"top"];
-        //[elementLayers addObject:@"floor"];
+        [elementLayers addObject:@"big"];
         
         _elementLayer = [[TBMap alloc] initWith:[TBResources getAsset:ASSETS_MAP_LEVEL1_TMX] andDisplay:elementLayers];
         [self addChild:_elementLayer z:-1 tag:elementLayer];

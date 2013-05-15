@@ -11,6 +11,7 @@
 @implementation TBModel
 {
     TBDatabaseController *_databaseController;
+    TBFacebookDataManager *_facebookDataManager;
 }
 
 static TBModel* _instance = nil;
@@ -49,6 +50,8 @@ static TBModel* _instance = nil;
         _facebookController = [[TBFacebookController alloc] init];
         _isRetinaDisplay = [self isRetinaDisplayHandler];
         _databaseController = [[TBDatabaseController alloc] init];
+        
+        _facebookDataManager = [[TBFacebookDataManager alloc] initWithControllers:_facebookController and:_databaseController];
     }
     return self;
 }
@@ -65,55 +68,12 @@ static TBModel* _instance = nil;
 
 -(void) saveBestFriend
 {
-    NSString *userId = _facebookController.bestFriend.userId;
-    NSString *friendName = _facebookController.bestFriend.name;
-    int mutualFriendsNumber = _facebookController.bestFriend.mutualFriendsNumber;
-    
-    NSMutableArray *result = [_databaseController getRow:@"USER_ID" fromTable:@"FACEBOOK"];
-    
-    if([result count] > 1)
-    {
-        [_databaseController dropTable:@"FACEBOOK"];
-    }else if([result count] == 1 && [(NSString *)[result objectAtIndex:0] isEqualToString:userId])
-    {
-        return;
-    }
-    
-    [_databaseController createTable:@"FACEBOOK" andParams:@"BESTFRIEND_NAME TEXT, MUTUAL_FRIENDS_NUMBER TEXT, USER_ID TEXT"];
-    
-    NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
-    [toSave setObject:userId forKey:@"USER_ID"];
-	[toSave setObject:friendName forKey:@"BESTFRIEND_NAME"];
-	[toSave setObject:[NSString stringWithFormat:@"%d", mutualFriendsNumber] forKey:@"MUTUAL_FRIENDS_NUMBER"];
-    
-    [_databaseController insertIntoTable:@"FACEBOOK" theseRowsAndValues:toSave];
+    [_facebookDataManager saveBestFriend];
 }
 
 -(NSString *) getBestFriend
 {
-    NSMutableArray *resultNames = [_databaseController getRow:@"BESTFRIEND_NAME" fromTable:@"FACEBOOK"];
-    
-    NSString *bestFriendName = @"";
-    
-    if([resultNames count] > 0)
-    {
-        bestFriendName = (NSString *)[resultNames objectAtIndex:0];
-    }
-    
-    if(![bestFriendName isEqualToString:@""])
-    {
-        NSMutableArray *resultUserIds = [_databaseController getRow:@"USER_ID" fromTable:@"FACEBOOK"];
-        NSMutableArray *resultMutualFriendsNumbers = [_databaseController getRow:@"MUTUAL_FRIENDS_NUMBER" fromTable:@"FACEBOOK"];
-        
-        NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
-        [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:@"USER_ID"];
-        [userData setObject:bestFriendName forKey:@"BESTFRIEND_NAME"];
-        [userData setObject:(NSString *)[resultMutualFriendsNumbers objectAtIndex:0] forKey:@"MUTUAL_FRIENDS_NUMBER"];
-        
-        [_facebookController createNewBestFriend:userData];
-    }
-    
-    return bestFriendName;
+    return [_facebookDataManager getBestFriend];
 }
 
 @end

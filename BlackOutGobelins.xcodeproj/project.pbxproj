@@ -45,7 +45,11 @@
 		98393D3A173BF3FC004B668D /* bot_first_state_gauche@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98393D1A173BF3FC004B668D /* bot_first_state_gauche@2x.png */; };
 		98393D3D173BF435004B668D /* TBBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 98393D3C173BF435004B668D /* TBBot.m */; };
 		98393D41173BF453004B668D /* TBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 98393D40173BF453004B668D /* TBCharacter.m */; };
+		984E551817427E2C0055C00D /* sprite_sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = 984E551617427E2C0055C00D /* sprite_sheet2.png */; };
+		984E551917427E2C0055C00D /* sprite_sheet2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984E551717427E2C0055C00D /* sprite_sheet2@2x.png */; };
 		985516B9173C30B900659A1B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 985516B8173C30B900659A1B /* fire.png */; };
+		986338CF17436E2A0014ED3E /* TBFacebookDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 986338CE17436E2A0014ED3E /* TBFacebookDataManager.m */; };
+		986338D4174370110014ED3E /* TBFacebookUserDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 986338D3174370110014ED3E /* TBFacebookUserDescriptor.m */; };
 		98657B99170C2E3B006F3F57 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98657B98170C2E3B006F3F57 /* QuartzCore.framework */; };
 		98657B9B170C2E3B006F3F57 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98657B9A170C2E3B006F3F57 /* OpenGLES.framework */; };
 		98657B9D170C2E3B006F3F57 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98657B9C170C2E3B006F3F57 /* OpenAL.framework */; };
@@ -331,7 +335,13 @@
 		98393D3C173BF435004B668D /* TBBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBot.m; sourceTree = "<group>"; };
 		98393D3F173BF453004B668D /* TBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacter.h; sourceTree = "<group>"; };
 		98393D40173BF453004B668D /* TBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacter.m; sourceTree = "<group>"; };
+		984E551617427E2C0055C00D /* sprite_sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_sheet2.png; sourceTree = "<group>"; };
+		984E551717427E2C0055C00D /* sprite_sheet2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite_sheet2@2x.png"; sourceTree = "<group>"; };
 		985516B8173C30B900659A1B /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		986338CD17436E2A0014ED3E /* TBFacebookDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFacebookDataManager.h; sourceTree = "<group>"; };
+		986338CE17436E2A0014ED3E /* TBFacebookDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFacebookDataManager.m; sourceTree = "<group>"; };
+		986338D2174370110014ED3E /* TBFacebookUserDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFacebookUserDescriptor.h; sourceTree = "<group>"; };
+		986338D3174370110014ED3E /* TBFacebookUserDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFacebookUserDescriptor.m; sourceTree = "<group>"; };
 		98657B95170C2E3B006F3F57 /* BlackOutGobelins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackOutGobelins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98657B98170C2E3B006F3F57 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98657B9A170C2E3B006F3F57 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -790,10 +800,11 @@
 		9829E9DB171EA57700888E4C /* facebook */ = {
 			isa = PBXGroup;
 			children = (
+				986338D017436FE10014ED3E /* user */,
 				9829E9E1171EA73300888E4C /* TBFacebookController.h */,
 				9829E9E2171EA73300888E4C /* TBFacebookController.m */,
-				9829E9EC171ECDC800888E4C /* TBFacebookFriendDescriptor.h */,
-				9829E9ED171ECDC800888E4C /* TBFacebookFriendDescriptor.m */,
+				986338CD17436E2A0014ED3E /* TBFacebookDataManager.h */,
+				986338CE17436E2A0014ED3E /* TBFacebookDataManager.m */,
 			);
 			name = facebook;
 			sourceTree = "<group>";
@@ -868,6 +879,17 @@
 				98393D3C173BF435004B668D /* TBBot.m */,
 			);
 			name = bot;
+			sourceTree = "<group>";
+		};
+		986338D017436FE10014ED3E /* user */ = {
+			isa = PBXGroup;
+			children = (
+				986338D2174370110014ED3E /* TBFacebookUserDescriptor.h */,
+				986338D3174370110014ED3E /* TBFacebookUserDescriptor.m */,
+				9829E9EC171ECDC800888E4C /* TBFacebookFriendDescriptor.h */,
+				9829E9ED171ECDC800888E4C /* TBFacebookFriendDescriptor.m */,
+			);
+			name = user;
 			sourceTree = "<group>";
 		};
 		98657B8C170C2E3B006F3F57 = {
@@ -1711,6 +1733,8 @@
 		989F199917305AF500EA8183 /* level1 */ = {
 			isa = PBXGroup;
 			children = (
+				984E551617427E2C0055C00D /* sprite_sheet2.png */,
+				984E551717427E2C0055C00D /* sprite_sheet2@2x.png */,
 				98E00BE61741287500B0D13C /* map_level1.tmx */,
 				98E00BE71741287500B0D13C /* map_level1@2x.tmx */,
 				98E00BE81741287500B0D13C /* special.png */,
@@ -1872,6 +1896,8 @@
 				98E00BEF1741287500B0D13C /* special@2x.png in Resources */,
 				98E00BF01741287500B0D13C /* sprite_sheet.png in Resources */,
 				98E00BF11741287500B0D13C /* sprite_sheet@2x.png in Resources */,
+				984E551817427E2C0055C00D /* sprite_sheet2.png in Resources */,
+				984E551917427E2C0055C00D /* sprite_sheet2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2044,6 +2070,8 @@
 				986EB0CF173D60130085F83C /* TBParticle.m in Sources */,
 				986EB0D4173D628B0085F83C /* TBSpecial.m in Sources */,
 				98814E4D17410AAB00C86F65 /* TBPlantOne.m in Sources */,
+				986338CF17436E2A0014ED3E /* TBFacebookDataManager.m in Sources */,
+				986338D4174370110014ED3E /* TBFacebookUserDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

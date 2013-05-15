@@ -7,7 +7,7 @@
 //
 
 #import "TBPreHomeViewController.h"
-#import "TBGameViewController.h"
+#import "TBHomeViewController.h"
 
 @interface TBPreHomeViewController ()
 
@@ -24,7 +24,7 @@
                          [self.view setAlpha:0.0f];
                      }
                      completion:^(BOOL finished){
-                         [self.navigationController pushViewController:[[[TBGameViewController alloc] initWithNibName:nil bundle:nil] autorelease] animated:YES];
+                         [self.navigationController pushViewController:[[[TBHomeViewController alloc] initWithNibName:nil bundle:nil] autorelease] animated:YES];
                          [self removeFromParentViewController];
                      }];
 

@@ -7,16 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FacebookSDK/FacebookSDK.h>
 
-@interface TBFacebookFriendDescriptor : NSObject
+#import "TBFacebookUserDescriptor.h"
 
-@property(nonatomic, assign) NSString *userId;
-@property(nonatomic, assign) NSString *name;
+@interface TBFacebookFriendDescriptor : TBFacebookUserDescriptor
+
 @property(nonatomic) int mutualFriendsNumber;
 
--(id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser;
--(id)initWithDictionnary:(NSDictionary *)userData;
 -(void) loadMutualFriends;
 
 @end

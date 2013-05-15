@@ -11,6 +11,7 @@
 #import "TBFacebookController.h"
 #import "TBHomeViewController.h"
 #import "TBDatabaseController.h"
+#import "TBFacebookDataManager.h"
 
 @interface TBModel : NSObject
 

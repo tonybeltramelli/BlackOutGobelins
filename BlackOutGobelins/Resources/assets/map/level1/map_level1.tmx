@@ -26,9 +26,17 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="37" name="big sprite sheet" tilewidth="180" tileheight="180">
+  <image source="sprite_sheet2.png" width="744" height="540"/>
+ </tileset>
  <layer name="background" width="42" height="190">
   <data encoding="base64" compression="zlib">
    eJzt0jkOwyAQQFHiTbKl+P7HjQtPY41xNpLmFa8D8RlYSykrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACn7ps+Mb+x52rfJ5ZNl5gqjdn6YXdrNMvszDAf1vYv3ulbxn0GtdZ4z7P5ZXdq2Vtrja5sfvFvWrz3VetwEA1Z0/jDxmfP/EcTAAAAZB5fnLBg
+  </data>
+ </layer>
+ <layer name="big" width="42" height="190">
+  <data encoding="base64" compression="zlib">
+   eJzt2jtuwzAQBUBfJjGSwPb9b5eWCJRCIkHvZ6ZioYaQsO8toNuNlT6G8+dwvgd7hrW+hvP3cP4J9gxrPYbzczi/gj3DPqtmN7msmt3ksmp2k4s535M535M5D8Bfel5Pel5Peh4A1KXX53b1/en1uV19f3p9bt4fAO8wsy/YNfKa2RfsGnnN9E1dFfhPxz7gn9qefcA/tT37gH9qIYbqucqx6rnKMbnKLrKlJ9nSk2wBAKKwh/RkD+nJHgJEoX/0dLZ/+E5qONs/9NSe9NTads9z+RHD7nkuP2LYPc/lB1lUz6bq97uqejZVv99V1bOp+v2Iq3LWVL7brMpZU/lusypnTeW7ATDnF5raKNg=
   </data>
  </layer>
  <layer name="raw" width="42" height="190">

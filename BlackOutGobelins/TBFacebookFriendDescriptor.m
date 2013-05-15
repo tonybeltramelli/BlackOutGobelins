@@ -9,32 +9,13 @@
 #import "TBFacebookFriendDescriptor.h"
 
 @implementation TBFacebookFriendDescriptor
-{
-    NSDictionary<FBGraphUser> *_graphUser;
-}
 
-@synthesize userId = _userId;
-@synthesize name = _name;
 @synthesize mutualFriendsNumber = _mutualFriendsNumber;
-
-- (id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser
-{
-    self = [super init];
-    if (self) {
-        _graphUser = [graphUser retain];
-        
-        _userId = _graphUser.id;
-        _name = _graphUser.name;
-    }
-    return self;
-}
 
 -(id)initWithDictionnary:(NSDictionary *)userData
 {
-    self = [super init];
+    self = [super initWithDictionnary:userData];
     if (self) {
-        _userId = [userData objectForKey:@"USER_ID"];
-        _name = [userData objectForKey:@"BESTFRIEND_NAME"];
         _mutualFriendsNumber = [(NSString *)[userData objectForKey:@"MUTUAL_FRIENDS_NUMBER"] integerValue];
     }
     return self;
