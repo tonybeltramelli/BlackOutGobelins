@@ -155,7 +155,7 @@ NSString *USER_NAME = @"USER_NAME";
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:userName forKey:USER_NAME];
         
-        [_facebookController setBestFriendFromData:userData];
+        [_facebookController setUserFromData:userData];
     }
     
     return userName;
