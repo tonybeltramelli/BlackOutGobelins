@@ -13,11 +13,13 @@
 
 @interface TBFacebookController : NSObject
 
-@property (assign, nonatomic) NSDictionary<FBGraphUser> *user;
+@property (assign, nonatomic) TBFacebookUserDescriptor *user;
 @property (assign, nonatomic) TBFacebookFriendDescriptor *bestFriend;
+
+-(void)setUserFromData:(NSMutableDictionary *)userData;
+-(void)setBestFriendFromData:(NSMutableDictionary *)userData;
 
 -(void)getProfilePicture:(id)delegate;
 -(void)getBestFriend;
--(void)createNewBestFriend:(NSMutableDictionary *)userData;
 
 @end

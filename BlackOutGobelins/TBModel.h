@@ -18,10 +18,8 @@
 @property (assign, nonatomic) BOOL isRetinaDisplay;
 @property (nonatomic, retain) AppDelegate *appDelegate;
 @property (assign, nonatomic) TBFacebookController *facebookController;
+@property (assign, nonatomic) TBFacebookDataManager *facebookDataManager;
 
 + (TBModel*)getInstance;
-
--(void) saveBestFriend;
--(NSString *) getBestFriend;
 
 @end

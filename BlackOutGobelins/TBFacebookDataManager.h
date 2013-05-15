@@ -21,4 +21,6 @@
 -(void) saveUser;
 -(NSString *) getUser;
 
+-(void)setUserFromGraph:(NSDictionary<FBGraphUser> *)user;
+
 @end

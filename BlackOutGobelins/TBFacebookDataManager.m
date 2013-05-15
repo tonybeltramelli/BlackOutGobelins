@@ -38,7 +38,7 @@ NSString *USER_NAME = @"USER_NAME";
 
 -(void) saveUser
 {
-    NSString *userId = _facebookController.user.id;
+    NSString *userId = _facebookController.user.userId;
     NSString *userName = _facebookController.user.name;
     
     if([self isUniqueUserAlreadySaved:userId on:USER_TABLE_NAME])
@@ -98,6 +98,17 @@ NSString *USER_NAME = @"USER_NAME";
     return boo;
 }
 
+-(void)setUserFromGraph:(NSDictionary<FBGraphUser> *)user
+{
+    NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
+    [userData setObject:user.id forKey:USER_ID];
+    [userData setObject:user.name forKey:USER_NAME];
+    
+    [_facebookController setUserFromData:userData];
+    
+    [self saveUser];
+}
+
 -(NSString *) getBestFriend
 {
     NSMutableArray *resultNames = [_databaseController getRow:USER_NAME fromTable:BESTFRIEND_TABLE_NAME];
@@ -119,7 +130,7 @@ NSString *USER_NAME = @"USER_NAME";
         [userData setObject:bestFriendName forKey:USER_NAME];
         [userData setObject:(NSString *)[resultMutualFriendsNumbers objectAtIndex:0] forKey:MUTUAL_FRIENDS_NUMBER];
         
-        [_facebookController createNewBestFriend:userData];
+        [_facebookController setBestFriendFromData:userData];
     }
     
     return bestFriendName;
@@ -144,7 +155,7 @@ NSString *USER_NAME = @"USER_NAME";
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:userName forKey:USER_NAME];
         
-        [_facebookController createNewBestFriend:userData];
+        [_facebookController setBestFriendFromData:userData];
     }
     
     return userName;

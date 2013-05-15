@@ -84,14 +84,19 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     }
 }
 
--(void)createNewBestFriend:(NSMutableDictionary *)userData
+-(void)setUserFromData:(NSMutableDictionary *)userData
+{
+    _user = [[TBFacebookUserDescriptor alloc] initWithDictionnary:userData];
+}
+
+-(void)setBestFriendFromData:(NSMutableDictionary *)userData
 {
     _bestFriend = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
 }
 
 -(NSString *)getGraphAPIURLFromCurrentUser
 {
-    return [self getGraphAPIURLFromUserId:_user.id];
+    return [self getGraphAPIURLFromUserId:_user.userId];
 }
 
 -(NSString *)getGraphAPIURLFromUserId:(NSString *)userId

@@ -74,7 +74,7 @@
                 if (!error)
                 {
                     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookControllerIsReady:) name:@"READY" object:nil];
-                    [[TBModel getInstance].facebookController setUser:user];
+                    [[TBModel getInstance].facebookDataManager setUserFromGraph:user];
                     [self updateView];
                     
                     [((TBLoggedInView *) _currentView) loadData];

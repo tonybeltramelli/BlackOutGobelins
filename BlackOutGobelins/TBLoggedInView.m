@@ -50,7 +50,7 @@
 
 -(void)loadData
 {
-    NSString *bestFriendName = [[TBModel getInstance] getBestFriend];
+    NSString *bestFriendName = [[TBModel getInstance].facebookDataManager getBestFriend];
     
     if([bestFriendName isEqualToString:@""])
     {
@@ -67,7 +67,7 @@
     
     [self displayBestFriend];
     
-    [[TBModel getInstance] saveBestFriend];
+    [[TBModel getInstance].facebookDataManager saveBestFriend];
 }
 
 -(void)displayBestFriend

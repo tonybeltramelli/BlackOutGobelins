@@ -11,7 +11,6 @@
 @implementation TBModel
 {
     TBDatabaseController *_databaseController;
-    TBFacebookDataManager *_facebookDataManager;
 }
 
 static TBModel* _instance = nil;
@@ -19,6 +18,7 @@ static TBModel* _instance = nil;
 @synthesize isRetinaDisplay = _isRetinaDisplay;
 @synthesize appDelegate = _appDelegate;
 @synthesize facebookController = _facebookController;
+@synthesize facebookDataManager = _facebookDataManager;
 
 +(TBModel*)getInstance
 {
@@ -64,16 +64,6 @@ static TBModel* _instance = nil;
     }
     
     return NO;
-}
-
--(void) saveBestFriend
-{
-    [_facebookDataManager saveBestFriend];
-}
-
--(NSString *) getBestFriend
-{
-    return [_facebookDataManager getBestFriend];
 }
 
 @end
