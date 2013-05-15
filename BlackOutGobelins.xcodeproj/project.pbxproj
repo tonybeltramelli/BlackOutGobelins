@@ -301,7 +301,6 @@
 		98BAEA7D1744206D00733F88 /* friend_first_state_face@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5D1744206D00733F88 /* friend_first_state_face@2x.png */; };
 		98BAEA7E1744206D00733F88 /* friend_first_state_gauche@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5E1744206D00733F88 /* friend_first_state_gauche@2x.plist */; };
 		98BAEA7F1744206D00733F88 /* friend_first_state_gauche@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */; };
-		98BAEA83174422E200733F88 /* TBCharacterFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA82174422E200733F88 /* TBCharacterFirstState.m */; };
 		98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA881744236C00733F88 /* TBBotFirstState.m */; };
 		98D1AA81171C405B00E19CFC /* TBASubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D1AA80171C405B00E19CFC /* TBASubView.m */; };
 		98DCF9D41743E73000887D6F /* map_level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9CC1743E73000887D6F /* map_level1.tmx */; };
@@ -312,6 +311,7 @@
 		98DCF9D91743E73000887D6F /* sprite_sheet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9D11743E73000887D6F /* sprite_sheet@2x.png */; };
 		98DCF9DA1743E73000887D6F /* sprite_sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9D21743E73000887D6F /* sprite_sheet2.png */; };
 		98DCF9DB1743E73000887D6F /* sprite_sheet2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9D31743E73000887D6F /* sprite_sheet2@2x.png */; };
+		98DECEFF17442AD7001662D8 /* TBCharacterFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DECEFE17442AC5001662D8 /* TBCharacterFirstState.m */; };
 		98E69AE2170EB4B6008F3D23 /* TBPreHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E69AE0170EB4B6008F3D23 /* TBPreHomeViewController.m */; };
 		98E69AE3170EB4B6008F3D23 /* TBPreHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E69AE1170EB4B6008F3D23 /* TBPreHomeViewController.xib */; };
 		98E69AE6170EB642008F3D23 /* TBAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E69AE5170EB642008F3D23 /* TBAViewController.m */; };
@@ -810,8 +810,6 @@
 		98BAEA5D1744206D00733F88 /* friend_first_state_face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_first_state_face@2x.png"; sourceTree = "<group>"; };
 		98BAEA5E1744206D00733F88 /* friend_first_state_gauche@2x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "friend_first_state_gauche@2x.plist"; sourceTree = "<group>"; };
 		98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_first_state_gauche@2x.png"; sourceTree = "<group>"; };
-		98BAEA81174422E200733F88 /* TBCharacterFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBCharacterFirstState.h; path = libs/TBCharacterFirstState.h; sourceTree = "<group>"; };
-		98BAEA82174422E200733F88 /* TBCharacterFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBCharacterFirstState.m; path = libs/TBCharacterFirstState.m; sourceTree = "<group>"; };
 		98BAEA871744236C00733F88 /* TBBotFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotFirstState.h; sourceTree = "<group>"; };
 		98BAEA881744236C00733F88 /* TBBotFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotFirstState.m; sourceTree = "<group>"; };
 		98D1AA7F171C405B00E19CFC /* TBASubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBASubView.h; sourceTree = "<group>"; };
@@ -824,6 +822,8 @@
 		98DCF9D11743E73000887D6F /* sprite_sheet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite_sheet@2x.png"; sourceTree = "<group>"; };
 		98DCF9D21743E73000887D6F /* sprite_sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_sheet2.png; sourceTree = "<group>"; };
 		98DCF9D31743E73000887D6F /* sprite_sheet2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite_sheet2@2x.png"; sourceTree = "<group>"; };
+		98DECEFD17442AC5001662D8 /* TBCharacterFirstState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBCharacterFirstState.h; sourceTree = "<group>"; };
+		98DECEFE17442AC5001662D8 /* TBCharacterFirstState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBCharacterFirstState.m; sourceTree = "<group>"; };
 		98E69ADF170EB4B6008F3D23 /* TBPreHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPreHomeViewController.h; sourceTree = "<group>"; };
 		98E69AE0170EB4B6008F3D23 /* TBPreHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPreHomeViewController.m; sourceTree = "<group>"; };
 		98E69AE1170EB4B6008F3D23 /* TBPreHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBPreHomeViewController.xib; sourceTree = "<group>"; };
@@ -1880,8 +1880,8 @@
 		98BAEA80174422B100733F88 /* character */ = {
 			isa = PBXGroup;
 			children = (
-				98BAEA81174422E200733F88 /* TBCharacterFirstState.h */,
-				98BAEA82174422E200733F88 /* TBCharacterFirstState.m */,
+				98DECEFD17442AC5001662D8 /* TBCharacterFirstState.h */,
+				98DECEFE17442AC5001662D8 /* TBCharacterFirstState.m */,
 			);
 			name = character;
 			sourceTree = "<group>";
@@ -2081,6 +2081,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DECEFF17442AD7001662D8 /* TBCharacterFirstState.m in Sources */,
 				98814E511741180D00C86F65 /* TBMapElement.m in Sources */,
 				989F1987173057B600EA8183 /* TBSimpleItem.m in Sources */,
 				989F1988173057B600EA8183 /* TBCharacterFace.m in Sources */,
@@ -2244,7 +2245,6 @@
 				98814E4D17410AAB00C86F65 /* TBPlantOne.m in Sources */,
 				986338CF17436E2A0014ED3E /* TBFacebookDataManager.m in Sources */,
 				986338D4174370110014ED3E /* TBFacebookUserDescriptor.m in Sources */,
-				98BAEA83174422E200733F88 /* TBCharacterFirstState.m in Sources */,
 				98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
