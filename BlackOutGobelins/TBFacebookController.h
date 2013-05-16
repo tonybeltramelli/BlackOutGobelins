@@ -15,13 +15,14 @@
 
 @property (assign, nonatomic) TBFacebookUserDescriptor *user;
 @property (assign, nonatomic) TBFacebookFriendDescriptor *bestFriend;
-@property (assign, nonatomic) TBFacebookFriendDescriptor *mostPopularFriend;
+@property (assign, nonatomic) TBFacebookFriendDescriptor *friendOnPicture;
 
 -(void)setUserFromData:(NSMutableDictionary *)userData;
 -(void)setBestFriendFromData:(NSMutableDictionary *)userData;
--(void)setMostPopularFriendFromData:(NSMutableDictionary *)userData;
+-(void)setPictureFriendFromData:(NSMutableDictionary *)userData;
 
 -(void)getProfilePicture:(id)delegate;
+-(void)getFriendOnPicture;
 -(void)getFriendsData;
 
 @end

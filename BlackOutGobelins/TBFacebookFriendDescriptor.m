@@ -10,11 +10,10 @@
 
 @implementation TBFacebookFriendDescriptor
 {
-    int _dataLoaded;
+    int _friendsNumber;
 }
 
 @synthesize mutualFriendsNumber = _mutualFriendsNumber;
-@synthesize friendsNumber = _friendsNumber;
 
 -(id)initWithDictionnary:(NSDictionary *)userData
 {
@@ -23,25 +22,6 @@
         _mutualFriendsNumber = [(NSString *)[userData objectForKey:@"MUTUAL_FRIENDS_NUMBER"] integerValue];
     }
     return self;
-}
-
-- (void)loadFriendData
-{
-    switch (_dataLoaded)
-    {
-        case 0:
-            [self loadMutualFriends];
-            break;
-        case 1:
-            [self loadFriends];
-            break;
-        case 2:
-            _dataLoaded = 0;
-            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
-            break;
-    }
-    
-    _dataLoaded ++;
 }
 
 - (void)loadMutualFriends
@@ -58,7 +38,7 @@
             NSArray* mutualFriends = [result objectForKey:@"data"];
             _mutualFriendsNumber = [mutualFriends count];
             
-            [self loadFriendData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
         }
     }];
 }
@@ -75,7 +55,7 @@
             NSArray* friends = [result objectForKey:@"data"];
             _friendsNumber = [friends count];
             
-            [self loadFriendData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
         }
     }];
 }

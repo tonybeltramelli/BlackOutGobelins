@@ -13,8 +13,7 @@
 @interface TBFacebookFriendDescriptor : TBFacebookUserDescriptor
 
 @property(nonatomic) int mutualFriendsNumber;
-@property(nonatomic) int friendsNumber;
 
-- (void)loadFriendData;
+- (void)loadMutualFriends;
 
 @end

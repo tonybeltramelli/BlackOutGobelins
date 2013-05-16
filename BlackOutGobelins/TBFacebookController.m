@@ -20,7 +20,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
 @synthesize user = _user;
 @synthesize bestFriend = _bestFriend;
-@synthesize mostPopularFriend = _mostPopularFriend;
+@synthesize friendOnPicture = _friendOnPicture;
 
 -(void)getProfilePicture:(id)delegate
 {
@@ -34,6 +34,39 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest
                                                                      delegate:delegate];
     if (!urlConnection) NSLog(@"Failed to download picture");
+}
+
+-(void)getFriendOnPicture
+{
+    FBRequest* request = [FBRequest requestForGraphPath:@"me/photos"];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        if (!error)
+        {
+            NSArray* data = [result objectForKey:@"data"];
+            int length = [data count];
+            
+            for(int i = 0; i < length; i++)
+            {
+                FBGraphObject *photo = [data objectAtIndex:i];
+                NSDictionary *tags = [photo objectForKey:@"tags"];
+                NSArray *dataTags = [tags objectForKey:@"data"];
+                int n = [dataTags count];
+
+                for(int j = 0; j < n; j++)
+                {
+                    NSDictionary<FBGraphUser> *friend = [dataTags objectAtIndex:j];
+                    
+                    if(friend.id != _user.userId)
+                    {
+                         _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithGraphUser:friend];
+                        
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"FRIEND_LOADED" object:nil];
+                    }
+                }
+            }
+        }
+    }];
 }
 
 -(void)getFriendsData
@@ -61,7 +94,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
             
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendIsLoaded:) name:[NSString stringWithFormat:@"LOADED_%@",friend.id] object:nil];
             
-                [friendDescriptor loadFriendData];
+                [friendDescriptor loadMutualFriends];
             }
         }
     }];
@@ -75,12 +108,6 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     {
         _maxMutualFriendsNumber = friend.mutualFriendsNumber;
         _bestFriend = friend;
-    }
-    
-    if(_maxFriendsNumber < friend.friendsNumber)
-    {
-        _maxFriendsNumber = friend.friendsNumber;
-        _mostPopularFriend = friend;
     }
     
     _loadedFriends ++;
@@ -102,9 +129,9 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     _bestFriend = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
 }
 
--(void)setMostPopularFriendFromData:(NSMutableDictionary *)userData
+-(void)setPictureFriendFromData:(NSMutableDictionary *)userData
 {
-    _mostPopularFriend = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
+    _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
 }
 
 -(NSString *)getGraphAPIURLFromCurrentUser

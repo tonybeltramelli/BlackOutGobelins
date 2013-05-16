@@ -15,11 +15,39 @@
 {
     _nameLabel.text = [TBModel getInstance].facebookController.user.name;
     _bestFriendNameLabel.text = @"";
-    _mostPopularFriendNameLabel.text = @"";
+    _friendOnPictureNameLabel.text = @"";
     
     [self hideLoader];
     
     [[TBModel getInstance].facebookController getProfilePicture:self];
+    
+    
+    NSString *friendOnPictureName = [[TBModel getInstance].facebookDataManager getFriendOnPicture];
+    
+    if([friendOnPictureName isEqualToString:@""])
+    {
+        if ([FBSession.activeSession.permissions indexOfObject:@"user_photos"] == NSNotFound)
+        {
+            [FBSession.activeSession reauthorizeWithReadPermissions:[NSArray arrayWithObject:@"user_photos"] completionHandler:^(FBSession *session, NSError *error)
+             {
+                 if (!error) {
+                 
+                     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
+                 
+                     [[TBModel getInstance].facebookController getFriendOnPicture];
+                 }
+             }];
+        }
+    }else{
+        [self displayFriendsData];
+    }
+}
+
+-(void) friendOnPictureIsLoaded:(NSNotification *)notification
+{
+    [[TBModel getInstance].facebookDataManager saveFriendOnPicture];
+    
+    [self displayFriendsData];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -52,9 +80,8 @@
 -(void)loadData
 {
     NSString *bestFriendName = [[TBModel getInstance].facebookDataManager getBestFriend];
-    NSString *mostPopularFriendName = [[TBModel getInstance].facebookDataManager getMostPopularFriend];
     
-    if([bestFriendName isEqualToString:@""] && [mostPopularFriendName isEqualToString:@""])
+    if([bestFriendName isEqualToString:@""])
     {
         [self showLoader];
         [[TBModel getInstance].facebookController getFriendsData];
@@ -74,9 +101,15 @@
 
 -(void)displayFriendsData
 {
-    _bestFriendNameLabel.text = [NSString stringWithFormat:@"The best friend is %@ with %d mutual friends.", [TBModel getInstance].facebookController.bestFriend.name, [TBModel getInstance].facebookController.bestFriend.mutualFriendsNumber];
+    if(![[TBModel getInstance].facebookController.bestFriend.name isEqualToString:@""])
+    {
+        _bestFriendNameLabel.text = [NSString stringWithFormat:@"The best friend is %@ with %d mutual friends.", [TBModel getInstance].facebookController.bestFriend.name, [TBModel getInstance].facebookController.bestFriend.mutualFriendsNumber];
+    }
     
-    _mostPopularFriendNameLabel.text = [NSString stringWithFormat:@"The most popular friend is %@ with %d friends.", [TBModel getInstance].facebookController.mostPopularFriend.name, [TBModel getInstance].facebookController.mostPopularFriend.friendsNumber];
+    if(![[TBModel getInstance].facebookController.friendOnPicture.name isEqualToString:@""])
+    {
+        _friendOnPictureNameLabel.text = [NSString stringWithFormat:@"The most popular friend is %@.", [TBModel getInstance].facebookController.friendOnPicture.name];
+    }
 }
 
 -(void)showLoader
