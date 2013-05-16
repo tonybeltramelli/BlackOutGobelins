@@ -16,6 +16,10 @@ NSString *USER_TABLE_NAME= @"USER";
 NSString *BESTFRIEND_TABLE_NAME = @"BESTFRIEND";
 NSString *MUTUAL_FRIENDS_NUMBER = @"MUTUAL_FRIENDS_NUMBER";
 
+//most popular friend
+NSString *MOST_POPULAR_FRIEND_TABLE_NAME = @"MOST_POPULAR_FRIEND_TABLE_NAME";
+NSString *FRIENDS_NUMBER = @"FRIENDS_NUMBER";
+
 //common rows
 NSString *USER_ID = @"USER_ID";
 NSString *USER_NAME = @"USER_NAME";
@@ -80,6 +84,29 @@ NSString *USER_NAME = @"USER_NAME";
     [_databaseController insertIntoTable:BESTFRIEND_TABLE_NAME theseRowsAndValues:toSave];
 }
 
+-(void) saveMostPopularFriend
+{
+    NSString *popularFriendUserId = _facebookController.mostPopularFriend.userId;
+    NSString *popularFriendName = _facebookController.mostPopularFriend.name;
+    int friendsNumber = _facebookController.mostPopularFriend.friendsNumber;
+    
+    if([self isUniqueUserAlreadySaved:popularFriendUserId on:MOST_POPULAR_FRIEND_TABLE_NAME])
+    {
+        return;
+    }
+    
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, FRIENDS_NUMBER, USER_ID];
+    
+    [_databaseController createTable:MOST_POPULAR_FRIEND_TABLE_NAME andParams:requestParams];
+    
+    NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
+    [toSave setObject:popularFriendUserId forKey:USER_ID];
+	[toSave setObject:popularFriendName forKey:USER_NAME];
+	[toSave setObject:[NSString stringWithFormat:@"%d", friendsNumber] forKey:FRIENDS_NUMBER];
+    
+    [_databaseController insertIntoTable:MOST_POPULAR_FRIEND_TABLE_NAME theseRowsAndValues:toSave];
+}
+
 -(BOOL)isUniqueUserAlreadySaved:(NSString *)valueToCheck on:(NSString *)tableName
 {
     NSMutableArray *result = [_databaseController getRow:USER_ID fromTable:tableName];
@@ -134,6 +161,33 @@ NSString *USER_NAME = @"USER_NAME";
     }
     
     return bestFriendName;
+}
+
+-(NSString *) getMostPopularFriend
+{
+    NSMutableArray *resultNames = [_databaseController getRow:USER_NAME fromTable:MOST_POPULAR_FRIEND_TABLE_NAME];
+    
+    NSString *mostPopularFriendName = @"";
+    
+    if([resultNames count] > 0)
+    {
+        mostPopularFriendName = (NSString *)[resultNames objectAtIndex:0];
+    }
+    
+    if(![mostPopularFriendName isEqualToString:@""])
+    {
+        NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:MOST_POPULAR_FRIEND_TABLE_NAME];
+        NSMutableArray *resultFriendsNumbers = [_databaseController getRow:FRIENDS_NUMBER fromTable:MOST_POPULAR_FRIEND_TABLE_NAME];
+        
+        NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
+        [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
+        [userData setObject:mostPopularFriendName forKey:USER_NAME];
+        [userData setObject:(NSString *)[resultFriendsNumbers objectAtIndex:0] forKey:FRIENDS_NUMBER];
+        
+        [_facebookController setMostPopularFriendFromData:userData];
+    }
+    
+    return mostPopularFriendName;
 }
 
 -(NSString *) getUser

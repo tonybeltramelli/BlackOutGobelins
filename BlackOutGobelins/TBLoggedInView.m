@@ -15,6 +15,7 @@
 {
     _nameLabel.text = [TBModel getInstance].facebookController.user.name;
     _bestFriendNameLabel.text = @"";
+    _mostPopularFriendNameLabel.text = @"";
     
     [self hideLoader];
     
@@ -51,13 +52,14 @@
 -(void)loadData
 {
     NSString *bestFriendName = [[TBModel getInstance].facebookDataManager getBestFriend];
+    NSString *mostPopularFriendName = [[TBModel getInstance].facebookDataManager getMostPopularFriend];
     
-    if([bestFriendName isEqualToString:@""])
+    if([bestFriendName isEqualToString:@""] && [mostPopularFriendName isEqualToString:@""])
     {
         [self showLoader];
-        [[TBModel getInstance].facebookController getBestFriend];
+        [[TBModel getInstance].facebookController getFriendsData];
     }else{
-        [self displayBestFriend];
+        [self displayFriendsData];
     }
 }
 
@@ -65,14 +67,16 @@
 {
     [self hideLoader];
     
-    [self displayBestFriend];
+    [self displayFriendsData];
     
     [[TBModel getInstance].facebookDataManager saveBestFriend];
 }
 
--(void)displayBestFriend
+-(void)displayFriendsData
 {
     _bestFriendNameLabel.text = [NSString stringWithFormat:@"The best friend is %@ with %d mutual friends.", [TBModel getInstance].facebookController.bestFriend.name, [TBModel getInstance].facebookController.bestFriend.mutualFriendsNumber];
+    
+    _mostPopularFriendNameLabel.text = [NSString stringWithFormat:@"The most popular friend is %@ with %d friends.", [TBModel getInstance].facebookController.mostPopularFriend.name, [TBModel getInstance].facebookController.mostPopularFriend.friendsNumber];
 }
 
 -(void)showLoader

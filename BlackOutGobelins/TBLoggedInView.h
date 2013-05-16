@@ -14,6 +14,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *loaderView;
 @property (retain, nonatomic) IBOutlet UILabel *bestFriendNameLabel;
+@property (retain, nonatomic) IBOutlet UILabel *mostPopularFriendNameLabel;
 
 -(void)loadData;
 -(void)dataLoaded;

@@ -21,17 +21,14 @@
     self = [super initWithDictionnary:userData];
     if (self) {
         _mutualFriendsNumber = [(NSString *)[userData objectForKey:@"MUTUAL_FRIENDS_NUMBER"] integerValue];
-        
-        _dataLoaded = -1;
     }
     return self;
 }
 
 - (void)loadFriendData
 {
-    _dataLoaded ++;
-    
-    switch (_dataLoaded) {
+    switch (_dataLoaded)
+    {
         case 0:
             [self loadMutualFriends];
             break;
@@ -43,6 +40,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
             break;
     }
+    
+    _dataLoaded ++;
 }
 
 - (void)loadMutualFriends
@@ -73,8 +72,8 @@
         
         if (!error)
         {
-            NSArray* mutualFriends = [result objectForKey:@"data"];
-            _friendsNumber = [mutualFriends count];
+            NSArray* friends = [result objectForKey:@"data"];
+            _friendsNumber = [friends count];
             
             [self loadFriendData];
         }

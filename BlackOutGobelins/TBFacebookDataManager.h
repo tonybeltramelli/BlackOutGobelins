@@ -18,6 +18,9 @@
 -(void) saveBestFriend;
 -(NSString *) getBestFriend;
 
+-(void) saveMostPopularFriend;
+-(NSString *) getMostPopularFriend;
+
 -(void) saveUser;
 -(NSString *) getUser;
 
