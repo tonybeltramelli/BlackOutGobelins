@@ -12,7 +12,7 @@
 
 - (id)init
 {
-    self = [super initWithPrefix:@"bot_first_state_"];
+    self = [super initWithPrefix:@"bot_first_state_" andNumFrame:39];
     if (self) {
     }
     return self;

@@ -12,7 +12,8 @@
 {
     CCRepeatForever *_baseAnimation;
     NSString *_atlasFormat;
-    int _imageNumber;
+    int _startNumber;
+    int _endNumber;
     float _delay;
     float _elasticity;
     float _friction;
@@ -64,7 +65,7 @@
     [self buildWithImage:name andAnimateWith:atlasFormat with:imageNumber andDelay:0.05f];
 }
 
--(void) buildWithImage:(NSString *)name andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay;
+-(void) buildWithImage:(NSString *)name andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay
 {
     [self buildWithImage:name];
     [self setAnimation:atlasFormat with:imageNumber andDelay:delay];
@@ -75,10 +76,16 @@
     [self buildWithImage:name at:pos andAnimateWith:atlasFormat with:imageNumber andDelay:0.05f];
 }
 
--(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay;
+-(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay
 {
     [self buildWithImage:name at:pos];
     [self setAnimation:atlasFormat with:imageNumber andDelay:delay];
+}
+
+-(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat startAt:(int)imageStartNumber endAt:(int)imageEndNumber andDelay:(float)delay
+{
+    [self buildWithImage:name at:pos];
+    [self setAnimation:atlasFormat startAt:imageStartNumber andEnd:imageEndNumber andDelay:delay];
 }
 
 -(void) buildIt:(CGPoint)pos
@@ -102,7 +109,7 @@
     [_sprite setPhysicsBody:_body];
 }
 
--(void) setAnimation:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay
+-(void) setAnimation:(NSString *)atlasFormat startAt:(int)startNumber andEnd:(int)endNumber andDelay:(float)delay
 {
     [self stop];
     
@@ -110,11 +117,13 @@
     
     _atlasFormat = atlasFormat;
     [_atlasFormat retain];
-    _imageNumber = imageNumber;
+    
+    _startNumber = startNumber;
+    _endNumber = endNumber;
     
     NSMutableArray *animFrames = [[NSMutableArray alloc] init];
     [animFrames autorelease];
-    for (int i = 0; i <= imageNumber; i++) {
+    for (int i = _startNumber; i <= _endNumber; i++) {
         NSString *number = i < 10 ? [NSString stringWithFormat:@"0%d", i] : [NSString stringWithFormat:@"%d", i];
         NSString *frameName = [NSString stringWithFormat:atlasFormat, number];
         CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
@@ -128,6 +137,11 @@
     [_sprite runAction:_baseAnimation];
 }
 
+-(void) setAnimation:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay
+{
+    [self setAnimation:atlasFormat startAt:0 andEnd:imageNumber andDelay:delay];
+}
+
 -(void) setAnimation:(NSString *)atlasFormat with:(int)imageNumber
 {
     [self setAnimation:atlasFormat with:imageNumber andDelay:0.05f];
@@ -135,12 +149,12 @@
 
 -(void) setAnimationDelay:(float)delay
 {
-    [self setAnimation:_atlasFormat with:_imageNumber andDelay:delay];
+    [self setAnimation:_atlasFormat startAt:_startNumber andEnd:_endNumber andDelay:delay];
 }
 
 -(void) play
 {
-    [self setAnimation:_atlasFormat with:_imageNumber andDelay:_delay];
+    [self setAnimation:_atlasFormat startAt:_startNumber andEnd:_endNumber andDelay:_delay];
 }
 
 -(void) stop

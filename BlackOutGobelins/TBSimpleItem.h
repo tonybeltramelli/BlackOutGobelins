@@ -27,7 +27,9 @@
 -(void) buildWithImage:(NSString *)name andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay;
 -(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber;
 -(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay;
+-(void) buildWithImage:(NSString *)name at:(CGPoint)pos andAnimateWith:(NSString *)atlasFormat startAt:(int)imageStartNumber endAt:(int)imageEndNumber andDelay:(float)delay;
 
+-(void) setAnimation:(NSString *)atlasFormat startAt:(int)startNumber andEnd:(int)endNumber andDelay:(float)delay;
 -(void) setAnimation:(NSString *)atlasFormat with:(int)imageNumber andDelay:(float)delay;
 -(void) setAnimation:(NSString *)atlasFormat with:(int)imageNumber;
 -(void) setAnimationDelay:(float)delay;

@@ -12,7 +12,8 @@
 
 @interface TBCharacterFace()
 {
-    int _numFrame;
+    int _numStartFrame;
+    int _numEndFrame;
     NSString *_animName;
     NSString *_prefix;
     
@@ -23,20 +24,13 @@
 
 @implementation TBCharacterFace
 
-const char *FRONT_ANIMATION_NAME = "face";
-const char *BACK_ANIMATION_NAME = "dos";
-const char *RIGHT_ANIMATION_NAME = "droite";
-const char *LEFT_ANIMATION_NAME = "gauche";
-const char *BACK_RIGHT_ANIMATION_NAME = "34dos_droite";
-const char *BACK_LEFT_ANIMATION_NAME = "34dos_gauche";
-const char *FRONT_RIGHT_ANIMATION_NAME = "34face_droite";
-const char *FRONT_LEFT_ANIMATION_NAME = "34face_gauche";
-
-- (id)initWithNumFrame:(int)numFrame withAnimName:(NSString*)animName andFilePrefix:(NSString*)prefix
+- (id)initWithStartNumFrame:(int)startNumFrame andEndNumFrame:(int)endNumFrame withAnimName:(NSString*)animName andFilePrefix:(NSString*)prefix
 {
     self = [super init];
-    if (self) {
-        _numFrame = numFrame;
+    if (self)
+    {
+        _numStartFrame = startNumFrame;
+        _numEndFrame = endNumFrame;
         _animName = animName;
         _prefix = prefix;
         
@@ -50,12 +44,22 @@ const char *FRONT_LEFT_ANIMATION_NAME = "34face_gauche";
     return self;
 }
 
+- (id)initWithNumFrame:(int)numFrame withAnimName:(NSString*)animName andFilePrefix:(NSString*)prefix
+{
+    self = [self initWithStartNumFrame:0 andEndNumFrame:numFrame withAnimName:animName andFilePrefix:prefix];
+    if (self) {
+    }
+    return self;
+}
+
 -(void) drawAt:(CGPoint)pos
 {
-    NSString *startFrameName = [NSString stringWithFormat:@"%@_00.png", _animName];
+    NSString *number = _numStartFrame < 10 ? [NSString stringWithFormat:@"0%d", _numStartFrame] : [NSString stringWithFormat:@"%d", _numStartFrame];
+   
+    NSString *startFrameName = [NSString stringWithFormat:@"%@_%@.png", _animName, number];
     NSString *incrementFrameName = [NSString stringWithFormat:@"%@_%%@.png", _animName];
     
-    [super buildWithImage:startFrameName at:pos andAnimateWith:incrementFrameName with:_numFrame andDelay:0.04f];
+    [super buildWithImage:startFrameName at:pos andAnimateWith:incrementFrameName startAt:_numStartFrame endAt:_numEndFrame andDelay:0.04f];
 }
 
 -(CGPoint) getVolumicBoundariesFromPositionTarget:(CGPoint)position

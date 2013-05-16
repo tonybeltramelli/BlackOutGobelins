@@ -17,39 +17,48 @@
     float _xIncrement;
     float _yIncrement;
     
-    TBCharacterFace *_frontFace;
-    TBCharacterFace *_backFace;
-    TBCharacterFace *_rightFace;
-    TBCharacterFace *_leftFace;
-    TBCharacterFace *_backRightFace;
-    TBCharacterFace *_backLeftFace;
-    TBCharacterFace *_frontRightFace;
-    TBCharacterFace *_frontLeftFace;
-    
     TBCharacterFace *_currentFace;
 }
 
-- (id)initWithPrefix:(NSString *)prefix
+- (id)initDefault
 {
     self = [super init];
-    if (self) {
-        _frontFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:FRONT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _backFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:BACK_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _rightFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:RIGHT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _leftFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:LEFT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _backRightFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:BACK_RIGHT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _backLeftFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:BACK_LEFT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _frontRightFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:FRONT_RIGHT_ANIMATION_NAME] andFilePrefix:prefix];
-        
-        _frontLeftFace = [[TBCharacterFace alloc] initWithNumFrame:39 withAnimName:[NSString stringWithUTF8String:FRONT_LEFT_ANIMATION_NAME] andFilePrefix:prefix];
+    if (self)
+    {
+        _front_animation_name = "face";
+        _back_animation_name = "dos";
+        _right_animation_name = "droite";
+        _left_animation_name = "gauche";
+        _back_right_animation_name = "34dos_droite";
+        _back_left_animation_name = "34dos_gauche";
+        _front_right_animation_name = "34face_droite";
+        _front_left_animation_name = "34face_gauche";
         
         _inertiaValue = 0.5f;
+    }
+    return self;
+}
+
+- (id)initWithPrefix:(NSString *)prefix andNumFrame:(int)numFrame
+{
+    self = [self initDefault];
+    if (self)
+    {
+        _frontFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_animation_name] andFilePrefix:prefix];
+        
+        _backFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_animation_name] andFilePrefix:prefix];
+        
+        _rightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_right_animation_name] andFilePrefix:prefix];
+        
+        _leftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_left_animation_name] andFilePrefix:prefix];
+        
+        _backRightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_right_animation_name] andFilePrefix:prefix];
+        
+        _backLeftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_left_animation_name] andFilePrefix:prefix];
+        
+        _frontRightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_right_animation_name] andFilePrefix:prefix];
+        
+        _frontLeftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_left_animation_name] andFilePrefix:prefix];
     }
     return self;
 }
