@@ -15,7 +15,7 @@
 {
     CCLayer *_layer;
     TBJoystick *_joystick;
-    TBHeroFirstState *_hero;
+    TBCharacter *_hero;
     
     CGSize _size;
     BOOL _useJoystick;
@@ -27,7 +27,7 @@
 
 const int ANIMATION_TIME = 20.00; //in frame number
 
-- (id)initInLayer:(CCLayer *)layer withHero:(TBHeroFirstState *)hero
+- (id)initInLayer:(CCLayer *)layer withHero:(TBCharacter *)hero
 {
     self = [super init];
     if (self)

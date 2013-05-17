@@ -2,23 +2,13 @@
 //  TBCharacter.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 09/05/13.
+//  Created by tony's computer on 17/05/13.
 //
 //
 
 #import "TBCharacter.h"
 
 @implementation TBCharacter
-{
-    int _directionX;
-    int _directionY;
-    
-    float _inertiaValue;
-    float _xIncrement;
-    float _yIncrement;
-    
-    TBCharacterFace *_currentFace;
-}
 
 - (id)initDefault
 {
@@ -29,10 +19,6 @@
         _back_animation_name = "dos";
         _right_animation_name = "droite";
         _left_animation_name = "gauche";
-        _back_right_animation_name = "34dos_droite";
-        _back_left_animation_name = "34dos_gauche";
-        _front_right_animation_name = "34face_droite";
-        _front_left_animation_name = "34face_gauche";
         
         _inertiaValue = 0.5f;
     }
@@ -51,14 +37,6 @@
         _rightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_right_animation_name] andFilePrefix:prefix];
         
         _leftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_left_animation_name] andFilePrefix:prefix];
-        
-        _backRightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_right_animation_name] andFilePrefix:prefix];
-        
-        _backLeftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_left_animation_name] andFilePrefix:prefix];
-        
-        _frontRightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_right_animation_name] andFilePrefix:prefix];
-        
-        _frontLeftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_left_animation_name] andFilePrefix:prefix];
     }
     return self;
 }
@@ -71,10 +49,6 @@
     [_backFace drawAt:CGPointZero];
     [_rightFace drawAt:CGPointZero];
     [_leftFace drawAt:CGPointZero];
-    [_backRightFace drawAt:CGPointZero];
-    [_backLeftFace drawAt:CGPointZero];
-    [_frontRightFace drawAt:CGPointZero];
-    [_frontLeftFace drawAt:CGPointZero];
     
     [self changeAnimation:_frontFace];
     
@@ -113,35 +87,13 @@
                 [self back];
             }
         }
-        
-        if(gap.x == gap.y)
-        {
-            _directionX = _directionY = 0;
-            
-            if([self position].x > target.x)
-            {
-                if([self position].y > target.y)
-                {
-                    [self frontLeft];
-                }else if([self position].y < target.y){
-                    [self backLeft];
-                }
-            }else if([self position].x < target.x){
-                if([self position].y > target.y)
-                {
-                    [self frontRight];
-                }else if([self position].y < target.y){
-                    [self backRight];
-                }
-            }
-        }
     }
     
     if(position.x != 0)
     {
         _xIncrement = position.x;
     }else{
-        if(_currentFace ==  _leftFace || _currentFace ==  _backLeftFace || _currentFace ==  _frontLeftFace)
+        if(_currentFace ==  _leftFace)
         {
             if(_xIncrement < 0)
             {
@@ -163,7 +115,7 @@
     {
         _yIncrement = position.y;
     }else{
-        if(_currentFace ==  _frontFace || _currentFace ==  _frontLeftFace || _currentFace ==  _frontRightFace)
+        if(_currentFace ==  _frontFace)
         {
             if(_yIncrement < 0)
             {
@@ -198,10 +150,7 @@
     if(_currentFace ==  _backFace) return CGPointMake(0, 1);
     if(_currentFace ==  _rightFace) return CGPointMake(1, 0);
     if(_currentFace ==  _leftFace) return CGPointMake(-1, 0);
-    if(_currentFace ==  _frontRightFace) return CGPointMake(1, -1);
-    if(_currentFace ==  _frontLeftFace) return CGPointMake(-1, -1);
-    if(_currentFace ==  _backRightFace) return CGPointMake(1, 1);
-    if(_currentFace ==  _backLeftFace) return CGPointMake(-1, 1);
+    
     return CGPointZero;
 }
 
@@ -251,46 +200,6 @@
     _directionX = -1;
 }
 
--(void) frontLeft
-{
-    if(_directionY == 1 && _directionX == -1) return;
-    
-    [self changeAnimation:_frontLeftFace];
-    
-    _directionY = 1;
-    _directionX = -1;
-}
-
--(void) backLeft
-{
-    if(_directionY == -1 && _directionX == -1) return;
-    
-    [self changeAnimation:_backLeftFace];
-    
-    _directionY = -1;
-    _directionX = -1;
-}
-
--(void) frontRight
-{
-    if(_directionY == 1 && _directionX == 1) return;
-    
-    [self changeAnimation:_frontRightFace];
-    
-    _directionY = 1;
-    _directionX = 1;
-}
-
--(void) backRight
-{
-    if(_directionY == -1 && _directionX == 1) return;
-    
-    [self changeAnimation:_backRightFace];
-    
-    _directionY = -1;
-    _directionX = 1;
-}
-
 -(void) selectRandomAnimation
 {
     int n = (arc4random() % 5) + 1;
@@ -307,18 +216,6 @@
             break;
         case 4:
             [self changeAnimation:_leftFace];
-            break;
-        case 5:
-            [self changeAnimation:_frontLeftFace];
-            break;
-        case 6:
-            [self changeAnimation:_backLeftFace];
-            break;
-        case 7:
-            [self changeAnimation:_frontRightFace];
-            break;
-        case 8:
-            [self changeAnimation:_backRightFace];
             break;
         default:
             [self changeAnimation:_frontFace];
@@ -354,18 +251,6 @@
     
     [_leftFace release];
     _leftFace = nil;
-    
-    [_backRightFace release];
-    _backRightFace = nil;
-    
-    [_backLeftFace release];
-    _backLeftFace = nil;
-    
-    [_frontRightFace release];
-    _frontRightFace = nil;
-    
-    [_frontLeftFace release];
-    _frontLeftFace = nil;
     
     [super dealloc];
 }

@@ -12,7 +12,7 @@
 
 @interface TBGameController : NSObject
 
-- (id)initInLayer:(CCLayer *)layer withHero:(TBHeroFirstState *)hero;
+- (id)initInLayer:(CCLayer *)layer withHero:(TBCharacter *)hero;
 - (void)useJoystick:(BOOL)useIt;
 - (void)useTouch:(BOOL)useIt;
 - (CGPoint)getTargetPosition;
