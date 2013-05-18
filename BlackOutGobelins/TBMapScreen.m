@@ -79,7 +79,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [self addBotsAtPositions:[_environment getBotsStartPositions:1]];
         [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
-        
+
         _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
         [_gameController useTouch:TRUE];
         

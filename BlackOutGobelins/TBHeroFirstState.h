@@ -6,8 +6,8 @@
 //
 //
 
-#import "TBCharacter.h"
+#import "TBCharacterTransition.h"
 
-@interface TBHeroFirstState : TBCharacter
+@interface TBHeroFirstState : TBCharacterTransition
 
 @end

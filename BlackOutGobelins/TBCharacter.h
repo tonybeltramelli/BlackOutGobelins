@@ -18,10 +18,10 @@
     float _xIncrement;
     float _yIncrement;
     
-    char *_front_animation_name;
-    char *_back_animation_name;
-    char *_right_animation_name;
-    char *_left_animation_name;
+    NSString *_frontAnimationName;
+    NSString *_backAnimationName;
+    NSString *_rightAnimationName;
+    NSString *_leftAnimationName;
     
     TBCharacterFace *_frontFace;
     TBCharacterFace *_backFace;

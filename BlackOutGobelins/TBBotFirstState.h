@@ -6,8 +6,8 @@
 //
 //
 
-#import "TBCharacterThirdQuarter.h"
+#import "TBCharacterTransition.h"
 
-@interface TBBotFirstState : TBCharacterThirdQuarter
+@interface TBBotFirstState : TBCharacterTransition
 
 @end

@@ -11,31 +11,69 @@
 @implementation TBHeroFirstState
 
 - (id)init
-{        
-    self = [super initDefault];
+{    
+    self = [super initWithPrefix:@"hero_first_" andPauseTransitionFirstFrame:0 andPauseTransitionLastFrame:36];
     if (self)
     {
-        _front_animation_name = "milieu_face";
-        _back_animation_name = "milieu_dos";
-        _right_animation_name = "milieu_droite";
-        _left_animation_name = "milieu_gauche";
-        
-        NSString *prefix = @"hero_first_";
-        
-        _frontFace = [[TBCharacterFace alloc] initWithStartNumFrame:12 andEndNumFrame:31  withAnimName:[NSString stringWithUTF8String:_front_animation_name] andFilePrefix:prefix];
-        
-        _backFace = [[TBCharacterFace alloc] initWithStartNumFrame:12 andEndNumFrame:31 withAnimName:[NSString stringWithUTF8String:_back_animation_name] andFilePrefix:prefix];
-                     
-        _rightFace = [[TBCharacterFace alloc] initWithStartNumFrame:12 andEndNumFrame:31 withAnimName:[NSString stringWithUTF8String:_right_animation_name] andFilePrefix:prefix];
-                     
-        _leftFace = [[TBCharacterFace alloc] initWithStartNumFrame:12 andEndNumFrame:31 withAnimName:[NSString stringWithUTF8String:_left_animation_name] andFilePrefix:prefix];
     }
     return self;
 }
 
-- (void)dealloc
+
+-(void)frontAnimation
 {
-    [super dealloc];
+    _startTransitionFirstFrameNumber = 0;
+    _startTransitionLastFrameNumber = 12;
+    
+    _middleTransitionFirstFrameNumber = 12;
+    _middleTransitionLastFrameNumber = 20;
+    
+    _endTransitionFirstFrameNumber = 31;
+    _endTransitionLastFrameNumber = 41;
+    
+    [super startToWalk];
+}
+
+-(void) backAnimation
+{
+    _startTransitionFirstFrameNumber = 0;
+    _startTransitionLastFrameNumber = 12;
+    
+    _middleTransitionFirstFrameNumber = 12;
+    _middleTransitionLastFrameNumber = 20;
+    
+    _endTransitionFirstFrameNumber = 31;
+    _endTransitionLastFrameNumber = 41;
+    
+    [super startToWalk];
+}
+
+-(void) rightAnimation
+{
+    _startTransitionFirstFrameNumber = 0;
+    _startTransitionLastFrameNumber = 11;
+    
+    _middleTransitionFirstFrameNumber = 12;
+    _middleTransitionLastFrameNumber = 20;
+    
+    _endTransitionFirstFrameNumber = 32;
+    _endTransitionLastFrameNumber = 41;
+    
+    [super startToWalk];
+}
+
+-(void) leftAnimation
+{
+    _startTransitionFirstFrameNumber = 0;
+    _startTransitionLastFrameNumber = 11;
+
+    _middleTransitionFirstFrameNumber = 12;
+    _middleTransitionLastFrameNumber = 31;
+    
+    _endTransitionFirstFrameNumber = 32;
+    _endTransitionLastFrameNumber = 41;
+    
+    [super startToWalk];
 }
 
 @end

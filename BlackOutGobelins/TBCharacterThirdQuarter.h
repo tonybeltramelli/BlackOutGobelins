@@ -11,10 +11,10 @@
 
 @interface TBCharacterThirdQuarter : TBCharacter
 {
-    char *_back_right_animation_name;
-    char *_back_left_animation_name;
-    char *_front_right_animation_name;
-    char *_front_left_animation_name;
+    NSString *_backRightAnimationName;
+    NSString *_backLeftAnimationName;
+    NSString *_frontRightAnimationName;
+    NSString *_frontLeftAnimationName;
     
     TBCharacterFace *_backRightFace;
     TBCharacterFace *_backLeftFace;

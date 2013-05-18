@@ -14,8 +14,10 @@
 {
     int _numStartFrame;
     int _numEndFrame;
+    
     NSString *_animName;
     NSString *_prefix;
+    NSString *_fileName;
     
     CCSpriteBatchNode *_container;
 }
@@ -24,22 +26,35 @@
 
 @implementation TBCharacterFace
 
-- (id)initWithStartNumFrame:(int)startNumFrame andEndNumFrame:(int)endNumFrame withAnimName:(NSString*)animName andFilePrefix:(NSString*)prefix
+@synthesize delay = _delay;
+
+- (id)initWithStartNumFrame:(int)startNumFrame andEndNumFrame:(int)endNumFrame withAnimName:(NSString*)animName andFileName:(NSString *)fileName andFilePrefix:(NSString*)prefix
 {
     self = [super init];
     if (self)
-    {
+    { 
         _numStartFrame = startNumFrame;
         _numEndFrame = endNumFrame;
-        _animName = animName;
+        _animName = [fileName isEqualToString:animName] ? animName : [NSString stringWithFormat:@"%@_%@", animName, fileName];
+        _fileName = fileName;
         _prefix = prefix;
         
-        NSString *plistName = [NSString stringWithFormat:@"%@%@.plist", _prefix, _animName];
-        NSString *pngName = [NSString stringWithFormat:@"%@%@.png", _prefix, _animName];
+        _delay = 0.04f;
+        
+        NSString *plistName = [NSString stringWithFormat:@"%@%@.plist", _prefix, fileName];
+        NSString *pngName = [NSString stringWithFormat:@"%@%@.png", _prefix, fileName];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[TBResources getAsset:[plistName UTF8String]]];
         
         _container = [CCSpriteBatchNode batchNodeWithFile:[TBResources getAsset:[pngName UTF8String]] capacity:100];
+    }
+    return self;
+}
+
+- (id)initWithStartNumFrame:(int)startNumFrame andEndNumFrame:(int)endNumFrame withAnimName:(NSString*)animName andFilePrefix:(NSString*)prefix
+{
+    self = [self initWithStartNumFrame:startNumFrame andEndNumFrame:endNumFrame withAnimName:animName andFileName:animName andFilePrefix:prefix];
+    if (self) {
     }
     return self;
 }
@@ -59,7 +74,7 @@
     NSString *startFrameName = [NSString stringWithFormat:@"%@_%@.png", _animName, number];
     NSString *incrementFrameName = [NSString stringWithFormat:@"%@_%%@.png", _animName];
     
-    [super buildWithImage:startFrameName at:pos andAnimateWith:incrementFrameName startAt:_numStartFrame endAt:_numEndFrame andDelay:0.04f];
+    [super buildWithImage:startFrameName at:pos andAnimateWith:incrementFrameName startAt:_numStartFrame endAt:_numEndFrame andDelay:_delay];
 }
 
 -(CGPoint) getVolumicBoundariesFromPositionTarget:(CGPoint)position
@@ -70,6 +85,15 @@
     int y = [self getY] < target.y ? 0 : -21;
     
     return CGPointMake(x, y);
+}
+
+-(void) changeAnimation:(NSString *)animName from:(int)startNumFrame to:(int)endNumFrame
+{
+    _animName = [_fileName isEqualToString:animName] ? animName : [NSString stringWithFormat:@"%@_%@", animName, _fileName];
+    
+    NSString *incrementFrameName = [NSString stringWithFormat:@"%@_%%@.png", _animName];
+    
+    [super setAnimation:incrementFrameName startAt:startNumFrame andEnd:endNumFrame andDelay:_delay];
 }
 
 - (void)dealloc

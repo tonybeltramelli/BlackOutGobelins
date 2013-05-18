@@ -15,10 +15,10 @@
     self = [super init];
     if (self)
     {
-        _front_animation_name = "face";
-        _back_animation_name = "dos";
-        _right_animation_name = "droite";
-        _left_animation_name = "gauche";
+        _frontAnimationName = @"face";
+        _backAnimationName = @"dos";
+        _rightAnimationName = @"droite";
+        _leftAnimationName = @"gauche";
         
         _inertiaValue = 0.5f;
     }
@@ -30,13 +30,13 @@
     self = [self initDefault];
     if (self)
     {
-        _frontFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_front_animation_name] andFilePrefix:prefix];
+        _frontFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_frontAnimationName andFilePrefix:prefix];
         
-        _backFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_back_animation_name] andFilePrefix:prefix];
+        _backFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_backAnimationName andFilePrefix:prefix];
         
-        _rightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_right_animation_name] andFilePrefix:prefix];
+        _rightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_rightAnimationName andFilePrefix:prefix];
         
-        _leftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:[NSString stringWithUTF8String:_left_animation_name] andFilePrefix:prefix];
+        _leftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_leftAnimationName andFilePrefix:prefix];
     }
     return self;
 }
@@ -169,6 +169,7 @@
     if(_directionY == 1) return;
     
     [self changeAnimation:_frontFace];
+    [self frontAnimation];
     
     _directionY = 1;
 }
@@ -178,6 +179,7 @@
     if(_directionY == -1) return;
     
     [self changeAnimation:_backFace];
+    [self backAnimation];
     
     _directionY = -1;
 }
@@ -187,6 +189,7 @@
     if(_directionX == 1) return;
     
     [self changeAnimation:_rightFace];
+    [self rightAnimation];
     
     _directionX = 1;
 }
@@ -196,9 +199,15 @@
     if(_directionX == -1) return;
     
     [self changeAnimation:_leftFace];
+    [self leftAnimation];
     
     _directionX = -1;
 }
+
+-(void) frontAnimation { }
+-(void) backAnimation { }
+-(void) rightAnimation { }
+-(void) leftAnimation { }
 
 -(void) selectRandomAnimation
 {

@@ -15,7 +15,7 @@
 {
     CCLayer *_layer;
     TBJoystick *_joystick;
-    TBCharacter *_hero;
+    TBHeroFirstState *_hero;
     
     CGSize _size;
     BOOL _useJoystick;
@@ -25,9 +25,9 @@
     float _frame;
 }
 
-const int ANIMATION_TIME = 20.00; //in frame number
+const int ANIMATION_TIME = 62.00; //in frame number
 
-- (id)initInLayer:(CCLayer *)layer withHero:(TBCharacter *)hero
+- (id)initInLayer:(CCLayer *)layer withHero:(TBHeroFirstState *)hero
 {
     self = [super init];
     if (self)
@@ -113,6 +113,10 @@ const int ANIMATION_TIME = 20.00; //in frame number
         
         float xVector = (endPosition.x - startPosition.x) * xDirection;
         float yVector = (endPosition.y - startPosition.y) * yDirection;
+        
+        double vectorLength = sqrt(pow(xVector,2) + pow(yVector,2));
+        
+        [_hero setDistanceVectorLength:vectorLength];
         
         _xIncrement = (xVector / ANIMATION_TIME) * xDirection;
         _yIncrement = (yVector / ANIMATION_TIME) * yDirection;
