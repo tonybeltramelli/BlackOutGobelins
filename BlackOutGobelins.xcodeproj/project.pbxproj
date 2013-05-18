@@ -256,6 +256,11 @@
 		98BAEA7E1744206D00733F88 /* friend_first_state_gauche@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5E1744206D00733F88 /* friend_first_state_gauche@2x.plist */; };
 		98BAEA7F1744206D00733F88 /* friend_first_state_gauche@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */; };
 		98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA881744236C00733F88 /* TBBotFirstState.m */; };
+		98C9840A1747E3AA00981EF0 /* triangle_connexion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98C984061747E3AA00981EF0 /* triangle_connexion.plist */; };
+		98C9840B1747E3AA00981EF0 /* triangle_connexion.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C984071747E3AA00981EF0 /* triangle_connexion.png */; };
+		98C9840C1747E3AA00981EF0 /* triangle_connexion@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98C984081747E3AA00981EF0 /* triangle_connexion@2x.plist */; };
+		98C9840D1747E3AA00981EF0 /* triangle_connexion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C984091747E3AA00981EF0 /* triangle_connexion@2x.png */; };
+		98C984171747E54900981EF0 /* TBTriangleConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C984161747E54900981EF0 /* TBTriangleConnection.m */; };
 		98CCB013174791F1002FA1E9 /* TBSequenceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CCB012174791F1002FA1E9 /* TBSequenceFace.m */; };
 		98CCB01917479536002FA1E9 /* connexion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01517479536002FA1E9 /* connexion.plist */; };
 		98CCB01A17479536002FA1E9 /* connexion.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01617479536002FA1E9 /* connexion.png */; };
@@ -734,6 +739,12 @@
 		98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_first_state_gauche@2x.png"; sourceTree = "<group>"; };
 		98BAEA871744236C00733F88 /* TBBotFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotFirstState.h; sourceTree = "<group>"; };
 		98BAEA881744236C00733F88 /* TBBotFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotFirstState.m; sourceTree = "<group>"; };
+		98C984061747E3AA00981EF0 /* triangle_connexion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = triangle_connexion.plist; sourceTree = "<group>"; };
+		98C984071747E3AA00981EF0 /* triangle_connexion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle_connexion.png; sourceTree = "<group>"; };
+		98C984081747E3AA00981EF0 /* triangle_connexion@2x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "triangle_connexion@2x.plist"; sourceTree = "<group>"; };
+		98C984091747E3AA00981EF0 /* triangle_connexion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle_connexion@2x.png"; sourceTree = "<group>"; };
+		98C984151747E54800981EF0 /* TBTriangleConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTriangleConnection.h; sourceTree = "<group>"; };
+		98C984161747E54900981EF0 /* TBTriangleConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTriangleConnection.m; sourceTree = "<group>"; };
 		98CCB011174791F1002FA1E9 /* TBSequenceFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSequenceFace.h; sourceTree = "<group>"; };
 		98CCB012174791F1002FA1E9 /* TBSequenceFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSequenceFace.m; sourceTree = "<group>"; };
 		98CCB01517479536002FA1E9 /* connexion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = connexion.plist; sourceTree = "<group>"; };
@@ -1414,7 +1425,6 @@
 		98657DA1170C2FBD006F3F57 /* screen */ = {
 			isa = PBXGroup;
 			children = (
-				989F18AF173050A400EA8183 /* content */,
 				98657D94170C2EA3006F3F57 /* TBHomeScreen.h */,
 				98657D95170C2EA3006F3F57 /* TBHomeScreen.m */,
 				98657D96170C2EA3006F3F57 /* TBSplashScreen.h */,
@@ -1496,6 +1506,7 @@
 		98814E3B1741073000C86F65 /* elements */ = {
 			isa = PBXGroup;
 			children = (
+				98CCB01417479536002FA1E9 /* connexion */,
 				98814E3C1741073000C86F65 /* plant1.plist */,
 				98814E3D1741073000C86F65 /* plant1.png */,
 				98814E3E1741073000C86F65 /* plant1@2x.plist */,
@@ -1516,11 +1527,12 @@
 		98814E48174107A700C86F65 /* sets */ = {
 			isa = PBXGroup;
 			children = (
+				989F18B0173050AB00EA8183 /* map */,
+				986EB0D1173D609E0085F83C /* special */,
+				98C9840E1747E3C800981EF0 /* connection */,
 				98814E4917410A6300C86F65 /* common */,
 				98814E4B17410AAB00C86F65 /* TBPlantOne.h */,
 				98814E4C17410AAB00C86F65 /* TBPlantOne.m */,
-				98825EDC174780A70088E0E5 /* TBConnectionAsset.h */,
-				98825EDD174780A70088E0E5 /* TBConnectionAsset.m */,
 			);
 			name = sets;
 			sourceTree = "<group>";
@@ -1597,15 +1609,6 @@
 			name = control;
 			sourceTree = "<group>";
 		};
-		989F18AF173050A400EA8183 /* content */ = {
-			isa = PBXGroup;
-			children = (
-				986EB0D1173D609E0085F83C /* special */,
-				989F18B0173050AB00EA8183 /* map */,
-			);
-			name = content;
-			sourceTree = "<group>";
-		};
 		989F18B0173050AB00EA8183 /* map */ = {
 			isa = PBXGroup;
 			children = (
@@ -1650,7 +1653,6 @@
 		989F1942173054B300EA8183 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				98CCB01417479536002FA1E9 /* connexion */,
 				98BAEA3C1744206D00733F88 /* characters */,
 				98701E9317441A050048EF6E /* hero */,
 				98814E3B1741073000C86F65 /* elements */,
@@ -1799,16 +1801,30 @@
 			name = character;
 			sourceTree = "<group>";
 		};
+		98C9840E1747E3C800981EF0 /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				98825EDC174780A70088E0E5 /* TBConnectionAsset.h */,
+				98825EDD174780A70088E0E5 /* TBConnectionAsset.m */,
+				98C984151747E54800981EF0 /* TBTriangleConnection.h */,
+				98C984161747E54900981EF0 /* TBTriangleConnection.m */,
+			);
+			name = connection;
+			sourceTree = "<group>";
+		};
 		98CCB01417479536002FA1E9 /* connexion */ = {
 			isa = PBXGroup;
 			children = (
+				98C984061747E3AA00981EF0 /* triangle_connexion.plist */,
+				98C984071747E3AA00981EF0 /* triangle_connexion.png */,
+				98C984081747E3AA00981EF0 /* triangle_connexion@2x.plist */,
+				98C984091747E3AA00981EF0 /* triangle_connexion@2x.png */,
 				98CCB01517479536002FA1E9 /* connexion.plist */,
 				98CCB01617479536002FA1E9 /* connexion.png */,
 				98CCB01717479536002FA1E9 /* connexion@2x.plist */,
 				98CCB01817479536002FA1E9 /* connexion@2x.png */,
 			);
-			name = connexion;
-			path = elements/connexion;
+			path = connexion;
 			sourceTree = "<group>";
 		};
 		98E3C06F1746BE49007081A0 /* 1x */ = {
@@ -1974,6 +1990,10 @@
 				98CCB01A17479536002FA1E9 /* connexion.png in Resources */,
 				98CCB01B17479536002FA1E9 /* connexion@2x.plist in Resources */,
 				98CCB01C17479536002FA1E9 /* connexion@2x.png in Resources */,
+				98C9840A1747E3AA00981EF0 /* triangle_connexion.plist in Resources */,
+				98C9840B1747E3AA00981EF0 /* triangle_connexion.png in Resources */,
+				98C9840C1747E3AA00981EF0 /* triangle_connexion@2x.plist in Resources */,
+				98C9840D1747E3AA00981EF0 /* triangle_connexion@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2155,6 +2175,7 @@
 				98CCB013174791F1002FA1E9 /* TBSequenceFace.m in Sources */,
 				98CCB01F1747BE93002FA1E9 /* TBCharacterTransitionBot.m in Sources */,
 				98CCB0221747C39E002FA1E9 /* TBCharacterTransitionA.m in Sources */,
+				98C984171747E54900981EF0 /* TBTriangleConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
