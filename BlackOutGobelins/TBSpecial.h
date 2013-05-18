@@ -13,4 +13,6 @@
     float _decrementer;
 }
 
+-(void) complete;
+
 @end

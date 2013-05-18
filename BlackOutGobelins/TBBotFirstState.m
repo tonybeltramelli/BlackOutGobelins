@@ -12,22 +12,17 @@
 
 - (id)init
 {
-    self = [self initWithPrefix:@"bot_first_" andPauseTransitionFirstFrame:0 andPauseTransitionLastFrame:24];
+    self = [super initWithPrefix:@"bot_first_" andPauseTransitionFirstFrame:0 andPauseTransitionLastFrame:24];
     if (self)
     {
-    }
-    return self;
-}
-
-- (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber
-{
-    self = [super initDefaultWithPrefix:prefix];
-    if (self)
-    {        
-        _pauseTransitionFirstFrameNumber = startNumber;
-        _pauseTransitionLastFrameNumber = endNumber;
+        _connexionFirstFrameNumber = 0;
+        _connexionLastFrameNumber = 24;
         
-        _frontFace = [[TBCharacterFace alloc] initWithStartNumFrame:_pauseTransitionFirstFrameNumber andEndNumFrame:_pauseTransitionLastFrameNumber withAnimName:_pauseTransitionName andFileName:_frontAnimationName andFilePrefix:prefix];
+        _deconnexionStartFirstFrameNumber = 0;
+        _deconnexionStartLastFrameNumber = 29;
+        
+        _deconnexionMiddleFirstFrameNumber = 0;
+        _deconnexionMiddleLastFrameNumber = 24;
     }
     return self;
 }

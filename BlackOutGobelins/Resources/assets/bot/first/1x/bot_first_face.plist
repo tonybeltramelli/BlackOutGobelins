@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>bot_first_debut_connexion_00.png</key>
+            <key>bot_first_debut_connexion_face_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{912,743},{51,76}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_01.png</key>
+            <key>bot_first_debut_connexion_face_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{167,148},{75,86}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_02.png</key>
+            <key>bot_first_debut_connexion_face_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,148},{75,86}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_03.png</key>
+            <key>bot_first_debut_connexion_face_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{709,2},{75,88}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_04.png</key>
+            <key>bot_first_debut_connexion_face_04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{619,2},{75,88}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_05.png</key>
+            <key>bot_first_debut_connexion_face_05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{529,2},{75,88}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_06.png</key>
+            <key>bot_first_debut_connexion_face_06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{439,2},{75,88}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_07.png</key>
+            <key>bot_first_debut_connexion_face_07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{349,2},{75,88}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_08.png</key>
+            <key>bot_first_debut_connexion_face_08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{259,2},{75,88}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_09.png</key>
+            <key>bot_first_debut_connexion_face_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{169,2},{75,88}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_10.png</key>
+            <key>bot_first_debut_connexion_face_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,2},{75,88}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_11.png</key>
+            <key>bot_first_debut_connexion_face_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,902},{75,88}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_12.png</key>
+            <key>bot_first_debut_connexion_face_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,812},{75,88}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_13.png</key>
+            <key>bot_first_debut_connexion_face_13.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,722},{75,88}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_14.png</key>
+            <key>bot_first_debut_connexion_face_14.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,632},{75,88}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_15.png</key>
+            <key>bot_first_debut_connexion_face_15.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,542},{75,88}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_16.png</key>
+            <key>bot_first_debut_connexion_face_16.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,452},{75,88}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_17.png</key>
+            <key>bot_first_debut_connexion_face_17.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,362},{75,88}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_18.png</key>
+            <key>bot_first_debut_connexion_face_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,272},{75,88}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_19.png</key>
+            <key>bot_first_debut_connexion_face_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,182},{75,88}}</string>
@@ -264,7 +264,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_20.png</key>
+            <key>bot_first_debut_connexion_face_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,92},{75,88}}</string>
@@ -277,7 +277,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_21.png</key>
+            <key>bot_first_debut_connexion_face_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{75,88}}</string>
@@ -290,7 +290,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_22.png</key>
+            <key>bot_first_debut_connexion_face_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,286},{75,82}}</string>
@@ -303,7 +303,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_23.png</key>
+            <key>bot_first_debut_connexion_face_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{165,225},{75,82}}</string>
@@ -316,7 +316,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_connexion_24.png</key>
+            <key>bot_first_debut_connexion_face_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{249,286},{75,78}}</string>
@@ -329,7 +329,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_00.png</key>
+            <key>bot_first_debut_deconnexion_face_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -342,7 +342,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_01.png</key>
+            <key>bot_first_debut_deconnexion_face_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -355,7 +355,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_02.png</key>
+            <key>bot_first_debut_deconnexion_face_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -368,7 +368,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_03.png</key>
+            <key>bot_first_debut_deconnexion_face_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -381,7 +381,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_04.png</key>
+            <key>bot_first_debut_deconnexion_face_04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -394,7 +394,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_05.png</key>
+            <key>bot_first_debut_deconnexion_face_05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{859,713},{51,76}}</string>
@@ -407,7 +407,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_06.png</key>
+            <key>bot_first_debut_deconnexion_face_06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{507,217},{57,76}}</string>
@@ -420,7 +420,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_07.png</key>
+            <key>bot_first_debut_deconnexion_face_07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{341,217},{57,82}}</string>
@@ -433,7 +433,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_08.png</key>
+            <key>bot_first_debut_deconnexion_face_08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{871,264},{57,86}}</string>
@@ -446,7 +446,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_09.png</key>
+            <key>bot_first_debut_deconnexion_face_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{889,140},{61,88}}</string>
@@ -459,7 +459,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_10.png</key>
+            <key>bot_first_debut_deconnexion_face_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,225},{59,84}}</string>
@@ -472,7 +472,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_11.png</key>
+            <key>bot_first_debut_deconnexion_face_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{959,264},{63,84}}</string>
@@ -485,7 +485,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_12.png</key>
+            <key>bot_first_debut_deconnexion_face_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{889,203},{59,88}}</string>
@@ -498,7 +498,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_13.png</key>
+            <key>bot_first_debut_deconnexion_face_13.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{783,207},{63,86}}</string>
@@ -511,7 +511,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_14.png</key>
+            <key>bot_first_debut_deconnexion_face_14.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{799,140},{65,88}}</string>
@@ -524,7 +524,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_15.png</key>
+            <key>bot_first_debut_deconnexion_face_15.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{163,302},{59,76}}</string>
@@ -537,7 +537,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_16.png</key>
+            <key>bot_first_debut_deconnexion_face_16.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{657,384},{53,76}}</string>
@@ -550,7 +550,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_17.png</key>
+            <key>bot_first_debut_deconnexion_face_17.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{501,386},{53,76}}</string>
@@ -563,7 +563,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_18.png</key>
+            <key>bot_first_debut_deconnexion_face_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{781,700},{51,76}}</string>
@@ -576,7 +576,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_19.png</key>
+            <key>bot_first_debut_deconnexion_face_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{703,649},{51,76}}</string>
@@ -589,7 +589,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_20.png</key>
+            <key>bot_first_debut_deconnexion_face_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{579,384},{53,76}}</string>
@@ -602,7 +602,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_21.png</key>
+            <key>bot_first_debut_deconnexion_face_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{625,598},{51,76}}</string>
@@ -615,7 +615,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_22.png</key>
+            <key>bot_first_debut_deconnexion_face_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{952,506},{53,76}}</string>
@@ -628,7 +628,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_23.png</key>
+            <key>bot_first_debut_deconnexion_face_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{329,345},{53,76}}</string>
@@ -641,7 +641,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_24.png</key>
+            <key>bot_first_debut_deconnexion_face_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{423,341},{53,76}}</string>
@@ -654,7 +654,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_25.png</key>
+            <key>bot_first_debut_deconnexion_face_25.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{501,331},{53,76}}</string>
@@ -667,7 +667,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_26.png</key>
+            <key>bot_first_debut_deconnexion_face_26.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{663,217},{55,76}}</string>
@@ -680,7 +680,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_27.png</key>
+            <key>bot_first_debut_deconnexion_face_27.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{547,598},{51,76}}</string>
@@ -693,7 +693,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_28.png</key>
+            <key>bot_first_debut_deconnexion_face_28.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{897,479},{53,76}}</string>
@@ -706,7 +706,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_debut_mort_29.png</key>
+            <key>bot_first_debut_deconnexion_face_29.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{819,433},{53,76}}</string>
@@ -719,7 +719,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_00.png</key>
+            <key>bot_first_milieu_connexion_face_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{741,382},{53,76}}</string>
@@ -732,7 +732,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_01.png</key>
+            <key>bot_first_milieu_connexion_face_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{341,276},{67,80}}</string>
@@ -745,7 +745,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_02.png</key>
+            <key>bot_first_milieu_connexion_face_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{255,217},{67,84}}</string>
@@ -758,7 +758,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_03.png</key>
+            <key>bot_first_milieu_connexion_face_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{695,148},{67,86}}</string>
@@ -771,7 +771,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_04.png</key>
+            <key>bot_first_milieu_connexion_face_04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{709,79},{67,88}}</string>
@@ -784,7 +784,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_05.png</key>
+            <key>bot_first_milieu_connexion_face_05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{607,148},{67,86}}</string>
@@ -797,7 +797,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_06.png</key>
+            <key>bot_first_milieu_connexion_face_06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{519,148},{67,86}}</string>
@@ -810,7 +810,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_07.png</key>
+            <key>bot_first_milieu_connexion_face_07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{431,148},{67,86}}</string>
@@ -823,7 +823,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_08.png</key>
+            <key>bot_first_milieu_connexion_face_08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{343,148},{67,86}}</string>
@@ -836,7 +836,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_09.png</key>
+            <key>bot_first_milieu_connexion_face_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{619,79},{67,88}}</string>
@@ -849,7 +849,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_10.png</key>
+            <key>bot_first_milieu_connexion_face_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{529,79},{67,88}}</string>
@@ -862,7 +862,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_11.png</key>
+            <key>bot_first_milieu_connexion_face_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{439,79},{67,88}}</string>
@@ -875,7 +875,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_12.png</key>
+            <key>bot_first_milieu_connexion_face_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{349,79},{67,88}}</string>
@@ -888,7 +888,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_13.png</key>
+            <key>bot_first_milieu_connexion_face_13.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{259,79},{67,88}}</string>
@@ -901,7 +901,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_14.png</key>
+            <key>bot_first_milieu_connexion_face_14.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{169,79},{67,88}}</string>
@@ -914,7 +914,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_15.png</key>
+            <key>bot_first_milieu_connexion_face_15.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,79},{67,88}}</string>
@@ -927,7 +927,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_16.png</key>
+            <key>bot_first_milieu_connexion_face_16.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{889,71},{67,88}}</string>
@@ -940,7 +940,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_17.png</key>
+            <key>bot_first_milieu_connexion_face_17.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{799,71},{67,88}}</string>
@@ -953,7 +953,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_18.png</key>
+            <key>bot_first_milieu_connexion_face_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{889,2},{67,88}}</string>
@@ -966,7 +966,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_19.png</key>
+            <key>bot_first_milieu_connexion_face_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{799,2},{67,88}}</string>
@@ -979,7 +979,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_20.png</key>
+            <key>bot_first_milieu_connexion_face_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{255,148},{67,86}}</string>
@@ -992,7 +992,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_21.png</key>
+            <key>bot_first_milieu_connexion_face_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{425,217},{67,80}}</string>
@@ -1005,7 +1005,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_22.png</key>
+            <key>bot_first_milieu_connexion_face_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{663,329},{53,76}}</string>
@@ -1018,7 +1018,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_23.png</key>
+            <key>bot_first_milieu_connexion_face_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{585,329},{53,76}}</string>
@@ -1031,7 +1031,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_connexion_24.png</key>
+            <key>bot_first_milieu_connexion_face_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{952,428},{53,76}}</string>
@@ -1044,7 +1044,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_00.png</key>
+            <key>bot_first_milieu_deconnexion_face_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{469,547},{51,76}}</string>
@@ -1057,7 +1057,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_01.png</key>
+            <key>bot_first_milieu_deconnexion_face_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{391,502},{51,76}}</string>
@@ -1070,7 +1070,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_02.png</key>
+            <key>bot_first_milieu_deconnexion_face_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{313,453},{51,76}}</string>
@@ -1083,7 +1083,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_03.png</key>
+            <key>bot_first_milieu_deconnexion_face_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{235,416},{51,76}}</string>
@@ -1096,7 +1096,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_04.png</key>
+            <key>bot_first_milieu_deconnexion_face_04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{157,416},{51,76}}</string>
@@ -1109,7 +1109,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_05.png</key>
+            <key>bot_first_milieu_deconnexion_face_05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,416},{51,76}}</string>
@@ -1122,7 +1122,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_06.png</key>
+            <key>bot_first_milieu_deconnexion_face_06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{781,647},{51,76}}</string>
@@ -1135,7 +1135,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_07.png</key>
+            <key>bot_first_milieu_deconnexion_face_07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{703,596},{51,76}}</string>
@@ -1148,7 +1148,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_08.png</key>
+            <key>bot_first_milieu_deconnexion_face_08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{423,286},{53,76}}</string>
@@ -1161,7 +1161,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_09.png</key>
+            <key>bot_first_milieu_deconnexion_face_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{625,545},{51,76}}</string>
@@ -1174,7 +1174,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_10.png</key>
+            <key>bot_first_milieu_deconnexion_face_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{897,401},{53,76}}</string>
@@ -1187,7 +1187,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_11.png</key>
+            <key>bot_first_milieu_deconnexion_face_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{819,378},{53,76}}</string>
@@ -1200,7 +1200,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_12.png</key>
+            <key>bot_first_milieu_deconnexion_face_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{741,327},{53,76}}</string>
@@ -1213,7 +1213,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_13.png</key>
+            <key>bot_first_milieu_deconnexion_face_13.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{663,274},{53,76}}</string>
@@ -1226,7 +1226,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_14.png</key>
+            <key>bot_first_milieu_deconnexion_face_14.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{585,217},{55,76}}</string>
@@ -1239,7 +1239,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_15.png</key>
+            <key>bot_first_milieu_deconnexion_face_15.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{507,276},{53,76}}</string>
@@ -1252,7 +1252,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_16.png</key>
+            <key>bot_first_milieu_deconnexion_face_16.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{585,274},{53,76}}</string>
@@ -1265,7 +1265,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_17.png</key>
+            <key>bot_first_milieu_deconnexion_face_17.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{952,350},{53,76}}</string>
@@ -1278,7 +1278,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_18.png</key>
+            <key>bot_first_milieu_deconnexion_face_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{897,323},{53,76}}</string>
@@ -1291,7 +1291,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_19.png</key>
+            <key>bot_first_milieu_deconnexion_face_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{819,323},{53,76}}</string>
@@ -1304,7 +1304,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_20.png</key>
+            <key>bot_first_milieu_deconnexion_face_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{741,272},{53,76}}</string>
@@ -1317,7 +1317,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_21.png</key>
+            <key>bot_first_milieu_deconnexion_face_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{547,545},{51,76}}</string>
@@ -1330,7 +1330,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_22.png</key>
+            <key>bot_first_milieu_deconnexion_face_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{469,494},{51,76}}</string>
@@ -1343,7 +1343,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_23.png</key>
+            <key>bot_first_milieu_deconnexion_face_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{391,449},{51,76}}</string>
@@ -1356,7 +1356,7 @@
                 <key>sourceSize</key>
                 <string>{75,90}</string>
             </dict>
-            <key>bot_first_milieu_mort_24.png</key>
+            <key>bot_first_milieu_deconnexion_face_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{313,400},{51,76}}</string>

@@ -16,7 +16,6 @@
     NSString *_animName;
     NSString *_fileName;
     
-    CCSpriteBatchNode *_container;
     TBSimpleItem *_simpleItem;
 }
 
@@ -29,11 +28,8 @@
         _fileName = fileName;
         
         NSString *plistName = [NSString stringWithFormat:@"%@.plist", _fileName];
-        NSString *pngName = [NSString stringWithFormat:@"%@.png", _fileName];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[TBResources getAsset:[plistName UTF8String]]];
-        
-        _container = [CCSpriteBatchNode batchNodeWithFile:[TBResources getAsset:[pngName UTF8String]] capacity:100];
         
         _simpleItem = [[TBSimpleItem alloc] init];
     }
@@ -61,7 +57,8 @@
 
 - (void)dealloc
 {
-    [_simpleItem dealloc];
+    [_simpleItem release];
+    _simpleItem = nil;
     
     [super dealloc];
 }

@@ -36,4 +36,9 @@
     ccDrawLine(_startPoint, _endPoint);
 }
 
+-(void)complete
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STOP_CONNECTION" object:nil];
+}
+
 @end

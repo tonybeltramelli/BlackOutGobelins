@@ -10,6 +10,8 @@
 
 @implementation TBHeroFirstState
 
+const int HERO_RANGE = 100;
+
 - (id)init
 {    
     self = [super initWithPrefix:@"hero_first_" andPauseTransitionFirstFrame:0 andPauseTransitionLastFrame:36];
@@ -19,6 +21,22 @@
     return self;
 }
 
+-(BOOL)isOnHeroRange:(TBCharacter *)character
+{
+    float minusX = [self position].x - HERO_RANGE;
+    float maxX = [self position].x + HERO_RANGE;
+    
+    float minusY = [self position].y - HERO_RANGE;
+    float maxY = [self position].y + HERO_RANGE;
+    
+    if((minusX < [character position].x + [character getSize].width/2) && (maxX > [character position].x - [character getSize].width/2) &&
+       (minusY < [character position].y + [character getSize].height/2) && (maxY > [character position].y - [character getSize].height/2))
+    {
+        return true;
+    }
+    
+    return false;
+}
 
 -(void)frontAnimation
 {

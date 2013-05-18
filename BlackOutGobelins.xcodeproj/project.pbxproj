@@ -179,6 +179,7 @@
 		98814E431741073000C86F65 /* plant1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98814E3F1741073000C86F65 /* plant1@2x.png */; };
 		98814E4D17410AAB00C86F65 /* TBPlantOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 98814E4C17410AAB00C86F65 /* TBPlantOne.m */; };
 		98814E511741180D00C86F65 /* TBMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 98814E471741079E00C86F65 /* TBMapElement.m */; };
+		98825EDE174780A70088E0E5 /* TBConnectionAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 98825EDD174780A70088E0E5 /* TBConnectionAsset.m */; };
 		988CCCA2170ECAF1003701F5 /* TBNotLoggedInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988CCCA1170ECAF1003701F5 /* TBNotLoggedInView.m */; };
 		988CCCA5170ECAFF003701F5 /* TBLoggedInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988CCCA4170ECAFF003701F5 /* TBLoggedInView.m */; };
 		989F18AB17304F5E00EA8183 /* TBMapScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 989F18AA17304F5E00EA8183 /* TBMapScreen.m */; };
@@ -255,6 +256,13 @@
 		98BAEA7E1744206D00733F88 /* friend_first_state_gauche@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5E1744206D00733F88 /* friend_first_state_gauche@2x.plist */; };
 		98BAEA7F1744206D00733F88 /* friend_first_state_gauche@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */; };
 		98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA881744236C00733F88 /* TBBotFirstState.m */; };
+		98CCB013174791F1002FA1E9 /* TBSequenceFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CCB012174791F1002FA1E9 /* TBSequenceFace.m */; };
+		98CCB01917479536002FA1E9 /* connexion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01517479536002FA1E9 /* connexion.plist */; };
+		98CCB01A17479536002FA1E9 /* connexion.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01617479536002FA1E9 /* connexion.png */; };
+		98CCB01B17479536002FA1E9 /* connexion@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01717479536002FA1E9 /* connexion@2x.plist */; };
+		98CCB01C17479536002FA1E9 /* connexion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01817479536002FA1E9 /* connexion@2x.png */; };
+		98CCB01F1747BE93002FA1E9 /* TBCharacterTransitionBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CCB01E1747BE93002FA1E9 /* TBCharacterTransitionBot.m */; };
+		98CCB0221747C39E002FA1E9 /* TBCharacterTransitionA.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CCB0211747C39E002FA1E9 /* TBCharacterTransitionA.m */; };
 		98D1AA81171C405B00E19CFC /* TBASubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D1AA80171C405B00E19CFC /* TBASubView.m */; };
 		98DCF9D41743E73000887D6F /* map_level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9CC1743E73000887D6F /* map_level1.tmx */; };
 		98DCF9D51743E73000887D6F /* map_level1@2x.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF9CD1743E73000887D6F /* map_level1@2x.tmx */; };
@@ -636,6 +644,8 @@
 		98814E471741079E00C86F65 /* TBMapElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBMapElement.m; sourceTree = "<group>"; };
 		98814E4B17410AAB00C86F65 /* TBPlantOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPlantOne.h; sourceTree = "<group>"; };
 		98814E4C17410AAB00C86F65 /* TBPlantOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPlantOne.m; sourceTree = "<group>"; };
+		98825EDC174780A70088E0E5 /* TBConnectionAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBConnectionAsset.h; sourceTree = "<group>"; };
+		98825EDD174780A70088E0E5 /* TBConnectionAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBConnectionAsset.m; sourceTree = "<group>"; };
 		988CCCA0170ECAF1003701F5 /* TBNotLoggedInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNotLoggedInView.h; sourceTree = "<group>"; };
 		988CCCA1170ECAF1003701F5 /* TBNotLoggedInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBNotLoggedInView.m; sourceTree = "<group>"; };
 		988CCCA3170ECAFF003701F5 /* TBLoggedInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLoggedInView.h; sourceTree = "<group>"; };
@@ -724,6 +734,16 @@
 		98BAEA5F1744206D00733F88 /* friend_first_state_gauche@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_first_state_gauche@2x.png"; sourceTree = "<group>"; };
 		98BAEA871744236C00733F88 /* TBBotFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotFirstState.h; sourceTree = "<group>"; };
 		98BAEA881744236C00733F88 /* TBBotFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotFirstState.m; sourceTree = "<group>"; };
+		98CCB011174791F1002FA1E9 /* TBSequenceFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSequenceFace.h; sourceTree = "<group>"; };
+		98CCB012174791F1002FA1E9 /* TBSequenceFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSequenceFace.m; sourceTree = "<group>"; };
+		98CCB01517479536002FA1E9 /* connexion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = connexion.plist; sourceTree = "<group>"; };
+		98CCB01617479536002FA1E9 /* connexion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connexion.png; sourceTree = "<group>"; };
+		98CCB01717479536002FA1E9 /* connexion@2x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "connexion@2x.plist"; sourceTree = "<group>"; };
+		98CCB01817479536002FA1E9 /* connexion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connexion@2x.png"; sourceTree = "<group>"; };
+		98CCB01D1747BE93002FA1E9 /* TBCharacterTransitionBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransitionBot.h; sourceTree = "<group>"; };
+		98CCB01E1747BE93002FA1E9 /* TBCharacterTransitionBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransitionBot.m; sourceTree = "<group>"; };
+		98CCB0201747C39E002FA1E9 /* TBCharacterTransitionA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransitionA.h; sourceTree = "<group>"; };
+		98CCB0211747C39E002FA1E9 /* TBCharacterTransitionA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransitionA.m; sourceTree = "<group>"; };
 		98D1AA7F171C405B00E19CFC /* TBASubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBASubView.h; sourceTree = "<group>"; };
 		98D1AA80171C405B00E19CFC /* TBASubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBASubView.m; sourceTree = "<group>"; };
 		98DCF9CC1743E73000887D6F /* map_level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_level1.tmx; sourceTree = "<group>"; };
@@ -1499,6 +1519,8 @@
 				98814E4917410A6300C86F65 /* common */,
 				98814E4B17410AAB00C86F65 /* TBPlantOne.h */,
 				98814E4C17410AAB00C86F65 /* TBPlantOne.m */,
+				98825EDC174780A70088E0E5 /* TBConnectionAsset.h */,
+				98825EDD174780A70088E0E5 /* TBConnectionAsset.m */,
 			);
 			name = sets;
 			sourceTree = "<group>";
@@ -1508,6 +1530,8 @@
 			children = (
 				98814E461741079E00C86F65 /* TBMapElement.h */,
 				98814E471741079E00C86F65 /* TBMapElement.m */,
+				98CCB011174791F1002FA1E9 /* TBSequenceFace.h */,
+				98CCB012174791F1002FA1E9 /* TBSequenceFace.m */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -1552,8 +1576,12 @@
 		98962B05174631E2002CD41B /* transitionFaceCharacter */ = {
 			isa = PBXGroup;
 			children = (
+				98CCB0201747C39E002FA1E9 /* TBCharacterTransitionA.h */,
+				98CCB0211747C39E002FA1E9 /* TBCharacterTransitionA.m */,
 				98EC88D0174652E500DCDAB1 /* TBCharacterTransition.h */,
 				98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */,
+				98CCB01D1747BE93002FA1E9 /* TBCharacterTransitionBot.h */,
+				98CCB01E1747BE93002FA1E9 /* TBCharacterTransitionBot.m */,
 			);
 			name = transitionFaceCharacter;
 			sourceTree = "<group>";
@@ -1622,6 +1650,7 @@
 		989F1942173054B300EA8183 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				98CCB01417479536002FA1E9 /* connexion */,
 				98BAEA3C1744206D00733F88 /* characters */,
 				98701E9317441A050048EF6E /* hero */,
 				98814E3B1741073000C86F65 /* elements */,
@@ -1768,6 +1797,18 @@
 				98DECEFE17442AC5001662D8 /* TBCharacterFirstState.m */,
 			);
 			name = character;
+			sourceTree = "<group>";
+		};
+		98CCB01417479536002FA1E9 /* connexion */ = {
+			isa = PBXGroup;
+			children = (
+				98CCB01517479536002FA1E9 /* connexion.plist */,
+				98CCB01617479536002FA1E9 /* connexion.png */,
+				98CCB01717479536002FA1E9 /* connexion@2x.plist */,
+				98CCB01817479536002FA1E9 /* connexion@2x.png */,
+			);
+			name = connexion;
+			path = elements/connexion;
 			sourceTree = "<group>";
 		};
 		98E3C06F1746BE49007081A0 /* 1x */ = {
@@ -1929,6 +1970,10 @@
 				98E3C0761746BE49007081A0 /* bot_first_face.png in Resources */,
 				98E3C0771746BE49007081A0 /* bot_first_face@2x.plist in Resources */,
 				98E3C0781746BE49007081A0 /* bot_first_face@2x.png in Resources */,
+				98CCB01917479536002FA1E9 /* connexion.plist in Resources */,
+				98CCB01A17479536002FA1E9 /* connexion.png in Resources */,
+				98CCB01B17479536002FA1E9 /* connexion@2x.plist in Resources */,
+				98CCB01C17479536002FA1E9 /* connexion@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2106,6 +2151,10 @@
 				98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */,
 				9844009117462ACE00C11875 /* TBCharacter.m in Sources */,
 				98EC88D2174652E500DCDAB1 /* TBCharacterTransition.m in Sources */,
+				98825EDE174780A70088E0E5 /* TBConnectionAsset.m in Sources */,
+				98CCB013174791F1002FA1E9 /* TBSequenceFace.m in Sources */,
+				98CCB01F1747BE93002FA1E9 /* TBCharacterTransitionBot.m in Sources */,
+				98CCB0221747C39E002FA1E9 /* TBCharacterTransitionA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,8 +25,11 @@
     
     if(_decrementer <= 0.0f)
     {
+        [self complete];
         [[self parent] removeChild:self cleanup:TRUE];
     }
 }
+
+-(void) complete {}
 
 @end

@@ -31,11 +31,8 @@
     if (self)
     {
         _frontFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_frontAnimationName andFilePrefix:prefix];
-        
         _backFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_backAnimationName andFilePrefix:prefix];
-        
         _rightFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_rightAnimationName andFilePrefix:prefix];
-        
         _leftFace = [[TBCharacterFace alloc] initWithNumFrame:numFrame withAnimName:_leftAnimationName andFilePrefix:prefix];
     }
     return self;

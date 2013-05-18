@@ -10,4 +10,6 @@
 
 @interface TBHeroFirstState : TBCharacterTransition
 
+-(BOOL)isOnHeroRange:(TBCharacter *)character;
+
 @end

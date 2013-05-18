@@ -76,6 +76,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         CGPoint startPosition = [_environment getStartPositionFromMeta];
         [self addOrMoveHeroAtPosition:startPosition];
         
+        _bots = [[NSMutableArray alloc] init];
+        _characters = [[NSMutableArray alloc] init];
+        _obstacles = [[NSMutableArray alloc] init];
+        
         [self addBotsAtPositions:[_environment getBotsStartPositions:1]];
         [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
@@ -98,6 +102,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _delay = 0.0f;
     }
     
+    [self displayPossibleConnections];
+    
     _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
     _environment.position = _mainContainer.position;
     
@@ -115,6 +121,24 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [_hero walkTo: position];
 }
 
+-(void)displayPossibleConnections
+{
+    int i = 0;
+    int length = [_bots count];
+    
+    for(i = 0; i < length; i++)
+    {
+        TBBotFirstState *bot = (TBBotFirstState *)[_bots objectAtIndex:i];
+        
+        if([_hero isOnHeroRange:bot])
+        {
+            [bot connectionOnRange:true];
+        }else{
+            [bot connectionOnRange:false];
+        }
+    }
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint location = [self getContainerPositionFromTouch:touches];
@@ -124,7 +148,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     int i = 0;
     int length = [_bots count];
-    
+
     for(i = 0; i < length; i++)
     {
         TBBotFirstState *bot = (TBBotFirstState *) [_bots objectAtIndex:i];
@@ -171,6 +195,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         {
             TBLine *line = [[[TBLine alloc] initFrom:_targetedBot.position andTo:_hero.position] autorelease];
             [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
+            
+            [_hero startConnection];
+            [_targetedBot handleConnection:true];
             
             _targetedBot = nil;
             _delay = DELAY;
@@ -244,19 +271,17 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 }
 
 -(void) addCharactersAtPositions:(NSMutableArray *)positions
-{
+{    
     [self addElements:@"TBCharacterFirstState" atPositions:positions andSaveThemIn:_characters];
 }
 
 -(void) addObstaclesAtPositions:(NSMutableArray *)positions
-{
+{    
     [self addElements:@"TBPlantOne" atPositions:positions andSaveThemIn:_obstacles];
 }
 
 -(void) addElements:(NSString *)className atPositions:(NSMutableArray *)positions andSaveThemIn:(NSMutableArray *)array
 {
-    array = [[NSMutableArray alloc] init];
-    
     int i = 0;
     int length = [positions count];
     

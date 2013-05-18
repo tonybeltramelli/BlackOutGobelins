@@ -7,9 +7,15 @@
 //
 
 #import "TBCharacterTransition.h"
+#import "TBConnectionAsset.h"
 
 @implementation TBCharacterTransition
 {
+    NSString *_startTransitionName;
+    NSString *_endTransitionName;
+    NSString *_middleTransitionName;
+    NSString *_pauseTransitionName;
+    
     int _step;
     double _vectorLength;
 }
@@ -21,14 +27,13 @@ const int LIMIT_VECTOR_LENGTH = 100;
     self = [super initDefault];
     if (self)
     {
-        _vectorLength = 0.0;
-        
         _startTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"debut"];
         _endTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"fin"];
         _middleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"milieu"];
         _pauseTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"pause"];
         
         _step = 0;
+        _vectorLength = 0.0;
     }
     return self;
 }
@@ -61,7 +66,7 @@ const int LIMIT_VECTOR_LENGTH = 100;
     [self walkingScheduleHandler:nil];
 }
 
-- (void)walkingScheduleHandler:(id)sender
+-(void) walkingScheduleHandler:(id)sender
 {
     [self unschedule:@selector(walkingScheduleHandler:)];
     

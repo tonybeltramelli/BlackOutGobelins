@@ -6,15 +6,10 @@
 //
 //
 
-#import "TBCharacter.h"
+#import "TBCharacterTransitionA.h"
 
-@interface TBCharacterTransition : TBCharacter
-{
-    NSString *_startTransitionName;
-    NSString *_endTransitionName;
-    NSString *_middleTransitionName;
-    NSString *_pauseTransitionName;
-    
+@interface TBCharacterTransition : TBCharacterTransitionA
+{    
     int _startTransitionFirstFrameNumber;
     int _startTransitionLastFrameNumber;
     
@@ -28,10 +23,7 @@
     int _pauseTransitionLastFrameNumber;
 }
 
-- (id)initDefaultWithPrefix:(NSString *)prefix;
-- (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber;
-
 -(void) startToWalk;
--(void) setDistanceVectorLength:(double)vectorLength;;
+-(void) setDistanceVectorLength:(double)vectorLength;
 
 @end

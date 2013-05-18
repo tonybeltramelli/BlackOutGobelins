@@ -18,8 +18,6 @@
     NSString *_animName;
     NSString *_prefix;
     NSString *_fileName;
-    
-    CCSpriteBatchNode *_container;
 }
 
 @end
@@ -35,18 +33,15 @@
     { 
         _numStartFrame = startNumFrame;
         _numEndFrame = endNumFrame;
-        _animName = [fileName isEqualToString:animName] ? animName : [NSString stringWithFormat:@"%@_%@", animName, fileName];
+        _animName = [fileName isEqualToString:animName] || [fileName isEqualToString:@""]? animName : [NSString stringWithFormat:@"%@_%@", animName, fileName];
         _fileName = fileName;
         _prefix = prefix;
         
         _delay = 0.04f;
         
         NSString *plistName = [NSString stringWithFormat:@"%@%@.plist", _prefix, fileName];
-        NSString *pngName = [NSString stringWithFormat:@"%@%@.png", _prefix, fileName];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[TBResources getAsset:[plistName UTF8String]]];
-        
-        _container = [CCSpriteBatchNode batchNodeWithFile:[TBResources getAsset:[pngName UTF8String]] capacity:100];
     }
     return self;
 }
@@ -89,7 +84,7 @@
 
 -(void) changeAnimation:(NSString *)animName from:(int)startNumFrame to:(int)endNumFrame
 {
-    _animName = [_fileName isEqualToString:animName] ? animName : [NSString stringWithFormat:@"%@_%@", animName, _fileName];
+    _animName = [_fileName isEqualToString:animName] || [_fileName isEqualToString:@""] ? animName : [NSString stringWithFormat:@"%@_%@", animName, _fileName];
     
     NSString *incrementFrameName = [NSString stringWithFormat:@"%@_%%@.png", _animName];
     
