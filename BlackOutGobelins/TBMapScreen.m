@@ -18,6 +18,7 @@
 #import "TBLine.h"
 #import "TBParticle.h"
 #import "TBPlantOne.h"
+#import "TBProgressBar.h"
 
 const float DELAY = 20.0f;
 
@@ -40,12 +41,14 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBBotFirstState *_targetedBot;
     NSMutableArray *_characters;
     NSMutableArray *_obstacles;
+    TBProgressBar *_progressBar;
     
     CGSize _size;
     BOOL _isMoving;
     CGPoint _swipeStartPosition;
     CGPoint _swipeEndPosition;
     float _delay;
+    BOOL _toFreeze;
 }
 
 +(CCScene *) scene
@@ -86,6 +89,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
         _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
         [_gameController useTouch:TRUE];
+        
+        _progressBar = [[TBProgressBar alloc] init];
+        [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
+        [self addChild:_progressBar z:-1];
         
         [self scheduleUpdate];
     }
@@ -197,6 +204,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
             
             [_hero startConnection];
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(botDisconnected:) name:@"BOT_DISCONNECTED" object:nil];
             [_targetedBot handleConnection:true];
             
             _targetedBot = nil;
@@ -207,6 +216,16 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [self testTouchOnObstacleAtLocation:location];
     
     _isMoving = false;
+}
+
+-(void) botDisconnected:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+        
+    TBBotFirstState *bot = (TBBotFirstState *)[notification object];
+    [_bots removeObject:bot];
+    
+    [_progressBar setProgress:[_progressBar progress] + 0.1];
 }
 
 -(void)testTouchOnObstacleAtLocation:(CGPoint)location

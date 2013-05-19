@@ -126,6 +126,8 @@
     _isDeconnected = true;
     
     [self handleConnection:false];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BOT_DISCONNECTED" object:self];
 }
 
 @end

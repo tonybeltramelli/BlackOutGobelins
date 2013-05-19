@@ -10,6 +10,7 @@
 
 #import "cocos2d.h"
 #import "TBJoystick.h"
+#import "TBTouchFeedback.h"
 
 @implementation TBGameController
 {
@@ -122,6 +123,10 @@ const int ANIMATION_TIME = 62.00; //in frame number
         _yIncrement = (yVector / ANIMATION_TIME) * yDirection;
         
         _frame = 0;
+        
+        TBTouchFeedback *touchFeedBack = [TBTouchFeedback touchFeedback];
+        [touchFeedBack setPosition:CGPointMake(endPosition.x, endPosition.y)];
+        [_hero.parent addChild:touchFeedBack z:-1];
     }
 }
 

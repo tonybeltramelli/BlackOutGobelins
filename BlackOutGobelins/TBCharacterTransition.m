@@ -61,7 +61,11 @@ const int LIMIT_VECTOR_LENGTH = 100;
 {
     _step = 0;
     
-    if(_vectorLength < LIMIT_VECTOR_LENGTH) return;
+    if(_vectorLength < LIMIT_VECTOR_LENGTH)
+    {
+        [_currentFace changeAnimation:_pauseTransitionName from:_pauseTransitionFirstFrameNumber to:_pauseTransitionLastFrameNumber];
+        return;
+    }
     
     [self walkingScheduleHandler:nil];
 }
