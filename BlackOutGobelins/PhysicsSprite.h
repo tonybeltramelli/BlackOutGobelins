@@ -11,7 +11,7 @@
 
 @interface PhysicsSprite : CCSprite
 {
-	cpBody *body_;	// strong ref
+	cpBody *body_;
 }
 
 -(void) setPhysicsBody:(cpBody*)body;

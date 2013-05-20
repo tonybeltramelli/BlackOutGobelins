@@ -18,3 +18,8 @@ typedef enum {
     backgroundLayer,
     elementLayer
 } layerId_t;
+
+typedef enum {
+    isOnRange,
+    isTouched
+} interactionType_t;

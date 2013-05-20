@@ -54,6 +54,7 @@
     _step = toConnect ? 0 : 2;
     
     [self connectionScheduleHandler:nil];
+    [super handleConnection:toConnect];
 }
 
 -(void) connectionScheduleHandler:(id)sender

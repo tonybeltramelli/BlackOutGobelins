@@ -21,7 +21,6 @@
     
     [[TBModel getInstance].facebookController getProfilePicture:self];
     
-    
     NSString *friendOnPictureName = [[TBModel getInstance].facebookDataManager getFriendOnPicture];
     
     if([friendOnPictureName isEqualToString:@""])

@@ -30,7 +30,9 @@
         particle.life = 0.5f;
         particle.duration = 0.5f;
         
-        _decrementer = 1.0f;
+        _value = 1.0f;
+        
+        [super startSchedule];
     }
     return self;
 }

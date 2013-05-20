@@ -10,6 +10,7 @@
 
 @interface TBLine : TBSpecial
 
-- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint;
+- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint connectionWithBot:(BOOL)boo;
++ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint connectionWithBot:(BOOL)boo;
 
 @end

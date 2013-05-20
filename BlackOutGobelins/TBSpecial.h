@@ -10,9 +10,11 @@
 
 @interface TBSpecial : CCSprite
 {
+    float _value;
     float _decrementer;
 }
 
+-(void) startSchedule;
 -(void) complete;
 
 @end

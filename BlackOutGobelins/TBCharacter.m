@@ -7,8 +7,12 @@
 //
 
 #import "TBCharacter.h"
+#import "TBConnectionAsset.h"
 
 @implementation TBCharacter
+{
+    TBConnectionAsset *_connection;
+}
 
 - (id)initDefault
 {
@@ -238,6 +242,58 @@
     _currentFace = animation;
     [self addChild:_currentFace.sprite];
 }
+
+-(void) connectionOnRange:(BOOL)isOnRange
+{
+    if(!isOnRange || _isDeconnected)
+    {
+        [self stopConnection:nil];
+        return;
+    }
+    
+    if(_isOnRange) return;
+    if(_connection) [self stopConnectionAnimationComplete:nil];
+    
+    _isOnRange = true;
+    
+    _connection = [[TBConnectionAsset alloc] init];
+    [_connection drawAt:CGPointMake(0, -[_currentFace getHeight]/2)];
+    
+    [self addChild:_connection z:-1];
+}
+
+-(void) startConnection
+{
+    if(_isOnRange) return;
+    
+    [self connectionOnRange:true];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopConnection:) name:@"STOP_CONNECTION" object:nil];
+}
+
+-(void) stopConnection:(NSNotification *)notification
+{
+    if(!_connection || !_isOnRange || _isDeconnected) return;
+    
+    _isOnRange = false;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopConnectionAnimationComplete:) name:@"STOP_CONNECTION_ANIMATION_COMPLETE" object:nil];
+    
+    [_connection stopConnection];
+}
+
+-(void) stopConnectionAnimationComplete:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self removeChild:_connection cleanup:TRUE];
+    
+    _connection = nil;
+}
+
+-(void) handleConnection:(BOOL)toConnect {}
 
 -(CGSize) getSize
 {

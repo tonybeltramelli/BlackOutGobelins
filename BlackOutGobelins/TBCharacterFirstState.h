@@ -10,4 +10,6 @@
 
 @interface TBCharacterFirstState : TBCharacterThirdQuarter
 
+-(NSString *)getDialogue;
+
 @end

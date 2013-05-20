@@ -6,9 +6,9 @@
 //
 //
 
-#import "TBCharacterTransitionA.h"
+#import "TBCharacter.h"
 
-@interface TBCharacterTransitionBot : TBCharacterTransitionA
+@interface TBCharacterTransitionBot : TBCharacter
 {
     int _pauseTransitionFirstFrameNumber;
     int _pauseTransitionLastFrameNumber;
@@ -23,6 +23,6 @@
     int _deconnexionMiddleLastFrameNumber;
 }
 
--(void) handleConnection:(BOOL)toConnect;
+- (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber;
 
 @end

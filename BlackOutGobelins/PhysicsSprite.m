@@ -9,7 +9,6 @@
 
 #import "PhysicsSprite.h"
 
-// callback to remove Shapes from the Space
 void removeShape( cpBody *body, cpShape *shape, void *data )
 {
 	cpShapeFree( shape );
@@ -23,15 +22,11 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	body_ = body;
 }
 
-// this method will only get called if the sprite is batched.
-// return YES if the physic's values (angles, position ) changed.
-// If you return NO, then nodeToParentTransform won't be called.
 -(BOOL) dirty
 {
 	return YES;
 }
 
-// returns the transform matrix according the Chipmunk Body values
 -(CGAffineTransform) nodeToParentTransform
 {	
 	CGFloat x = body_->p.x;
@@ -42,7 +37,6 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 		y += anchorPointInPoints_.y;
 	}
 	
-	// Make matrix
 	CGFloat c = body_->rot.x;
 	CGFloat s = body_->rot.y;
 	
@@ -51,7 +45,6 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 		y += s*-anchorPointInPoints_.x + c*-anchorPointInPoints_.y;
 	}
 	
-	// Translate, Rot, anchor Matrix
 	transform_ = CGAffineTransformMake( c,  s,
 									   -s,	c,
 									   x,	y );

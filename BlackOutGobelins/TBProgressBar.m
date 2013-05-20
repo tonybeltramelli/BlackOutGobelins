@@ -35,9 +35,9 @@
         
         float cornerSize = 5.0f;
         
-        CCSpriteScale9 *background = [CCSpriteScale9 spriteWithFile:[TBResources getAsset:"progressBar.png"] andLeftCapWidth:cornerSize andTopCapHeight:cornerSize];
+        CCSpriteScale9 *background = [CCSpriteScale9 spriteWithFile:[TBResources getAsset:"progress_bar.png"] andLeftCapWidth:cornerSize andTopCapHeight:cornerSize];
         
-        CCSpriteScale9 *foreground = [CCSpriteScale9 spriteWithFile:[TBResources getAsset:"progressBarGlow.png"] andLeftCapWidth:cornerSize andTopCapHeight:cornerSize];
+        CCSpriteScale9 *foreground = [CCSpriteScale9 spriteWithFile:[TBResources getAsset:"progress_bar_glow.png"] andLeftCapWidth:cornerSize andTopCapHeight:cornerSize];
         
         _progressBar = [[CCProgressBar alloc] initWithBgSprite:background andFgSprite:foreground andSize:CGSizeMake(_width, _heigth) andMargin:CGSizeMake(-10.0f, -10.0f)];
         [self addChild:_progressBar];

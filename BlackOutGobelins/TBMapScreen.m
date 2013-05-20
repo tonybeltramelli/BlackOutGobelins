@@ -19,6 +19,7 @@
 #import "TBParticle.h"
 #import "TBPlantOne.h"
 #import "TBProgressBar.h"
+#import "TBDialoguePopin.h"
 
 const float DELAY = 20.0f;
 
@@ -38,10 +39,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBEnvironment *_environment;
     TBHeroFirstState *_hero;
     NSMutableArray *_bots;
-    TBBotFirstState *_targetedBot;
+    TBCharacter *_targetedCharacter;
     NSMutableArray *_characters;
     NSMutableArray *_obstacles;
     TBProgressBar *_progressBar;
+    TBDialoguePopin *_dialoguePopIn;
     
     CGSize _size;
     BOOL _isMoving;
@@ -129,49 +131,65 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 }
 
 -(void)displayPossibleConnections
+{    
+    [self loopForCharacters:_bots typeOfInteraction:isOnRange];
+    [self loopForCharacters:_characters typeOfInteraction:isOnRange];
+}
+
+-(BOOL)loopForCharacters:(NSMutableArray *)array typeOfInteraction:(interactionType_t)type
 {
     int i = 0;
-    int length = [_bots count];
+    int length = [array count];
     
     for(i = 0; i < length; i++)
     {
-        TBBotFirstState *bot = (TBBotFirstState *)[_bots objectAtIndex:i];
+        TBCharacter *character = (TBCharacter *)[array objectAtIndex:i];
         
-        if([_hero isOnHeroRange:bot])
-        {
-            [bot connectionOnRange:true];
-        }else{
-            [bot connectionOnRange:false];
+        switch (type) {
+            case isOnRange:
+                if([_hero isOnHeroRange:character])
+                {
+                    [character connectionOnRange:true];
+                }else{
+                    [character connectionOnRange:false];
+                }
+                break;
+            case isTouched:
+                if([self isCharacter:character touchedAt:_swipeStartPosition])
+                {
+                    _targetedCharacter = character;
+                    return TRUE;
+                }
+                break;
+            default:
+                break;
         }
     }
+    
+    return FALSE;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(_toFreeze) return;
+    
     CGPoint location = [self getContainerPositionFromTouch:touches];
     
-    _swipeStartPosition = CGPointZero;
+    _swipeStartPosition = location;
     _swipeEndPosition = CGPointZero;
     
-    int i = 0;
-    int length = [_bots count];
-
-    for(i = 0; i < length; i++)
-    {
-        TBBotFirstState *bot = (TBBotFirstState *) [_bots objectAtIndex:i];
-        
-        if([self isCharacter:bot touchedAt:location])
-        {
-            _targetedBot = bot;
-            _swipeStartPosition = location;
-        }
-    }
+    BOOL charactersResult = [self loopForCharacters:_bots typeOfInteraction: isTouched];
+    BOOL botsResult = [self loopForCharacters:_characters typeOfInteraction: isTouched];
+    
+    if(!charactersResult && !botsResult) _swipeStartPosition = CGPointZero;
     
     _isMoving = false;
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(_toFreeze) return;
+    
     CGPoint location = [self getContainerPositionFromTouch:touches];
 
     if(![_gameController doNeedToIgnoreTouchAction])
@@ -185,6 +203,13 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(_toFreeze)
+    {
+        if(_dialoguePopIn != nil) [_dialoguePopIn nextStep];
+            
+        return;
+    }
+    
     CGPoint location = [self getContainerPositionFromTouch:touches];
     
     if(!_isMoving)
@@ -200,16 +225,31 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
            _swipeEndPosition.x != CGPointZero.x && _swipeEndPosition.y != CGPointZero.y &&
            _delay == 0.0f)
         {
-            TBLine *line = [[[TBLine alloc] initFrom:_targetedBot.position andTo:_hero.position] autorelease];
+            TBLine *line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position connectionWithBot:[_targetedCharacter isKindOfClass:[TBBotFirstState class]]];
             [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
+            
+            if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])
+            {
+                _dialoguePopIn = [[TBDialoguePopin alloc] initWithContent:[((TBCharacterFirstState *) _targetedCharacter) getDialogue]];
+                [self addChild:_dialoguePopIn];
+                
+                [[NSNotificationCenter defaultCenter] removeObserver:self];
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(characterDisconnected:) name:@"CHARACTER_DISCONNECTED" object:nil];
+                
+                [_dialoguePopIn show];
+            }else if([_targetedCharacter isKindOfClass:[TBBotFirstState class]])
+            {
+                [[NSNotificationCenter defaultCenter] removeObserver:self];
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(botDisconnected:) name:@"BOT_DISCONNECTED" object:nil];
+            }
             
             [_hero startConnection];
             
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(botDisconnected:) name:@"BOT_DISCONNECTED" object:nil];
-            [_targetedBot handleConnection:true];
+            [_targetedCharacter handleConnection:true];
+            _targetedCharacter = nil;
             
-            _targetedBot = nil;
             _delay = DELAY;
+            _toFreeze = true;
         }
     }
     
@@ -226,6 +266,20 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [_bots removeObject:bot];
     
     [_progressBar setProgress:[_progressBar progress] + 0.1];
+    
+    _toFreeze = false;
+}
+
+-(void) characterDisconnected:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self removeChild:_dialoguePopIn cleanup:TRUE];
+    
+    [_dialoguePopIn release];
+    _dialoguePopIn = nil;
+    
+    _toFreeze = false;
 }
 
 -(void)testTouchOnObstacleAtLocation:(CGPoint)location
@@ -329,6 +383,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     [_gameController release];
     _gameController = nil;
+    
+    [_dialoguePopIn release];
+    _dialoguePopIn = nil;
     
     [super dealloc];
 }

@@ -14,19 +14,24 @@
 {
     self = [super init];
     if (self) {
-        [self scheduleUpdate];
+        _decrementer = 0.01f;
     }
     return self;
 }
 
+-(void)startSchedule
+{
+    [self scheduleUpdate];
+}
+
 -(void) update:(ccTime)delta
 {
-    _decrementer -= 0.01f;
+    _value -= _decrementer;
     
-    if(_decrementer <= 0.0f)
+    if(_value <= 0.0f)
     {
-        [self complete];
         [[self parent] removeChild:self cleanup:TRUE];
+        [self complete];
     }
 }
 

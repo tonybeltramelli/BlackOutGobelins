@@ -29,6 +29,9 @@
     TBCharacterFace *_leftFace;
     
     TBCharacterFace *_currentFace;
+    
+    BOOL _isOnRange;
+    BOOL _isDeconnected;
 }
 
 - (id)initDefault;
@@ -39,6 +42,10 @@
 -(void) back;
 -(void) right;
 -(void) left;
+
+-(void) connectionOnRange:(BOOL)isOnRange;
+-(void) startConnection;
+-(void) handleConnection:(BOOL)toConnect;
 
 -(void) drawAt:(CGPoint)pos;
 -(CGPoint) getVolumicBoundariesFromPositionTarget:(CGPoint)position;
