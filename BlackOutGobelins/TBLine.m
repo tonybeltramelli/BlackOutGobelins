@@ -15,8 +15,10 @@
 {
     CGPoint _startPoint;
     CGPoint _endPoint;
+    CGPoint _medianPoint;
     
     TBTriangleConnection *_triangleConnexion;
+    CCLayerColor *_layer;
     float _ratio;
     BOOL _useEffects;
 }
@@ -70,6 +72,26 @@
     
     CCMoveTo* moveTo = [[CCMoveTo alloc] initWithDuration:_value * 2 position:_endPoint];
     
+    int xDirection = _startPoint.x < _endPoint.x ? 1 : -1;
+    int yDirection = _startPoint.y < _endPoint.y ? 1 : -1;
+    
+    float xVector = (_endPoint.x - _startPoint.x) * xDirection;
+    float yVector = (_endPoint.y - _startPoint.y) * yDirection;
+    
+    float xDrawingRef = _startPoint.x < _endPoint.x ? _startPoint.x : _endPoint.x;
+    float yDrawingRef = _startPoint.y < _endPoint.y ? _startPoint.y : _endPoint.y;
+    
+    int xOffset = xVector < yVector ? 90 : 0;
+    int yOffset = yVector < xVector ? 90 : 0;
+    
+    _layer = [[CCLayerColor alloc] initWithColor:ccc4(255, 255, 255, 255)];
+    [_layer setContentSize:CGSizeMake(100, 20)];
+    [_layer setPosition:CGPointMake(xDrawingRef + xVector / 2 - _layer.contentSize.width / 2 + xOffset, yDrawingRef + yVector / 2 - _layer.contentSize.height / 2 + yOffset)];
+    
+    _medianPoint = CGPointMake(_layer.position.x + _layer.contentSize.width / 2, _layer.position.y + _layer.contentSize.height / 2);
+   
+    [self addChild:_layer];
+    
     [_triangleConnexion runAction:moveTo];
     
     [self glowAt:_endPoint withScale:CGSizeMake(6.0f * _ratio, 6.0f * _ratio) withColor:ccc3(146,236,255) withRotation:0.0f andDuration:_value/2];
@@ -99,6 +121,15 @@
     ccDrawColor4F(_value, _value, _value, _value);
     
     ccDrawLine(_startPoint, _endPoint);
+    
+    if(_useEffects)
+    {
+        glLineWidth(0.25f * _ratio);
+    
+        ccDrawLine(_medianPoint, CGPointMake(_triangleConnexion.position.x - 10, _triangleConnexion.position.y + 10));
+        
+        if(_value < 1.0f) [_layer setOpacity:(_value * 255)];
+    }
     
     if(_value < 0.3f && _useEffects)
     {
