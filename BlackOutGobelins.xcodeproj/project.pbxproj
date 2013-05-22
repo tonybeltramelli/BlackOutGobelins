@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98173376174D5A8C00E0229F /* TBLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98173375174D5A8C00E0229F /* TBLineData.m */; };
 		981F1884170DBBEB007FF966 /* TBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F1882170DBBEB007FF966 /* TBGameViewController.m */; };
 		981F1885170DBBEB007FF966 /* TBGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981F1883170DBBEB007FF966 /* TBGameViewController.xib */; };
 		9829E9E3171EA73300888E4C /* TBFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9829E9E2171EA73300888E4C /* TBFacebookController.m */; };
@@ -313,6 +314,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		98173374174D5A8C00E0229F /* TBLineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLineData.h; sourceTree = "<group>"; };
+		98173375174D5A8C00E0229F /* TBLineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLineData.m; sourceTree = "<group>"; };
 		981F1881170DBBEB007FF966 /* TBGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGameViewController.h; sourceTree = "<group>"; };
 		981F1882170DBBEB007FF966 /* TBGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGameViewController.m; sourceTree = "<group>"; };
 		981F1883170DBBEB007FF966 /* TBGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBGameViewController.xib; sourceTree = "<group>"; };
@@ -1535,6 +1538,8 @@
 			children = (
 				986EB0C9173D5B390085F83C /* TBLine.h */,
 				986EB0CA173D5B390085F83C /* TBLine.m */,
+				98173374174D5A8C00E0229F /* TBLineData.h */,
+				98173375174D5A8C00E0229F /* TBLineData.m */,
 			);
 			name = line;
 			sourceTree = "<group>";
@@ -1908,7 +1913,6 @@
 				98D41E121748EE92005B602D /* CCSpriteScale9.h */,
 				98D41E131748EE92005B602D /* CCSpriteScale9.m */,
 				98FC645E174A20F5009EA103 /* popin */,
-				985D67D517490524005C6372 /* progressBar */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -1940,6 +1944,7 @@
 				985D3210174A276D0054795C /* TBCharacterNamePopin.m */,
 				98AC419F174A5C2500BAF236 /* TBDialoguePopin.h */,
 				98AC41A0174A5C2500BAF236 /* TBDialoguePopin.m */,
+				985D67D517490524005C6372 /* progressBar */,
 			);
 			name = popin;
 			sourceTree = "<group>";
@@ -2306,6 +2311,7 @@
 				98FC6461174A2107009EA103 /* TBGamePopin.m in Sources */,
 				985D3211174A276D0054795C /* TBCharacterNamePopin.m in Sources */,
 				98AC41A1174A5C2500BAF236 /* TBDialoguePopin.m in Sources */,
+				98173376174D5A8C00E0229F /* TBLineData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

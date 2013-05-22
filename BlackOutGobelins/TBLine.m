@@ -10,6 +10,7 @@
 #import "TBModel.h"
 #import "TBTriangleConnection.h"
 #import "CCDrawingPrimitives.h"
+#import "TBLineData.h"
 
 @implementation TBLine
 {
@@ -84,8 +85,7 @@
     int xOffset = xVector < yVector ? 90 : 0;
     int yOffset = yVector < xVector ? 90 : 0;
     
-    _layer = [[CCLayerColor alloc] initWithColor:ccc4(255, 255, 255, 255)];
-    [_layer setContentSize:CGSizeMake(100, 20)];
+    _layer = [[TBLineData alloc] initWithType:@"Type" andData:@"Data"];
     [_layer setPosition:CGPointMake(xDrawingRef + xVector / 2 - _layer.contentSize.width / 2 + xOffset, yDrawingRef + yVector / 2 - _layer.contentSize.height / 2 + yOffset)];
     
     _medianPoint = CGPointMake(_layer.position.x + _layer.contentSize.width / 2, _layer.position.y + _layer.contentSize.height / 2);
