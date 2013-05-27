@@ -14,6 +14,7 @@
 }
 
 @synthesize mutualFriendsNumber = _mutualFriendsNumber;
+@synthesize pictureUrl = _pictureUrl;
 
 -(id)initWithDictionnary:(NSDictionary *)userData
 {

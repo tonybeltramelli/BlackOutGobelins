@@ -11,6 +11,7 @@
 @implementation TBModel
 {
     TBDatabaseController *_databaseController;
+    TBFirstLevelData *_lebel;
 }
 
 static TBModel* _instance = nil;
@@ -52,6 +53,8 @@ static TBModel* _instance = nil;
         _databaseController = [[TBDatabaseController alloc] init];
         
         _facebookDataManager = [[TBFacebookDataManager alloc] initWithControllers:_facebookController and:_databaseController];
+        
+        _lebel = [[TBFirstLevelData alloc] init];
     }
     return self;
 }
@@ -64,6 +67,11 @@ static TBModel* _instance = nil;
     }
     
     return NO;
+}
+
+-(TBFirstLevelData *)getCurrentLevelData
+{
+    return _lebel;
 }
 
 @end

@@ -21,6 +21,7 @@
     [super viewDidAppear:animated];
     
     [[TBModel getInstance].facebookDataManager getUser];
+    [[TBModel getInstance].facebookDataManager getBestFriend];
     
     UIViewController *viewController;
     
@@ -30,8 +31,6 @@
     }else{
         viewController = [TBHomeViewController alloc];
     }
-    
-    viewController = [TBGameViewController alloc];
     
     [UIView animateWithDuration:0.3 delay: 1.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{

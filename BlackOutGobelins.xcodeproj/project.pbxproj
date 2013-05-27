@@ -177,6 +177,7 @@
 		98657DA8170C3024006F3F57 /* TBSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 98657D97170C2EA3006F3F57 /* TBSplashScreen.m */; };
 		98657DB4170C33F4006F3F57 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98657DB3170C33F4006F3F57 /* MainWindow.xib */; };
 		986A7AD41721454000E48365 /* TBDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986A7AD31721454000E48365 /* TBDatabaseController.m */; };
+		986C6605175345BF002A233E /* TBFirstLevelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C6604175345BF002A233E /* TBFirstLevelData.m */; };
 		986EB0CB173D5B390085F83C /* TBLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CA173D5B390085F83C /* TBLine.m */; };
 		986EB0CF173D60130085F83C /* TBParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CE173D60130085F83C /* TBParticle.m */; };
 		986EB0D4173D628B0085F83C /* TBSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0D3173D628B0085F83C /* TBSpecial.m */; };
@@ -663,6 +664,8 @@
 		98657DB3170C33F4006F3F57 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		986A7AD21721454000E48365 /* TBDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDatabaseController.h; sourceTree = "<group>"; };
 		986A7AD31721454000E48365 /* TBDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDatabaseController.m; sourceTree = "<group>"; };
+		986C6603175345BF002A233E /* TBFirstLevelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFirstLevelData.h; sourceTree = "<group>"; };
+		986C6604175345BF002A233E /* TBFirstLevelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFirstLevelData.m; sourceTree = "<group>"; };
 		986EB0C9173D5B390085F83C /* TBLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLine.h; sourceTree = "<group>"; };
 		986EB0CA173D5B390085F83C /* TBLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLine.m; sourceTree = "<group>"; };
 		986EB0CD173D60130085F83C /* TBParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBParticle.h; sourceTree = "<group>"; };
@@ -1514,6 +1517,7 @@
 		98657DA3170C2FD0006F3F57 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				986C65FF17534099002A233E /* levelData */,
 				989F18C31730522500EA8183 /* TypeDef.c */,
 				989F18C41730522500EA8183 /* TBResources.h */,
 				989F18C51730522500EA8183 /* TBResources.m */,
@@ -1531,6 +1535,15 @@
 				986A7AD31721454000E48365 /* TBDatabaseController.m */,
 			);
 			name = database;
+			sourceTree = "<group>";
+		};
+		986C65FF17534099002A233E /* levelData */ = {
+			isa = PBXGroup;
+			children = (
+				986C6603175345BF002A233E /* TBFirstLevelData.h */,
+				986C6604175345BF002A233E /* TBFirstLevelData.m */,
+			);
+			name = levelData;
 			sourceTree = "<group>";
 		};
 		986EB0C8173D5B2F0085F83C /* line */ = {
@@ -2312,6 +2325,7 @@
 				985D3211174A276D0054795C /* TBCharacterNamePopin.m in Sources */,
 				98AC41A1174A5C2500BAF236 /* TBDialoguePopin.m in Sources */,
 				98173376174D5A8C00E0229F /* TBLineData.m in Sources */,
+				986C6605175345BF002A233E /* TBFirstLevelData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

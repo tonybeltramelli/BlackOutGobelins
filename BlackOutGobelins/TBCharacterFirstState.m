@@ -8,6 +8,7 @@
 
 #import "TBCharacterFirstState.h"
 #import "TBCharacterNamePopin.h"
+#import "TBModel.h"
 
 @implementation TBCharacterFirstState
 {
@@ -19,7 +20,7 @@
 {
     self = [super initWithPrefix:@"friend_first_state_" andNumFrame:39];
     if (self) {
-        _gamePopin = [[TBCharacterNamePopin alloc] initWithName:@"Character Name" similarFriendNumber:12 andPictureData:nil];
+        _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[[TBModel getInstance].getCurrentLevelData getBestFriendName] similarFriendNumber:[[TBModel getInstance].getCurrentLevelData getBestFriendMutualFriendsNumber] andPictureData:nil];
         
         _dialogue = NSLocalizedString(@"CHARACTER_DIALOGUE", nil);
         

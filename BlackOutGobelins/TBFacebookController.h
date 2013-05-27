@@ -21,7 +21,6 @@
 -(void)setBestFriendFromData:(NSMutableDictionary *)userData;
 -(void)setPictureFriendFromData:(NSMutableDictionary *)userData;
 
--(void)getProfilePicture:(id)delegate;
 -(void)getFriendOnPicture;
 -(void)getFriendsData;
 

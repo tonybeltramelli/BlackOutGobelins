@@ -19,7 +19,9 @@
     
     [self hideLoader];
     
-    [[TBModel getInstance].facebookController getProfilePicture:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profilePictureIsLoaded:) name:@"PROFILE_PICTURE_LOADED" object:nil];
+    
+    [[TBModel getInstance].facebookController.user loadProfilePicture];
     
     NSString *friendOnPictureName = [[TBModel getInstance].facebookDataManager getFriendOnPicture];
     
@@ -32,7 +34,7 @@
                  if (!error) {
                  
                      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
-                 
+                     
                      [[TBModel getInstance].facebookController getFriendOnPicture];
                  }
              }];
@@ -42,16 +44,11 @@
     }
 }
 
--(void) friendOnPictureIsLoaded:(NSNotification *)notification
+-(void) profilePictureIsLoaded:(NSNotification *)notification
 {
-    [[TBModel getInstance].facebookDataManager saveFriendOnPicture];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PROFILE_PICTURE_LOADED" object:nil];
     
-    [self displayFriendsData];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [_imageView setImage:[UIImage imageWithData:data]];
+    [_imageView setImage:[UIImage imageWithData:[[TBModel getInstance].facebookController.user getProfilePicture]]];
     
     _loaderView.backgroundColor = [UIColor whiteColor];
     _loaderView.layer.cornerRadius = 5.0f;
@@ -72,8 +69,15 @@
     [_loaderView setFrame:loaderViewFrame];
 }
 
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
+-(void) friendOnPictureIsLoaded:(NSNotification *)notification
 {
+    NSLog(@"-----------> friendOnPictureIsLoaded");
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FRIEND_LOADED" object:nil];
+    
+    [[TBModel getInstance].facebookDataManager saveFriendOnPicture];
+    
+    [self displayFriendsData];
 }
 
 -(void)loadData

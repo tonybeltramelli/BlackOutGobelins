@@ -8,8 +8,6 @@
 
 #import "TBFacebookController.h"
 
-const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
-
 @implementation TBFacebookController
 {
     int _totalFriends;
@@ -21,20 +19,6 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 @synthesize user = _user;
 @synthesize bestFriend = _bestFriend;
 @synthesize friendOnPicture = _friendOnPicture;
-
--(void)getProfilePicture:(id)delegate
-{
-    NSString *urlString = [NSString stringWithFormat:@"%@/picture?type=large", [self getGraphAPIURLFromCurrentUser]];
-    
-    NSMutableURLRequest *urlRequest =
-    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
-                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        timeoutInterval:2];
-    
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest
-                                                                     delegate:delegate];
-    if (!urlConnection) NSLog(@"Failed to download picture");
-}
 
 -(void)getFriendOnPicture
 {
@@ -51,6 +35,11 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
                 FBGraphObject *photo = [data objectAtIndex:i];
                 NSDictionary *tags = [photo objectForKey:@"tags"];
                 NSArray *dataTags = [tags objectForKey:@"data"];
+                
+                NSArray *pictureUrls = [photo objectForKey:@"images"];
+                NSDictionary *picture = [pictureUrls objectAtIndex:([pictureUrls count] - 1)];
+                NSString *pictureUrl = [picture objectForKey:@"source"];
+                
                 int n = [dataTags count];
 
                 for(int j = 0; j < n; j++)
@@ -59,9 +48,11 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
                     
                     if(friend.id != _user.userId)
                     {
-                         _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithGraphUser:friend];
+                        _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithGraphUser:friend];
+                        _friendOnPicture.pictureUrl = pictureUrl;
                         
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"FRIEND_LOADED" object:nil];
+                        return;
                     }
                 }
             }
@@ -132,16 +123,6 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 -(void)setPictureFriendFromData:(NSMutableDictionary *)userData
 {
     _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
-}
-
--(NSString *)getGraphAPIURLFromCurrentUser
-{
-    return [self getGraphAPIURLFromUserId:_user.userId];
-}
-
--(NSString *)getGraphAPIURLFromUserId:(NSString *)userId
-{
-    return [NSString stringWithFormat:@"%@/%@", GRAPH_API_URL, userId];
 }
 
 - (void)dealloc

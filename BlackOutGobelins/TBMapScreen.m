@@ -20,6 +20,7 @@
 #import "TBPlantOne.h"
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
+#import "TBModel.h"
 
 const float DELAY = 20.0f;
 
@@ -225,7 +226,16 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
            _swipeEndPosition.x != CGPointZero.x && _swipeEndPosition.y != CGPointZero.y &&
            _delay == 0.0f)
         {
-            TBLine *line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position connectionWithBot:[_targetedCharacter isKindOfClass:[TBBotFirstState class]]];
+            NSString *interactionType = nil;
+            NSString *interactionData = nil;
+            
+            if([_targetedCharacter isKindOfClass:[TBBotFirstState class]])
+            {
+                interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
+                interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
+            }
+                
+            TBLine *line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position withInteractionType:interactionType andData:interactionData];
             [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
             
             if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])

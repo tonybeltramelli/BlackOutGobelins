@@ -17,11 +17,13 @@ NSString *BESTFRIEND_TABLE_NAME = @"BESTFRIEND";
 NSString *MUTUAL_FRIENDS_NUMBER = @"MUTUAL_FRIENDS_NUMBER";
 
 //friend on picture
-NSString *FRIEND_ON_PICTURE_TABLE_NAME = @"FRIEND_ON_PICTURE_TABLE_NAME";
+NSString *FRIEND_ON_PICTURE_TABLE_NAME = @"FRIEND_ON_PICTURE";
+NSString *PICTURE_URL = @"PICTURE_URL";
 
 //common rows
 NSString *USER_ID = @"USER_ID";
 NSString *USER_NAME = @"USER_NAME";
+NSString *PROFILE_PICTURE_URL = @"PROFILE_PICTURE_URL";
 
 @implementation TBFacebookDataManager
 {
@@ -43,19 +45,21 @@ NSString *USER_NAME = @"USER_NAME";
 {
     NSString *userId = _facebookController.user.userId;
     NSString *userName = _facebookController.user.name;
+    NSString *userProfilePictureUrl = _facebookController.user.profilePictureUrl;
     
     if([self isUniqueUserAlreadySaved:userId on:USER_TABLE_NAME])
     {
         return;
     }
     
-    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT", USER_NAME, USER_ID];
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_ID];
     
     [_databaseController createTable:USER_TABLE_NAME andParams:requestParams];
     
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:userId forKey:USER_ID];
 	[toSave setObject:userName forKey:USER_NAME];
+    [toSave setObject:userProfilePictureUrl forKey:PROFILE_PICTURE_URL];
     
     [_databaseController insertIntoTable:USER_TABLE_NAME theseRowsAndValues:toSave];
 }
@@ -64,6 +68,7 @@ NSString *USER_NAME = @"USER_NAME";
 {
     NSString *bestfriendUserId = _facebookController.bestFriend.userId;
     NSString *bestfriendName = _facebookController.bestFriend.name;
+    NSString *bestfriendProfilePictureUrl = _facebookController.bestFriend.profilePictureUrl;
     int mutualFriendsNumber = _facebookController.bestFriend.mutualFriendsNumber;
     
     if([self isUniqueUserAlreadySaved:bestfriendUserId on:BESTFRIEND_TABLE_NAME])
@@ -71,35 +76,40 @@ NSString *USER_NAME = @"USER_NAME";
         return;
     }
     
-    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, MUTUAL_FRIENDS_NUMBER, USER_ID];
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, MUTUAL_FRIENDS_NUMBER, PROFILE_PICTURE_URL, USER_ID];
     
     [_databaseController createTable:BESTFRIEND_TABLE_NAME andParams:requestParams];
     
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:bestfriendUserId forKey:USER_ID];
 	[toSave setObject:bestfriendName forKey:USER_NAME];
+    [toSave setObject:bestfriendProfilePictureUrl forKey:PROFILE_PICTURE_URL];
 	[toSave setObject:[NSString stringWithFormat:@"%d", mutualFriendsNumber] forKey:MUTUAL_FRIENDS_NUMBER];
     
     [_databaseController insertIntoTable:BESTFRIEND_TABLE_NAME theseRowsAndValues:toSave];
 }
 
 -(void) saveFriendOnPicture
-{
+{    
     NSString *friendOnPictureUserId = _facebookController.friendOnPicture.userId;
     NSString *friendOnPictureName = _facebookController.friendOnPicture.name;
+    NSString *friendProfilePictureUrl = _facebookController.friendOnPicture.profilePictureUrl;
+    NSString *friendPictureUrl = _facebookController.friendOnPicture.pictureUrl;
     
     if([self isUniqueUserAlreadySaved:friendOnPictureUserId on:FRIEND_ON_PICTURE_TABLE_NAME])
     {
         return;
     }
     
-    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT", USER_NAME, USER_ID];
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, PICTURE_URL, USER_ID];
     
     [_databaseController createTable:FRIEND_ON_PICTURE_TABLE_NAME andParams:requestParams];
     
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:friendOnPictureUserId forKey:USER_ID];
 	[toSave setObject:friendOnPictureName forKey:USER_NAME];
+    [toSave setObject:friendProfilePictureUrl forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:friendPictureUrl forKey:PICTURE_URL];
     
     [_databaseController insertIntoTable:FRIEND_ON_PICTURE_TABLE_NAME theseRowsAndValues:toSave];
 }
@@ -148,11 +158,13 @@ NSString *USER_NAME = @"USER_NAME";
     {
         NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:BESTFRIEND_TABLE_NAME];
         NSMutableArray *resultMutualFriendsNumbers = [_databaseController getRow:MUTUAL_FRIENDS_NUMBER fromTable:BESTFRIEND_TABLE_NAME];
+        NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:BESTFRIEND_TABLE_NAME];
         
         NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:bestFriendName forKey:USER_NAME];
         [userData setObject:(NSString *)[resultMutualFriendsNumbers objectAtIndex:0] forKey:MUTUAL_FRIENDS_NUMBER];
+        [userData setObject:(NSString *)[resultProfilePicture objectAtIndex:0] forKey:PROFILE_PICTURE_URL];
         
         [_facebookController setBestFriendFromData:userData];
     }
@@ -174,10 +186,14 @@ NSString *USER_NAME = @"USER_NAME";
     if(![friendOnPictureName isEqualToString:@""])
     {
         NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:FRIEND_ON_PICTURE_TABLE_NAME];
+        NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:FRIEND_ON_PICTURE_TABLE_NAME];
+        NSMutableArray *resultPicture = [_databaseController getRow:PICTURE_URL fromTable:FRIEND_ON_PICTURE_TABLE_NAME];
         
         NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:friendOnPictureName forKey:USER_NAME];
+        [userData setObject:(NSString *)[resultProfilePicture objectAtIndex:0] forKey:PROFILE_PICTURE_URL];
+        [userData setObject:(NSString *)[resultPicture objectAtIndex:0] forKey:PICTURE_URL];
         
         [_facebookController setPictureFriendFromData:userData];
     }
@@ -199,10 +215,12 @@ NSString *USER_NAME = @"USER_NAME";
     if(![userName isEqualToString:@""])
     {
         NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:USER_TABLE_NAME];
+        NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:USER_TABLE_NAME];
         
         NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:userName forKey:USER_NAME];
+        [userData setObject:(NSString *)[resultProfilePicture objectAtIndex:0] forKey:PROFILE_PICTURE_URL];
         
         [_facebookController setUserFromData:userData];
     }

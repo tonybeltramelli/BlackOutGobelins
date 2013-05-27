@@ -22,16 +22,20 @@
     CCLayerColor *_layer;
     float _ratio;
     BOOL _useEffects;
+    NSString *_type;
+    NSString *_data;
 }
 
-- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint connectionWithBot:(BOOL)boo
+- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data;
 {
     self = [super init];
     if (self)
     {
         _startPoint = startPoint;
         _endPoint = endPoint;
-        _useEffects = boo;
+        _type = type;
+        _data = data;
+        _useEffects = type != nil && data != nil;
         
         _ratio = [[TBModel getInstance] isRetinaDisplay] ? 1.0f : 0.5f;
         
@@ -52,9 +56,9 @@
     return self;
 }
 
-+ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint connectionWithBot:(BOOL)boo
++ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data
 {
-    return [[[self alloc] initFrom:startPoint andTo:endPoint connectionWithBot:boo] autorelease];
+    return [[[self alloc] initFrom:startPoint andTo:endPoint withInteractionType:type andData:data] autorelease];
 }
 
 -(void) hideDialogueHandler:(NSNotification *)notification
@@ -85,7 +89,7 @@
     int xOffset = xVector < yVector ? 90 : 0;
     int yOffset = yVector < xVector ? 90 : 0;
     
-    _layer = [[TBLineData alloc] initWithType:@"Type" andData:@"Data"];
+    _layer = [[TBLineData alloc] initWithType:_type andData:_data];
     [_layer setPosition:CGPointMake(xDrawingRef + xVector / 2 - _layer.contentSize.width / 2 + xOffset, yDrawingRef + yVector / 2 - _layer.contentSize.height / 2 + yOffset)];
     
     _medianPoint = CGPointMake(_layer.position.x + _layer.contentSize.width / 2, _layer.position.y + _layer.contentSize.height / 2);

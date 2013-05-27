@@ -12,6 +12,7 @@
 #import "TBHomeViewController.h"
 #import "TBDatabaseController.h"
 #import "TBFacebookDataManager.h"
+#import "TBFirstLevelData.h"
 
 @interface TBModel : NSObject
 
@@ -21,5 +22,7 @@
 @property (assign, nonatomic) TBFacebookDataManager *facebookDataManager;
 
 + (TBModel*)getInstance;
+
+-(TBFirstLevelData *)getCurrentLevelData;
 
 @end

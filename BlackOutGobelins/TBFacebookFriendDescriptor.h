@@ -13,6 +13,7 @@
 @interface TBFacebookFriendDescriptor : TBFacebookUserDescriptor
 
 @property(nonatomic) int mutualFriendsNumber;
+@property(nonatomic, assign) NSString *pictureUrl;
 
 - (void)loadMutualFriends;
 
