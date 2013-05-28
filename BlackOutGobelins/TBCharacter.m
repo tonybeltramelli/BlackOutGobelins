@@ -237,10 +237,13 @@
 
 -(void) changeAnimation:(TBCharacterFace *)animation
 {
-    [self removeChild:_currentFace.sprite cleanup:FALSE];
+    if(animation == nil) return;
+    [self removeAllChildrenWithCleanup:FALSE];
     
     _currentFace = animation;
     [self addChild:_currentFace.sprite];
+    
+    _connectionAssetPosition = CGPointMake(0, -[_currentFace getHeight]/2);
 }
 
 -(void) connectionOnRange:(BOOL)isOnRange
@@ -257,7 +260,7 @@
     _isOnRange = true;
     
     _connection = [[TBConnectionAsset alloc] init];
-    [_connection drawAt:CGPointMake(0, -[_currentFace getHeight]/2)];
+    [_connection drawAt:_connectionAssetPosition];
     
     [self addChild:_connection z:-1];
 }

@@ -71,8 +71,6 @@
 
 -(void) friendOnPictureIsLoaded:(NSNotification *)notification
 {
-    NSLog(@"-----------> friendOnPictureIsLoaded");
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FRIEND_LOADED" object:nil];
     
     [[TBModel getInstance].facebookDataManager saveFriendOnPicture];

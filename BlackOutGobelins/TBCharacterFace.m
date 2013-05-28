@@ -91,6 +91,15 @@
     [super setAnimation:incrementFrameName startAt:startNumFrame andEnd:endNumFrame andDelay:_delay];
 }
 
+-(void) changeAnimationHard:(NSString *)animName from:(int)startNumFrame to:(int)endNumFrame
+{
+    _animName = animName;
+    
+    NSString *incrementFrameName = [NSString stringWithFormat:@"%@_%%@.png", _animName];
+    
+    [super setAnimation:incrementFrameName startAt:startNumFrame andEnd:endNumFrame andDelay:_delay];
+}
+
 - (void)dealloc
 {
     [super dealloc];

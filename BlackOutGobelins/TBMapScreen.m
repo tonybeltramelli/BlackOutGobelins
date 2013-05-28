@@ -11,7 +11,7 @@
 #import "TBGameController.h"
 #import "TBEnvironment.h"
 #import "TBHeroFirstState.h"
-#import "TBBotFirstState.h"
+#import "TBCharacterTransitionBot.h"
 #import "TBCharacterFirstState.h"
 #import "TBResources.h"
 #import "TypeDef.c"
@@ -86,7 +86,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _characters = [[NSMutableArray alloc] init];
         _obstacles = [[NSMutableArray alloc] init];
         
-        [self addBotsAtPositions:[_environment getBotsStartPositions:1]];
+        [self addAllBots];
         [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
 
@@ -95,7 +95,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         _progressBar = [[TBProgressBar alloc] init];
         [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
-        [self addChild:_progressBar z:-1];
+        [self addChild:_progressBar];
         
         [self scheduleUpdate];
     }
@@ -229,7 +229,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             NSString *interactionType = nil;
             NSString *interactionData = nil;
             
-            if([_targetedCharacter isKindOfClass:[TBBotFirstState class]])
+            if([_targetedCharacter isKindOfClass:[TBCharacterTransitionBot class]])
             {
                 interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
                 interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
@@ -247,7 +247,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(characterDisconnected:) name:@"CHARACTER_DISCONNECTED" object:nil];
                 
                 [_dialoguePopIn show];
-            }else if([_targetedCharacter isKindOfClass:[TBBotFirstState class]])
+            }else if([_targetedCharacter isKindOfClass:[TBCharacterTransitionBot class]])
             {
                 [[NSNotificationCenter defaultCenter] removeObserver:self];
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(botDisconnected:) name:@"BOT_DISCONNECTED" object:nil];
@@ -272,7 +272,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
         
-    TBBotFirstState *bot = (TBBotFirstState *)[notification object];
+    TBCharacterTransitionBot *bot = (TBCharacterTransitionBot *)[notification object];
     [_bots removeObject:bot];
     
     [_progressBar setProgress:[_progressBar progress] + 0.1];
@@ -348,9 +348,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     }
 }
 
--(void) addBotsAtPositions:(NSMutableArray *)positions
+-(void) addAllBots
 {
-    [self addElements:@"TBBotFirstState" atPositions:positions andSaveThemIn:_bots];
+    [self addElements:@"TBBotFirstState" atPositions:[_environment getBotsStartPositions:1] andSaveThemIn:_bots];
+    [self addElements:@"TBBotSecondState" atPositions:[_environment getBotsStartPositions:2] andSaveThemIn:_bots];
+    [self addElements:@"TBBotThirdState" atPositions:[_environment getBotsStartPositions:3] andSaveThemIn:_bots];
 }
 
 -(void) addCharactersAtPositions:(NSMutableArray *)positions

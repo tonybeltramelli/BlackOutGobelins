@@ -13,14 +13,17 @@
     int _pauseTransitionFirstFrameNumber;
     int _pauseTransitionLastFrameNumber;
     
-    int _connexionFirstFrameNumber;
-    int _connexionLastFrameNumber;
+    int _connectionStartFirstFrameNumber;
+    int _connectionStartLastFrameNumber;
     
-    int _deconnexionStartFirstFrameNumber;
-    int _deconnexionStartLastFrameNumber;
+    int _connectionMiddleFirstFrameNumber;
+    int _connectionMiddleLastFrameNumber;
     
-    int _deconnexionMiddleFirstFrameNumber;
-    int _deconnexionMiddleLastFrameNumber;
+    int _disconnectionStartFirstFrameNumber;
+    int _disconnectionStartLastFrameNumber;
+    
+    int _disconnectionMiddleFirstFrameNumber;
+    int _disconnectionMiddleLastFrameNumber;
 }
 
 - (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber;

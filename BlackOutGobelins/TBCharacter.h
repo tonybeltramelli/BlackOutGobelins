@@ -32,6 +32,8 @@
     
     BOOL _isOnRange;
     BOOL _isDeconnected;
+    
+    CGPoint _connectionAssetPosition;
 }
 
 - (id)initDefault;

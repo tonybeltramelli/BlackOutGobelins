@@ -18,5 +18,6 @@
 
 -(CGPoint) getVolumicBoundariesFromPositionTarget:(CGPoint)position;
 -(void) changeAnimation:(NSString *)animName from:(int)startNumFrame to:(int)endNumFrame;
+-(void) changeAnimationHard:(NSString *)animName from:(int)startNumFrame to:(int)endNumFrame;
 
 @end

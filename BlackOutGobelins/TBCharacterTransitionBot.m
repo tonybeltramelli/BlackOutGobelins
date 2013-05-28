@@ -10,12 +10,15 @@
 #import "TBConnectionAsset.h"
 
 @implementation TBCharacterTransitionBot
-{
-    NSString *_pauseTransitionName;
-    NSString *_connexionStartTransitionName;
-    NSString *_connexionMiddleTransitionName;
-    NSString *_deconnexionStartTransitionName;
-    NSString *_deconnexionMiddleTransitionName;
+{    
+    NSString *_connectionStartTransitionName;
+    NSString *_connectionMiddleTransitionName;
+    NSString *_disconnectionStartTransitionName;
+    NSString *_disconnectionMiddleTransitionName;
+    
+    TBCharacterFace *_pauseFace;
+    TBCharacterFace *_connectionFace;
+    TBCharacterFace *_disconnectionFace;
     
     int _step;
 }
@@ -25,11 +28,15 @@
     self = [super initDefault];
     if (self)
     {
-        _pauseTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"pause"];
-        _connexionStartTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"debut_connexion"];
-        _connexionMiddleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"milieu_connexion"];
-        _deconnexionStartTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"debut_deconnexion"];
-        _deconnexionMiddleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"milieu_deconnexion"];
+        _frontAnimationName = [[NSString alloc] initWithFormat:@"%@%@", prefix, _frontAnimationName];
+        _backAnimationName = [[NSString alloc] initWithFormat:@"%@%@", prefix, _backAnimationName];
+        _rightAnimationName = [[NSString alloc] initWithFormat:@"%@%@", prefix, _rightAnimationName];
+        _leftAnimationName = [[NSString alloc] initWithFormat:@"%@%@", prefix, _leftAnimationName];
+        
+        _connectionStartTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"connexion"];
+        _connectionMiddleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"connexion_loop"];
+        _disconnectionStartTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"disconnexion"];
+        _disconnectionMiddleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"disconnexion_loop"];
         
         _step = 0;
     }
@@ -44,9 +51,24 @@
         _pauseTransitionFirstFrameNumber = startNumber;
         _pauseTransitionLastFrameNumber = endNumber;
         
-        _frontFace = [[TBCharacterFace alloc] initWithStartNumFrame:_pauseTransitionFirstFrameNumber andEndNumFrame:_pauseTransitionLastFrameNumber withAnimName:_pauseTransitionName andFileName:_frontAnimationName andFilePrefix:prefix];
+        _pauseFace = [[TBCharacterFace alloc] initWithStartNumFrame:_pauseTransitionFirstFrameNumber andEndNumFrame:_pauseTransitionLastFrameNumber withAnimName:_frontAnimationName andFileName:@"" andFilePrefix:[NSString stringWithFormat:@"%@pause", prefix]];
     }
     return self;
+}
+
+-(void) drawAt:(CGPoint)pos
+{    
+    [super drawAt:pos];
+    
+    _connectionFace = [[TBCharacterFace alloc] initWithStartNumFrame:_connectionStartFirstFrameNumber andEndNumFrame:_connectionStartLastFrameNumber withAnimName:_connectionStartTransitionName andFileName:_connectionStartTransitionName andFilePrefix:@""];
+    
+    _disconnectionFace = [[TBCharacterFace alloc] initWithStartNumFrame:_disconnectionStartFirstFrameNumber andEndNumFrame:_disconnectionStartLastFrameNumber withAnimName:_disconnectionStartTransitionName andFileName:_disconnectionStartTransitionName andFilePrefix:@""];
+    
+    [_pauseFace drawAt:CGPointZero];
+    [_connectionFace drawAt:CGPointZero];
+    [_disconnectionFace drawAt:CGPointZero];
+    
+    [self changeAnimation:_pauseFace];
 }
 
 -(void) handleConnection:(BOOL)toConnect
@@ -72,37 +94,45 @@
     
     switch (_step) {
         case 1:
-            animation = _connexionStartTransitionName;
+            [self changeAnimation:_connectionFace];
             
-            firstFrameNumber = _connexionFirstFrameNumber;
-            lastFrameNumber = _connexionLastFrameNumber;
+            animation = _connectionStartTransitionName;
+            
+            firstFrameNumber = _connectionStartFirstFrameNumber;
+            lastFrameNumber = _connectionStartLastFrameNumber;
             
             toContinue = true;
             break;
         case 2:
-            animation = _connexionMiddleTransitionName;
+            [self changeAnimation:_connectionFace];
             
-            firstFrameNumber = _connexionFirstFrameNumber;
-            lastFrameNumber = _connexionLastFrameNumber;
+            animation = _connectionMiddleTransitionName;
+            
+            firstFrameNumber = _connectionMiddleFirstFrameNumber;
+            lastFrameNumber = _connectionMiddleLastFrameNumber;
             
             [[NSNotificationCenter defaultCenter] removeObserver:self];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deconnection:) name:@"STOP_CONNECTION" object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disconnection:) name:@"STOP_CONNECTION" object:nil];
             
             toContinue = false;
             break;
         case 3:
-            animation = _deconnexionStartTransitionName;
+            [self changeAnimation:_disconnectionFace];
             
-            firstFrameNumber = _deconnexionStartFirstFrameNumber;
-            lastFrameNumber = _deconnexionStartLastFrameNumber;
+            animation = _disconnectionStartTransitionName;
+            
+            firstFrameNumber = _disconnectionStartFirstFrameNumber;
+            lastFrameNumber = _disconnectionStartLastFrameNumber;
             
             toContinue = true;
             break;
         case 4:
-            animation = _deconnexionMiddleTransitionName;
+            [self changeAnimation:_disconnectionFace];
             
-            firstFrameNumber = _deconnexionMiddleFirstFrameNumber;
-            lastFrameNumber = _deconnexionMiddleLastFrameNumber;
+            animation = _disconnectionMiddleTransitionName;
+            
+            firstFrameNumber = _disconnectionMiddleFirstFrameNumber;
+            lastFrameNumber = _disconnectionMiddleLastFrameNumber;
             
             toContinue = false;
             break;
@@ -113,12 +143,12 @@
             break;
     }
     
-    [_currentFace changeAnimation:animation from:firstFrameNumber to:lastFrameNumber];
+    [_currentFace changeAnimationHard:animation from:firstFrameNumber to:lastFrameNumber];
     
     if(toContinue) [self schedule:@selector(connectionScheduleHandler:) interval:((lastFrameNumber - firstFrameNumber) * [_frontFace delay])];
 }
 
--(void) deconnection:(NSNotification *)notification
+-(void) disconnection:(NSNotification *)notification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     

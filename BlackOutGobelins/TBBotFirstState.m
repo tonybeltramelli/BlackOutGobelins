@@ -15,16 +15,26 @@
     self = [super initWithPrefix:@"bot_first_" andPauseTransitionFirstFrame:0 andPauseTransitionLastFrame:24];
     if (self)
     {
-        _connexionFirstFrameNumber = 0;
-        _connexionLastFrameNumber = 24;
+        _connectionStartFirstFrameNumber = 0;
+        _connectionStartFirstFrameNumber = 24;
         
-        _deconnexionStartFirstFrameNumber = 0;
-        _deconnexionStartLastFrameNumber = 29;
+        _connectionMiddleFirstFrameNumber = 0;
+        _connectionMiddleLastFrameNumber = 23;
         
-        _deconnexionMiddleFirstFrameNumber = 0;
-        _deconnexionMiddleLastFrameNumber = 24;
+        _disconnectionStartFirstFrameNumber = 4;
+        _disconnectionStartLastFrameNumber = 34;
+        
+        _disconnectionMiddleFirstFrameNumber = 0;
+        _disconnectionMiddleLastFrameNumber = 24;
     }
     return self;
+}
+
+-(void) connectionOnRange:(BOOL)isOnRange
+{
+    _connectionAssetPosition = CGPointMake(-3, -[_currentFace getHeight]/4 - 10);
+    
+    [super connectionOnRange:isOnRange];
 }
 
 - (void)dealloc
