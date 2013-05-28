@@ -1164,11 +1164,11 @@
             <key>bot_second_gauche_15.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{961,139},{52,135}}</string>
+                <string>{{792,284},{52,135}}</string>
                 <key>offset</key>
                 <string>{5,10}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{29,29},{52,135}}</string>
                 <key>sourceSize</key>
@@ -1177,7 +1177,7 @@
             <key>bot_second_gauche_16.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{190,96},{52,135}}</string>
+                <string>{{961,139},{52,135}}</string>
                 <key>offset</key>
                 <string>{5,10}</string>
                 <key>rotated</key>
@@ -1195,6 +1195,19 @@
                 <string>{5,10}</string>
                 <key>rotated</key>
                 <true/>
+                <key>sourceColorRect</key>
+                <string>{{29,29},{52,135}}</string>
+                <key>sourceSize</key>
+                <string>{100,213}</string>
+            </dict>
+            <key>bot_second_gauche_18.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{190,96},{52,135}}</string>
+                <key>offset</key>
+                <string>{5,10}</string>
+                <key>rotated</key>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{29,29},{52,135}}</string>
                 <key>sourceSize</key>
@@ -1288,7 +1301,7 @@
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:9383ba72ec2dcc4c90ca7a4ac54c9f37$</string>
+            <string>$TexturePacker:SmartUpdate:3ab868c90189e0e9d9e9219765385bbd$</string>
             <key>textureFileName</key>
             <string>bot_second_pause.png</string>
         </dict>

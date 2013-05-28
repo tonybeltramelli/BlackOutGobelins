@@ -28,15 +28,10 @@
         _disconnectionMiddleLastFrameNumber = 24;
         
         _color = ccc3(250, 175, 205); //0xfaafcd
+        
+        _gravityCenter = CGPointMake(2, -10);
     }
     return self;
-}
-
--(void) connectionOnRange:(BOOL)isOnRange
-{
-    _connectionAssetPosition = CGPointMake(2, -[_currentFace getHeight]/4 - 10);
-    
-    [super connectionOnRange:isOnRange];
 }
 
 - (void)dealloc

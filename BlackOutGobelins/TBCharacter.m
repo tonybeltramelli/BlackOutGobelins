@@ -25,6 +25,7 @@
         _leftAnimationName = @"gauche";
         
         _inertiaValue = 0.5f;
+        _gravityCenter = CGPointZero;
     }
     return self;
 }
@@ -243,7 +244,7 @@
     _currentFace = animation;
     [self addChild:_currentFace.sprite];
     
-    _connectionAssetPosition = CGPointMake(0, -[_currentFace getHeight]/2);
+    _connectionAssetPosition = CGPointMake(_gravityCenter.x, _gravityCenter.y - [_currentFace getHeight] / 2);
 }
 
 -(void) connectionOnRange:(BOOL)isOnRange
@@ -301,6 +302,11 @@
 -(CGSize) getSize
 {
     return _currentFace.getSize;
+}
+
+-(CGPoint) getGravityCenter
+{
+    return _gravityCenter;
 }
 
 - (void)dealloc

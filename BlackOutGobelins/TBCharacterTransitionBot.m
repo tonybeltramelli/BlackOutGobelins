@@ -162,6 +162,13 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BOT_DISCONNECTED" object:self];
 }
 
+-(void) connectionOnRange:(BOOL)isOnRange
+{
+    _connectionAssetPosition = CGPointMake(_gravityCenter.x, _gravityCenter.y - [_currentFace getHeight] / 4);
+    
+    [super connectionOnRange:isOnRange];
+}
+
 -(ccColor3B) getColor
 {
     return _color;

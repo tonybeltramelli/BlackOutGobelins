@@ -233,7 +233,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
                 NSString *interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
                 NSString *interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
                 
-                line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position withInteractionType:interactionType andData:interactionData andColor:[(TBCharacterTransitionBot *)_targetedCharacter getColor]];
+                CGPoint botConnectionPos = CGPointMake(_targetedCharacter.position.x + [_targetedCharacter getGravityCenter].x, _targetedCharacter.position.y + [_targetedCharacter getGravityCenter].y);
+                
+                line = [TBLine lineFrom:botConnectionPos andTo:_hero.position withInteractionType:interactionType andData:interactionData andColor:[(TBCharacterTransitionBot *)_targetedCharacter getColor]];
             }else{
                 line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position];
             }

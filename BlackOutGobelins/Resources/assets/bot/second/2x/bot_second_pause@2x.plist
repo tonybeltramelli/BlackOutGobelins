@@ -1164,7 +1164,7 @@
             <key>bot_second_gauche_15.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1288,766},{100,268}}</string>
+                <string>{{1556,1172},{100,268}}</string>
                 <key>offset</key>
                 <string>{11,20}</string>
                 <key>rotated</key>
@@ -1177,7 +1177,7 @@
             <key>bot_second_gauche_16.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1558,764},{100,268}}</string>
+                <string>{{1288,766},{100,268}}</string>
                 <key>offset</key>
                 <string>{11,20}</string>
                 <key>rotated</key>
@@ -1195,6 +1195,19 @@
                 <string>{11,20}</string>
                 <key>rotated</key>
                 <false/>
+                <key>sourceColorRect</key>
+                <string>{{61,59},{100,268}}</string>
+                <key>sourceSize</key>
+                <string>{200,426}</string>
+            </dict>
+            <key>bot_second_gauche_18.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{1558,764},{100,268}}</string>
+                <key>offset</key>
+                <string>{11,20}</string>
+                <key>rotated</key>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{61,59},{100,268}}</string>
                 <key>sourceSize</key>
@@ -1288,7 +1301,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:1d6d30ffe5baf8a67e8b96222108d7da$</string>
+            <string>$TexturePacker:SmartUpdate:c93190a440c22eaff9eeaee77e2d0837$</string>
             <key>textureFileName</key>
             <string>bot_second_pause@2x.png</string>
         </dict>

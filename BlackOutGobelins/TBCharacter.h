@@ -34,6 +34,7 @@
     BOOL _isDeconnected;
     
     CGPoint _connectionAssetPosition;
+    CGPoint _gravityCenter;
 }
 
 - (id)initDefault;
@@ -56,5 +57,6 @@
 -(CGPoint) getDirection;
 -(void) selectRandomAnimation;
 -(CGSize) getSize;
+-(CGPoint) getGravityCenter;
 
 @end
