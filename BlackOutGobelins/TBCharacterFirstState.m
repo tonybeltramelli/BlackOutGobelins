@@ -18,11 +18,13 @@
 
 - (id)init
 {
-    self = [super initWithPrefix:@"friend_first_state_" andNumFrame:39];
+    self = [super initWithPrefix:@"friend_first_state_" andNumFrame:36];
     if (self) {
         _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[[TBModel getInstance].getCurrentLevelData getBestFriendName] similarFriendNumber:[[TBModel getInstance].getCurrentLevelData getBestFriendMutualFriendsNumber] andPictureData:nil];
         
         _dialogue = NSLocalizedString(@"CHARACTER_DIALOGUE", nil);
+        
+        _gravityCenter = CGPointMake(4, 0);
         
         [self addChild:_gamePopin];
     }

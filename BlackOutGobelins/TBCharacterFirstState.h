@@ -6,9 +6,9 @@
 //
 //
 
-#import "TBCharacterThirdQuarter.h"
+#import "TBCharacter.h"
 
-@interface TBCharacterFirstState : TBCharacterThirdQuarter
+@interface TBCharacterFirstState : TBCharacter
 
 -(NSString *)getDialogue;
 
