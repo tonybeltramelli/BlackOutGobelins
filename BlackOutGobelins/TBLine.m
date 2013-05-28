@@ -24,9 +24,31 @@
     BOOL _useEffects;
     NSString *_type;
     NSString *_data;
+    ccColor3B _color;
 }
 
-- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data;
+- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint
+{
+    self = [super init];
+    if (self)
+    {
+        _startPoint = startPoint;
+        _endPoint = endPoint;
+        _useEffects = false;
+        
+        _ratio = [[TBModel getInstance] isRetinaDisplay] ? 1.0f : 0.5f;
+        
+        _value = 1.0f;
+        _decrementer = 0.05f;
+            
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideDialogueHandler:) name:@"HIDE_DIALOGUE" object:nil];
+    }
+    return self;
+
+}
+
+- (id)initFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data andColor:(ccColor3B)color;
 {
     self = [super init];
     if (self)
@@ -35,30 +57,27 @@
         _endPoint = endPoint;
         _type = type;
         _data = data;
-        _useEffects = type != nil && data != nil;
+        _color = color;
+        _useEffects = true;
         
         _ratio = [[TBModel getInstance] isRetinaDisplay] ? 1.0f : 0.5f;
         
-        if(_useEffects)
-        {
-            _value = 2.5f;
+        _value = 2.5f;
             
-            [self addEffects];
-            [super startSchedule];
-        }else{
-            _value = 1.0f;
-            _decrementer = 0.05f;
-            
-            [[NSNotificationCenter defaultCenter] removeObserver:self];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideDialogueHandler:) name:@"HIDE_DIALOGUE" object:nil];
-        }
+        [self addEffects:color];
+        [super startSchedule];
     }
     return self;
 }
 
-+ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data
++ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint
 {
-    return [[[self alloc] initFrom:startPoint andTo:endPoint withInteractionType:type andData:data] autorelease];
+    return [[[self alloc] initFrom:startPoint andTo:endPoint] autorelease];
+}
+
++ (id)lineFrom:(CGPoint)startPoint andTo:(CGPoint)endPoint withInteractionType:(NSString *)type andData:(NSString *)data andColor:(ccColor3B)color;
+{
+    return [[[self alloc] initFrom:startPoint andTo:endPoint withInteractionType:type andData:data andColor:color] autorelease];
 }
 
 -(void) hideDialogueHandler:(NSNotification *)notification
@@ -68,7 +87,7 @@
     [super startSchedule];
 }
 
--(void) addEffects
+-(void) addEffects:(ccColor3B)color
 {
     _triangleConnexion = [[TBTriangleConnection alloc] init];
     [_triangleConnexion drawAt:CGPointZero];
@@ -98,7 +117,7 @@
     
     [_triangleConnexion runAction:moveTo];
     
-    [self glowAt:_endPoint withScale:CGSizeMake(6.0f * _ratio, 6.0f * _ratio) withColor:ccc3(146,236,255) withRotation:0.0f andDuration:_value/2];
+    [self glowAt:_endPoint withScale:CGSizeMake(6.0f * _ratio, 6.0f * _ratio) withColor:ccc3(146, 236, 255) withRotation:0.0f andDuration:_value/2];
     
     [self addChild:_triangleConnexion];
 }
@@ -137,7 +156,7 @@
     
     if(_value < 0.3f && _useEffects)
     {
-        [self glowAt:_startPoint withScale:CGSizeMake(20.0f * _ratio, 20.0f * _ratio) withColor:ccc3(146,236,255) withRotation:0.0f andDuration:0.05f];
+        [self glowAt:_startPoint withScale:CGSizeMake(20.0f * _ratio, 20.0f * _ratio) withColor:_color withRotation:0.0f andDuration:0.05f];
     }
 }
 

@@ -26,6 +26,8 @@
         
         _disconnectionMiddleFirstFrameNumber = 0;
         _disconnectionMiddleLastFrameNumber = 24;
+        
+        _color = ccc3(125, 255, 140); //0x7dff8c
     }
     return self;
 }

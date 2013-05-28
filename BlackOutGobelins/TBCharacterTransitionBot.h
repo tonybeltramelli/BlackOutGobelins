@@ -24,8 +24,12 @@
     
     int _disconnectionMiddleFirstFrameNumber;
     int _disconnectionMiddleLastFrameNumber;
+    
+    ccColor3B _color;
 }
 
 - (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber;
+
+-(ccColor3B) getColor;
 
 @end

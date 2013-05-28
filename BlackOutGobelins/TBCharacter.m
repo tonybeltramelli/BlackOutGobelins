@@ -238,7 +238,7 @@
 -(void) changeAnimation:(TBCharacterFace *)animation
 {
     if(animation == nil) return;
-    [self removeAllChildrenWithCleanup:FALSE];
+    [self removeChild:_currentFace.sprite cleanup:FALSE];
     
     _currentFace = animation;
     [self addChild:_currentFace.sprite];

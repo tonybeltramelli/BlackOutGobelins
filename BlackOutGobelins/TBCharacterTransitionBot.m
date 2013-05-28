@@ -39,6 +39,7 @@
         _disconnectionMiddleTransitionName = [[NSString alloc] initWithFormat:@"%@%@", prefix, @"disconnexion_loop"];
         
         _step = 0;
+        _color = ccc3(146, 236, 255); //0x92ecff
     }
     return self;
 }
@@ -159,6 +160,11 @@
     [self handleConnection:false];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BOT_DISCONNECTED" object:self];
+}
+
+-(ccColor3B) getColor
+{
+    return _color;
 }
 
 @end

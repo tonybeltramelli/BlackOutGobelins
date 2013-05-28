@@ -226,16 +226,18 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
            _swipeEndPosition.x != CGPointZero.x && _swipeEndPosition.y != CGPointZero.y &&
            _delay == 0.0f)
         {
-            NSString *interactionType = nil;
-            NSString *interactionData = nil;
+            TBLine *line;
             
             if([_targetedCharacter isKindOfClass:[TBCharacterTransitionBot class]])
             {
-                interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
-                interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
-            }
+                NSString *interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
+                NSString *interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
                 
-            TBLine *line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position withInteractionType:interactionType andData:interactionData];
+                line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position withInteractionType:interactionType andData:interactionData andColor:[(TBCharacterTransitionBot *)_targetedCharacter getColor]];
+            }else{
+                line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position];
+            }
+            
             [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
             
             if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])
@@ -275,7 +277,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBCharacterTransitionBot *bot = (TBCharacterTransitionBot *)[notification object];
     [_bots removeObject:bot];
     
-    [_progressBar setProgress:[_progressBar progress] + 0.1];
+    float incrementValue = 1 / [_bots count];
+    
+    [_progressBar setProgress:[_progressBar progress] + incrementValue];
     
     _toFreeze = false;
 }
