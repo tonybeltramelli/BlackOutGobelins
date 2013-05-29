@@ -7,4 +7,7 @@
 */
 
 "POPIN_CHARACTER_SIMILAR_FRIEND" = "amis en commun";
-"CHARACTER_DIALOGUE" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer urna magna, placerat et accumsan at, adipiscing sit amet magna. Quisque nec enim eu erat malesuada lobortis molestie sit amet neque. Nullam at mi velit, in ultrices sapien. Maecenas posuere venenatis urna. Sed cursus, elit id adipiscing congue, lectus risus tempor lorem, a facilisis ipsum neque sit amet ligula. Vestibulum lacinia nibh nec mi tempus eget pulvinar erat commodo. Pellentesque ut tellus eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non sem in diam ornare tristique.";
+
+"CHARACTER_DIALOGUE_BESTFRIEND" = "Je suis content qu’on ai pu rentrer en contact, je commençais à me lasser d’avoir pour seul ami un Bot détraqué... Il m’a bien aidé en tout cas, tu devrais aller le voir avant qu’il y passe.";
+
+"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Wow. T’es salement amoché(e) toi ! Tu me dis quelque chose mais pas facile de t’identifier. Tu aurais pas une photo au moins ?";

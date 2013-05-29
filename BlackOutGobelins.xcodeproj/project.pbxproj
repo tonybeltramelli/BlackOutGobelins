@@ -15,6 +15,7 @@
 		98393D41173BF453004B668D /* TBCharacterThirdQuarter.m in Sources */ = {isa = PBXBuildFile; fileRef = 98393D40173BF453004B668D /* TBCharacterThirdQuarter.m */; };
 		9839400F1754B5CB00A9B3A7 /* TBBotSecondState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9839400E1754B5CB00A9B3A7 /* TBBotSecondState.m */; };
 		983940121754B5DE00A9B3A7 /* TBBotThirdState.m in Sources */ = {isa = PBXBuildFile; fileRef = 983940111754B5DE00A9B3A7 /* TBBotThirdState.m */; };
+		983FFB64175630680095488B /* TBCharacterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 983FFB63175630680095488B /* TBCharacterData.m */; };
 		9843F48E17554868001BB542 /* friend_first_state_dos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9843F47D17554868001BB542 /* friend_first_state_dos.plist */; };
 		9843F48F17554868001BB542 /* friend_first_state_dos.png in Resources */ = {isa = PBXBuildFile; fileRef = 9843F47E17554868001BB542 /* friend_first_state_dos.png */; };
 		9843F49017554868001BB542 /* friend_first_state_droite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9843F47F17554868001BB542 /* friend_first_state_droite.plist */; };
@@ -73,6 +74,7 @@
 		984C108E1753F38500A7CC98 /* bot_third_pause@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984C106A1753F38500A7CC98 /* bot_third_pause@2x.plist */; };
 		984C108F1753F38500A7CC98 /* bot_third_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 984C106B1753F38500A7CC98 /* bot_third_pause@2x.png */; };
 		985516B9173C30B900659A1B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 985516B8173C30B900659A1B /* fire.png */; };
+		985640A91755E68100EE750A /* TBDoor.m in Sources */ = {isa = PBXBuildFile; fileRef = 985640A81755E68100EE750A /* TBDoor.m */; };
 		985D3211174A276D0054795C /* TBCharacterNamePopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 985D3210174A276D0054795C /* TBCharacterNamePopin.m */; };
 		985D67DC174923DB005C6372 /* TBTouchFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 985D67DB174923DB005C6372 /* TBTouchFeedback.m */; };
 		985D67E217492A3F005C6372 /* touch_feedback.plist in Resources */ = {isa = PBXBuildFile; fileRef = 985D67DE17492A3F005C6372 /* touch_feedback.plist */; };
@@ -352,6 +354,8 @@
 		9839400E1754B5CB00A9B3A7 /* TBBotSecondState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotSecondState.m; sourceTree = "<group>"; };
 		983940101754B5DE00A9B3A7 /* TBBotThirdState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotThirdState.h; sourceTree = "<group>"; };
 		983940111754B5DE00A9B3A7 /* TBBotThirdState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotThirdState.m; sourceTree = "<group>"; };
+		983FFB62175630680095488B /* TBCharacterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterData.h; sourceTree = "<group>"; };
+		983FFB63175630680095488B /* TBCharacterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterData.m; sourceTree = "<group>"; };
 		9843F47D17554868001BB542 /* friend_first_state_dos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friend_first_state_dos.plist; sourceTree = "<group>"; };
 		9843F47E17554868001BB542 /* friend_first_state_dos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_first_state_dos.png; sourceTree = "<group>"; };
 		9843F47F17554868001BB542 /* friend_first_state_droite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friend_first_state_droite.plist; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 		984C106A1753F38500A7CC98 /* bot_third_pause@2x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bot_third_pause@2x.plist"; sourceTree = "<group>"; };
 		984C106B1753F38500A7CC98 /* bot_third_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bot_third_pause@2x.png"; sourceTree = "<group>"; };
 		985516B8173C30B900659A1B /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		985640A71755E68100EE750A /* TBDoor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDoor.h; sourceTree = "<group>"; };
+		985640A81755E68100EE750A /* TBDoor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDoor.m; sourceTree = "<group>"; };
 		985D320F174A276D0054795C /* TBCharacterNamePopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterNamePopin.h; sourceTree = "<group>"; };
 		985D3210174A276D0054795C /* TBCharacterNamePopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterNamePopin.m; sourceTree = "<group>"; };
 		985D67DA174923DB005C6372 /* TBTouchFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTouchFeedback.h; sourceTree = "<group>"; };
@@ -1099,6 +1105,15 @@
 			path = 2x;
 			sourceTree = "<group>";
 		};
+		985640AA1755E68400EE750A /* door */ = {
+			isa = PBXGroup;
+			children = (
+				985640A71755E68100EE750A /* TBDoor.h */,
+				985640A81755E68100EE750A /* TBDoor.m */,
+			);
+			name = door;
+			sourceTree = "<group>";
+		};
 		985D67D517490524005C6372 /* progressBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1743,6 +1758,8 @@
 			children = (
 				986C6603175345BF002A233E /* TBFirstLevelData.h */,
 				986C6604175345BF002A233E /* TBFirstLevelData.m */,
+				983FFB62175630680095488B /* TBCharacterData.h */,
+				983FFB63175630680095488B /* TBCharacterData.m */,
 			);
 			name = levelData;
 			sourceTree = "<group>";
@@ -1823,6 +1840,7 @@
 		98814E48174107A700C86F65 /* sets */ = {
 			isa = PBXGroup;
 			children = (
+				985640AA1755E68400EE750A /* door */,
 				989F18B0173050AB00EA8183 /* map */,
 				986EB0D1173D609E0085F83C /* special */,
 				98C9840E1747E3C800981EF0 /* connection */,
@@ -2477,6 +2495,8 @@
 				986C6605175345BF002A233E /* TBFirstLevelData.m in Sources */,
 				9839400F1754B5CB00A9B3A7 /* TBBotSecondState.m in Sources */,
 				983940121754B5DE00A9B3A7 /* TBBotThirdState.m in Sources */,
+				985640A91755E68100EE750A /* TBDoor.m in Sources */,
+				983FFB64175630680095488B /* TBCharacterData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,6 @@
 
 -(NSString *)getUserName;
 -(NSString *)getUserNameDataType;
--(NSString *)getBestFriendName;
--(int)getBestFriendMutualFriendsNumber;
+-(NSMutableArray *)getCharactersData;
 
 @end

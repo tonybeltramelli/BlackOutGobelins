@@ -66,6 +66,11 @@
     return [self getAllMetaWithKey:@"obstacle" andValue:@"true"];
 }
 
+- (CGPoint)getDoorPosition
+{
+    return [self getMetaWithKey:@"door" andValue:@"true"];
+}
+
 - (CGPoint)getMetaWithKey:(NSString *)key andValue:(NSString *)value
 {
     int i = 0;

@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>porte_fermee_00.png</key>
+            <key>door_fermee_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,1610},{450,400}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_fermee_01.png</key>
+            <key>door_fermee_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{906,1610},{450,400}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_fermee_03.png</key>
+            <key>door_fermee_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{454,1610},{450,400}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_fermee_04.png</key>
+            <key>door_fermee_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1610},{450,400}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverte_00.png</key>
+            <key>door_ouverte_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,1208},{450,400}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverte_01.png</key>
+            <key>door_ouverte_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{906,1208},{450,400}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverte_03.png</key>
+            <key>door_ouverte_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{454,1208},{450,400}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverte_04.png</key>
+            <key>door_ouverte_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1208},{450,400}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_00.png</key>
+            <key>door_ouverture_00.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,1610},{450,400}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_01.png</key>
+            <key>door_ouverture_01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,806},{450,400}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_02.png</key>
+            <key>door_ouverture_02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{906,806},{450,400}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_03.png</key>
+            <key>door_ouverture_03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{454,806},{450,400}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_04.png</key>
+            <key>door_ouverture_04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,806},{450,400}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_05.png</key>
+            <key>door_ouverture_05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,404},{450,400}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_06.png</key>
+            <key>door_ouverture_06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{906,404},{450,400}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_07.png</key>
+            <key>door_ouverture_07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{454,404},{450,400}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_08.png</key>
+            <key>door_ouverture_08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,404},{450,400}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_09.png</key>
+            <key>door_ouverture_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1358,2},{450,400}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_10.png</key>
+            <key>door_ouverture_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{906,2},{450,400}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_11.png</key>
+            <key>door_ouverture_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{454,2},{450,400}}</string>
@@ -264,7 +264,7 @@
                 <key>sourceSize</key>
                 <string>{450,400}</string>
             </dict>
-            <key>porte_ouverture_12.png</key>
+            <key>door_ouverture_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{450,400}}</string>

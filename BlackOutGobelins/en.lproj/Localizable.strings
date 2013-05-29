@@ -7,4 +7,7 @@
 */
 
 "POPIN_CHARACTER_SIMILAR_FRIEND" = "friends in common";
-"CHARACTER_DIALOGUE" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer urna magna, placerat et accumsan at, adipiscing sit amet magna. Quisque nec enim eu erat malesuada lobortis molestie sit amet neque. Nullam at mi velit, in ultrices sapien. Maecenas posuere venenatis urna. Sed cursus, elit id adipiscing congue, lectus risus tempor lorem, a facilisis ipsum neque sit amet ligula. Vestibulum lacinia nibh nec mi tempus eget pulvinar erat commodo. Pellentesque ut tellus eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non sem in diam ornare tristique.";
+
+"CHARACTER_DIALOGUE_BESTFRIEND" = "I'm happy to met you, that was really boring to be alone with a broken bot... He really help me anyway, you should go talk to him before he'll be gone.";
+
+"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Who. You have been really hurted! I remember you but that was not easy. Have you got a picture of yourself?";

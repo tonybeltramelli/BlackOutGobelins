@@ -62,7 +62,7 @@
         
         _ratio = [[TBModel getInstance] isRetinaDisplay] ? 1.0f : 0.5f;
         
-        _value = 2.5f;
+        _value = 1.5f;
             
         [self addEffects:color];
         [super startSchedule];

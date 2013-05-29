@@ -8,8 +8,24 @@
 
 #import "TBFirstLevelData.h"
 #import "TBModel.h"
+#import "TBCharacterData.h"
+#import "TBCharacter.h"
 
 @implementation TBFirstLevelData
+{
+    NSMutableArray *_characterData;
+}
+
+-(void)generateCharactersData
+{
+    _characterData = [[NSMutableArray alloc] init];
+    
+    TBCharacterData *dataBestFriend = [[TBCharacterData alloc] initWithDescriptor: [[TBModel getInstance] facebookController].bestFriend andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)];
+    [_characterData addObject:dataBestFriend];
+    
+    TBCharacterData *dataFriendOnPicture = [[TBCharacterData alloc] initWithDescriptor: [[TBModel getInstance] facebookController].friendOnPicture andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)];
+    [_characterData addObject:dataFriendOnPicture];
+}
 
 -(NSString *)getUserName
 {
@@ -31,29 +47,11 @@
     return [TBModel getInstance].facebookController.user != nil;
 }
 
--(NSString *)getBestFriendName
+-(NSMutableArray *)getCharactersData
 {
-    if([self isBestFriendAvailable])
-    {
-        return [TBModel getInstance].facebookController.bestFriend.name;
-    }
+    if(!_characterData) [self generateCharactersData];
     
-    return @"Fake bestfriend";
-}
-
--(int)getBestFriendMutualFriendsNumber
-{
-    if([self isBestFriendAvailable])
-    {
-        return [TBModel getInstance].facebookController.bestFriend.mutualFriendsNumber;
-    }
-    
-    return 0;
-}
-
--(BOOL)isBestFriendAvailable
-{
-    return [TBModel getInstance].facebookController.bestFriend != nil;
+    return _characterData;
 }
 
 @end

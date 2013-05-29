@@ -15,6 +15,7 @@
 - (NSMutableArray *)getBotsStartPositions:(int)botNumber;
 - (NSMutableArray *)getCharactersPositions:(int)charactersNumber;
 - (NSMutableArray *)getObstaclesPositions;
+- (CGPoint)getDoorPosition;
 - (BOOL)isCollisionAt:(CGPoint)position;
 - (BOOL)isObstacleAt:(CGPoint)position;
 - (void)removeMetaTileAt:(CGPoint)position;

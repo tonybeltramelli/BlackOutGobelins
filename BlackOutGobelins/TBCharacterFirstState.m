@@ -9,6 +9,7 @@
 #import "TBCharacterFirstState.h"
 #import "TBCharacterNamePopin.h"
 #import "TBModel.h"
+#import "TBCharacterData.h"
 
 @implementation TBCharacterFirstState
 {
@@ -20,15 +21,20 @@
 {
     self = [super initWithPrefix:@"friend_first_state_" andNumFrame:36];
     if (self) {
-        _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[[TBModel getInstance].getCurrentLevelData getBestFriendName] similarFriendNumber:[[TBModel getInstance].getCurrentLevelData getBestFriendMutualFriendsNumber] andPictureData:nil];
-        
-        _dialogue = NSLocalizedString(@"CHARACTER_DIALOGUE", nil);
-        
         _gravityCenter = CGPointMake(4, 0);
-        
-        [self addChild:_gamePopin];
     }
     return self;
+}
+
+-(void) getDataAt:(int)index
+{
+    TBCharacterData *data = [[[[TBModel getInstance] getCurrentLevelData] getCharactersData] objectAtIndex:index];
+    
+    _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[data getDescriptor].name similarFriendNumber:[data getDescriptor].mutualFriendsNumber andPictureData:nil];
+    
+    _dialogue = [data getDialog];
+    
+    [self addChild:_gamePopin];
 }
 
 -(void) connectionOnRange:(BOOL)isOnRange

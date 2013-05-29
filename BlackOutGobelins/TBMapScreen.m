@@ -18,6 +18,7 @@
 #import "TBLine.h"
 #import "TBParticle.h"
 #import "TBPlantOne.h"
+#import "TBDoor.h"
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
 #import "TBModel.h"
@@ -45,6 +46,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     NSMutableArray *_obstacles;
     TBProgressBar *_progressBar;
     TBDialoguePopin *_dialoguePopIn;
+    TBDoor *_door;
     
     CGSize _size;
     BOOL _isMoving;
@@ -89,6 +91,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [self addAllBots];
         [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
+        
+        _door = [[TBDoor alloc] init];
+        [_door drawAt:[_environment getDoorPosition]];
+        [_mainContainer addChild:_door z:-1];
 
         _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
         [_gameController useTouch:TRUE];
@@ -240,7 +246,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
                 line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position];
             }
             
-            [_mainContainer addChild:line z:[_mainContainer.children indexOfObject:_hero] - 1];
+            [_mainContainer addChild:line z:-1];
             
             if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])
             {
@@ -380,6 +386,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     {
         id element = [[NSClassFromString(className) alloc] init];
         [element drawAt:[[positions objectAtIndex:i] CGPointValue]];
+        
+        if([element isKindOfClass:[TBCharacterFirstState class]]) [((TBCharacterFirstState *)element) getDataAt:i];
         
         [array addObject:element];
         [_mainContainer addChild:(CCLayer *)element];
