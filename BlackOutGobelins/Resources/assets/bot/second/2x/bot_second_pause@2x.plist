@@ -563,6 +563,19 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
+            <key>bot_second_droite_18.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{1892,542},{102,268}}</string>
+                <key>offset</key>
+                <string>{-8,20}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{41,59},{102,268}}</string>
+                <key>sourceSize</key>
+                <string>{200,426}</string>
+            </dict>
             <key>bot_second_droite_19.png</key>
             <dict>
                 <key>frame</key>

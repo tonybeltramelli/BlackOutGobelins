@@ -169,6 +169,15 @@
     [super connectionOnRange:isOnRange];
 }
 
+-(void)changeDirection {}
+
+-(void) walk {}
+
+-(CGPoint) getTargetPosition
+{
+    return self.position;;
+}
+
 -(ccColor3B) getColor
 {
     return _color;

@@ -11,7 +11,8 @@
 typedef enum {
     mainContainer,
     environmentContainer,
-    topContainer
+    topContainer,
+    effectContainer
 } containerId_t;
 
 typedef enum {

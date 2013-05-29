@@ -9,6 +9,13 @@
 #import "TBBotSecondState.h"
 
 @implementation TBBotSecondState
+{
+    BOOL _isWalking;
+    int _direction;
+    int _movementLength;
+    int _movementIncrement;
+    int _walkUnitStepValue;
+}
 
 - (id)init
 {
@@ -30,8 +37,98 @@
         _color = ccc3(250, 175, 205); //0xfaafcd
         
         _gravityCenter = CGPointMake(2, -10);
+        
+        _walkUnitStepValue = 2;
+        
+        _isWalking = false;
     }
     return self;
+}
+
+-(void) connectionOnRange:(BOOL)isOnRange
+{
+    [super connectionOnRange:isOnRange];
+    
+    if(!isOnRange || _isDeconnected)
+    {
+        return;
+    }
+    
+    if(_isWalking) return;
+    
+    if(!_isWalking)
+    {
+        _isWalking = true;
+        
+        [self changeDirection];
+    }
+}
+
+-(CGPoint) getTargetPosition
+{    
+    switch (_direction) {
+        case 1:
+            return CGPointMake(self.position.x, self.position.y - _walkUnitStepValue);
+            break;
+        case 2:
+            return CGPointMake(self.position.x, self.position.y + _walkUnitStepValue);
+            break;
+        case 3:
+            return CGPointMake(self.position.x + _walkUnitStepValue, self.position.y);
+            break;
+        case 4:
+            return CGPointMake(self.position.x - _walkUnitStepValue, self.position.y);
+            break;
+        default:
+            return [super getTargetPosition];
+            break;
+    }
+}
+
+-(void) walk
+{
+    if(!_isWalking) return;
+    
+    if((arc4random() % 10) < 5) return;
+    
+    [self setPosition:[self getTargetPosition]];
+    
+    _movementIncrement ++;
+
+    if(_movementIncrement == _movementLength)
+    {
+        _isWalking = false;
+    }
+}
+
+-(void)changeDirection
+{
+    _movementLength = 20;
+    _movementIncrement = 0;
+    
+    _direction = (arc4random() % 4) + 1;
+    
+    NSString *animation;
+    
+    switch (_direction) {
+        case 1:
+            animation = _frontAnimationName;
+            break;
+        case 2:
+            animation = _backAnimationName;
+            break;
+        case 3:
+            animation = _rightAnimationName;
+            break;
+        case 4:
+            animation = _leftAnimationName;
+            break;
+        default:
+            animation = _frontAnimationName;
+            break;
+    }
+    
+    [_currentFace changeAnimationHard:animation from:0 to:24];
 }
 
 - (void)dealloc

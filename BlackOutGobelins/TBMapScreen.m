@@ -37,6 +37,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 @implementation TBMapScreen
 {
     CCLayer *_mainContainer;
+    CCLayer *_effectContainer;
     TBGameController *_gameController;
     TBEnvironment *_environment;
     TBHeroFirstState *_hero;
@@ -54,6 +55,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     CGPoint _swipeEndPosition;
     float _delay;
     BOOL _toFreeze;
+    float _incrementValue;
 }
 
 +(CCScene *) scene
@@ -75,6 +77,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         _mainContainer = [[CCLayer alloc] init];
         [self addChild:_mainContainer z:0 tag:mainContainer];
+        
+        _effectContainer = [[CCLayer alloc] init];
+        [self addChild:_effectContainer z:1 tag:effectContainer];
         
         _size = [[CCDirector sharedDirector] winSize];
         
@@ -103,6 +108,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
         [self addChild:_progressBar];
         
+        _incrementValue = 1.0f / [_bots count];
+        
         [self scheduleUpdate];
     }
     return self;
@@ -119,9 +126,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     }
     
     [self displayPossibleConnections];
+    [self handleBotMovements];
+    [self reorderIndexes];
     
     _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
-    _environment.position = _mainContainer.position;
+    _environment.position = _effectContainer.position = _mainContainer.position;
     
     CGPoint position = [_gameController getTargetPosition];
 
@@ -176,6 +185,50 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     return FALSE;
 }
 
+- (void)handleBotMovements
+{
+    int i = 0;
+    int length = [_bots count];
+    
+    for(i = 0; i < length; i++)
+    {
+        TBCharacterTransitionBot *bot = (TBCharacterTransitionBot *)[_bots objectAtIndex:i];
+        
+        CGPoint target = [bot getTargetPosition];
+            
+        if([_environment isCollisionAt:target] || [_environment isObstacleAt:target])
+        {
+            [bot changeDirection];
+            
+            return;
+        }
+        
+        [bot walk];
+    }
+}
+
+-(void)reorderIndexes
+{
+    CCNode* item;
+    
+    int i = 0;
+    int length = [_mainContainer children].count;
+    
+    int j = 1;
+    
+    for(j = 1; j < length; j++)
+    {
+        item = [[_mainContainer children] objectAtIndex:j];
+        
+        for(i = j - 1; i >= 0 && ((CCNode*)[[_mainContainer children] objectAtIndex:i]).position.y < item.position.y; i--)
+        {
+            [[_mainContainer children] replaceObjectAtIndex:i + 1 withObject:[[_mainContainer children] objectAtIndex:i]];
+        }
+        
+        [[_mainContainer children] replaceObjectAtIndex:i + 1 withObject:item];
+    }
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(_toFreeze) return;
@@ -202,7 +255,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     if(![_gameController doNeedToIgnoreTouchAction])
     {
         TBParticle *particle = [[[TBParticle alloc] initAt:location with:hexColorToRGBA(0xffffff, 0.9f)] autorelease];
-        [_mainContainer addChild:particle];
+        [_effectContainer addChild:particle];
     }
     
     _isMoving = true;
@@ -285,9 +338,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBCharacterTransitionBot *bot = (TBCharacterTransitionBot *)[notification object];
     [_bots removeObject:bot];
     
-    float incrementValue = 1 / [_bots count];
-    
-    [_progressBar setProgress:[_progressBar progress] + incrementValue];
+    [_progressBar setProgress:[_progressBar progress] + _incrementValue];
     
     _toFreeze = false;
 }
