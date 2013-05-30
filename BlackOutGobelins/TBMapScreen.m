@@ -111,6 +111,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _incrementValue = 1.0f / [_bots count];
         
         [self scheduleUpdate];
+        
+        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "mask.png" : "mask-568h.png"]];
+        [mask setAnchorPoint:CGPointZero];
+        [self addChild:mask];
     }
     return self;
 }

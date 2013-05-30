@@ -43,13 +43,13 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="9" name="EFFETS" tilewidth="120" tileheight="120">
+ <tileset firstgid="9" name="effects" tilewidth="120" tileheight="120">
   <image source="sprite_ground@2x.png" width="1920" height="1920"/>
  </tileset>
- <tileset firstgid="265" name="DECORS" tilewidth="120" tileheight="120">
+ <tileset firstgid="265" name="sets" tilewidth="120" tileheight="120">
   <image source="sprite_elements@2x.png" width="840" height="960"/>
  </tileset>
- <tileset firstgid="321" name="SOL" tilewidth="120" tileheight="120">
+ <tileset firstgid="321" name="floor" tilewidth="120" tileheight="120">
   <image source="sprite_sheet@2x.png" width="1680" height="2040"/>
  </tileset>
  <layer name="black" width="80" height="60">
@@ -114,7 +114,7 @@
  </layer>
  <layer name="meta" width="80" height="60">
   <data encoding="base64" compression="zlib">
-   eJztmt1uwyAMRttObff+TzxV2gVJbfz5LwngI0W7IIT4yBBTdrsVxTV5/F+FjUfzF7mKLYiT8sejcVL+vuHy6k7cU/6+Qb2UPxrKyw94X4E5eSruXQ1NnVL+ZCh/9f3AkfyVxz6In9qb8HAeqG8y0g8Zb6b9ouWdPbH2+o3qT/LxJvp4xvrwFNpHgXpfKjapDzIOus6OhNWFpQ/ibzSO9jdbvW75DnrjpPqPOHc5pFiy/M1ELxd78w+p7/bP9ZwjIH3PrDMt/nrPssQQ7SLCIbKWt+2vXRvXZxSQd9XMJe2csb4TilSDekDzLysfEH+R8b/kW7pwex2JbH9nrsteLP48OdH2PdpXxrcUrXNHygmOjFr0iH3CVciq5c/y513PJdA56p1fM8xfz7rqdRdRA3ouDst3yhqPlbPzKjq3M/Z91vGOQoqLa+f2QL0xorlazSrNcWsOZe1pqOfPSFR8s5xXaaFijFwPZ/f3obdWlj8MLt/Kn4/ypyeyhl7V35WeMxpRe8eV/dXc9aP12P5f/OruWrQuyt0W7X66/G3R/m5YbEH9FTSUm/0ZTfmjiTjHWJHI369WdJlxFrKSw6w4V/KXda60Alnr1ir+WjQOfzv9V1r/Wnq1CXK2vG//AyL8A8s=
+   eJztmdtuwyAQBdM0bfr/X1xZaiXsLHD25hg4I0V5AAyMFryY242Qa3L/+xEb9+If+ZE9iBP6q6NxQn+v1OLqQ6hDf6+gXuhPRvLyCdYj3P+8aPIU+usj+eP7A6fnjx7bIH54Nqlj9eBpN9N50TJmz1xb7Ub1p/Xhjb2Nr075KEjjlebWa4P0g+6zI2F1YWmD+BuNs/3Nlq9b3oPeeUrtR1y7NXpzyfI3E61YbK0/JL87Ptdzj4C0fWeeafHXepY1X4p0EeEQ2cvL8sehrNZmFJCxataSds1Yx4Ty6Fcxg8ZfVjwg/p6B/Xld1s46PbL9vXNf9mLx9+3or2x7tq+Mdyma544UEzUyctEzzglXISuXf5e/zHfjBrpGvetrhvXr2Ve97iJyQM+vRu/7YWucaL3s2MsmOrYzzn3W/s6iN69aee0M1OojmqvlrL01bo2hsq5lX9A8f0ai5iedJ68Uf1lIc4zcD2f3t9HaK+kPoxZv9OeD/vRE5tCr+rvSc0Yj6uy4sj+uXT9aj//feuhuj9YF3e3Rnqfpb4/2uyHZg/ojMpKb4x0N/clE3GOsSOT3qxVdZtyFrOQwa54r+cu6V1qBrH1rFX8lGoc/jfYr7X8lrdwEuVs+lv8ClHADuw==
   </data>
  </layer>
  <layer name="foreground_mur" width="80" height="60">
