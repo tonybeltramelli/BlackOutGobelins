@@ -7,6 +7,7 @@
 //
 
 #import "TBBotSecondState.h"
+#import "TypeDef.c"
 
 @implementation TBBotSecondState
 {
@@ -61,6 +62,8 @@
         _isWalking = true;
         
         [self changeDirection];
+        
+        [self.parent getChildByTag:hero];
     }
 }
 
@@ -106,8 +109,26 @@
     _movementLength = 20;
     _movementIncrement = 0;
     
-    _direction = (arc4random() % 4) + 1;
-    
+    if((arc4random() % 10) < 2)
+    {
+        _direction = (arc4random() % 4) + 1;
+    }else{
+        CCLayer *heroRef = (CCLayer *)[self.parent getChildByTag:hero];
+        
+        int xDirection = self.position.x < heroRef.position.x ? 1 : -1;
+        int yDirection = self.position.y < heroRef.position.y ? 1 : -1;
+        
+        float xVector = (heroRef.position.x - self.position.x) * xDirection;
+        float yVector = (heroRef.position.y - self.position.y) * yDirection;
+        
+        if(xVector > yVector)
+        {
+            _direction = xDirection > 0 ? 4 : 3;
+        }else{
+            _direction = yDirection > 0 ? 1 : 2;
+        }
+    }
+       
     NSString *animation;
     
     switch (_direction) {

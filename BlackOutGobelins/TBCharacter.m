@@ -26,6 +26,7 @@
         
         _inertiaValue = 0.5f;
         _gravityCenter = CGPointZero;
+        _isConnecting = false;
     }
     return self;
 }
@@ -161,7 +162,7 @@
     CGPoint target = CGPointMake([self position].x + position.x, [self position].y + position.y);
     
     int x = [self position].x > target.x ? - 10 : 10;
-    int y = [self position].y < target.y ? 0 : -21;
+    int y = [self position].y < target.y ? 0 : -32;
     
     return CGPointMake(x, y);
 }
@@ -297,7 +298,10 @@
     _connection = nil;
 }
 
--(void) handleConnection:(BOOL)toConnect {}
+-(void) handleConnection:(BOOL)toConnect
+{
+    _isConnecting = toConnect;
+}
 
 -(CGSize) getSize
 {

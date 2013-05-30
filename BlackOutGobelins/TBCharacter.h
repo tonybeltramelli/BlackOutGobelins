@@ -31,6 +31,7 @@
     TBCharacterFace *_currentFace;
     
     BOOL _isOnRange;
+    BOOL _isConnecting;
     BOOL _isDeconnected;
     
     CGPoint _connectionAssetPosition;

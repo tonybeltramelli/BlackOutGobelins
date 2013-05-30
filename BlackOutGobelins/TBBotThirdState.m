@@ -46,19 +46,19 @@
         [_glowSprite setPosition:[self position]];
         [_glowSprite setBlendFunc:(ccBlendFunc) {GL_ONE, GL_ONE}];
         
-        CGSize size = CGSizeMake(5.0f, 10.0f);
+        CGSize size = CGSizeMake(5.0f, 6.0f);
         
         [_glowSprite runAction: [CCRepeatForever actionWithAction: [CCSequence actions: [CCScaleTo actionWithDuration:0.9f scaleX:size.width scaleY:size.height], [CCScaleTo actionWithDuration:0.5f scaleX:size.width * 0.9f scaleY:size.height * 0.9f], nil]]];
         
         [self addChild:_glowSprite z:1];
-        [_glowSprite setPosition:CGPointMake(14.0f, 10.0f)];
+        [_glowSprite setPosition:CGPointMake(9.0f, 10.0f)];
     }
     return self;
 }
 
 -(void) update
 {
-    if(_isDeconnected) return;
+    if(_isDeconnected || _isConnecting) return;
     
     _incrementValue ++;
     
@@ -71,6 +71,17 @@
         _limit = _isOn ? 100 : 500;
         
         [_glowSprite runAction:[CCFadeTo actionWithDuration:0.6f opacity:_isOn ? 0 : 255]];
+    }
+}
+
+-(void) handleConnection:(BOOL)toConnect
+{    
+    [super handleConnection:toConnect];
+    
+    if(_isConnecting)
+    {
+        _isOn = false;
+        [_glowSprite runAction:[CCFadeTo actionWithDuration:0.3f opacity:0]];
     }
 }
 

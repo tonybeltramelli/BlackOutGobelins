@@ -24,3 +24,7 @@ typedef enum {
     isOnRange,
     isTouched
 } interactionType_t;
+
+typedef enum {
+    hero
+} charatersId_t;

@@ -10,6 +10,7 @@
 
 #import "TBGameController.h"
 #import "TBEnvironment.h"
+#import "TBTopMap.h"
 #import "TBHeroFirstState.h"
 #import "TBCharacterTransitionBot.h"
 #import "TBCharacterFirstState.h"
@@ -39,7 +40,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     CCLayer *_mainContainer;
     CCLayer *_effectContainer;
     TBGameController *_gameController;
-    TBEnvironment *_environment;
+    TBEnvironment *_environmentContainer;
+    TBTopMap *_topContainer;
     TBHeroFirstState *_hero;
     NSMutableArray *_bots;
     TBCharacter *_targetedCharacter;
@@ -76,15 +78,15 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _mainContainer = [[CCLayer alloc] init];
         [self addChild:_mainContainer z:0 tag:mainContainer];
         
-        _effectContainer = [[CCLayer alloc] init];
-        [self addChild:_effectContainer z:1 tag:effectContainer];
-        
         _size = [[CCDirector sharedDirector] winSize];
         
-        _environment = [[TBEnvironment alloc] init];
-        [self addChild:_environment z:-1 tag:environmentContainer];
+        _environmentContainer = [[TBEnvironment alloc] init];
+        [self addChild:_environmentContainer z:-1 tag:environmentContainer];
         
-        CGPoint startPosition = [_environment getStartPositionFromMeta];
+        _topContainer = [[TBTopMap alloc] init];
+        [self addChild:_topContainer z:1 tag:topContainer];
+        
+        CGPoint startPosition = [_environmentContainer getStartPositionFromMeta];
         [self addOrMoveHeroAtPosition:startPosition];
         
         _bots = [[NSMutableArray alloc] init];
@@ -92,11 +94,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _obstacles = [[NSMutableArray alloc] init];
         
         [self addAllBots];
-        [self addCharactersAtPositions:[_environment getCharactersPositions:1]];
-        [self addObstaclesAtPositions:[_environment getObstaclesPositions]];
+        [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
+        [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
         
         _door = [[TBDoor alloc] init];
-        [_door drawAt:[_environment getDoorPosition]];
+        [_door drawAt:[_environmentContainer getDoorPosition]];
         [_mainContainer addChild:_door z:-1];
 
         _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
@@ -128,14 +130,14 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [self reorderIndexes];
     
     _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
-    _environment.position = _effectContainer.position = _mainContainer.position;
+    _environmentContainer.position = _effectContainer.position = _topContainer.position = _mainContainer.position;
     
     CGPoint position = [_gameController getTargetPosition];
 
     CGPoint volumicBoundaries = [_hero getVolumicBoundariesFromPositionTarget:position];
     CGPoint target = CGPointMake(_hero.position.x + position.x + volumicBoundaries.x, _hero.position.y + position.y + volumicBoundaries.y);
     
-    if([_environment isCollisionAt:target] || [_environment isObstacleAt:target])
+    if([_environmentContainer isCollisionAt:target] || [_environmentContainer isObstacleAt:target])
     {
         [_hero collide];
         return;
@@ -203,7 +205,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         CGPoint target = [bot getTargetPosition];
             
-        if([_environment isCollisionAt:target] || [_environment isObstacleAt:target])
+        if([_environmentContainer isCollisionAt:target] || [_environmentContainer isObstacleAt:target])
         {
             [bot changeDirection];
             
@@ -262,7 +264,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     if(![_gameController doNeedToIgnoreTouchAction])
     {
         TBParticle *particle = [[[TBParticle alloc] initAt:location with:hexColorToRGBA(0xffffff, 0.9f)] autorelease];
-        [_effectContainer addChild:particle];
+        [_topContainer addChild:particle];
     }
     
     _isMoving = true;
@@ -378,7 +380,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         {
             [_mainContainer removeChild:obstacle cleanup:TRUE];
             [_obstacles removeObjectAtIndex:i];
-            [_environment removeMetaTileAt:location];
+            [_environmentContainer removeMetaTileAt:location];
             return;
         }
     }
@@ -414,15 +416,15 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _hero = [[TBHeroFirstState alloc] init];
         [_hero drawAt:position];
         
-        [_mainContainer addChild:_hero];
+        [_mainContainer addChild:_hero z:1 tag:hero];
     }
 }
 
 -(void) addAllBots
 {
-    [self addElements:@"TBBotFirstState" atPositions:[_environment getBotsStartPositions:1] andSaveThemIn:_bots];
-    [self addElements:@"TBBotSecondState" atPositions:[_environment getBotsStartPositions:2] andSaveThemIn:_bots];
-    [self addElements:@"TBBotThirdState" atPositions:[_environment getBotsStartPositions:3] andSaveThemIn:_bots];
+    [self addElements:@"TBBotFirstState" atPositions:[_environmentContainer getBotsStartPositions:1] andSaveThemIn:_bots];
+    [self addElements:@"TBBotSecondState" atPositions:[_environmentContainer getBotsStartPositions:2] andSaveThemIn:_bots];
+    [self addElements:@"TBBotThirdState" atPositions:[_environmentContainer getBotsStartPositions:3] andSaveThemIn:_bots];
 }
 
 -(void) addCharactersAtPositions:(NSMutableArray *)positions
@@ -455,15 +457,15 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 - (void)dealloc
 {
     [self removeChild:_mainContainer cleanup:TRUE];
-    [self removeChild:_environment cleanup:TRUE];
+    [self removeChild:_environmentContainer cleanup:TRUE];
     
     _mainContainer = nil;
     
     [_hero release];
     _hero = nil;
     
-    [_environment release];
-    _environment = nil;
+    [_environmentContainer release];
+    _environmentContainer = nil;
     
     [_gameController release];
     _gameController = nil;
