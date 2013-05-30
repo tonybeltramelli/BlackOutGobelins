@@ -27,7 +27,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         
         _userId = _graphUser.id;
         _name = _graphUser.name;
-        _profilePictureUrl = [NSString stringWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
     }
     return self;
 }
@@ -38,7 +38,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     if (self) {
         _userId = [userData objectForKey:@"USER_ID"];
         _name = [userData objectForKey:@"USER_NAME"];
-        _profilePictureUrl = [NSString stringWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
     }
     return self;
 }

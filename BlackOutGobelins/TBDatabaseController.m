@@ -98,6 +98,11 @@
     return _data;
 }
 
+- (NSMutableArray *) getRowsfromTable:(NSString *)tableName
+{
+    return [self getRow:@"*" fromTable:tableName];
+}
+
 - (void) insertIntoTable:(NSString *)tableName theseRowsAndValues:(NSDictionary *)rowsAndValues
 {
     NSString *rows = @"";

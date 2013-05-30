@@ -14,11 +14,14 @@
     int _loadedFriends;
     int _maxMutualFriendsNumber;
     int _maxFriendsNumber;
+    
+    NSMutableArray *_allFriends;
 }
 
 @synthesize user = _user;
 @synthesize bestFriend = _bestFriend;
 @synthesize friendOnPicture = _friendOnPicture;
+@synthesize someFriends = _someFriends;
 
 -(void)getFriendOnPicture
 {
@@ -62,6 +65,8 @@
 
 -(void)getFriendsData
 {
+    _allFriends = [[NSMutableArray alloc] init];
+    
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
@@ -94,6 +99,7 @@
 -(void) friendIsLoaded:(NSNotification *)notification
 {
     TBFacebookFriendDescriptor *friend = (TBFacebookFriendDescriptor *)[notification object];
+    [_allFriends addObject:friend];
     
     if(_maxMutualFriendsNumber < friend.mutualFriendsNumber)
     {
@@ -105,6 +111,19 @@
     
     if(_loadedFriends == _totalFriends)
     {
+        _someFriends = [[NSMutableArray alloc] init];
+        
+        int randomIndex;
+        TBFacebookFriendDescriptor *parsedFriend;
+        
+        for(int i = 0; i < 4; i++)
+        {
+            randomIndex = arc4random() % [_allFriends count];
+            parsedFriend = (TBFacebookFriendDescriptor *)[_allFriends objectAtIndex:randomIndex];
+            
+            [_someFriends addObject:parsedFriend];
+        }
+        
         [[NSNotificationCenter defaultCenter] removeObserver:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"READY" object:nil];
     }
@@ -123,6 +142,20 @@
 -(void)setPictureFriendFromData:(NSMutableDictionary *)userData
 {
     _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:userData];
+}
+
+-(void)setSomeFriendsFromData:(NSMutableArray *)allData
+{
+    _someFriends = [[NSMutableArray alloc] init];
+    
+    int i = 0;
+    int length = [allData count];
+    
+    for(i = 0; i < length; i++)
+    {
+        TBFacebookFriendDescriptor *friend = [[TBFacebookFriendDescriptor alloc] initWithDictionnary:(NSMutableDictionary*)[allData objectAtIndex:i]];
+        [_someFriends addObject:friend];
+    }
 }
 
 - (void)dealloc

@@ -25,6 +25,9 @@ NSString *USER_ID = @"USER_ID";
 NSString *USER_NAME = @"USER_NAME";
 NSString *PROFILE_PICTURE_URL = @"PROFILE_PICTURE_URL";
 
+//some friends
+NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
+
 @implementation TBFacebookDataManager
 {
     TBFacebookController *_facebookController;
@@ -112,6 +115,32 @@ NSString *PROFILE_PICTURE_URL = @"PROFILE_PICTURE_URL";
     [toSave setObject:friendPictureUrl forKey:PICTURE_URL];
     
     [_databaseController insertIntoTable:FRIEND_ON_PICTURE_TABLE_NAME theseRowsAndValues:toSave];
+}
+
+-(void) saveSomeFriends
+{
+    int i = 0;
+    int length = [_facebookController.someFriends count];
+    
+    for(i = 0; i < length; i++)
+    {
+        TBFacebookFriendDescriptor *parsedFriend = (TBFacebookFriendDescriptor *)[_facebookController.someFriends objectAtIndex:i];
+        
+        NSString *userId = parsedFriend.userId;
+        NSString *userName = parsedFriend.name;
+        NSString *userProfilePictureUrl = parsedFriend.profilePictureUrl;
+        
+        NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_ID];
+        
+        [_databaseController createTable:SOME_FRIENDS_TABLE_NAME andParams:requestParams];
+        
+        NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
+        [toSave setObject:userId forKey:USER_ID];
+        [toSave setObject:userName forKey:USER_NAME];
+        [toSave setObject:userProfilePictureUrl forKey:PROFILE_PICTURE_URL];
+        
+        [_databaseController insertIntoTable:SOME_FRIENDS_TABLE_NAME theseRowsAndValues:toSave];
+    }
 }
 
 -(BOOL)isUniqueUserAlreadySaved:(NSString *)valueToCheck on:(NSString *)tableName
@@ -226,6 +255,31 @@ NSString *PROFILE_PICTURE_URL = @"PROFILE_PICTURE_URL";
     }
     
     return userName;
+}
+
+-(NSMutableArray *) getSomeFriends
+{
+    NSMutableArray *resultNames = [_databaseController getRow:USER_NAME fromTable:SOME_FRIENDS_TABLE_NAME];
+    NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:SOME_FRIENDS_TABLE_NAME];
+    NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:SOME_FRIENDS_TABLE_NAME];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    int i = 0;
+    int length = [resultNames count];
+        
+    for(i = 0; i < length; i ++)
+    {
+        NSMutableDictionary *friendData = [[NSMutableDictionary alloc] init];
+        [friendData setObject:(NSString *)[resultUserIds objectAtIndex:i] forKey:USER_ID];
+        [friendData setObject:(NSString *)[resultNames objectAtIndex:i] forKey:USER_NAME];
+        [friendData setObject:(NSString *)[resultProfilePicture objectAtIndex:i] forKey:PROFILE_PICTURE_URL];
+        
+        [result addObject:friendData];
+    }
+    
+    [_facebookController setSomeFriendsFromData:result];
+    
+    return resultNames;
 }
 
 @end

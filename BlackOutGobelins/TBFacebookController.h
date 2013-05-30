@@ -16,10 +16,12 @@
 @property (assign, nonatomic) TBFacebookUserDescriptor *user;
 @property (assign, nonatomic) TBFacebookFriendDescriptor *bestFriend;
 @property (assign, nonatomic) TBFacebookFriendDescriptor *friendOnPicture;
+@property (assign, nonatomic) NSMutableArray *someFriends;
 
 -(void)setUserFromData:(NSMutableDictionary *)userData;
 -(void)setBestFriendFromData:(NSMutableDictionary *)userData;
 -(void)setPictureFriendFromData:(NSMutableDictionary *)userData;
+-(void)setSomeFriendsFromData:(NSMutableArray *)allData;
 
 -(void)getFriendOnPicture;
 -(void)getFriendsData;

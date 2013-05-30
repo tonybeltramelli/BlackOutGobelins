@@ -98,6 +98,7 @@
     [self displayFriendsData];
     
     [[TBModel getInstance].facebookDataManager saveBestFriend];
+    [[TBModel getInstance].facebookDataManager saveSomeFriends];
 }
 
 -(void)displayFriendsData
