@@ -85,7 +85,7 @@
     }
 }
 
--(void) walk
+-(void) update
 {
     if(!_isWalking) return;
     

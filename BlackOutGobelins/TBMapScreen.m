@@ -171,8 +171,17 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             case isTouched:
                 if([self isCharacter:character touchedAt:_swipeStartPosition])
                 {
-                    _targetedCharacter = character;
-                    return TRUE;
+                    if([character isKindOfClass:[TBCharacterTransitionBot class]])
+                    {
+                        if([((TBCharacterTransitionBot *)character) isConnectable])
+                        {
+                            _targetedCharacter = character;
+                            return TRUE;
+                        }
+                    }else{
+                        _targetedCharacter = character;
+                        return TRUE;
+                    }
                 }
                 break;
             default:
@@ -201,7 +210,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             return;
         }
         
-        [bot walk];
+        [bot update];
     }
 }
 

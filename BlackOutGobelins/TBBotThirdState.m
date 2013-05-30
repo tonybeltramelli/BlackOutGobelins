@@ -9,6 +9,13 @@
 #import "TBBotThirdState.h"
 
 @implementation TBBotThirdState
+{
+    CCSprite *_glowSprite;
+    BOOL _isOn;
+    
+    int _incrementValue;
+    int _limit;
+}
 
 - (id)init
 {
@@ -30,8 +37,48 @@
         _color = ccc3(116, 224, 255); //0x74e0ff
         
         _gravityCenter = CGPointMake(4, -10);
+        
+        _limit = 500;
+        _isOn = false;
+        
+        _glowSprite = [CCSprite spriteWithFile:@"fire.png"];
+        [_glowSprite setColor:_color];
+        [_glowSprite setPosition:[self position]];
+        [_glowSprite setBlendFunc:(ccBlendFunc) {GL_ONE, GL_ONE}];
+        
+        CGSize size = CGSizeMake(5.0f, 10.0f);
+        
+        [_glowSprite runAction: [CCRepeatForever actionWithAction: [CCSequence actions: [CCScaleTo actionWithDuration:0.9f scaleX:size.width scaleY:size.height], [CCScaleTo actionWithDuration:0.5f scaleX:size.width * 0.9f scaleY:size.height * 0.9f], nil]]];
+        
+        [self addChild:_glowSprite z:1];
+        [_glowSprite setPosition:CGPointMake(14.0f, 10.0f)];
     }
     return self;
+}
+
+-(void) update
+{
+    if(_isDeconnected) return;
+    
+    _incrementValue ++;
+    
+    if(_incrementValue == _limit)
+    {
+        _incrementValue = 0;
+        
+        _isOn = !_isOn;
+        
+        _limit = _isOn ? 100 : 500;
+        
+        [_glowSprite runAction:[CCFadeTo actionWithDuration:0.6f opacity:_isOn ? 0 : 255]];
+    }
+}
+
+-(BOOL) isConnectable
+{
+    if(!_isOn) return false;
+    
+    return [super isConnectable];
 }
 
 - (void)dealloc

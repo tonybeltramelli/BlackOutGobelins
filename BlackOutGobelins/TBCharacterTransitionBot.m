@@ -169,9 +169,14 @@
     [super connectionOnRange:isOnRange];
 }
 
+-(BOOL) isConnectable
+{
+    return _isOnRange && !_isDeconnected;
+}
+
 -(void)changeDirection {}
 
--(void) walk {}
+-(void) update {}
 
 -(CGPoint) getTargetPosition
 {
