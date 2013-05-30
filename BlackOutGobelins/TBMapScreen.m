@@ -73,8 +73,6 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     self = [super init];
     if (self)
     {
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[TBResources getAsset:ASSETS_SPRITE_SHEET_COMMON_PLIST]];
-        
         _mainContainer = [[CCLayer alloc] init];
         [self addChild:_mainContainer z:0 tag:mainContainer];
         

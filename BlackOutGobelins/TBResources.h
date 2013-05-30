@@ -11,8 +11,6 @@
 @interface TBResources : NSObject
 
 extern const char *ASSETS_MAP_LEVEL1_TMX;
-extern const char *ASSETS_SPRITE_SHEET_COMMON_PLIST;
-extern const char *ASSETS_SPRITE_SHEET_COMMON_IMG;
 //
 extern NSString *FUTURASTD_CONDENSEDLIGHT;
 

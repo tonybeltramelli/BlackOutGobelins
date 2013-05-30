@@ -12,8 +12,6 @@
 @implementation TBResources
 
 const char *ASSETS_MAP_LEVEL1_TMX = "map_level1.tmx";
-const char *ASSETS_SPRITE_SHEET_COMMON_PLIST = "sprite_sheet_common.plist";
-const char *ASSETS_SPRITE_SHEET_COMMON_IMG = "sprite_sheet_common.png";
 //
 NSString *FUTURASTD_CONDENSEDLIGHT = @"FuturaStd-CondensedLight";
 

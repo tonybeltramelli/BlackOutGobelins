@@ -7,6 +7,7 @@
 //
 
 #import "TBJoystick.h"
+#import "TBResources.h"
 
 const float PAD_RADIUS = 90.0f;
 const float BTN_RADIUS = 50.0f;
@@ -58,6 +59,8 @@ static bool isPointInCircle(CGPoint point, CGPoint center, float radius) {
         
         CGSize s = [[CCDirector sharedDirector] winSize];
         _center = CGPointMake(s.width - BTN_RADIUS - 10 , BTN_RADIUS + 10);
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[TBResources getAsset:"joystick.plist"]];
         
         _pad = [CCSprite spriteWithSpriteFrameName:@"joystick_pad.png"];
         [_pad setPosition:_center];
