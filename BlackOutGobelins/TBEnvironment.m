@@ -61,14 +61,19 @@
     return [self getAllMetaWithKey:@"bot" andValue:[NSString stringWithFormat:@"%d", botNumber]];
 }
 
-- (NSMutableArray *)getCharactersPositions:(int)charactersNumber
+- (NSMutableArray *)getCharactersPositions:(int)characterNumber
 {
-    return [self getAllMetaWithKey:@"character" andValue:[NSString stringWithFormat:@"%d", charactersNumber]];
+    return [self getAllMetaWithKey:@"character" andValue:[NSString stringWithFormat:@"%d", characterNumber]];
 }
 
 - (NSMutableArray *)getObstaclesPositions
 {
     return [self getAllMetaWithKey:@"obstacle" andValue:@"true"];
+}
+
+- (NSMutableArray *)getPlantsPositions:(int)plantNumber
+{
+    return [self getAllMetaWithKey:@"plant" andValue:[NSString stringWithFormat:@"%d", plantNumber]];
 }
 
 - (CGPoint)getDoorPosition

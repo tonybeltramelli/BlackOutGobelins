@@ -21,7 +21,7 @@ const int HERO_RANGE = 100;
     return self;
 }
 
--(BOOL)isOnHeroRange:(TBCharacter *)character
+-(BOOL)isOnHeroRange:(id<TBConnectableElement>)element
 {
     float minusX = [self position].x - HERO_RANGE;
     float maxX = [self position].x + HERO_RANGE;
@@ -29,8 +29,8 @@ const int HERO_RANGE = 100;
     float minusY = [self position].y - HERO_RANGE;
     float maxY = [self position].y + HERO_RANGE;
     
-    if((minusX < [character position].x + [character getSize].width/2) && (maxX > [character position].x - [character getSize].width/2) &&
-       (minusY < [character position].y + [character getSize].height/2) && (maxY > [character position].y - [character getSize].height/2))
+    if((minusX < [element getPosition].x + [element getSize].width/2) && (maxX > [element getPosition].x - [element getSize].width/2) &&
+       (minusY < [element getPosition].y + [element getSize].height/2) && (maxY > [element getPosition].y - [element getSize].height/2))
     {
         return true;
     }

@@ -303,6 +303,11 @@
     _isConnecting = toConnect;
 }
 
+-(CGPoint) getPosition
+{
+    return [self position];
+}
+
 -(CGSize) getSize
 {
     return _currentFace.getSize;

@@ -50,6 +50,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBProgressBar *_progressBar;
     TBDialoguePopin *_dialoguePopIn;
     TBDoor *_door;
+    NSMutableArray *_plants;
     
     CGSize _size;
     BOOL _isMoving;
@@ -92,10 +93,12 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _bots = [[NSMutableArray alloc] init];
         _characters = [[NSMutableArray alloc] init];
         _obstacles = [[NSMutableArray alloc] init];
+        _plants = [[NSMutableArray alloc] init];
         
         [self addAllBots];
         [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
         [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
+        [self addAllPlants];
         
         _door = [[TBDoor alloc] init];
         [_door drawAt:[_environmentContainer getDoorPosition]];
@@ -154,6 +157,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 {    
     [self loopForCharacters:_bots typeOfInteraction:isOnRange];
     [self loopForCharacters:_characters typeOfInteraction:isOnRange];
+    [self loopForCharacters:_plants typeOfInteraction:isOnRange];
 }
 
 -(BOOL)loopForCharacters:(NSMutableArray *)array typeOfInteraction:(interactionType_t)type
@@ -163,29 +167,29 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     for(i = 0; i < length; i++)
     {
-        TBCharacter *character = (TBCharacter *)[array objectAtIndex:i];
+        id<TBConnectableElement> element = (id<TBConnectableElement>)[array objectAtIndex:i];
         
         switch (type) {
             case isOnRange:
-                if([_hero isOnHeroRange:character])
+                if([_hero isOnHeroRange:element])
                 {
-                    [character connectionOnRange:true];
+                    [element connectionOnRange:true];
                 }else{
-                    [character connectionOnRange:false];
+                    [element connectionOnRange:false];
                 }
                 break;
             case isTouched:
-                if([self isCharacter:character touchedAt:_swipeStartPosition])
+                if([self isElement:element touchedAt:_swipeStartPosition])
                 {
-                    if([character isKindOfClass:[TBCharacterTransitionBot class]])
+                    if([element isKindOfClass:[TBCharacterTransitionBot class]])
                     {
-                        if([((TBCharacterTransitionBot *)character) isConnectable])
+                        if([((TBCharacterTransitionBot *)element) isConnectable])
                         {
-                            _targetedCharacter = character;
+                            _targetedCharacter = (TBCharacter *)element;
                             return TRUE;
                         }
                     }else{
-                        _targetedCharacter = character;
+                        _targetedCharacter = (TBCharacter *)element;
                         return TRUE;
                     }
                 }
@@ -289,7 +293,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     {
         [_gameController ccTouchesEnded:touches withEvent:event];
     }else{
-        if([self isCharacter:_hero touchedAt:location])
+        if([self isElement:_hero touchedAt:location])
         {
             _swipeEndPosition = location;
         }
@@ -400,10 +404,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     return location;
 }
 
--(BOOL)isCharacter:(TBCharacter *)character touchedAt:(CGPoint)location
+-(BOOL)isElement:(id<TBConnectableElement>)element touchedAt:(CGPoint)location
 {
-    if((location.x > character.position.x - character.getSize.width/2) && (location.x < character.position.x + character.getSize.width/2) &&
-       (location.y > character.position.y - character.getSize.height/2) && (location.y < character.position.y + character.getSize.height/2))
+    if((location.x > [element getPosition].x - element.getSize.width/2) && (location.x < [element getPosition].x + element.getSize.width/2) &&
+       (location.y > [element getPosition].y - element.getSize.height/2) && (location.y < [element getPosition].y + element.getSize.height/2))
     {
         return TRUE;
     }else{
@@ -439,6 +443,12 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 -(void) addObstaclesAtPositions:(NSMutableArray *)positions
 {    
     [self addElements:@"TBPlantOne" atPositions:positions andSaveThemIn:_obstacles];
+}
+
+-(void) addAllPlants
+{
+    [self addElements:@"TBFirstPlant" atPositions:[_environmentContainer getPlantsPositions:1] andSaveThemIn:_plants];
+    [self addElements:@"TBSecondPlant" atPositions:[_environmentContainer getPlantsPositions:2] andSaveThemIn:_plants];
 }
 
 -(void) addElements:(NSString *)className atPositions:(NSMutableArray *)positions andSaveThemIn:(NSMutableArray *)array

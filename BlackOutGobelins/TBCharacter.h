@@ -7,9 +7,10 @@
 //
 
 #import "CCLayer.h"
+#import "TBConnectableElement.h"
 #import "TBCharacterFace.h"
 
-@interface TBCharacter : CCLayer
+@interface TBCharacter : CCLayer <TBConnectableElement>
 {
     int _directionX;
     int _directionY;
@@ -47,7 +48,6 @@
 -(void) right;
 -(void) left;
 
--(void) connectionOnRange:(BOOL)isOnRange;
 -(void) startConnection;
 -(void) handleConnection:(BOOL)toConnect;
 
@@ -57,7 +57,6 @@
 -(void) collide;
 -(CGPoint) getDirection;
 -(void) selectRandomAnimation;
--(CGSize) getSize;
 -(CGPoint) getGravityCenter;
 
 @end
