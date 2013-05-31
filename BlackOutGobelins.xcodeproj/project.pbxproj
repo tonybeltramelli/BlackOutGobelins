@@ -354,6 +354,11 @@
 		98A81B42173112C30051FF76 /* TBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A81B41173112C30051FF76 /* TBGameController.m */; };
 		98AC419B174A31A500BAF236 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98AC419D174A31A500BAF236 /* Localizable.strings */; };
 		98AC41A1174A5C2500BAF236 /* TBDialoguePopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC41A0174A5C2500BAF236 /* TBDialoguePopin.m */; };
+		98B2C9D517592CC1009CCFB0 /* TBObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9D417592CC1009CCFB0 /* TBObstacle.m */; };
+		98B2C9D817592EA6009CCFB0 /* TBASets.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9D717592EA6009CCFB0 /* TBASets.m */; };
+		98B2C9DC17593271009CCFB0 /* TBObstacleFirstType.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */; };
+		98B2C9E0175934E4009CCFB0 /* TBObstacleSecondType.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */; };
+		98B2C9E3175936FC009CCFB0 /* TBObstacleThirdType.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9E2175936FC009CCFB0 /* TBObstacleThirdType.m */; };
 		98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA881744236C00733F88 /* TBBotFirstState.m */; };
 		98C41A641757EF4D00797F7A /* mask-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C41A611757EF4D00797F7A /* mask-568h@2x.png */; };
 		98C41A651757EF4D00797F7A /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C41A621757EF4D00797F7A /* mask.png */; };
@@ -953,6 +958,16 @@
 		98AC419E174A323E00BAF236 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		98AC419F174A5C2500BAF236 /* TBDialoguePopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDialoguePopin.h; sourceTree = "<group>"; };
 		98AC41A0174A5C2500BAF236 /* TBDialoguePopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDialoguePopin.m; sourceTree = "<group>"; };
+		98B2C9D317592CC1009CCFB0 /* TBObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacle.h; sourceTree = "<group>"; };
+		98B2C9D417592CC1009CCFB0 /* TBObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacle.m; sourceTree = "<group>"; };
+		98B2C9D617592EA6009CCFB0 /* TBASets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBASets.h; sourceTree = "<group>"; };
+		98B2C9D717592EA6009CCFB0 /* TBASets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBASets.m; sourceTree = "<group>"; };
+		98B2C9DA17593271009CCFB0 /* TBObstacleFirstType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacleFirstType.h; sourceTree = "<group>"; };
+		98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacleFirstType.m; sourceTree = "<group>"; };
+		98B2C9DE175934E4009CCFB0 /* TBObstacleSecondType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacleSecondType.h; sourceTree = "<group>"; };
+		98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacleSecondType.m; sourceTree = "<group>"; };
+		98B2C9E1175936FC009CCFB0 /* TBObstacleThirdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacleThirdType.h; sourceTree = "<group>"; };
+		98B2C9E2175936FC009CCFB0 /* TBObstacleThirdType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacleThirdType.m; sourceTree = "<group>"; };
 		98BAEA871744236C00733F88 /* TBBotFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotFirstState.h; sourceTree = "<group>"; };
 		98BAEA881744236C00733F88 /* TBBotFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotFirstState.m; sourceTree = "<group>"; };
 		98C41A611757EF4D00797F7A /* mask-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mask-568h@2x.png"; sourceTree = "<group>"; };
@@ -2175,6 +2190,8 @@
 		98814E48174107A700C86F65 /* sets */ = {
 			isa = PBXGroup;
 			children = (
+				98B2C9D9175930B7009CCFB0 /* common */,
+				98B2C9D217592CA5009CCFB0 /* obstacle */,
 				983CFA001758BE22004B7BCA /* plant */,
 				985640AA1755E68400EE750A /* door */,
 				989F18B0173050AB00EA8183 /* map */,
@@ -2371,6 +2388,30 @@
 				98A2199417465081009D67A0 /* hero_first_gauche@2x.png */,
 			);
 			path = 2x;
+			sourceTree = "<group>";
+		};
+		98B2C9D217592CA5009CCFB0 /* obstacle */ = {
+			isa = PBXGroup;
+			children = (
+				98B2C9D317592CC1009CCFB0 /* TBObstacle.h */,
+				98B2C9D417592CC1009CCFB0 /* TBObstacle.m */,
+				98B2C9DA17593271009CCFB0 /* TBObstacleFirstType.h */,
+				98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */,
+				98B2C9DE175934E4009CCFB0 /* TBObstacleSecondType.h */,
+				98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */,
+				98B2C9E1175936FC009CCFB0 /* TBObstacleThirdType.h */,
+				98B2C9E2175936FC009CCFB0 /* TBObstacleThirdType.m */,
+			);
+			name = obstacle;
+			sourceTree = "<group>";
+		};
+		98B2C9D9175930B7009CCFB0 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				98B2C9D617592EA6009CCFB0 /* TBASets.h */,
+				98B2C9D717592EA6009CCFB0 /* TBASets.m */,
+			);
+			name = common;
 			sourceTree = "<group>";
 		};
 		98BAEA3C1744206D00733F88 /* characters */ = {
@@ -2911,6 +2952,11 @@
 				983CFA031758BE34004B7BCA /* TBFirstPlant.m in Sources */,
 				983CFA071758C18C004B7BCA /* TBAPlant.m in Sources */,
 				98C8DCAA1758D0580097A355 /* TBSecondPlant.m in Sources */,
+				98B2C9D517592CC1009CCFB0 /* TBObstacle.m in Sources */,
+				98B2C9D817592EA6009CCFB0 /* TBASets.m in Sources */,
+				98B2C9DC17593271009CCFB0 /* TBObstacleFirstType.m in Sources */,
+				98B2C9E0175934E4009CCFB0 /* TBObstacleSecondType.m in Sources */,
+				98B2C9E3175936FC009CCFB0 /* TBObstacleThirdType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

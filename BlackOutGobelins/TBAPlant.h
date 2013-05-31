@@ -6,17 +6,13 @@
 //
 //
 
-#import "CCLayer.h"
-#import "TBConnectableElement.h"
+#import "TBASets.h"
 
-@interface TBAPlant : CCLayer <TBConnectableElement>
+@interface TBAPlant : TBASets
 {
     int _startTransitionFrameNumber;
     int _loopStartTransitionFrameNumber;
     int _loopEndTransitionFrameNumber;
 }
-
-- (id)initWithPrefix:(NSString *)prefix;
--(void) drawAt:(CGPoint)pos;
 
 @end

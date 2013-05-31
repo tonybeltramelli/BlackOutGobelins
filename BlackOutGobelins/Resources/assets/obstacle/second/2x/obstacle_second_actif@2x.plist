@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_10.png</key>
+            <key>obstacle_second_actif_09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,1212},{436,240}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_11.png</key>
+            <key>obstacle_second_actif_10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,1212},{436,240}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_12.png</key>
+            <key>obstacle_second_actif_11.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,1212},{436,240}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_13.png</key>
+            <key>obstacle_second_actif_12.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1212},{436,240}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_14.png</key>
+            <key>obstacle_second_actif_13.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1754,878},{436,240}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_15.png</key>
+            <key>obstacle_second_actif_14.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,970},{436,240}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_16.png</key>
+            <key>obstacle_second_actif_15.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,970},{436,240}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_17.png</key>
+            <key>obstacle_second_actif_16.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,970},{436,240}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_18.png</key>
+            <key>obstacle_second_actif_17.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,970},{436,240}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_19.png</key>
+            <key>obstacle_second_actif_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,728},{436,240}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_20.png</key>
+            <key>obstacle_second_actif_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,728},{436,240}}</string>
@@ -264,7 +264,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_21.png</key>
+            <key>obstacle_second_actif_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,728},{436,240}}</string>
@@ -277,7 +277,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_23.png</key>
+            <key>obstacle_second_actif_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,728},{436,240}}</string>
@@ -290,7 +290,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_24.png</key>
+            <key>obstacle_second_actif_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1754,440},{436,240}}</string>
@@ -303,7 +303,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_25.png</key>
+            <key>obstacle_second_actif_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,486},{436,240}}</string>
@@ -316,7 +316,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_26.png</key>
+            <key>obstacle_second_actif_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,486},{436,240}}</string>
@@ -329,7 +329,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_27.png</key>
+            <key>obstacle_second_actif_25.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,486},{436,240}}</string>
@@ -342,7 +342,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_28.png</key>
+            <key>obstacle_second_actif_26.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,486},{436,240}}</string>
@@ -355,7 +355,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_29.png</key>
+            <key>obstacle_second_actif_27.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,244},{436,240}}</string>
@@ -368,7 +368,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_30.png</key>
+            <key>obstacle_second_actif_28.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,244},{436,240}}</string>
@@ -381,7 +381,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_31.png</key>
+            <key>obstacle_second_actif_29.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,244},{436,240}}</string>
@@ -394,7 +394,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_32.png</key>
+            <key>obstacle_second_actif_30.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,244},{436,240}}</string>
@@ -407,7 +407,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_34.png</key>
+            <key>obstacle_second_actif_31.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1754,2},{436,240}}</string>
@@ -420,7 +420,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_35.png</key>
+            <key>obstacle_second_actif_32.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1316,2},{436,240}}</string>
@@ -433,7 +433,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_36.png</key>
+            <key>obstacle_second_actif_33.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{878,2},{436,240}}</string>
@@ -446,7 +446,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_37.png</key>
+            <key>obstacle_second_actif_34.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{440,2},{436,240}}</string>
@@ -459,7 +459,7 @@
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
-            <key>obstacle_second_actif_38.png</key>
+            <key>obstacle_second_actif_35.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{436,240}}</string>
