@@ -21,4 +21,14 @@
     return self;
 }
 
+-(CGPoint) getPosition
+{
+    return CGPointMake([self position].x, [self position].y - [self getSize].height);
+}
+
+-(CGSize) getSize
+{
+    return CGSizeMake([super getSize].width, [super getSize].height / 2);
+}
+
 @end
