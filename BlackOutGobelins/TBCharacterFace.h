@@ -2,7 +2,7 @@
 //  TBCharacterFace.h
 //  BlackOut
 //
-//  Created by tony's computer on 07/02/13.
+//  Created by Tony BELTRAMELLI on 07/02/13.
 //
 //
 

@@ -2,7 +2,7 @@
 //  TBFacebookFriendDescriptor.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 17/04/13.
+//  Created by Tony BELTRAMELLI on 17/04/13.
 //
 //
 

@@ -2,7 +2,7 @@
 //  TBDoor.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 29/05/13.
+//  Created by Tony BELTRAMELLI on 29/05/13.
 //
 //
 

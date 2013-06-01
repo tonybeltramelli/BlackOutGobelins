@@ -2,7 +2,7 @@
 //  AppDelegate.mm
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 03/04/13.
+//  Created by Tony BELTRAMELLI on 03/04/13.
 //  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 

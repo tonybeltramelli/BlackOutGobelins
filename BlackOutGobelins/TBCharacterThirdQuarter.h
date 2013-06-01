@@ -2,7 +2,7 @@
 //  TBCharacter.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 09/05/13.
+//  Created by Tony BELTRAMELLI on 09/05/13.
 //
 //
 

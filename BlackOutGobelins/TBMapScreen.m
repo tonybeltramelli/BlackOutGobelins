@@ -2,7 +2,7 @@
 //  TBMapScreen.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 30/04/13.
+//  Created by Tony BELTRAMELLI on 30/04/13.
 //
 //
 

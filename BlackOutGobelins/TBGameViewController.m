@@ -2,7 +2,7 @@
 //  TBGameViewController.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 04/04/13.
+//  Created by Tony Beltramelli on 04/04/13.
 //
 //
 

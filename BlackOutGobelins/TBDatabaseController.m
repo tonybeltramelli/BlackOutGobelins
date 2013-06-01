@@ -2,7 +2,7 @@
 //  TBDataBaseController.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 19/04/13.
+//  Created by Tony BELTRAMELLI on 19/04/13.
 //
 //
 
@@ -135,6 +135,8 @@
 
 - (void) executeQuery:(NSString *)query
 {
+    NSLog(@"execute query : %@", query);
+    
     const char *dbPath = [_databasePath UTF8String];
     
     if (sqlite3_open(dbPath, &_database) == SQLITE_OK)
@@ -143,7 +145,7 @@
         {
             if(sqlite3_step(_statement) == SQLITE_DONE)
             {
-                NSLog(@"query executed with success");
+                NSLog(@"query executed with success : %@", query);
             }
         }
         

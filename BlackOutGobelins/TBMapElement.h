@@ -2,7 +2,7 @@
 //  TBMapElement.h
 //  BlackOut
 //
-//  Created by tony's computer on 19/02/13.
+//  Created by Tony BELTRAMELLI on 19/02/13.
 //
 //
 

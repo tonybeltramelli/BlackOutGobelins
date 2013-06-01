@@ -2,7 +2,7 @@
 //  TBGamePopin.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 20/05/13.
+//  Created by Tony BELTRAMELLI on 20/05/13.
 //
 //
 

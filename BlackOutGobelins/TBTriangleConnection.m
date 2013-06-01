@@ -2,7 +2,7 @@
 //  TBTriangleConnection.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 18/05/13.
+//  Created by Tony BELTRAMELLI on 18/05/13.
 //
 //
 

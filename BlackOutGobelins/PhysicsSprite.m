@@ -2,7 +2,7 @@
 //  PhysicsSprite.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 03/04/13.
+//  Created by Tony Beltramelli on 03/04/13.
 //  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 

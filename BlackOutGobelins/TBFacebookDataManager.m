@@ -3,7 +3,7 @@
 //  TBFacebookDataManager.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 15/05/13.
+//  Created by Tony Beltramelli on 15/05/13.
 //
 //
 
@@ -50,10 +50,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSString *userName = _facebookController.user.name;
     NSString *userProfilePictureUrl = _facebookController.user.profilePictureUrl;
     
-    if([self isUniqueUserAlreadySaved:userId on:USER_TABLE_NAME])
-    {
-        return;
-    }
+    [self cleanIfDataAlreadySaved:userId on:USER_TABLE_NAME];
     
     NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_ID];
     
@@ -74,10 +71,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSString *bestfriendProfilePictureUrl = _facebookController.bestFriend.profilePictureUrl;
     int mutualFriendsNumber = _facebookController.bestFriend.mutualFriendsNumber;
     
-    if([self isUniqueUserAlreadySaved:bestfriendUserId on:BESTFRIEND_TABLE_NAME])
-    {
-        return;
-    }
+    [self cleanIfDataAlreadySaved:bestfriendUserId on:BESTFRIEND_TABLE_NAME];
     
     NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, MUTUAL_FRIENDS_NUMBER, PROFILE_PICTURE_URL, USER_ID];
     
@@ -99,10 +93,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSString *friendProfilePictureUrl = _facebookController.friendOnPicture.profilePictureUrl;
     NSString *friendPictureUrl = _facebookController.friendOnPicture.pictureUrl;
     
-    if([self isUniqueUserAlreadySaved:friendOnPictureUserId on:FRIEND_ON_PICTURE_TABLE_NAME])
-    {
-        return;
-    }
+    [self cleanIfDataAlreadySaved:friendOnPictureUserId on:FRIEND_ON_PICTURE_TABLE_NAME];
     
     NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, PICTURE_URL, USER_ID];
     
@@ -143,7 +134,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     }
 }
 
--(BOOL)isUniqueUserAlreadySaved:(NSString *)valueToCheck on:(NSString *)tableName
+-(BOOL)cleanIfDataAlreadySaved:(NSString *)valueToCheck on:(NSString *)tableName
 {
     NSMutableArray *result = [_databaseController getRow:USER_ID fromTable:tableName];
     

@@ -2,7 +2,7 @@
 //  TBCharacterTransition.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 17/05/13.
+//  Created by Tony BELTRAMELLI on 17/05/13.
 //
 //
 

@@ -2,7 +2,7 @@
 //  TBNotLoggedInView.m
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 05/04/13.
+//  Created by Tony Beltramelli on 05/04/13.
 //
 //
 

@@ -2,7 +2,7 @@
 //  TBResources.m
 //  BlackOut
 //
-//  Created by tony's computer on 06/02/13.
+//  Created by Tony BELTRAMELLI on 06/02/13.
 //
 //
 

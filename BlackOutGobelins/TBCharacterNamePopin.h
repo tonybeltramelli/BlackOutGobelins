@@ -2,7 +2,7 @@
 //  TBCharacterNamePopin.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 20/05/13.
+//  Created by Tony Beltramelli on 20/05/13.
 //
 //
 

@@ -376,6 +376,7 @@
 		98CCB01B17479536002FA1E9 /* connexion@2x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01717479536002FA1E9 /* connexion@2x.plist */; };
 		98CCB01C17479536002FA1E9 /* connexion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CCB01817479536002FA1E9 /* connexion@2x.png */; };
 		98CCB01F1747BE93002FA1E9 /* TBCharacterTransitionBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CCB01E1747BE93002FA1E9 /* TBCharacterTransitionBot.m */; };
+		98CF26B3175A5AF40081286F /* TBAssetPreLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF26B2175A5AF40081286F /* TBAssetPreLoader.m */; };
 		98D1AA81171C405B00E19CFC /* TBASubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D1AA80171C405B00E19CFC /* TBASubView.m */; };
 		98D41E111748DCBB005B602D /* TBProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D41E101748DCBB005B602D /* TBProgressBar.m */; };
 		98D41E181748F07C005B602D /* CCSpriteScale9.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D41E131748EE92005B602D /* CCSpriteScale9.m */; };
@@ -993,6 +994,8 @@
 		98CCB01817479536002FA1E9 /* connexion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connexion@2x.png"; sourceTree = "<group>"; };
 		98CCB01D1747BE93002FA1E9 /* TBCharacterTransitionBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransitionBot.h; sourceTree = "<group>"; };
 		98CCB01E1747BE93002FA1E9 /* TBCharacterTransitionBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransitionBot.m; sourceTree = "<group>"; };
+		98CF26B1175A5AF40081286F /* TBAssetPreLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAssetPreLoader.h; sourceTree = "<group>"; };
+		98CF26B2175A5AF40081286F /* TBAssetPreLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAssetPreLoader.m; sourceTree = "<group>"; };
 		98D1AA7F171C405B00E19CFC /* TBASubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBASubView.h; sourceTree = "<group>"; };
 		98D1AA80171C405B00E19CFC /* TBASubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBASubView.m; sourceTree = "<group>"; };
 		98D41E0F1748DCBB005B602D /* TBProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBProgressBar.h; sourceTree = "<group>"; };
@@ -2040,6 +2043,7 @@
 		98657D9F170C2FAC006F3F57 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				98CF26B0175A5AD40081286F /* loader */,
 				989F18AE1730503800EA8183 /* control */,
 				98814E451741078000C86F65 /* element */,
 				9829E9DB171EA57700888E4C /* facebook */,
@@ -2468,6 +2472,15 @@
 				98CCB01817479536002FA1E9 /* connexion@2x.png */,
 			);
 			path = connexion;
+			sourceTree = "<group>";
+		};
+		98CF26B0175A5AD40081286F /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				98CF26B1175A5AF40081286F /* TBAssetPreLoader.h */,
+				98CF26B2175A5AF40081286F /* TBAssetPreLoader.m */,
+			);
+			name = loader;
 			sourceTree = "<group>";
 		};
 		98D41E091748DBFE005B602D /* ui */ = {
@@ -2963,6 +2976,7 @@
 				98B2C9E0175934E4009CCFB0 /* TBObstacleSecondType.m in Sources */,
 				98B2C9E3175936FC009CCFB0 /* TBObstacleThirdType.m in Sources */,
 				988F1F87175A1A5A00C29C6A /* TBObstacleManager.m in Sources */,
+				98CF26B3175A5AF40081286F /* TBAssetPreLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

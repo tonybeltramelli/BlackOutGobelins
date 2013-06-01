@@ -2,7 +2,7 @@
 //  TBParticle.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 10/05/13.
+//  Created by Tony BELTRAMELLI on 10/05/13.
 //
 //
 

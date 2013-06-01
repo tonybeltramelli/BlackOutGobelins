@@ -2,7 +2,7 @@
 //  TBObstacleManager.h
 //  BlackOutGobelins
 //
-//  Created by tony's computer on 01/06/13.
+//  Created by Tony BELTRAMELLI on 01/06/13.
 //
 //
 
