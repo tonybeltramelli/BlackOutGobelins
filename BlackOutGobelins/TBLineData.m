@@ -35,4 +35,12 @@
     return self;
 }
 
+- (void)dealloc
+{
+    _typeLabel = nil;
+    _dataLabel = nil;
+    
+    [super dealloc];
+}
+
 @end

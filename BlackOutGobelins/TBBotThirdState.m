@@ -94,6 +94,8 @@
 
 - (void)dealloc
 {
+    _glowSprite = nil;
+    
     [super dealloc];
 }
 

@@ -282,4 +282,15 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     return resultNames;
 }
 
+- (void)dealloc
+{
+    [_facebookController release];
+    _facebookController = nil;
+    
+    [_databaseController release];
+    _databaseController = nil;
+    
+    [super dealloc];
+}
+
 @end

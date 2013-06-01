@@ -162,6 +162,9 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+    [_allFriends release];
+    _allFriends = nil;
+    
     [super dealloc];
 }
 

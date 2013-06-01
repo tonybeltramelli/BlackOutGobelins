@@ -254,6 +254,11 @@
     [_frontLeftFace release];
     _frontLeftFace = nil;
     
+    _backRightAnimationName = nil;
+    _backLeftAnimationName = nil;
+    _frontRightAnimationName = nil;
+    _frontLeftAnimationName = nil;
+    
     [super dealloc];
 }
 

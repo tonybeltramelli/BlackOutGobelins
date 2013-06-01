@@ -47,4 +47,14 @@
     return _dialog;
 }
 
+- (void)dealloc
+{
+    [_descriptor release];
+    _descriptor = nil;
+    
+    _dialog = nil;
+    
+    [super dealloc];
+}
+
 @end

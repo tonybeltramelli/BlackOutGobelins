@@ -92,4 +92,15 @@
     if(toContinue) [self schedule:@selector(doorOpeningScheduleHandler:) interval:(frameNumber * [_face delay])];
 }
 
+- (void)dealloc
+{
+    [_face release];
+    _face = nil;
+    
+    _openedAnimationName = nil;
+    _openingAnimationName = nil;
+    
+    [super dealloc];
+}
+
 @end

@@ -36,4 +36,12 @@
     return self;
 }
 
+- (void)dealloc
+{
+    _nameLabel = nil;
+    _similarFriendLabel = nil;
+    
+    [super dealloc];
+}
+
 @end

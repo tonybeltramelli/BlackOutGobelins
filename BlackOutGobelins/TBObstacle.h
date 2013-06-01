@@ -16,7 +16,8 @@
 }
 
 -(void) becomeActive;
--(void) explodeAt:(float)delay withId:(int)uid;
--(int) getId;
+-(void) explodeAt:(int)index;
+-(NSString *) getUId;
+-(int) getIndex;
 
 @end

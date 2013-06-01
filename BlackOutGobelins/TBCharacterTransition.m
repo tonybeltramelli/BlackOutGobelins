@@ -135,4 +135,21 @@ const int LIMIT_VECTOR_LENGTH = 100;
     _vectorLength = vectorLength;
 }
 
+- (void)dealloc
+{
+    [_startTransitionName release];
+    _startTransitionName = nil;
+    
+    [_endTransitionName release];
+    _endTransitionName = nil;
+    
+    [_middleTransitionName release];
+    _middleTransitionName = nil;
+    
+    [_pauseTransitionName release];
+    _pauseTransitionName = nil;
+    
+    [super dealloc];
+}
+
 @end

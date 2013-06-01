@@ -125,6 +125,8 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [_notLoggedView release];
     [_loggedView release];
     

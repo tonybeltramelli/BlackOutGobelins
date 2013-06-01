@@ -94,4 +94,9 @@ const int HERO_RANGE = 100;
     [super startToWalk];
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end

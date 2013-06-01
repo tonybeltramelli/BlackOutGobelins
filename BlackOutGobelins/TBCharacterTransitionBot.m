@@ -188,4 +188,32 @@
     return _color;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [_connectionStartTransitionName release];
+    _connectionStartTransitionName = nil;
+    
+    [_connectionMiddleTransitionName release];
+    _connectionMiddleTransitionName = nil;
+    
+    [_disconnectionStartTransitionName release];
+    _disconnectionStartTransitionName = nil;
+    
+    [_disconnectionMiddleTransitionName release];
+    _disconnectionMiddleTransitionName = nil;
+    
+    [_pauseFace release];
+    _pauseFace = nil;
+    
+    [_connectionFace release];
+    _connectionFace = nil;
+    
+    [_disconnectionFace release];
+    _disconnectionFace = nil;
+    
+    [super dealloc];
+}
+
 @end

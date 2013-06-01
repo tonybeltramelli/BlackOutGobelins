@@ -49,4 +49,14 @@
     return _currentFace.getSize;
 }
 
+- (void)dealloc
+{
+    [_currentFace release];
+    _currentFace = nil;
+    
+    _prefix = nil;
+    
+    [super dealloc];
+}
+
 @end

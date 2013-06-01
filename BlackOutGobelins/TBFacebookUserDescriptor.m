@@ -10,7 +10,7 @@
 
 @implementation TBFacebookUserDescriptor
 {
-    NSData *profilePicture;
+    NSData *_profilePicture;
 }
 
 @synthesize userId = _userId;
@@ -62,7 +62,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {    
-    profilePicture = data;
+    _profilePicture = data;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PROFILE_PICTURE_LOADED" object:nil];
 }
@@ -73,7 +73,15 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
 -(NSData *)getProfilePicture
 {
-    return profilePicture;
+    return _profilePicture;
+}
+
+- (void)dealloc
+{
+    _graphUser = nil;
+    _profilePicture = nil;
+    
+    [super dealloc];
 }
 
 @end

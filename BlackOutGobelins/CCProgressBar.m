@@ -13,7 +13,8 @@
 
 @implementation CCProgressBar
 {
-    CCSpriteScale9 *bg,*fg;
+    CCSpriteScale9 *bg;
+    CCSpriteScale9 *fg;
     
     CGSize margin;
     float progress;

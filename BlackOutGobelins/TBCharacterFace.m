@@ -102,6 +102,10 @@
 
 - (void)dealloc
 {
+    _animName = nil;
+    _prefix = nil;
+    _fileName = nil;
+    
     [super dealloc];
 }
 

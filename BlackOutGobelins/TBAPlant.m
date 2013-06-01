@@ -67,4 +67,21 @@
     [self addChild:_currentFace.sprite];
 }
 
+- (void)dealloc
+{
+    [_startFace release];
+    _startFace = nil;
+    
+    [_loopFace release];
+    _loopFace = nil;
+    
+    [_startAnimationName release];
+    _startAnimationName = nil;
+    
+    [_loopAnimationName release];
+    _loopAnimationName = nil;
+    
+    [super dealloc];
+}
+
 @end

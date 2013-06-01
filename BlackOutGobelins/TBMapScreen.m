@@ -51,6 +51,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBDialoguePopin *_dialoguePopIn;
     TBDoor *_door;
     NSMutableArray *_plants;
+    NSMutableArray *_destroyedObstacles;
     
     CGSize _size;
     BOOL _isMoving;
@@ -59,6 +60,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     float _delay;
     BOOL _toFreeze;
     float _incrementValue;
+    int _destroyedObstaclesNumber;
 }
 
 +(CCScene *) scene
@@ -387,7 +389,14 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     int i = 0;
     int length = [_obstacles count];
     
+    _destroyedObstaclesNumber = 0;
+    
+    _destroyedObstacles = nil;
+    _destroyedObstacles = [[NSMutableArray alloc] init];
+    
     CGPoint location = [targetObstacle getPosition];
+    
+    _toFreeze = true;
     
     for(i = 0; i < length; i++)
     {
@@ -395,28 +404,45 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         CGPoint obstaclePosition = [obstacle getPosition];
         CGSize obstacleSize = [obstacle getSize];
         
-        if((location.x > obstaclePosition.x - obstacleSize.width/2) && (location.x < obstaclePosition.x + obstacleSize.width/2) &&
-           (location.y > obstaclePosition.y - obstacleSize.height/2) && (location.y < obstaclePosition.y + obstacleSize.height/2))
-        {
+        if((location.x > obstaclePosition.x - obstacleSize.width) && (location.x < obstaclePosition.x + obstacleSize.width) &&
+           (location.y > obstaclePosition.y - obstacleSize.height * 2) && (location.y < obstaclePosition.y + obstacleSize.height * 2))
+        {            
             location = [obstacle getPosition];
             
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%d", [obstacle getId]] object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(obstacleDestructed:) name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%d", i] object:nil];
+            NSString *eventSignature = [NSString stringWithFormat:@"OBSTACLE_DESTROYED_%@", [obstacle getUId]];
             
-            [obstacle explodeAt:(i * 0.5f) withId:i];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:eventSignature object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(obstacleDestroyed:) name:eventSignature object:nil];
+            
+            [obstacle explodeAt:i];
+            [_destroyedObstacles addObject:obstacle];
         }
     }
 }
 
--(void) obstacleDestructed:(NSNotification *)notification
+-(void) obstacleDestroyed:(NSNotification *)notification
 {
     TBObstacle *obstacle = (TBObstacle *)[notification object];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%d", [obstacle getId]] object:nil];
+    _destroyedObstaclesNumber ++;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%@", [obstacle getUId]] object:nil];
     
     [_mainContainer removeChild:obstacle cleanup:TRUE];
-    [_obstacles removeObjectAtIndex:[obstacle getId]];
     [_environmentContainer removeMetaTileAt:[obstacle getPosition]];
+    
+    int i = 0;
+    int length = [_destroyedObstacles count];
+    
+    if(_destroyedObstaclesNumber == length)
+    {        
+        for(i = 0; i < length; i++)
+        {            
+            [_obstacles removeObjectAtIndex:[((TBObstacle *)[_destroyedObstacles objectAtIndex:i]) getIndex]];
+        }
+        
+        _toFreeze = false;
+    }
 }
 
 -(CGPoint)getContainerPositionFromTouch:(NSSet *)touches
@@ -495,6 +521,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [self removeChild:_mainContainer cleanup:TRUE];
     [self removeChild:_environmentContainer cleanup:TRUE];
     

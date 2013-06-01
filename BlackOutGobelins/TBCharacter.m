@@ -320,6 +320,8 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [_frontFace release];
     _frontFace = nil;
     
@@ -331,6 +333,17 @@
     
     [_leftFace release];
     _leftFace = nil;
+    
+    [_currentFace release];
+    _currentFace = nil;
+    
+    [_connection release];
+    _connection = nil;
+    
+    _frontAnimationName = nil;
+    _backAnimationName = nil;
+    _rightAnimationName = nil;
+    _leftAnimationName = nil;
     
     [super dealloc];
 }

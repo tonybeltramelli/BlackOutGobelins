@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         NSMutableArray *elementLayers = [[NSMutableArray alloc] init];
+        [elementLayers addObject:@"meta"];
         [elementLayers addObject:@"decor4"];
         [elementLayers addObject:@"decor3"];
         [elementLayers addObject:@"decor2"];

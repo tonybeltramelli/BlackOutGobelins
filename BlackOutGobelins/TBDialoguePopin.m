@@ -100,4 +100,14 @@ const float TRANSITION_DURATION = 0.1f;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CHARACTER_DISCONNECTED" object:nil];
 }
 
+- (void)dealloc
+{
+    _dialogueContent = nil;
+    
+    [_strings release];
+    _strings = nil;
+    
+    [super dealloc];
+}
+
 @end

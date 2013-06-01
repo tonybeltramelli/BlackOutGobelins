@@ -31,4 +31,9 @@
     return CGSizeMake([super getSize].width, [super getSize].height / 2);
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end

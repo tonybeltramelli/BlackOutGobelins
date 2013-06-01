@@ -167,4 +167,26 @@
     [self removeAllChildrenWithCleanup:TRUE];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    if(_triangleConnexion)
+    {
+        [_triangleConnexion release];
+        _triangleConnexion = nil;
+    }
+    
+    if(_layer)
+    {
+        [_layer release];
+        _layer = nil;
+    }
+    
+    _type = nil;
+    _data = nil;
+    
+    [super dealloc];
+}
+
 @end

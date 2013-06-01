@@ -54,4 +54,12 @@
     return _characterData;
 }
 
+- (void)dealloc
+{
+    [_characterData release];
+    _characterData = nil;
+    
+    [super dealloc];
+}
+
 @end
