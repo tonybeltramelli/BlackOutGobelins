@@ -15,6 +15,11 @@
     TBEnvironment *_environmentContainer;
     
     NSMutableArray *_obstacles;
+    
+    BOOL _isFrozen;
+    
+    int _explodedObstacles;
+    int _totalObstaclesToExplode;
 }
 
 - (id)initWithMainContainerRef:(CCLayer *)mainContainer andEnvironmentContainerRef:(TBEnvironment *)environmentContainer
@@ -25,16 +30,23 @@
         _environmentContainer = environmentContainer;
         
         _obstacles = [[NSMutableArray alloc] init];
+        
+        _isFrozen = false;
     }
     return self;
 }
 
 -(void)removeObstacleReafFrom:(TBObstacle *)targetObstacle
 {
+    if(_isFrozen) return;
+    
+    _isFrozen = true;
+    
     int i = 0;
     int length = [_obstacles count];
     
-    int destroyedIndex = 0;
+    _totalObstaclesToExplode = 0;
+    _explodedObstacles = 0;
     
     CGPoint location = [targetObstacle getPosition];
     
@@ -54,8 +66,8 @@
             [[NSNotificationCenter defaultCenter] removeObserver:self name:eventSignature object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(obstacleDestroyed:) name:eventSignature object:nil];
             
-            destroyedIndex ++;
-            [obstacle explodeAt:destroyedIndex];
+            _totalObstaclesToExplode ++;
+            [obstacle explodeAt:_totalObstaclesToExplode];
         }
     }
 }
@@ -64,10 +76,19 @@
 {
     TBObstacle *obstacle = (TBObstacle *)[notification object];
     
+    _explodedObstacles ++;
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%@", [obstacle getUId]] object:nil];
     
     [_mainContainer removeChild:obstacle cleanup:TRUE];
     [_environmentContainer removeMetaTileAt:[obstacle getPosition]];
+    
+    if(_explodedObstacles == _totalObstaclesToExplode)
+    {
+        _isFrozen = false;
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
 }
 
 -(NSMutableArray *)getObstacles
