@@ -46,9 +46,6 @@ const int ANIMATION_TIME = 62.00; //in frame number
         _size = [[CCDirector sharedDirector] winSize];
         
         _useJoystick = _useTouch = FALSE;
-        
-        _joystick = [[TBJoystick alloc] initWithIsCenterWithTouchEnd:TRUE];
-        [_joystick setLocation:CGPointMake(-_size.width + _joystick.size.width + 32, 0)];
     }
     return self;
 }
@@ -60,9 +57,15 @@ const int ANIMATION_TIME = 62.00; //in frame number
     
     if(_useJoystick)
     {
+        _joystick = [[TBJoystick alloc] initWithIsCenterWithTouchEnd:TRUE];
+        [_joystick setLocation:CGPointMake(-_size.width + _joystick.size.width + 32, 0)];
+        
         [_layer addChild:_joystick z:2];
     }else{
-        [_layer removeChild:_joystick cleanup:FALSE];
+        [_layer removeChild:_joystick cleanup:TRUE];
+        
+        [_joystick release];
+        _joystick = nil;
     }
 }
 
@@ -138,7 +141,13 @@ const int ANIMATION_TIME = 62.00; //in frame number
 
 - (void)dealloc
 {
-    if(_useJoystick) [_layer removeChild:_joystick cleanup:TRUE];
+    if(_useJoystick)
+    {
+        [_layer removeChild:_joystick cleanup:TRUE];
+        
+        [_joystick release];
+        _joystick = nil;
+    }
     
     [super dealloc];
 }

@@ -87,19 +87,22 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _topContainer = [[TBTopMap alloc] init];
         [self addChild:_topContainer z:1 tag:topContainer];
         
+        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "mask.png" : "mask-568h.png"]];
+        [mask setAnchorPoint:CGPointZero];
+        [self addChild:mask];
+        
+        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+        
         CGPoint startPosition = [_environmentContainer getStartPositionFromMeta];
         [self addOrMoveHeroAtPosition:startPosition];
+        
+        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
         
         _bots = [[NSMutableArray alloc] init];
         _characters = [[NSMutableArray alloc] init];
         _plants = [[NSMutableArray alloc] init];
         
         _obstacleManager = [[TBObstacleManager alloc] initWithMainContainerRef:_mainContainer andEnvironmentContainerRef:_environmentContainer];
-        
-        [self addAllBots];
-        [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
-        [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
-        [self addAllPlants];
         
         _door = [[TBDoor alloc] init];
         [_door drawAt:[_environmentContainer getDoorPosition]];
@@ -113,14 +116,28 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [self addChild:_progressBar];
         
         _incrementValue = 1.0f / [_bots count];
-        
-        [self scheduleUpdate];
-        
-        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "mask.png" : "mask-568h.png"]];
-        [mask setAnchorPoint:CGPointZero];
-        [self addChild:mask];
     }
     return self;
+}
+
+-(void) onEnter
+{
+	[super onEnter];
+    
+    NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
+    NSLog(@"%@", [CCTextureCache sharedTextureCache]);
+    
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+    
+    [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
+    [self addAllPlants];
+    
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
+    
+    [self addAllBots];
+    [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
+    
+    [self scheduleUpdate];
 }
 
 -(void) update:(ccTime)delta

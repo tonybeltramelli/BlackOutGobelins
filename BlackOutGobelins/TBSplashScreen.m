@@ -39,12 +39,18 @@
 	background.position = ccp(size.width/2, size.height/2);
 
 	[self addChild: background];
-	
-	[self scheduleOnce:@selector(makeTransition:) delay:0.2];
+    
+    [self scheduleOnce:@selector(makeTransition:) delay:0.2];
 }
 
 -(void) makeTransition:(ccTime)dt
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TBMapScreen scene] withColor:ccBLACK]];
 }
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end

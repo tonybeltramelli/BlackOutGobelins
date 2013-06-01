@@ -6,8 +6,11 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
-@interface TBAssetPreLoader : NSObject
+@interface TBAssetPreLoader : CCNode
+
+- (void) load;
+- (void) loadOnlySpritesheets;
 
 @end

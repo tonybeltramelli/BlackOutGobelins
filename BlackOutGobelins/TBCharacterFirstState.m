@@ -19,8 +19,10 @@
 
 - (id)init
 {
-    self = [super initWithPrefix:@"friend_first_state_" andNumFrame:36];
-    if (self) {
+    self = [super init];
+    if (self) {        
+        _frontFace = [[TBCharacterFace alloc] initWithNumFrame:36 withAnimName:@"face" andFilePrefix:@"friend_first_state_"];
+        
         _gravityCenter = CGPointMake(4, 0);
     }
     return self;
