@@ -18,7 +18,7 @@
 #import "TypeDef.c"
 #import "TBLine.h"
 #import "TBParticle.h"
-#import "TBObstacle.h"
+#import "TBObstacleManager.h"
 #import "TBDoor.h"
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
@@ -46,12 +46,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     NSMutableArray *_bots;
     TBCharacter *_targetedCharacter;
     NSMutableArray *_characters;
-    NSMutableArray *_obstacles;
     TBProgressBar *_progressBar;
     TBDialoguePopin *_dialoguePopIn;
     TBDoor *_door;
     NSMutableArray *_plants;
-    NSMutableArray *_destroyedObstacles;
+    TBObstacleManager *_obstacleManager;
     
     CGSize _size;
     BOOL _isMoving;
@@ -60,7 +59,6 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     float _delay;
     BOOL _toFreeze;
     float _incrementValue;
-    int _destroyedObstaclesNumber;
 }
 
 +(CCScene *) scene
@@ -94,8 +92,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         _bots = [[NSMutableArray alloc] init];
         _characters = [[NSMutableArray alloc] init];
-        _obstacles = [[NSMutableArray alloc] init];
         _plants = [[NSMutableArray alloc] init];
+        
+        _obstacleManager = [[TBObstacleManager alloc] initWithMainContainerRef:_mainContainer andEnvironmentContainerRef:_environmentContainer];
         
         [self addAllBots];
         [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
@@ -259,7 +258,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     BOOL charactersResult = [self loopForElements:_bots typeOfInteraction: isTouched];
     BOOL botsResult = [self loopForElements:_characters typeOfInteraction: isTouched];
-    BOOL obstaclesResult = [self loopForElements:_obstacles typeOfInteraction: isTouched];
+    BOOL obstaclesResult = [self loopForElements:_obstacleManager.getObstacles typeOfInteraction: isTouched];
     
     if(!charactersResult && !botsResult && !obstaclesResult) _swipeStartPosition = CGPointZero;
     
@@ -307,7 +306,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         {
             if([_targetedCharacter isKindOfClass:[TBObstacle class]])
             {
-                [self removeObstacleReafFrom:(TBObstacle *)_targetedCharacter];
+                [_obstacleManager removeObstacleReafFrom:(TBObstacle *)_targetedCharacter];
                 
                 _targetedCharacter = nil;
                 
@@ -384,67 +383,6 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     _toFreeze = false;
 }
 
--(void)removeObstacleReafFrom:(TBObstacle *)targetObstacle
-{
-    int i = 0;
-    int length = [_obstacles count];
-    
-    _destroyedObstaclesNumber = 0;
-    
-    _destroyedObstacles = nil;
-    _destroyedObstacles = [[NSMutableArray alloc] init];
-    
-    CGPoint location = [targetObstacle getPosition];
-    
-    _toFreeze = true;
-    
-    for(i = 0; i < length; i++)
-    {
-        TBObstacle *obstacle = (TBObstacle *)[_obstacles objectAtIndex:i];
-        CGPoint obstaclePosition = [obstacle getPosition];
-        CGSize obstacleSize = [obstacle getSize];
-        
-        if((location.x > obstaclePosition.x - obstacleSize.width) && (location.x < obstaclePosition.x + obstacleSize.width) &&
-           (location.y > obstaclePosition.y - obstacleSize.height * 2) && (location.y < obstaclePosition.y + obstacleSize.height * 2))
-        {            
-            location = [obstacle getPosition];
-            
-            NSString *eventSignature = [NSString stringWithFormat:@"OBSTACLE_DESTROYED_%@", [obstacle getUId]];
-            
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:eventSignature object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(obstacleDestroyed:) name:eventSignature object:nil];
-            
-            [obstacle explodeAt:i];
-            [_destroyedObstacles addObject:obstacle];
-        }
-    }
-}
-
--(void) obstacleDestroyed:(NSNotification *)notification
-{
-    TBObstacle *obstacle = (TBObstacle *)[notification object];
-    
-    _destroyedObstaclesNumber ++;
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"OBSTACLE_DESTROYED_%@", [obstacle getUId]] object:nil];
-    
-    [_mainContainer removeChild:obstacle cleanup:TRUE];
-    [_environmentContainer removeMetaTileAt:[obstacle getPosition]];
-    
-    int i = 0;
-    int length = [_destroyedObstacles count];
-    
-    if(_destroyedObstaclesNumber == length)
-    {        
-        for(i = 0; i < length; i++)
-        {            
-            [_obstacles removeObjectAtIndex:[((TBObstacle *)[_destroyedObstacles objectAtIndex:i]) getIndex]];
-        }
-        
-        _toFreeze = false;
-    }
-}
-
 -(CGPoint)getContainerPositionFromTouch:(NSSet *)touches
 {
     UITouch *touch = [touches anyObject];
@@ -493,7 +431,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
 -(void) addObstaclesAtPositions:(NSMutableArray *)positions
 {    
-    [self addElements:@"TBObstacle" atPositions:positions andSaveThemIn:_obstacles];
+    [self addElements:@"TBObstacle" atPositions:positions andSaveThemIn:_obstacleManager.getObstacles];
 }
 
 -(void) addAllPlants
@@ -530,6 +468,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     [_hero release];
     _hero = nil;
+    
+    [_obstacleManager release];
+    _obstacleManager = nil;
     
     [_environmentContainer release];
     _environmentContainer = nil;
