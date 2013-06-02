@@ -465,13 +465,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>plante_second_loop.png</string>
+            <string>plante_second_loop.pvr.ccz</string>
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e1d735bc19b47c0aa6187617e30eb4fc$</string>
+            <string>$TexturePacker:SmartUpdate:cdbdebf5855b2ff3431cde55b26827c5$</string>
             <key>textureFileName</key>
-            <string>plante_second_loop.png</string>
+            <string>plante_second_loop.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

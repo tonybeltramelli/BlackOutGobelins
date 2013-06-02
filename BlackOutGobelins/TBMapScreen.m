@@ -91,31 +91,15 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         [mask setAnchorPoint:CGPointZero];
         [self addChild:mask];
         
-        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
-        
-        CGPoint startPosition = [_environmentContainer getStartPositionFromMeta];
-        [self addOrMoveHeroAtPosition:startPosition];
-        
-        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-        
         _bots = [[NSMutableArray alloc] init];
         _characters = [[NSMutableArray alloc] init];
         _plants = [[NSMutableArray alloc] init];
         
         _obstacleManager = [[TBObstacleManager alloc] initWithMainContainerRef:_mainContainer andEnvironmentContainerRef:_environmentContainer];
         
-        _door = [[TBDoor alloc] init];
-        [_door drawAt:[_environmentContainer getDoorPosition]];
-        [_mainContainer addChild:_door z:-1];
-
-        _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
-        [_gameController useTouch:TRUE];
-        
         _progressBar = [[TBProgressBar alloc] init];
         [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
         [self addChild:_progressBar];
-        
-        _incrementValue = 1.0f / [_bots count];
     }
     return self;
 }
@@ -124,18 +108,26 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 {
 	[super onEnter];
     
-    NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
-    NSLog(@"%@", [CCTextureCache sharedTextureCache]);
-    
-    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+    CGPoint startPosition = [_environmentContainer getStartPositionFromMeta];
+    [self addOrMoveHeroAtPosition:startPosition];
     
     [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
-    [self addAllPlants];
-    
-    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-    
+    [self addAllPlants];    
     [self addAllBots];
     [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
+    
+    _door = [[TBDoor alloc] init];
+    [_door drawAt:[_environmentContainer getDoorPosition]];
+    [_mainContainer addChild:_door z:-1];
+    
+    _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
+    [_gameController useTouch:TRUE];
+    
+    _incrementValue = 1.0f / [_bots count];
+    
+    NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
+    NSLog(@"%@", [CCTextureCache sharedTextureCache]);
+    [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     
     [self scheduleUpdate];
 }

@@ -10,7 +10,6 @@
 #import "TBCharacterFace.h"
 #import "TBObstacleFirstType.h"
 #import "TBObstacleSecondType.h"
-#import "TBObstacleThirdType.h"
 
 @implementation TBObstacle
 {
@@ -43,7 +42,6 @@
 +(id)obstacle
 {
     int n = (arc4random() % 2) + 1;
-    n = 1;
     
     switch (n) {
         case 1:
@@ -51,9 +49,6 @@
             break;
         case 2:
             return [[[TBObstacleSecondType alloc] init] autorelease];
-            break;
-        case 3:
-            return [[[TBObstacleThirdType alloc] init] autorelease];
             break;
         default:
             return [[[TBObstacleFirstType alloc] init] autorelease];

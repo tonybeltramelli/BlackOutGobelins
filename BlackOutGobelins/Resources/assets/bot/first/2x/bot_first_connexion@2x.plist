@@ -563,7 +563,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_18.png</key>
+            <key>bot_first_connexion_loop_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{406,844},{200,316}}</string>
@@ -576,7 +576,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_19.png</key>
+            <key>bot_first_connexion_loop_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1684,642},{200,316}}</string>
@@ -589,7 +589,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_20.png</key>
+            <key>bot_first_connexion_loop_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1366,608},{200,316}}</string>
@@ -602,7 +602,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_21.png</key>
+            <key>bot_first_connexion_loop_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1304,1012},{200,264}}</string>
@@ -615,7 +615,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_22.png</key>
+            <key>bot_first_connexion_loop_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{810,1098},{200,264}}</string>
@@ -628,7 +628,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_first_connexion_loop_23.png</key>
+            <key>bot_first_connexion_loop_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1038,1012},{200,264}}</string>
@@ -647,13 +647,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_first_connexion@2x.png</string>
+            <string>bot_first_connexion@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:339726352ab0cad92d9a73828468b613$</string>
+            <string>$TexturePacker:SmartUpdate:535fdfc7bc08adc7da5a39c6ff2f7557$</string>
             <key>textureFileName</key>
-            <string>bot_first_connexion@2x.png</string>
+            <string>bot_first_connexion@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

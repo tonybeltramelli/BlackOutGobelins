@@ -1063,13 +1063,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>hero_first_dos.png</string>
+            <string>hero_first_dos.pvr.ccz</string>
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ec02391b60158f92bff23d29204f7b14$</string>
+            <string>$TexturePacker:SmartUpdate:a933a36b25c430c10c09b7f91cdc59c8$</string>
             <key>textureFileName</key>
-            <string>hero_first_dos.png</string>
+            <string>hero_first_dos.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

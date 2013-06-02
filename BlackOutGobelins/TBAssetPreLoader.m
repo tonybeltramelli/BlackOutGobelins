@@ -18,6 +18,7 @@
     
     int _numberOfLoadedTextures;
     BOOL _onlySpritesheets;
+    BOOL _usePVR;
 }
 
 - (id)init
@@ -28,6 +29,7 @@
         [self addChild:_progressBar];
         
         _onlySpritesheets = false;
+        _usePVR = false;
     }
     return self;
 }
@@ -37,23 +39,27 @@
     NSError *error;
     NSArray *bundleContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle mainBundle] bundlePath] error:&error];
     
+    NSString *extension = !_usePVR ? @"png" : @"ccz";
+    int extLength = 3 + (!_usePVR ? 0 : 4);
+    NSString *substring = !_usePVR ? @"@2x" : @"@2x.pvr";
+    
     _textures = [[NSMutableArray alloc] initWithCapacity:[bundleContents count]];
     
     for(NSString *file in bundleContents)
     {
-        if([[file pathExtension] compare:@"png"] == NSOrderedSame)
+        if([[file pathExtension] compare:extension] == NSOrderedSame)
         {
             NSString *fileName = [file stringByDeletingPathExtension];
-            NSString* splittedString = [fileName substringWithRange:NSMakeRange([fileName length] - 3, 3)];
+            NSString* splittedString = [fileName substringWithRange:NSMakeRange([fileName length] - extLength, extLength)];
             
             if([[TBModel getInstance] isRetinaDisplay])
             {
-                if([splittedString isEqualToString:@"@2x"])
+                if([splittedString isEqualToString:substring])
                 {
                     [_textures addObject:[file lastPathComponent]];
                 }
             }else{
-                if(![splittedString isEqualToString:@"@2x"])
+                if(![splittedString isEqualToString:substring])
                 {
                     [_textures addObject:[file lastPathComponent]];
                 }
@@ -66,9 +72,10 @@
     [[CCTextureCache sharedTextureCache] addImageAsync:[_textures objectAtIndex:_numberOfLoadedTextures] target:self selector:@selector(imageDidLoad:)];
 }
 
-- (void) loadOnlySpritesheets
+- (void) loadOnlySpritesheets:(BOOL)onlySpriteSheets andUsePVR:(BOOL)usePVR
 {
-    _onlySpritesheets = true;
+    _onlySpritesheets = onlySpriteSheets;
+    _usePVR = usePVR;
     
     [self load];
 }
@@ -76,6 +83,9 @@
 - (void) imageDidLoad:(CCTexture2D*)tex
 {
     NSString *plistFile = [[(NSString*)[_textures objectAtIndex:_numberOfLoadedTextures] stringByDeletingPathExtension] stringByAppendingString:@".plist"];
+    if(_usePVR) plistFile = [plistFile stringByReplacingOccurrencesOfString:@".pvr" withString:@""];
+    
+    NSLog(@"%@", plistFile);
     
     if([[NSFileManager defaultManager] fileExistsAtPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:plistFile]])
     {

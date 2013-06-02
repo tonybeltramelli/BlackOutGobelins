@@ -400,13 +400,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>plante_first_debut@2x.png</string>
+            <string>plante_first_debut@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:52a976d1c0f8159b4ad8ac2fed2fb899$</string>
+            <string>$TexturePacker:SmartUpdate:419b2f6b4a232cb8eb603e089d654dd2$</string>
             <key>textureFileName</key>
-            <string>plante_first_debut@2x.png</string>
+            <string>plante_first_debut@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

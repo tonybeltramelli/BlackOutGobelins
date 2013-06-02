@@ -673,13 +673,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>plante_second_debut.png</string>
+            <string>plante_second_debut.pvr.ccz</string>
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a67b9defe4a5205f14246696abf77b4b$</string>
+            <string>$TexturePacker:SmartUpdate:26d9f8e8c18c9fe1f673bcd16e491e9d$</string>
             <key>textureFileName</key>
-            <string>plante_second_debut.png</string>
+            <string>plante_second_debut.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

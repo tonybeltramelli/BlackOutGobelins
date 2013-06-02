@@ -660,13 +660,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_second_connexion.png</string>
+            <string>bot_second_connexion.pvr.ccz</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:44a035165d37359ac64d1ba0bea49bee$</string>
+            <string>$TexturePacker:SmartUpdate:71530b7c69a9a22f17ff15b63c7b42c8$</string>
             <key>textureFileName</key>
-            <string>bot_second_connexion.png</string>
+            <string>bot_second_connexion.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

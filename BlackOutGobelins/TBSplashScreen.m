@@ -8,6 +8,7 @@
 
 
 #import "TBSplashScreen.h"
+#import "TBAssetPreLoader.h"
 #import "TBMapScreen.h"
 
 @implementation TBSplashScreen
@@ -39,6 +40,20 @@
 	background.position = ccp(size.width/2, size.height/2);
 
 	[self addChild: background];
+    
+    TBAssetPreLoader *preloader = [[TBAssetPreLoader alloc] init];
+    [preloader setPosition:CGPointMake(size.width / 2, size.height / 2)];
+    [self addChild:preloader];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadingComplete:) name:@"PRELOADING_COMPLETE" object:nil];
+    
+    [preloader loadOnlySpritesheets:TRUE andUsePVR:TRUE];
+}
+
+-(void) preloadingComplete:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self scheduleOnce:@selector(makeTransition:) delay:0.2];
 }

@@ -1310,13 +1310,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_second_pause@2x.png</string>
+            <string>bot_second_pause@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c93190a440c22eaff9eeaee77e2d0837$</string>
+            <string>$TexturePacker:SmartUpdate:c8ea67fd6377b889113ff32706231b6c$</string>
             <key>textureFileName</key>
-            <string>bot_second_pause@2x.png</string>
+            <string>bot_second_pause@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

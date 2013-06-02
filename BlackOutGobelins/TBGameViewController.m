@@ -36,6 +36,8 @@
         
         [_glView setMultipleTouchEnabled:YES];
         
+        [CCTexture2D PVRImagesHavePremultipliedAlpha:TRUE];
+        
         [self.view insertSubview:_glView atIndex:0];
         [[CCDirector sharedDirector] setView:_glView];
         

@@ -491,13 +491,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>friend_first_state_face.png</string>
+            <string>friend_first_state_face.pvr.ccz</string>
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3d7c9013771b74ca3178f4dceab36222$</string>
+            <string>$TexturePacker:SmartUpdate:b489a3e12f5be48f8db481adc2b74db2$</string>
             <key>textureFileName</key>
-            <string>friend_first_state_face.png</string>
+            <string>friend_first_state_face.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

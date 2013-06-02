@@ -660,13 +660,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_second_disconnexion.png</string>
+            <string>bot_second_disconnexion.pvr.ccz</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:2893c3adbcef4daa78a4889d80b0b001$</string>
+            <string>$TexturePacker:SmartUpdate:6b59f307d6d03a2f348a6115d97edf39$</string>
             <key>textureFileName</key>
-            <string>bot_second_disconnexion.png</string>
+            <string>bot_second_disconnexion.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

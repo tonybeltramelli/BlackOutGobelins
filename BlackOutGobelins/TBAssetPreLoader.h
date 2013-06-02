@@ -11,6 +11,6 @@
 @interface TBAssetPreLoader : CCNode
 
 - (void) load;
-- (void) loadOnlySpritesheets;
+- (void) loadOnlySpritesheets:(BOOL)onlySpriteSheets andUsePVR:(BOOL)usePVR;
 
 @end

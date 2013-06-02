@@ -478,13 +478,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>obstacle_second_actif@2x.png</string>
+            <string>obstacle_second_actif@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:232b21d7aa97566fb48204bb16bfe36a$</string>
+            <string>$TexturePacker:SmartUpdate:527e1ea7440ea3fd81d0488e481193f8$</string>
             <key>textureFileName</key>
-            <string>obstacle_second_actif@2x.png</string>
+            <string>obstacle_second_actif@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

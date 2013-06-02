@@ -139,11 +139,11 @@
                 <key>frame</key>
                 <string>{{1706,428},{424,240}}</string>
                 <key>offset</key>
-                <string>{-2,0}</string>
+                <string>{-3,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{6,0},{424,240}}</string>
+                <string>{{5,0},{424,240}}</string>
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
@@ -321,11 +321,11 @@
                 <key>frame</key>
                 <string>{{1280,2},{424,240}}</string>
                 <key>offset</key>
-                <string>{-3,0}</string>
+                <string>{-2,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{5,0},{424,240}}</string>
+                <string>{{6,0},{424,240}}</string>
                 <key>sourceSize</key>
                 <string>{440,240}</string>
             </dict>
@@ -478,13 +478,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>obstacle_first_inactif@2x.png</string>
+            <string>obstacle_first_inactif@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:24a6422392d76dd446d1874a881541cc$</string>
+            <string>$TexturePacker:SmartUpdate:bb012ad6ca804bf6fcb8b403f59c8eb7$</string>
             <key>textureFileName</key>
-            <string>obstacle_first_inactif@2x.png</string>
+            <string>obstacle_first_inactif@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

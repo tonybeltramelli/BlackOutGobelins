@@ -1037,13 +1037,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>hero_first_gauche@2x.png</string>
+            <string>hero_first_gauche@2x.pvr.ccz</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8cd564e1d87d28d48d0256fc860561d7$</string>
+            <string>$TexturePacker:SmartUpdate:e48b789616d46557e7b7b4266314d388$</string>
             <key>textureFileName</key>
-            <string>hero_first_gauche@2x.png</string>
+            <string>hero_first_gauche@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

@@ -397,20 +397,20 @@
             <key>plante_first_loop_60.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1194,1832},{208,384}}</string>
+                <string>{{422,842},{208,386}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{46,8},{208,384}}</string>
+                <string>{{46,6},{208,386}}</string>
                 <key>sourceSize</key>
                 <string>{300,400}</string>
             </dict>
             <key>plante_first_loop_61.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{808,1832},{208,384}}</string>
+                <string>{{1194,1832},{208,384}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -423,7 +423,7 @@
             <key>plante_first_loop_62.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1404,1622},{208,384}}</string>
+                <string>{{808,1832},{208,384}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -436,7 +436,7 @@
             <key>plante_first_loop_63.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1018,1472},{208,384}}</string>
+                <string>{{1404,1622},{208,384}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -449,7 +449,7 @@
             <key>plante_first_loop_64.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{632,1472},{208,384}}</string>
+                <string>{{1018,1472},{208,384}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -462,7 +462,7 @@
             <key>plante_first_loop_65.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{422,1828},{208,384}}</string>
+                <string>{{632,1472},{208,384}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -475,13 +475,13 @@
             <key>plante_first_loop_66.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{422,842},{208,386}}</string>
+                <string>{{422,1828},{208,384}}</string>
                 <key>offset</key>
-                <string>{0,1}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{46,6},{208,386}}</string>
+                <string>{{46,8},{208,384}}</string>
                 <key>sourceSize</key>
                 <string>{300,400}</string>
             </dict>
@@ -608,13 +608,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>plante_first_loop@2x.png</string>
+            <string>plante_first_loop@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:480b47d5264591d6a4ef55cad1dab1ff$</string>
+            <string>$TexturePacker:SmartUpdate:496c12c333ce75ef8b6847179411c768$</string>
             <key>textureFileName</key>
-            <string>plante_first_loop@2x.png</string>
+            <string>plante_first_loop@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

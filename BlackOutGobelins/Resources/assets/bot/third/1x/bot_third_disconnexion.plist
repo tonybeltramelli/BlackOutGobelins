@@ -595,13 +595,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_third_disconnexion.png</string>
+            <string>bot_third_disconnexion.pvr.ccz</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:dfbcd476786c480343760ae1df0cafb2$</string>
+            <string>$TexturePacker:SmartUpdate:a25ea60cfce2fb35ca1073a34ec2c8f3$</string>
             <key>textureFileName</key>
-            <string>bot_third_disconnexion.png</string>
+            <string>bot_third_disconnexion.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

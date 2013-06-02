@@ -738,13 +738,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_first_disconnexion.png</string>
+            <string>bot_first_disconnexion.pvr.ccz</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7698a793a3a8ddf8bb8acc46c3bfa8d6$</string>
+            <string>$TexturePacker:SmartUpdate:94c4dfa6ca9a59cdd9e79ceab1bcae1e$</string>
             <key>textureFileName</key>
-            <string>bot_first_disconnexion.png</string>
+            <string>bot_first_disconnexion.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

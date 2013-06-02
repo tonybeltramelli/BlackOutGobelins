@@ -563,7 +563,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_18.png</key>
+            <key>bot_third_connexion_loop_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1422},{178,282}}</string>
@@ -576,7 +576,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_19.png</key>
+            <key>bot_third_connexion_loop_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1138},{178,282}}</string>
@@ -589,7 +589,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_20.png</key>
+            <key>bot_third_connexion_loop_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,854},{178,282}}</string>
@@ -602,7 +602,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_21.png</key>
+            <key>bot_third_connexion_loop_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,570},{178,282}}</string>
@@ -615,7 +615,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_22.png</key>
+            <key>bot_third_connexion_loop_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,286},{178,282}}</string>
@@ -628,7 +628,7 @@
                 <key>sourceSize</key>
                 <string>{200,426}</string>
             </dict>
-            <key>bot_third_connexion_loop_23.png</key>
+            <key>bot_third_connexion_loop_24.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{178,282}}</string>
@@ -647,13 +647,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>bot_third_connexion@2x.png</string>
+            <string>bot_third_connexion@2x.pvr.ccz</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e7dbfd1d3fa1fe9a89b4b6642b1c57f1$</string>
+            <string>$TexturePacker:SmartUpdate:7149daec4f1bf793a2f362c3f831e066$</string>
             <key>textureFileName</key>
-            <string>bot_third_connexion@2x.png</string>
+            <string>bot_third_connexion@2x.pvr.ccz</string>
         </dict>
     </dict>
 </plist>
