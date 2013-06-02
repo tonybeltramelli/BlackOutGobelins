@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        NSMutableArray *topLayers = [[NSMutableArray alloc] init];
+        NSMutableArray *topLayers = [NSMutableArray array];
         [topLayers addObject:@"foreground2_decor"];
         [topLayers addObject:@"foreground2_mur"];
         [topLayers addObject:@"foreground_decor"];

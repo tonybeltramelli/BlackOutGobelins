@@ -563,7 +563,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_19.png</key>
+            <key>bot_first_connexion_loop_18.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,163},{100,159}}</string>
@@ -576,7 +576,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_20.png</key>
+            <key>bot_first_connexion_loop_19.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{100,159}}</string>
@@ -589,7 +589,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_21.png</key>
+            <key>bot_first_connexion_loop_20.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{308,689},{100,147}}</string>
@@ -602,7 +602,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_22.png</key>
+            <key>bot_first_connexion_loop_21.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{410,512},{100,133}}</string>
@@ -615,7 +615,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_23.png</key>
+            <key>bot_first_connexion_loop_22.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{887,587},{100,133}}</string>
@@ -628,7 +628,7 @@
                 <key>sourceSize</key>
                 <string>{100,213}</string>
             </dict>
-            <key>bot_first_connexion_loop_24.png</key>
+            <key>bot_first_connexion_loop_23.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{887,485},{100,133}}</string>

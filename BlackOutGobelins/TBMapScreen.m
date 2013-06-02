@@ -89,7 +89,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "mask.png" : "mask-568h.png"]];
         [mask setAnchorPoint:CGPointZero];
-        [self addChild:mask];
+        [self addChild:mask z:1];
         
         _bots = [[NSMutableArray alloc] init];
         _characters = [[NSMutableArray alloc] init];
@@ -99,7 +99,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         
         _progressBar = [[TBProgressBar alloc] init];
         [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
-        [self addChild:_progressBar];
+        [self addChild:_progressBar z:1];
     }
     return self;
 }
@@ -126,7 +126,6 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     _incrementValue = 1.0f / [_bots count];
     
     NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
-    NSLog(@"%@", [CCTextureCache sharedTextureCache]);
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     
     [self scheduleUpdate];
@@ -343,7 +342,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])
             {
                 _dialoguePopIn = [[TBDialoguePopin alloc] initWithContent:[((TBCharacterFirstState *) _targetedCharacter) getDialogue]];
-                [self addChild:_dialoguePopIn];
+                [self addChild:_dialoguePopIn z:1];
                 
                 [[NSNotificationCenter defaultCenter] removeObserver:self];
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(characterDisconnected:) name:@"CHARACTER_DISCONNECTED" object:nil];

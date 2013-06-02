@@ -29,7 +29,7 @@
         
         _color = ccc3(125, 255, 140); //0x7dff8c
         
-        _gravityCenter = CGPointMake(-3, -10);
+        _gravityCenter = CGPointMake(-3, 10);
     }
     return self;
 }

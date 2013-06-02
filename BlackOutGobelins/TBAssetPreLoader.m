@@ -112,6 +112,9 @@
     [_textures release];
     _textures = nil;
     
+    [_progressBar release];
+    _progressBar = nil;
+    
     [super dealloc];
 }
 

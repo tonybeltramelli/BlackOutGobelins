@@ -79,7 +79,7 @@
 - (NSMutableArray *) getRow:(NSString *)rowName fromTable:(NSString *)tableName
 {
     NSString *request = [NSString stringWithFormat:@"SELECT %@ FROM %@", rowName, tableName];
-    NSMutableArray *_data = [[NSMutableArray alloc] init];
+    NSMutableArray *data = [NSMutableArray array];
     
     if ([self isDatabaseAvailable])
     {
@@ -88,14 +88,14 @@
             while (sqlite3_step(_statement) == SQLITE_ROW)
             {
                 NSString *rowValue = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(_statement, 0)];
-                [_data addObject:rowValue];
+                [data addObject:rowValue];
             }
             sqlite3_finalize(_statement);
         }
         sqlite3_close(_database);
     }
     
-    return _data;
+    return data;
 }
 
 - (NSMutableArray *) getRowsfromTable:(NSString *)tableName

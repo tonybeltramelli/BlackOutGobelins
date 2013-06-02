@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        NSMutableArray *elementLayers = [[NSMutableArray alloc] init];
+        NSMutableArray *elementLayers = [NSMutableArray array];
         [elementLayers addObject:@"decor4"];
         [elementLayers addObject:@"decor3"];
         [elementLayers addObject:@"decor2"];
@@ -106,7 +106,7 @@
 
 - (NSMutableArray *)getAllMetaWithKey:(NSString *)key andValue:(NSString *)value
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result = [NSMutableArray array];
     
     int i = 0;
     int j = 0;

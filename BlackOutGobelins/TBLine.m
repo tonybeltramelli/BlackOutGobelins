@@ -94,7 +94,7 @@
     
     _triangleConnexion.position = _startPoint;
     
-    CCMoveTo* moveTo = [[CCMoveTo alloc] initWithDuration:_value * 2 position:_endPoint];
+    CCMoveTo* moveTo = [CCMoveTo actionWithDuration:_value * 2 position:_endPoint];
     
     int xDirection = _startPoint.x < _endPoint.x ? 1 : -1;
     int yDirection = _startPoint.y < _endPoint.y ? 1 : -1;
@@ -165,6 +165,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STOP_CONNECTION" object:nil];
     
     [self removeAllChildrenWithCleanup:TRUE];
+    
+    _layer = nil;
 }
 
 - (void)dealloc

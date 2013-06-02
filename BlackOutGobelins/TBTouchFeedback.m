@@ -23,14 +23,20 @@
 
 +(id)touchFeedback
 {
-    return [[[self alloc] init] retain];
+    return [[self alloc] init];
 }
 
 -(void) animationEnd:(id)sender
 {
     [self unschedule:@selector(animationEnd:)];
     
-    [[self parent] removeChild:self cleanup:TRUE];
+    [self removeAllChildrenWithCleanup:TRUE];
+    [self removeFromParentAndCleanup:TRUE];
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 @end

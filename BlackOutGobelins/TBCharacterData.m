@@ -23,7 +23,7 @@
         
         if(!_descriptor)
         {
-            NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
+            NSMutableDictionary *userData = [NSMutableDictionary dictionary];
             [userData setObject:@"0" forKey:@"USER_ID"];
             [userData setObject:@"Fake name" forKey:@"USER_NAME"];
             [userData setObject:@"0" forKey:@"MUTUAL_FRIENDS_NUMBER"];

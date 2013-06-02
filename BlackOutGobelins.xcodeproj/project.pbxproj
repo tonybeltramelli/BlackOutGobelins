@@ -354,8 +354,6 @@
 		98AC41A1174A5C2500BAF236 /* TBDialoguePopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC41A0174A5C2500BAF236 /* TBDialoguePopin.m */; };
 		98B2C9D517592CC1009CCFB0 /* TBObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9D417592CC1009CCFB0 /* TBObstacle.m */; };
 		98B2C9D817592EA6009CCFB0 /* TBASets.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9D717592EA6009CCFB0 /* TBASets.m */; };
-		98B2C9DC17593271009CCFB0 /* TBObstacleFirstType.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */; };
-		98B2C9E0175934E4009CCFB0 /* TBObstacleSecondType.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */; };
 		98BAEA891744236C00733F88 /* TBBotFirstState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BAEA881744236C00733F88 /* TBBotFirstState.m */; };
 		98C8DCAA1758D0580097A355 /* TBSecondPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C8DCA91758D0570097A355 /* TBSecondPlant.m */; };
 		98C984171747E54900981EF0 /* TBTriangleConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C984161747E54900981EF0 /* TBTriangleConnection.m */; };
@@ -938,10 +936,6 @@
 		98B2C9D417592CC1009CCFB0 /* TBObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacle.m; sourceTree = "<group>"; };
 		98B2C9D617592EA6009CCFB0 /* TBASets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBASets.h; sourceTree = "<group>"; };
 		98B2C9D717592EA6009CCFB0 /* TBASets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBASets.m; sourceTree = "<group>"; };
-		98B2C9DA17593271009CCFB0 /* TBObstacleFirstType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacleFirstType.h; sourceTree = "<group>"; };
-		98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacleFirstType.m; sourceTree = "<group>"; };
-		98B2C9DE175934E4009CCFB0 /* TBObstacleSecondType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBObstacleSecondType.h; sourceTree = "<group>"; };
-		98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBObstacleSecondType.m; sourceTree = "<group>"; };
 		98BAEA871744236C00733F88 /* TBBotFirstState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotFirstState.h; sourceTree = "<group>"; };
 		98BAEA881744236C00733F88 /* TBBotFirstState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotFirstState.m; sourceTree = "<group>"; };
 		98C8DCA81758D0570097A355 /* TBSecondPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSecondPlant.h; sourceTree = "<group>"; };
@@ -2231,10 +2225,6 @@
 			children = (
 				98B2C9D317592CC1009CCFB0 /* TBObstacle.h */,
 				98B2C9D417592CC1009CCFB0 /* TBObstacle.m */,
-				98B2C9DA17593271009CCFB0 /* TBObstacleFirstType.h */,
-				98B2C9DB17593271009CCFB0 /* TBObstacleFirstType.m */,
-				98B2C9DE175934E4009CCFB0 /* TBObstacleSecondType.h */,
-				98B2C9DF175934E4009CCFB0 /* TBObstacleSecondType.m */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -2844,8 +2834,6 @@
 				98C8DCAA1758D0580097A355 /* TBSecondPlant.m in Sources */,
 				98B2C9D517592CC1009CCFB0 /* TBObstacle.m in Sources */,
 				98B2C9D817592EA6009CCFB0 /* TBASets.m in Sources */,
-				98B2C9DC17593271009CCFB0 /* TBObstacleFirstType.m in Sources */,
-				98B2C9E0175934E4009CCFB0 /* TBObstacleSecondType.m in Sources */,
 				988F1F87175A1A5A00C29C6A /* TBObstacleManager.m in Sources */,
 				98CF26B3175A5AF40081286F /* TBAssetPreLoader.m in Sources */,
 			);

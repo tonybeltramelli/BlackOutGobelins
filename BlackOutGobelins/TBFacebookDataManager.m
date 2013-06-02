@@ -253,7 +253,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableArray *resultNames = [_databaseController getRow:USER_NAME fromTable:SOME_FRIENDS_TABLE_NAME];
     NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:SOME_FRIENDS_TABLE_NAME];
     NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:SOME_FRIENDS_TABLE_NAME];
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result = [NSMutableArray array];
     
     int i = 0;
     int length = [resultNames count];

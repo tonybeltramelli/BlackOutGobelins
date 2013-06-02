@@ -8,8 +8,6 @@
 
 #import "TBObstacle.h"
 #import "TBCharacterFace.h"
-#import "TBObstacleFirstType.h"
-#import "TBObstacleSecondType.h"
 
 @implementation TBObstacle
 {
@@ -28,43 +26,40 @@
 
 - (id)init
 {
-    self = [TBObstacle obstacle];
+    self = [super initWithPrefix:[TBObstacle obstaclePrefix]];
     if (self) {
         CFUUIDRef uuidRef = CFUUIDCreate(NULL);
         CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
         CFRelease(uuidRef);
         
         _uId = (NSString *)uuidStringRef;
-    }
-    return self;
-}
-
-+(id)obstacle
-{
-    int n = (arc4random() % 2) + 1;
-    
-    switch (n) {
-        case 1:
-            return [[[TBObstacleFirstType alloc] init] autorelease];
-            break;
-        case 2:
-            return [[[TBObstacleSecondType alloc] init] autorelease];
-            break;
-        default:
-            return [[[TBObstacleFirstType alloc] init] autorelease];
-            break;
-    }
-}
-
-- (id)initWithPrefix:(NSString *)prefix
-{
-    self = [super initWithPrefix:prefix];
-    if (self) {
+        
+        _activeTransitionFrameNumber = 35;
+        _explosionTransitionFrameNumber = [_prefix isEqualToString:@"obstacle_first"] ? 35 : 38;
+        _inactiveTransitionFrameNumber = 35;
+        
         _activeAnimationName = [[NSString alloc] initWithFormat:@"%@%@", _prefix, @"_actif"];
         _explosionAnimationName = [[NSString alloc] initWithFormat:@"%@%@", _prefix, @"_explosion"];
         _inactiveAnimatioName = [[NSString alloc] initWithFormat:@"%@%@", _prefix, @"_inactif"];
     }
     return self;
+}
+
++(NSString *)obstaclePrefix
+{
+    int n = (arc4random() % 2) + 1;
+    
+    switch (n) {
+        case 1:
+            return @"obstacle_first";
+            break;
+        case 2:
+            return @"obstacle_second";
+            break;
+        default:
+            return @"obstacle_first";
+            break;
+    }
 }
 
 -(void) drawAt:(CGPoint)pos

@@ -7,6 +7,7 @@
 //
 
 #import "TBBotThirdState.h"
+#import "TBModel.h"
 
 @implementation TBBotThirdState
 {
@@ -46,7 +47,9 @@
         [_glowSprite setPosition:[self position]];
         [_glowSprite setBlendFunc:(ccBlendFunc) {GL_ONE, GL_ONE}];
         
-        CGSize size = CGSizeMake(5.0f, 6.0f);
+        float ratio = [[TBModel getInstance] isRetinaDisplay] ? 1.0f : 0.5f;
+        
+        CGSize size = CGSizeMake(10.0f * ratio, 12.0f * ratio);
         
         [_glowSprite runAction: [CCRepeatForever actionWithAction: [CCSequence actions: [CCScaleTo actionWithDuration:0.9f scaleX:size.width scaleY:size.height], [CCScaleTo actionWithDuration:0.5f scaleX:size.width * 0.9f scaleY:size.height * 0.9f], nil]]];
         

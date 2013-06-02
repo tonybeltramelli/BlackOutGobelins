@@ -30,7 +30,7 @@
     
     if(_value <= 0.0f)
     {
-        [[self parent] removeChild:self cleanup:TRUE];
+        [[self parent] removeChild:self cleanup:FALSE];
         [self complete];
     }
 }
