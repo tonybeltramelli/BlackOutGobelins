@@ -10,6 +10,11 @@
 
 @interface TBFirstLevelData : NSObject
 
+- (id)initWithBotNumber:(int)botNumber;
+
+-(BOOL)isObstacleDestroyable;
+-(void)incrementScore;
+-(float)getScore;
 -(NSString *)getUserName;
 -(NSString *)getUserNameDataType;
 -(NSMutableArray *)getCharactersData;

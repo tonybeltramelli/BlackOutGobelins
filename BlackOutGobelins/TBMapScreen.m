@@ -23,6 +23,7 @@
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
 #import "TBModel.h"
+#import "SimpleAudioEngine.h"
 
 const float DELAY = 20.0f;
 
@@ -58,7 +59,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     CGPoint _swipeEndPosition;
     float _delay;
     BOOL _toFreeze;
-    float _incrementValue;
+    float _score;
 }
 
 +(CCScene *) scene
@@ -111,9 +112,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     CGPoint startPosition = [_environmentContainer getStartPositionFromMeta];
     [self addOrMoveHeroAtPosition:startPosition];
     
-    [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
-    [self addAllPlants];    
     [self addAllBots];
+    [self addCharactersAtPositions:[_environmentContainer getCharactersPositions:1]];
+    [self addAllPlants];
     [self addObstaclesAtPositions:[_environmentContainer getObstaclesPositions]];
     
     _door = [[TBDoor alloc] init];
@@ -123,10 +124,10 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
     [_gameController useTouch:TRUE];
     
-    _incrementValue = 1.0f / [_bots count];
-    
     NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
+    
+    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"first_level_loop.mp3" loop:YES];
     
     [self scheduleUpdate];
 }
@@ -311,14 +312,17 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         if(_swipeStartPosition.x != CGPointZero.x && _swipeStartPosition.y != CGPointZero.y &&
            _swipeEndPosition.x != CGPointZero.x && _swipeEndPosition.y != CGPointZero.y &&
            _delay == 0.0f)
-        {
+        {            
             if([_targetedCharacter isKindOfClass:[TBObstacle class]])
             {
-                [_obstacleManager removeObstacleReafFrom:(TBObstacle *)_targetedCharacter];
+                if([[[TBModel getInstance] getCurrentLevelData] isObstacleDestroyable])
+                {
+                    [_obstacleManager removeObstacleReafFrom:(TBObstacle *)_targetedCharacter];
                 
-                _targetedCharacter = nil;
+                    _targetedCharacter = nil;
                 
-                _isMoving = false;
+                    _isMoving = false;
+                }
                 
                 return;
             }
@@ -374,7 +378,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBCharacterTransitionBot *bot = (TBCharacterTransitionBot *)[notification object];
     [_bots removeObject:bot];
     
-    [_progressBar setProgress:[_progressBar progress] + _incrementValue];
+    [[[TBModel getInstance] getCurrentLevelData] incrementScore];
+    
+    [_progressBar setProgress:[[[TBModel getInstance] getCurrentLevelData] getScore]];
     
     _toFreeze = false;
 }
@@ -430,6 +436,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [self addElements:@"TBBotFirstState" atPositions:[_environmentContainer getBotsStartPositions:1] andSaveThemIn:_bots];
     [self addElements:@"TBBotSecondState" atPositions:[_environmentContainer getBotsStartPositions:2] andSaveThemIn:_bots];
     [self addElements:@"TBBotThirdState" atPositions:[_environmentContainer getBotsStartPositions:3] andSaveThemIn:_bots];
+    
+    [[TBModel getInstance] setLevelWithBotNumber:[_bots count]];
 }
 
 -(void) addCharactersAtPositions:(NSMutableArray *)positions

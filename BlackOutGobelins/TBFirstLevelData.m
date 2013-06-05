@@ -14,6 +14,32 @@
 @implementation TBFirstLevelData
 {
     NSMutableArray *_characterData;
+    int _currentObstacleNumber;
+    int _totalObstacleNumber;
+    float *_obstableScoreRelated;
+    
+    float _score;
+    float _scoreIncrement;
+}
+
+- (id)initWithBotNumber:(int)botNumber
+{
+    self = [super init];
+    if (self) {
+        _currentObstacleNumber = 0;
+        
+        _scoreIncrement = 1.0f / botNumber;
+        
+        _obstableScoreRelated = (float *)malloc(4 * sizeof(float));
+        
+        _obstableScoreRelated[0] = _scoreIncrement;
+        _obstableScoreRelated[1] = _obstableScoreRelated[0] + _scoreIncrement * 2;
+        _obstableScoreRelated[2] = _obstableScoreRelated[1] + _scoreIncrement * 4;
+        _obstableScoreRelated[3] = _obstableScoreRelated[2] + _scoreIncrement * 5;
+        
+        _score = 0.0f;
+    }
+    return self;
 }
 
 -(void)generateCharactersData
@@ -52,6 +78,28 @@
     if(!_characterData) [self generateCharactersData];
     
     return _characterData;
+}
+
+-(BOOL)isObstacleDestroyable
+{
+    float value = _score - _obstableScoreRelated[_currentObstacleNumber];
+    if(value < 0.0001f && value > -0.0001f)
+    {
+        _currentObstacleNumber ++;
+        return TRUE;
+    }else{
+        return FALSE;
+    }
+}
+
+-(void)incrementScore
+{
+    _score += _scoreIncrement;
+}
+
+-(float)getScore
+{
+    return _score;
 }
 
 - (void)dealloc

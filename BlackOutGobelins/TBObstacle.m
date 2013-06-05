@@ -34,9 +34,9 @@
         
         _uId = (NSString *)uuidStringRef;
         
-        _activeTransitionFrameNumber = 35;
+        _activeTransitionFrameNumber = [_prefix isEqualToString:@"obstacle_third"] ? 38 : 35;
         _explosionTransitionFrameNumber = [_prefix isEqualToString:@"obstacle_first"] ? 35 : 38;
-        _inactiveTransitionFrameNumber = 35;
+        _inactiveTransitionFrameNumber = [_prefix isEqualToString:@"obstacle_third"] ? 38 : 35;
         
         _activeAnimationName = [[NSString alloc] initWithFormat:@"%@%@", _prefix, @"_actif"];
         _explosionAnimationName = [[NSString alloc] initWithFormat:@"%@%@", _prefix, @"_explosion"];
@@ -47,7 +47,7 @@
 
 +(NSString *)obstaclePrefix
 {
-    int n = (arc4random() % 2) + 1;
+    int n = (arc4random() % 3) + 1;
     
     switch (n) {
         case 1:
@@ -55,6 +55,9 @@
             break;
         case 2:
             return @"obstacle_second";
+            break;
+        case 3:
+            return @"obstacle_third";
             break;
         default:
             return @"obstacle_first";

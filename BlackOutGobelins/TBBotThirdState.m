@@ -81,7 +81,7 @@
 {    
     [super handleConnection:toConnect];
     
-    if(_isConnecting)
+    if(toConnect)
     {
         _isOn = false;
         [_glowSprite runAction:[CCFadeTo actionWithDuration:0.3f opacity:0]];
