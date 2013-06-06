@@ -454,6 +454,11 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 {
     [self addElements:@"TBFirstPlant" atPositions:[_environmentContainer getPlantsPositions:1] andSaveThemIn:_plants];
     [self addElements:@"TBSecondPlant" atPositions:[_environmentContainer getPlantsPositions:2] andSaveThemIn:_plants];
+    [self addElements:@"TBThirdPlant" atPositions:[_environmentContainer getPlantsPositions:3] andSaveThemIn:_plants];
+    [self addElements:@"TBFourthPlant" atPositions:[_environmentContainer getPlantsPositions:4] andSaveThemIn:_plants];
+    [self addElements:@"TBFifthPlant" atPositions:[_environmentContainer getPlantsPositions:5] andSaveThemIn:_plants];
+    [self addElements:@"TBSixthPlant" atPositions:[_environmentContainer getPlantsPositions:6] andSaveThemIn:_plants];
+    [self addElements:@"TBSeventhPlant" atPositions:[_environmentContainer getPlantsPositions:7] andSaveThemIn:_plants];
 }
 
 -(void) addElements:(NSString *)className atPositions:(NSMutableArray *)positions andSaveThemIn:(NSMutableArray *)array
