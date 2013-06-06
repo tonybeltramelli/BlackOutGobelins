@@ -34,8 +34,6 @@
         viewController = [TBHomeViewController alloc];
     }
     
-    viewController = [TBGameViewController alloc];
-    
     [UIView animateWithDuration:0.3 delay: 1.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.view setAlpha:0.0f];
