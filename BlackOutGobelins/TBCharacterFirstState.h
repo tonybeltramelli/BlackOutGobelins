@@ -10,7 +10,6 @@
 
 @interface TBCharacterFirstState : TBCharacter
 
--(void) getDataAt:(int)index;
 -(NSString *)getDialogue;
 
 @end

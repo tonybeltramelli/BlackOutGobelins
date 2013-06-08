@@ -426,6 +426,7 @@
 		98E69AE2170EB4B6008F3D23 /* TBPreHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E69AE0170EB4B6008F3D23 /* TBPreHomeViewController.m */; };
 		98E69AE3170EB4B6008F3D23 /* TBPreHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E69AE1170EB4B6008F3D23 /* TBPreHomeViewController.xib */; };
 		98E69AE6170EB642008F3D23 /* TBAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E69AE5170EB642008F3D23 /* TBAViewController.m */; };
+		98EC382E17636506005B59F0 /* TBBotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC382D17636506005B59F0 /* TBBotData.m */; };
 		98EC88D2174652E500DCDAB1 /* TBCharacterTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */; };
 		98F40833170C672300B6DE1A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40832170C672300B6DE1A /* Social.framework */; };
 		98F40837170C673D00B6DE1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40836170C673D00B6DE1A /* CoreLocation.framework */; };
@@ -1085,6 +1086,8 @@
 		98E69AE1170EB4B6008F3D23 /* TBPreHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBPreHomeViewController.xib; sourceTree = "<group>"; };
 		98E69AE4170EB642008F3D23 /* TBAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAViewController.h; sourceTree = "<group>"; };
 		98E69AE5170EB642008F3D23 /* TBAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAViewController.m; sourceTree = "<group>"; };
+		98EC382C17636506005B59F0 /* TBBotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotData.h; sourceTree = "<group>"; };
+		98EC382D17636506005B59F0 /* TBBotData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotData.m; sourceTree = "<group>"; };
 		98EC88D0174652E500DCDAB1 /* TBCharacterTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransition.h; sourceTree = "<group>"; };
 		98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransition.m; sourceTree = "<group>"; };
 		98F40832170C672300B6DE1A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -1825,6 +1828,8 @@
 				986C6604175345BF002A233E /* TBFirstLevelData.m */,
 				983FFB62175630680095488B /* TBCharacterData.h */,
 				983FFB63175630680095488B /* TBCharacterData.m */,
+				98EC382C17636506005B59F0 /* TBBotData.h */,
+				98EC382D17636506005B59F0 /* TBBotData.m */,
 			);
 			name = levelData;
 			sourceTree = "<group>";
@@ -3230,6 +3235,7 @@
 				984E1164176131C3009DECEE /* TBFifthPlant.m in Sources */,
 				984E1167176131CE009DECEE /* TBSixthPlant.m in Sources */,
 				984E116A176131D8009DECEE /* TBSeventhPlant.m in Sources */,
+				98EC382E17636506005B59F0 /* TBBotData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

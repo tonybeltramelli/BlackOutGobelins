@@ -53,6 +53,8 @@ static TBModel* _instance = nil;
         _databaseController = [[TBDatabaseController alloc] init];
         
         _facebookDataManager = [[TBFacebookDataManager alloc] initWithControllers:_facebookController and:_databaseController];
+        
+        _level = [[TBFirstLevelData alloc] init];
     }
     return self;
 }
@@ -65,11 +67,6 @@ static TBModel* _instance = nil;
     }
     
     return NO;
-}
-
--(void)setLevelWithBotNumber:(int)botNumber
-{
-    _level = [[TBFirstLevelData alloc] initWithBotNumber:botNumber];
 }
 
 -(TBFirstLevelData *)getCurrentLevelData

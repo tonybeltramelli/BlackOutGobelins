@@ -30,10 +30,12 @@
 
 - (id)initWithPrefix:(NSString *)prefix andPauseTransitionFirstFrame:(int)startNumber andPauseTransitionLastFrame:(int)endNumber;
 
--(void)changeDirection;
+-(void) changeDirection;
 -(void) update;
 -(BOOL) isConnectable;
 -(ccColor3B) getColor;
 -(CGPoint) getTargetPosition;
+-(NSString *) getDataValue;
+-(NSString *) getDataType;
 
 @end

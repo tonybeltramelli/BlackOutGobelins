@@ -10,10 +10,12 @@
 #import "TBModel.h"
 #import "TBCharacterData.h"
 #import "TBCharacter.h"
+#import "TBBotData.h"
 
 @implementation TBFirstLevelData
 {
     NSMutableArray *_characterData;
+    NSMutableArray *_botsData;
     int _currentObstacleNumber;
     int _totalObstacleNumber;
     float *_obstableScoreRelated;
@@ -22,13 +24,13 @@
     float _scoreIncrement;
 }
 
-- (id)initWithBotNumber:(int)botNumber
+- (id)init
 {
     self = [super init];
     if (self) {
         _currentObstacleNumber = 0;
         
-        _scoreIncrement = 1.0f / botNumber;
+        _scoreIncrement = 1.0f / 12;
         
         _obstableScoreRelated = (float *)malloc(4 * sizeof(float));
         
@@ -53,24 +55,32 @@
     [_characterData addObject:dataFriendOnPicture];
 }
 
--(NSString *)getUserName
+-(void)generateBotsData
 {
-    if([self isUserAvailable])
+    _botsData = [[NSMutableArray alloc] init];
+    
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:@"Best friend name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:@"Great buddy name"]];
+    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
+    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
+    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
+    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+}
+
+-(NSString *)getDataFrom:(id)pointer
+{
+    if(pointer)
     {
-        return [TBModel getInstance].facebookController.user.name;
+        return pointer;
     }
     
-    return @"This is a fake name";
-}
-
--(NSString *)getUserNameDataType
-{
-    return @"Facebook user name";
-}
-
--(BOOL)isUserAvailable
-{
-    return [TBModel getInstance].facebookController.user != nil;
+    return @"Data protected";
 }
 
 -(NSMutableArray *)getCharactersData
@@ -78,6 +88,13 @@
     if(!_characterData) [self generateCharactersData];
     
     return _characterData;
+}
+
+-(NSMutableArray *)getBotsData
+{
+    if(!_botsData) [self generateBotsData];
+    
+    return _botsData;
 }
 
 -(BOOL)isObstacleDestroyable

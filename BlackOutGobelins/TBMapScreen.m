@@ -331,12 +331,12 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             
             if([_targetedCharacter isKindOfClass:[TBCharacterTransitionBot class]])
             {
-                NSString *interactionType = [[TBModel getInstance].getCurrentLevelData getUserNameDataType];
-                NSString *interactionData = [[TBModel getInstance].getCurrentLevelData getUserName];
+                NSString *interactionValue = [(TBCharacterTransitionBot *)_targetedCharacter getDataValue];
+                NSString *interactionType = [(TBCharacterTransitionBot *)_targetedCharacter getDataType];
                 
                 CGPoint botConnectionPos = CGPointMake(_targetedCharacter.position.x + [_targetedCharacter getGravityCenter].x, _targetedCharacter.position.y + [_targetedCharacter getGravityCenter].y);
                 
-                line = [TBLine lineFrom:botConnectionPos andTo:_hero.position withInteractionType:interactionType andData:interactionData andColor:[(TBCharacterTransitionBot *)_targetedCharacter getColor]];
+                line = [TBLine lineFrom:botConnectionPos andTo:_hero.position withInteractionType:interactionType andData:interactionValue andColor:[(TBCharacterTransitionBot *)_targetedCharacter getColor]];
             }else {
                 line = [TBLine lineFrom:_targetedCharacter.position andTo:_hero.position];
             }
@@ -436,8 +436,6 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [self addElements:@"TBBotFirstState" atPositions:[_environmentContainer getBotsStartPositions:1] andSaveThemIn:_bots];
     [self addElements:@"TBBotSecondState" atPositions:[_environmentContainer getBotsStartPositions:2] andSaveThemIn:_bots];
     [self addElements:@"TBBotThirdState" atPositions:[_environmentContainer getBotsStartPositions:3] andSaveThemIn:_bots];
-    
-    [[TBModel getInstance] setLevelWithBotNumber:[_bots count]];
 }
 
 -(void) addCharactersAtPositions:(NSMutableArray *)positions
@@ -471,7 +469,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         id element = [[NSClassFromString(className) alloc] init];
         [element drawAt:[[positions objectAtIndex:i] CGPointValue]];
         
-        if([element isKindOfClass:[TBCharacterFirstState class]]) [((TBCharacterFirstState *)element) getDataAt:i];
+        if([element isKindOfClass:[TBCharacter class]]) [((TBCharacter *)element) getDataAt:i];
         
         [array addObject:element];
         [_mainContainer addChild:(CCLayer *)element];

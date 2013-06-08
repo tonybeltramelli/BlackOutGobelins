@@ -59,6 +59,8 @@
     _directionY = 1;
 }
 
+-(void) getDataAt:(int)index { }
+
 -(void) walkTo:(CGPoint)position
 {
     CGPoint target = CGPointMake([self position].x + position.x, [self position].y + position.y);

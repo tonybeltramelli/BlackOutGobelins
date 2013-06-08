@@ -23,7 +23,6 @@
 
 + (TBModel*)getInstance;
 
--(void)setLevelWithBotNumber:(int)botNumber;
 -(TBFirstLevelData *)getCurrentLevelData;
 
 @end

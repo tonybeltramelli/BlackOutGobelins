@@ -8,6 +8,8 @@
 
 #import "TBCharacterTransitionBot.h"
 #import "TBConnectionAsset.h"
+#import "TBModel.h"
+#import "TBBotData.h"
 
 @implementation TBCharacterTransitionBot
 {    
@@ -19,6 +21,9 @@
     TBCharacterFace *_pauseFace;
     TBCharacterFace *_connectionFace;
     TBCharacterFace *_disconnectionFace;
+    
+    NSString *_dataValue;
+    NSString *_dataType;
     
     int _step;
 }
@@ -55,6 +60,14 @@
         _pauseFace = [[TBCharacterFace alloc] initWithStartNumFrame:_pauseTransitionFirstFrameNumber andEndNumFrame:_pauseTransitionLastFrameNumber withAnimName:_frontAnimationName andFileName:@"" andFilePrefix:[NSString stringWithFormat:@"%@pause", prefix]];
     }
     return self;
+}
+
+-(void) getDataAt:(int)index
+{
+    TBBotData *data = [[[[TBModel getInstance] getCurrentLevelData] getBotsData] objectAtIndex:index];
+    
+    _dataValue = [data getValue];
+    _dataType = [data getType];
 }
 
 -(void) drawAt:(CGPoint)pos
@@ -186,6 +199,16 @@
 -(ccColor3B) getColor
 {
     return _color;
+}
+
+-(NSString *) getDataValue
+{
+    return _dataValue;
+}
+
+-(NSString *) getDataType
+{
+    return _dataType;
 }
 
 - (void)dealloc

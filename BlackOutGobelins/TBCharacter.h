@@ -52,6 +52,7 @@
 -(void) handleConnection:(BOOL)toConnect;
 
 -(void) drawAt:(CGPoint)pos;
+-(void) getDataAt:(int)index;
 -(CGPoint) getVolumicBoundariesFromPositionTarget:(CGPoint)position;
 -(void) walkTo:(CGPoint)position;
 -(void) collide;
