@@ -11,3 +11,7 @@
 "CHARACTER_DIALOGUE_BESTFRIEND" = "I'm happy to met you, that was really boring to be alone with a broken bot... He really help me anyway, you should go talk to him before he'll be gone.";
 
 "CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Who. You have been really hurted! I remember you but that was not easy. Have you got a picture of yourself?";
+
+"DATA_TYPE_USER_NAME" = "Your name";
+
+"DATA_TYPE_LOCATION" = "Where you live";

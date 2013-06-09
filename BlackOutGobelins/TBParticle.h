@@ -10,7 +10,7 @@
 
 @interface TBParticle : TBSpecial
 
--(id) initAt:(CGPoint)location with:(ccColor4F)color;
+-(id) initAt:(CGPoint)location with:(int)hexColor;
 
 @end
 

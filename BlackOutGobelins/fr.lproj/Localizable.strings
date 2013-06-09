@@ -11,3 +11,7 @@
 "CHARACTER_DIALOGUE_BESTFRIEND" = "Je suis content qu’on ai pu rentrer en contact, je commençais à me lasser d’avoir pour seul ami un Bot détraqué... Il m’a bien aidé en tout cas, tu devrais aller le voir avant qu’il y passe.";
 
 "CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Wow. T’es salement amoché(e) toi ! Tu me dis quelque chose mais pas facile de t’identifier. Tu aurais pas une photo au moins ?";
+
+"DATA_TYPE_USER_NAME" = "Ton nom";
+
+"DATA_TYPE_LOCATION" = "Là où tu vis";

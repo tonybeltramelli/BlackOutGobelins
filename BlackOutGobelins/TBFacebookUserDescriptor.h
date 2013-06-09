@@ -17,6 +17,7 @@
 @property(nonatomic, assign) NSString *userId;
 @property(nonatomic, assign) NSString *name;
 @property(nonatomic, assign) NSString *profilePictureUrl;
+@property(nonatomic, assign) NSString *location;
 
 -(id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser;
 -(id)initWithDictionnary:(NSDictionary *)userData;

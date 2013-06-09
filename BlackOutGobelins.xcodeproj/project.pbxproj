@@ -427,6 +427,9 @@
 		98E69AE3170EB4B6008F3D23 /* TBPreHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E69AE1170EB4B6008F3D23 /* TBPreHomeViewController.xib */; };
 		98E69AE6170EB642008F3D23 /* TBAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E69AE5170EB642008F3D23 /* TBAViewController.m */; };
 		98EC382E17636506005B59F0 /* TBBotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC382D17636506005B59F0 /* TBBotData.m */; };
+		98EC383117639397005B59F0 /* finger.png in Resources */ = {isa = PBXBuildFile; fileRef = 98EC382F17639397005B59F0 /* finger.png */; };
+		98EC383217639397005B59F0 /* finger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98EC383017639397005B59F0 /* finger@2x.png */; };
+		98EC3835176393E0005B59F0 /* TBFingerTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC3834176393E0005B59F0 /* TBFingerTutorial.m */; };
 		98EC88D2174652E500DCDAB1 /* TBCharacterTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */; };
 		98F40833170C672300B6DE1A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40832170C672300B6DE1A /* Social.framework */; };
 		98F40837170C673D00B6DE1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40836170C673D00B6DE1A /* CoreLocation.framework */; };
@@ -1088,6 +1091,10 @@
 		98E69AE5170EB642008F3D23 /* TBAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAViewController.m; sourceTree = "<group>"; };
 		98EC382C17636506005B59F0 /* TBBotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBotData.h; sourceTree = "<group>"; };
 		98EC382D17636506005B59F0 /* TBBotData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBotData.m; sourceTree = "<group>"; };
+		98EC382F17639397005B59F0 /* finger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger.png; sourceTree = "<group>"; };
+		98EC383017639397005B59F0 /* finger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finger@2x.png"; sourceTree = "<group>"; };
+		98EC3833176393E0005B59F0 /* TBFingerTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFingerTutorial.h; sourceTree = "<group>"; };
+		98EC3834176393E0005B59F0 /* TBFingerTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFingerTutorial.m; sourceTree = "<group>"; };
 		98EC88D0174652E500DCDAB1 /* TBCharacterTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransition.h; sourceTree = "<group>"; };
 		98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransition.m; sourceTree = "<group>"; };
 		98F40832170C672300B6DE1A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -1208,6 +1215,8 @@
 			children = (
 				985D67DA174923DB005C6372 /* TBTouchFeedback.h */,
 				985D67DB174923DB005C6372 /* TBTouchFeedback.m */,
+				98EC3833176393E0005B59F0 /* TBFingerTutorial.h */,
+				98EC3834176393E0005B59F0 /* TBFingerTutorial.m */,
 			);
 			name = feedback;
 			sourceTree = "<group>";
@@ -2239,6 +2248,8 @@
 		98B5472E17612CE7006E7A1F /* feedback */ = {
 			isa = PBXGroup;
 			children = (
+				98EC382F17639397005B59F0 /* finger.png */,
+				98EC383017639397005B59F0 /* finger@2x.png */,
 				98B5472F17612CE7006E7A1F /* touch_feedback.plist */,
 				98B5473017612CE7006E7A1F /* touch_feedback.png */,
 				98B5473117612CE7006E7A1F /* touch_feedback@2x.plist */,
@@ -3028,6 +3039,8 @@
 				98B548A317612CE7006E7A1F /* progress_bar_glow@2x.png in Resources */,
 				98B548A417612CE7006E7A1F /* rounded_corner_popin.png in Resources */,
 				98B548A517612CE7006E7A1F /* rounded_corner_popin@2x.png in Resources */,
+				98EC383117639397005B59F0 /* finger.png in Resources */,
+				98EC383217639397005B59F0 /* finger@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3236,6 +3249,7 @@
 				984E1167176131CE009DECEE /* TBSixthPlant.m in Sources */,
 				984E116A176131D8009DECEE /* TBSeventhPlant.m in Sources */,
 				98EC382E17636506005B59F0 /* TBBotData.m in Sources */,
+				98EC3835176393E0005B59F0 /* TBFingerTutorial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

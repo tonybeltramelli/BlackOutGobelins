@@ -59,14 +59,15 @@
 {
     _botsData = [[NSMutableArray alloc] init];
     
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:NSLocalizedString(@"DATA_TYPE_USER_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.location] andType:NSLocalizedString(@"DATA_TYPE_LOCATION", nil)]];
+    
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:@"Best friend name"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:@"Great buddy name"]];
     [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
     [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
     [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
     [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];

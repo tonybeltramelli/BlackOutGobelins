@@ -22,19 +22,11 @@
 #import "TBDoor.h"
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
+#import "TBFingerTutorial.h"
 #import "TBModel.h"
 #import "SimpleAudioEngine.h"
 
 const float DELAY = 20.0f;
-
-static ccColor4F hexColorToRGBA(int hexValue, float alpha)
-{
-    float pRed = (hexValue & 0xFF0000) >> 16;
-    float pGreen = (hexValue & 0xFF00) >> 8;
-    float pBlue = (hexValue & 0xFF);
-    
-	return (ccColor4F) {pRed/255, pGreen/255, pBlue/255, alpha};
-}
 
 @implementation TBMapScreen
 {
@@ -52,6 +44,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     TBDoor *_door;
     NSMutableArray *_plants;
     TBObstacleManager *_obstacleManager;
+    TBFingerTutorial *_tutorial;
     
     CGSize _size;
     BOOL _isMoving;
@@ -60,6 +53,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     float _delay;
     BOOL _toFreeze;
     float _score;
+    int _tutorialIncrementer;
+    BOOL _isTutorialSeen;
 }
 
 +(CCScene *) scene
@@ -101,6 +96,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _progressBar = [[TBProgressBar alloc] init];
         [_progressBar setPosition:CGPointMake(_size.width, _size.height)];
         [self addChild:_progressBar z:1];
+        
+        _tutorialIncrementer = 0;
+        _isTutorialSeen = FALSE;
     }
     return self;
 }
@@ -142,6 +140,26 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
         _delay = 0.0f;
     }
     
+    if(!_isTutorialSeen)
+    {
+        _tutorialIncrementer ++;
+    
+        if(_tutorialIncrementer == 100)
+        {
+            _toFreeze = TRUE;
+            CGPoint characterPosition = ((TBCharacter *)[_characters objectAtIndex:0]).position;
+            CGPoint relativeCharacterPosition = CGPointMake(characterPosition.x - _hero.position.x, characterPosition.y - _hero.position.y);
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:self];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tutorialIsOver:) name:@"TUTORIAL_OVER" object:nil];
+            
+            _tutorial = [[TBFingerTutorial alloc] initWithSize:_size andCharacterPosition:relativeCharacterPosition];
+            
+            [self addChild:_tutorial];
+            _isTutorialSeen = TRUE;
+        }
+    }
+    
     [self displayPossibleConnections];
     [self handleBotMovements];
     [self reorderIndexes];
@@ -161,6 +179,18 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     }
     
     [_hero walkTo: position];
+}
+
+-(void) tutorialIsOver:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self removeChild:_tutorial cleanup:TRUE];
+    
+    [_tutorial release];
+    _tutorial = nil;
+    
+    _toFreeze = FALSE;
 }
 
 -(void)displayPossibleConnections
@@ -183,9 +213,9 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             case isOnRange:
                 if([_hero isOnHeroRange:element])
                 {
-                    [element connectionOnRange:true];
+                    [element connectionOnRange:TRUE];
                 }else{
-                    [element connectionOnRange:false];
+                    [element connectionOnRange:FALSE];
                 }
                 break;
             case isTouched:
@@ -271,7 +301,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     if(!charactersResult && !botsResult && !obstaclesResult) _swipeStartPosition = CGPointZero;
     
-    _isMoving = false;
+    _isMoving = FALSE;
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -282,11 +312,12 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 
     if(![_gameController doNeedToIgnoreTouchAction])
     {
-        TBParticle *particle = [[[TBParticle alloc] initAt:location with:hexColorToRGBA(0xffffff, 0.9f)] autorelease];
+        TBParticle *particle = [[[TBParticle alloc] initAt:location with:0xffffff] autorelease];
         [_topContainer addChild:particle];
     }
     
-    _isMoving = true;
+    _isMoving = TRUE;
+    if(!_isTutorialSeen) _isTutorialSeen = TRUE;
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -297,6 +328,8 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             
         return;
     }
+    
+    if(!_isTutorialSeen) _isTutorialSeen = TRUE;
     
     CGPoint location = [self getContainerPositionFromTouch:touches];
     
@@ -321,7 +354,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
                 
                     _targetedCharacter = nil;
                 
-                    _isMoving = false;
+                    _isMoving = FALSE;
                 }
                 
                 return;
@@ -360,15 +393,15 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
             
             [_hero startConnection];
             
-            [_targetedCharacter handleConnection:true];
+            [_targetedCharacter handleConnection:TRUE];
             _targetedCharacter = nil;
             
             _delay = DELAY;
-            _toFreeze = true;
+            _toFreeze = TRUE;
         }
     }
     
-    _isMoving = false;
+    _isMoving = FALSE;
 }
 
 -(void) botDisconnected:(NSNotification *)notification
@@ -382,7 +415,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     
     [_progressBar setProgress:[[[TBModel getInstance] getCurrentLevelData] getScore]];
     
-    _toFreeze = false;
+    _toFreeze = FALSE;
 }
 
 -(void) characterDisconnected:(NSNotification *)notification
@@ -394,7 +427,7 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
     [_dialoguePopIn release];
     _dialoguePopIn = nil;
     
-    _toFreeze = false;
+    _toFreeze = FALSE;
 }
 
 -(CGPoint)getContainerPositionFromTouch:(NSSet *)touches

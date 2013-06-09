@@ -16,6 +16,7 @@
 @synthesize userId = _userId;
 @synthesize name = _name;
 @synthesize profilePictureUrl = _profilePictureUrl;
+@synthesize location = _location;
 
 const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
@@ -28,6 +29,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _userId = _graphUser.id;
         _name = _graphUser.name;
         _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _location = _graphUser.location.name;
     }
     return self;
 }
@@ -39,6 +41,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _userId = [userData objectForKey:@"USER_ID"];
         _name = [userData objectForKey:@"USER_NAME"];
         _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _location = [userData objectForKey:@"USER_LOCATION"];
     }
     return self;
 }

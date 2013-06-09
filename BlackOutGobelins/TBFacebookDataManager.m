@@ -11,6 +11,7 @@
 
 //user
 NSString *USER_TABLE_NAME= @"USER";
+NSString *USER_LOCATION = @"USER_LOCATION";
 
 //bestfriend
 NSString *BESTFRIEND_TABLE_NAME = @"BESTFRIEND";
@@ -49,10 +50,11 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSString *userId = _facebookController.user.userId;
     NSString *userName = _facebookController.user.name;
     NSString *userProfilePictureUrl = _facebookController.user.profilePictureUrl;
+    NSString *userLocation = _facebookController.user.location;
     
     [self cleanIfDataAlreadySaved:userId on:USER_TABLE_NAME];
     
-    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_ID];
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_LOCATION, USER_ID];
     
     [_databaseController createTable:USER_TABLE_NAME andParams:requestParams];
     
@@ -60,6 +62,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     [toSave setObject:userId forKey:USER_ID];
 	[toSave setObject:userName forKey:USER_NAME];
     [toSave setObject:userProfilePictureUrl forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:userLocation forKey:USER_LOCATION];
     
     [_databaseController insertIntoTable:USER_TABLE_NAME theseRowsAndValues:toSave];
 }
@@ -157,6 +160,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
     [userData setObject:user.id forKey:USER_ID];
     [userData setObject:user.name forKey:USER_NAME];
+    [userData setObject:user.location.name forKey:USER_LOCATION];
     
     [_facebookController setUserFromData:userData];
     
@@ -236,11 +240,13 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     {
         NSMutableArray *resultUserIds = [_databaseController getRow:USER_ID fromTable:USER_TABLE_NAME];
         NSMutableArray *resultProfilePicture = [_databaseController getRow:PROFILE_PICTURE_URL fromTable:USER_TABLE_NAME];
+        NSMutableArray *resultLocation = [_databaseController getRow:USER_LOCATION fromTable:USER_TABLE_NAME];
         
         NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
         [userData setObject:userName forKey:USER_NAME];
         [userData setObject:(NSString *)[resultProfilePicture objectAtIndex:0] forKey:PROFILE_PICTURE_URL];
+        [userData setObject:(NSString *)[resultLocation objectAtIndex:0] forKey:USER_LOCATION];
         
         [_facebookController setUserFromData:userData];
     }

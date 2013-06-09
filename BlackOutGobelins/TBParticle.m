@@ -10,12 +10,21 @@
 
 #import "CCParticleExamples.h"
 
+static ccColor4F hexColorToRGBA(int hexValue, float alpha)
+{
+    float pRed = (hexValue & 0xFF0000) >> 16;
+    float pGreen = (hexValue & 0xFF00) >> 8;
+    float pBlue = (hexValue & 0xFF);
+    
+	return (ccColor4F) {pRed/255, pGreen/255, pBlue/255, alpha};
+}
+
 @implementation TBParticle
 {
     float _counter;
 }
 
--(id) initAt:(CGPoint)location with:(ccColor4F)color
+-(id) initAt:(CGPoint)location with:(int)hexColor
 {
     self = [super init];
     if (self) {
@@ -23,7 +32,7 @@
         [particle autorelease];
         [self addChild:particle];
         particle.position = location;
-        particle.startColor = color;
+        particle.startColor = hexColorToRGBA(hexColor, 0.9f);
         particle.startSize = 10;
         particle.endSize = 1;
         particle.emissionRate = 200;
