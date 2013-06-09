@@ -16,9 +16,20 @@
 
 @implementation TBPreHomeViewController
 
+- (void)viewDidLoad
+{
+    NSString *labelContent = NSLocalizedString(@"PREHOME_TEXT", nil);
+    
+    _textView.text = labelContent;
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    CGSize contentSize = [_textView.text sizeWithFont:_textView.font constrainedToSize:_textView.frame.size];
+    
+    _textView.frame = CGRectMake(_textView.frame.origin.x, [UIScreen mainScreen].bounds.size.height / 2 - contentSize.height, _textView.frame.size.width, _textView.frame.size.height);
     
     [[TBModel getInstance].facebookDataManager getUser];
     [[TBModel getInstance].facebookDataManager getBestFriend];
@@ -34,7 +45,7 @@
         viewController = [TBHomeViewController alloc];
     }
     
-    [UIView animateWithDuration:0.3 delay: 1.0 options: UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:0.3 delay: 6.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.view setAlpha:0.0f];
                      }
@@ -44,4 +55,9 @@
                      }];
 }
 
+- (void)dealloc {
+    [_textView release];
+    
+    [super dealloc];
+}
 @end

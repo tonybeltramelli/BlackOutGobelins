@@ -15,3 +15,5 @@
 "DATA_TYPE_USER_NAME" = "Ton nom";
 
 "DATA_TYPE_LOCATION" = "Là où tu vis";
+
+"PREHOME_TEXT" = "Blackout est un jeu d’aventure vous permettant d’explorer votre réseau Facebook et de redécouvrir votre image en ligne de manière inédite. \n \n Pour retrouver votre e-Go et prendre part à l’aventure, vous devez lier votre compte Facebook au jeu. \n \n Vos données sont sécurisées et ne pourront être utilisées par Blackout ou tout autre éditeur tierce à des fins personnelles. Vous pouvez prendre connaissance des autorisations accordées à Blackout à chaque instant depuis les options du jeu. \n \n Retrouvez plus d’informations sur www.blackout-lejeu.fr";

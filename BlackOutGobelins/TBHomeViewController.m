@@ -89,6 +89,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [((TBLoggedInView *) _currentView) dataLoaded];
+    
+    [UIView animateWithDuration:0.3 delay: 1.0 options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self.view setAlpha:0.0f];
+                     }
+                     completion:^(BOOL finished){
+                         [self.navigationController pushViewController:[[[TBGameViewController alloc] initWithNibName:nil bundle:nil] autorelease] animated:YES];
+                         [self removeFromParentViewController];
+                     }];
 }
 
 - (IBAction)logoutButtonHandler:(id)sender

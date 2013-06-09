@@ -12,11 +12,7 @@
 @implementation TBLoggedInView
 
 -(void) build
-{
-    _nameLabel.text = [TBModel getInstance].facebookController.user.name;
-    _bestFriendNameLabel.text = @"";
-    _friendOnPictureNameLabel.text = @"";
-    
+{    
     [self hideLoader];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profilePictureIsLoaded:) name:@"PROFILE_PICTURE_LOADED" object:nil];
@@ -39,16 +35,12 @@
                  }
              }];
         }
-    }else{
-        [self displayFriendsData];
     }
 }
 
 -(void) profilePictureIsLoaded:(NSNotification *)notification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PROFILE_PICTURE_LOADED" object:nil];
-    
-    [_imageView setImage:[UIImage imageWithData:[[TBModel getInstance].facebookController.user getProfilePicture]]];
     
     _loaderView.backgroundColor = [UIColor whiteColor];
     _loaderView.layer.cornerRadius = 5.0f;
@@ -74,8 +66,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FRIEND_LOADED" object:nil];
     
     [[TBModel getInstance].facebookDataManager saveFriendOnPicture];
-    
-    [self displayFriendsData];
 }
 
 -(void)loadData
@@ -86,8 +76,6 @@
     {
         [self showLoader];
         [[TBModel getInstance].facebookController getFriendsData];
-    }else{
-        [self displayFriendsData];
     }
 }
 
@@ -95,23 +83,8 @@
 {
     [self hideLoader];
     
-    [self displayFriendsData];
-    
     [[TBModel getInstance].facebookDataManager saveBestFriend];
     [[TBModel getInstance].facebookDataManager saveSomeFriends];
-}
-
--(void)displayFriendsData
-{
-    if(![[TBModel getInstance].facebookController.bestFriend.name isEqualToString:@""])
-    {
-        _bestFriendNameLabel.text = [NSString stringWithFormat:@"The best friend is %@ with %d mutual friends.", [TBModel getInstance].facebookController.bestFriend.name, [TBModel getInstance].facebookController.bestFriend.mutualFriendsNumber];
-    }
-    
-    if(![[TBModel getInstance].facebookController.friendOnPicture.name isEqualToString:@""])
-    {
-        _friendOnPictureNameLabel.text = [NSString stringWithFormat:@"The most popular friend is %@.", [TBModel getInstance].facebookController.friendOnPicture.name];
-    }
 }
 
 -(void)showLoader
