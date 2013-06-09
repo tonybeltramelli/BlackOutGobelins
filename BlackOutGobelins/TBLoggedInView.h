@@ -11,6 +11,7 @@
 @interface TBLoggedInView : TBASubView
 
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *loaderView;
+@property (retain, nonatomic) IBOutlet UILabel *label;
 
 -(void)loadData;
 -(void)dataLoaded;

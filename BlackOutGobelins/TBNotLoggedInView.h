@@ -10,4 +10,6 @@
 
 @interface TBNotLoggedInView : TBASubView
 
+@property (retain, nonatomic) IBOutlet UIButton *button;
+
 @end

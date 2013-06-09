@@ -16,4 +16,10 @@
 
 "DATA_TYPE_LOCATION" = "Where you live";
 
-"PREHOME_TEXT" = "Blackout is an adventure game in which you can explore you Facebook network and rediscover your online portrait in a unique way. \n \n To find you e-Go and start the adventure, you will have to link your Facebook account to the game. \n \n Your datas are secured and won't be used by Blackout or any third party entities. You can read the authorization granted to Blackout at any moment into the game settings. \n \n More informations at www.blackout-lejeu.fr";
+"PREHOME_TEXT" = "Blackout is an adventure game in which you can explore you Facebook network and rediscover your online portrait in a unique way. \n \n To find you e-Go and start the adventure, you will have to link your Facebook account to the game. \n \n Your data won't be used by Blackout or any other third party entities. You can read the authorization granted to Blackout at any moment into the game settings. \n \n More informations at www.blackout-lejeu.fr";
+
+"USER_COMEBACK" = "Hi {username}! It's good to see you again!";
+
+"FACEBOOK_DATA_LOADING" = "We are processing your data, \nthere are many of them!";
+
+"BUTTON_LOGIN" = "Start the adventure";

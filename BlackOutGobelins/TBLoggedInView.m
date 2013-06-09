@@ -13,7 +13,7 @@
 
 -(void) build
 {    
-    [self hideLoader];
+    [self showLoader];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profilePictureIsLoaded:) name:@"PROFILE_PICTURE_LOADED" object:nil];
     
@@ -41,24 +41,6 @@
 -(void) profilePictureIsLoaded:(NSNotification *)notification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PROFILE_PICTURE_LOADED" object:nil];
-    
-    _loaderView.backgroundColor = [UIColor whiteColor];
-    _loaderView.layer.cornerRadius = 5.0f;
-    _loaderView.layer.masksToBounds = YES;
-    _loaderView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _loaderView.layer.borderWidth = 1.5f;
-    _loaderView.layer.shadowColor = [UIColor blackColor].CGColor;
-    _loaderView.layer.shadowOpacity = 0.6;
-    _loaderView.layer.shadowRadius = 5.0;
-    _loaderView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
-    
-    CGRect loaderViewFrame = _loaderView.frame;
-    loaderViewFrame.origin.x = self.frame.size.width / 2 - loaderViewFrame.size.width;
-    loaderViewFrame.origin.y = self.frame.size.height / 2 - loaderViewFrame.size.height;
-    loaderViewFrame.size.width = loaderViewFrame.size.width * 2;
-    loaderViewFrame.size.height = loaderViewFrame.size.height * 2;
-    
-    [_loaderView setFrame:loaderViewFrame];
 }
 
 -(void) friendOnPictureIsLoaded:(NSNotification *)notification
@@ -74,7 +56,6 @@
     
     if([bestFriendName isEqualToString:@""])
     {
-        [self showLoader];
         [[TBModel getInstance].facebookController getFriendsData];
     }
 }
@@ -89,14 +70,35 @@
 
 -(void)showLoader
 {
-    CGRect loaderViewFrame = _loaderView.frame;
-    loaderViewFrame.origin.x = self.frame.size.width / 2 - loaderViewFrame.size.width / 2;
-    loaderViewFrame.origin.y = self.frame.size.height / 2 - loaderViewFrame.size.height / 2;
-    
-    [_loaderView setFrame:loaderViewFrame];
+    _loaderView.backgroundColor = [UIColor whiteColor];
+    _loaderView.layer.cornerRadius = 5.0f;
+    _loaderView.layer.masksToBounds = YES;
+    _loaderView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _loaderView.layer.borderWidth = 1.5f;
+    _loaderView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _loaderView.layer.shadowOpacity = 0.6;
+    _loaderView.layer.shadowRadius = 5.0;
+    _loaderView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
     _loaderView.hidden = FALSE;
     
     [_loaderView startAnimating];
+    
+    NSString *loadingText = NSLocalizedString(@"FACEBOOK_DATA_LOADING", nil);
+    
+    int i = 0;
+    int length = loadingText.length;
+    
+    int lineNumber = 0;
+    
+    for(i = 0; i < length; i++)
+    {
+        NSString* splittedString = [loadingText substringWithRange:NSMakeRange(i, 1)];
+        
+        if([splittedString isEqualToString:@"\n"]) lineNumber ++;
+    }
+    
+    [_label setText:loadingText];
+    _label.numberOfLines = lineNumber + 1;
 }
 
 -(void)hideLoader
@@ -111,6 +113,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [_loaderView release];
+    [_label release];
     
     [super dealloc];
 }

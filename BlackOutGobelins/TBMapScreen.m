@@ -125,7 +125,7 @@ const float DELAY = 20.0f;
     NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"first_level_loop.mp3" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"first_level_loop.mp3" loop:YES];
     
     [self scheduleUpdate];
 }

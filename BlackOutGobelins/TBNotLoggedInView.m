@@ -10,4 +10,16 @@
 
 @implementation TBNotLoggedInView
 
+-(void) build
+{
+    [_button setTitle:NSLocalizedString(@"BUTTON_LOGIN", nil) forState:UIControlStateNormal];
+}
+
+- (void)dealloc
+{
+    [_button release];
+    
+    [super dealloc];
+}
+
 @end

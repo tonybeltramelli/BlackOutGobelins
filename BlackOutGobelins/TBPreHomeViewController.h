@@ -11,5 +11,6 @@
 @interface TBPreHomeViewController : TBAViewController
 
 @property (retain, nonatomic) IBOutlet UITextView *textView;
+@property (retain, nonatomic) IBOutlet UILabel *label;
 
 @end
