@@ -37,6 +37,11 @@
     return self;
 }
 
++ (id)dataWithDescriptor:(TBFacebookFriendDescriptor *)descriptor andDialog:(NSString *)dialog
+{
+    return [[[self alloc] initWithDescriptor:descriptor andDialog:dialog] autorelease];
+}
+
 -(TBFacebookFriendDescriptor *)getDescriptor
 {
     return _descriptor;

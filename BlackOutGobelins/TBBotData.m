@@ -16,7 +16,7 @@
     NSString *_type;
 }
 
--(id)initWithValue:(NSString *)value andType:(NSString *)type
+- (id)initWithValue:(NSString *)value andType:(NSString *)type
 {
     self = [super init];
     if (self) {
@@ -26,7 +26,7 @@
     return self;
 }
 
-+(id)dataWithValue:(NSString *)value andType:(NSString *)type
++ (id)dataWithValue:(NSString *)value andType:(NSString *)type
 {
     return [[[TBBotData alloc] initWithValue:value andType:type] autorelease];
 }

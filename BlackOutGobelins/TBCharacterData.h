@@ -12,7 +12,9 @@
 
 @interface TBCharacterData : NSObject
 
-- (id)initWithDescriptor:(TBFacebookFriendDescriptor *)descriptor andDialog:(NSString *)dialog;
+-(id)initWithDescriptor:(TBFacebookFriendDescriptor *)descriptor andDialog:(NSString *)dialog;
+
++(id)dataWithDescriptor:(TBFacebookFriendDescriptor *)descriptor andDialog:(NSString *)dialog;
 
 -(TBFacebookFriendDescriptor *)getDescriptor;
 -(NSString *)getDialog;

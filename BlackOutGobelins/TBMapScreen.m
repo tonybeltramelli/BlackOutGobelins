@@ -147,7 +147,25 @@ const float DELAY = 20.0f;
         if(_tutorialIncrementer == 100)
         {
             _toFreeze = TRUE;
-            CGPoint characterPosition = ((TBCharacter *)[_characters objectAtIndex:0]).position;
+            
+            CGPoint characterPosition;
+            
+            int i = 0;
+            int length = [_characters count];
+            
+            int maxY = 0;
+            
+            for(i = 0; i < length; i++)
+            {
+                TBCharacter *character = ((TBCharacter *)[_characters objectAtIndex:i]);
+                
+                if(character.position.y > maxY)
+                {
+                    maxY = character.position.y;
+                    characterPosition = character.position;
+                }
+            }
+            
             CGPoint relativeCharacterPosition = CGPointMake(characterPosition.x - _hero.position.x, characterPosition.y - _hero.position.y);
             
             [[NSNotificationCenter defaultCenter] removeObserver:self];
