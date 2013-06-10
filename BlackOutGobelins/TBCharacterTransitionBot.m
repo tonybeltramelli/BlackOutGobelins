@@ -159,7 +159,7 @@
     
     [_currentFace changeAnimationHard:animation from:firstFrameNumber to:lastFrameNumber];
     
-    if(toContinue) [self schedule:@selector(connectionScheduleHandler:) interval:((lastFrameNumber - firstFrameNumber) * [_frontFace delay])];
+    if(toContinue) [self schedule:@selector(connectionScheduleHandler:) interval:((lastFrameNumber - firstFrameNumber) * [_currentFace delay])];
 }
 
 -(void) disconnection:(NSNotification *)notification

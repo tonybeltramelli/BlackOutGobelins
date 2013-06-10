@@ -15,6 +15,7 @@
     TBEnvironment *_environmentContainer;
     
     NSMutableArray *_obstacles;
+    NSMutableArray *_obstacleGroups;
     
     BOOL _isFrozen;
     
@@ -30,10 +31,16 @@
         _environmentContainer = environmentContainer;
         
         _obstacles = [[NSMutableArray alloc] init];
+        _obstacleGroups = [[NSMutableArray alloc] init];
         
         _isFrozen = false;
     }
     return self;
+}
+
+-(void)buildGroup
+{
+    
 }
 
 -(void)removeObstacleReafFrom:(TBObstacle *)targetObstacle
@@ -102,6 +109,9 @@
     
     [_obstacles release];
     _obstacles = nil;
+    
+    [_obstacleGroups release];
+    _obstacleGroups = nil;
     
     [super dealloc];
 }

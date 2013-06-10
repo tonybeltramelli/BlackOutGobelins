@@ -16,7 +16,7 @@
     if (self)
     {
         _connectionStartFirstFrameNumber = 0;
-        _connectionStartFirstFrameNumber = 24;
+        _connectionStartLastFrameNumber = 24;
         
         _connectionMiddleFirstFrameNumber = 0;
         _connectionMiddleLastFrameNumber = 23;
