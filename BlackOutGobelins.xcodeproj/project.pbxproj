@@ -188,6 +188,9 @@
 		986EB0CB173D5B390085F83C /* TBLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CA173D5B390085F83C /* TBLine.m */; };
 		986EB0CF173D60130085F83C /* TBParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CE173D60130085F83C /* TBParticle.m */; };
 		986EB0D4173D628B0085F83C /* TBSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0D3173D628B0085F83C /* TBSpecial.m */; };
+		987AE5321765F1CA00756250 /* Blank-Background-568h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */; };
+		987AE5331765F1CA00756250 /* Blank-Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE5301765F1CA00756250 /* Blank-Background.jpg */; };
+		987AE5341765F1CA00756250 /* Blank-Background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */; };
 		98814E4D17410AAB00C86F65 /* TBPlantOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 98814E4C17410AAB00C86F65 /* TBPlantOne.m */; };
 		98814E511741180D00C86F65 /* TBMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 98814E471741079E00C86F65 /* TBMapElement.m */; };
 		98825EDE174780A70088E0E5 /* TBConnectionAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 98825EDD174780A70088E0E5 /* TBConnectionAsset.m */; };
@@ -818,6 +821,9 @@
 		986EB0CE173D60130085F83C /* TBParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBParticle.m; sourceTree = "<group>"; };
 		986EB0D2173D628B0085F83C /* TBSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSpecial.h; sourceTree = "<group>"; };
 		986EB0D3173D628B0085F83C /* TBSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSpecial.m; sourceTree = "<group>"; };
+		987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background-568h@2x.jpg"; path = "Resources/Blank-Background-568h@2x.jpg"; sourceTree = "<group>"; };
+		987AE5301765F1CA00756250 /* Blank-Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background.jpg"; path = "Resources/Blank-Background.jpg"; sourceTree = "<group>"; };
+		987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background@2x.jpg"; path = "Resources/Blank-Background@2x.jpg"; sourceTree = "<group>"; };
 		98814E461741079E00C86F65 /* TBMapElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBMapElement.h; sourceTree = "<group>"; };
 		98814E471741079E00C86F65 /* TBMapElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBMapElement.m; sourceTree = "<group>"; };
 		98814E4B17410AAB00C86F65 /* TBPlantOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPlantOne.h; sourceTree = "<group>"; };
@@ -1290,6 +1296,9 @@
 			isa = PBXGroup;
 			children = (
 				989F1942173054B300EA8183 /* assets */,
+				987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */,
+				987AE5301765F1CA00756250 /* Blank-Background.jpg */,
+				987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */,
 				989F18DC173053CD00EA8183 /* Default-568h@2x.jpg */,
 				989F18DD173053CD00EA8183 /* Default-568h@2x.png */,
 				989F18DE173053CD00EA8183 /* Default-Landscape~ipad.png */,
@@ -3041,6 +3050,9 @@
 				98B548A517612CE7006E7A1F /* rounded_corner_popin@2x.png in Resources */,
 				98EC383117639397005B59F0 /* finger.png in Resources */,
 				98EC383217639397005B59F0 /* finger@2x.png in Resources */,
+				987AE5321765F1CA00756250 /* Blank-Background-568h@2x.jpg in Resources */,
+				987AE5331765F1CA00756250 /* Blank-Background.jpg in Resources */,
+				987AE5341765F1CA00756250 /* Blank-Background@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

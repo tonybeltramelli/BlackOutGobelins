@@ -12,6 +12,8 @@
 
 -(void) build
 {
+    [super build];
+    
     [_button setTitle:NSLocalizedString(@"BUTTON_LOGIN", nil) forState:UIControlStateNormal];
 }
 

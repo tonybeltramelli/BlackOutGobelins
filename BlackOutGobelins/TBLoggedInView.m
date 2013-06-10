@@ -12,7 +12,8 @@
 @implementation TBLoggedInView
 
 -(void) build
-{    
+{
+    [super build];
     [self showLoader];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profilePictureIsLoaded:) name:@"PROFILE_PICTURE_LOADED" object:nil];

@@ -18,6 +18,9 @@
     return self;
 }
 
--(void) build {}
+-(void) build
+{
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
+}
 
 @end

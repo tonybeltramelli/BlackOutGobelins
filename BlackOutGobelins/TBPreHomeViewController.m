@@ -9,6 +9,7 @@
 #import "TBPreHomeViewController.h"
 #import "TBHomeViewController.h"
 #import "TBGameViewController.h"
+#import "TBResources.h"
 
 @interface TBPreHomeViewController ()
 
@@ -23,6 +24,8 @@
     
     _textView.text = NSLocalizedString(@"PREHOME_TEXT", nil);
     _label.text = NSLocalizedString(@"USER_COMEBACK", nil);
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.view.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
 }
 
 - (void) viewDidAppear:(BOOL)animated
