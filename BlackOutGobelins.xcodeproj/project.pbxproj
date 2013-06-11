@@ -188,6 +188,8 @@
 		986EB0CB173D5B390085F83C /* TBLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CA173D5B390085F83C /* TBLine.m */; };
 		986EB0CF173D60130085F83C /* TBParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0CE173D60130085F83C /* TBParticle.m */; };
 		986EB0D4173D628B0085F83C /* TBSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 986EB0D3173D628B0085F83C /* TBSpecial.m */; };
+		987685FF1766189000A1979D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987685FE1766189000A1979D /* MediaPlayer.framework */; };
+		9876860117661BB900A1979D /* search_ego.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9876860017661BB900A1979D /* search_ego.mov */; };
 		987AE5321765F1CA00756250 /* Blank-Background-568h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */; };
 		987AE5331765F1CA00756250 /* Blank-Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE5301765F1CA00756250 /* Blank-Background.jpg */; };
 		987AE5341765F1CA00756250 /* Blank-Background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */; };
@@ -821,6 +823,8 @@
 		986EB0CE173D60130085F83C /* TBParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBParticle.m; sourceTree = "<group>"; };
 		986EB0D2173D628B0085F83C /* TBSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSpecial.h; sourceTree = "<group>"; };
 		986EB0D3173D628B0085F83C /* TBSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSpecial.m; sourceTree = "<group>"; };
+		987685FE1766189000A1979D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9876860017661BB900A1979D /* search_ego.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = search_ego.mov; sourceTree = "<group>"; };
 		987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background-568h@2x.jpg"; path = "Resources/Blank-Background-568h@2x.jpg"; sourceTree = "<group>"; };
 		987AE5301765F1CA00756250 /* Blank-Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background.jpg"; path = "Resources/Blank-Background.jpg"; sourceTree = "<group>"; };
 		987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Blank-Background@2x.jpg"; path = "Resources/Blank-Background@2x.jpg"; sourceTree = "<group>"; };
@@ -1119,6 +1123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				987685FF1766189000A1979D /* MediaPlayer.framework in Frameworks */,
 				98F40847170C6A2100B6DE1A /* AdSupport.framework in Frameworks */,
 				98F40845170C69FA00B6DE1A /* Accounts.framework in Frameworks */,
 				98F40841170C699600B6DE1A /* libsqlite3.0.dylib in Frameworks */,
@@ -1258,6 +1263,7 @@
 		98657B97170C2E3B006F3F57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				987685FE1766189000A1979D /* MediaPlayer.framework */,
 				98F40846170C6A2100B6DE1A /* AdSupport.framework */,
 				98F40844170C69FA00B6DE1A /* Accounts.framework */,
 				98F40840170C699600B6DE1A /* libsqlite3.0.dylib */,
@@ -1884,6 +1890,14 @@
 			name = special;
 			sourceTree = "<group>";
 		};
+		987685FB176616E000A1979D /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				9876860017661BB900A1979D /* search_ego.mov */,
+			);
+			path = videos;
+			sourceTree = "<group>";
+		};
 		98814E451741078000C86F65 /* element */ = {
 			isa = PBXGroup;
 			children = (
@@ -2025,6 +2039,7 @@
 		989F1942173054B300EA8183 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				987685FB176616E000A1979D /* videos */,
 				98B546E917612CE7006E7A1F /* bot */,
 				98B5471717612CE7006E7A1F /* characters */,
 				98B5471F17612CE7006E7A1F /* elements */,
@@ -3053,6 +3068,7 @@
 				987AE5321765F1CA00756250 /* Blank-Background-568h@2x.jpg in Resources */,
 				987AE5331765F1CA00756250 /* Blank-Background.jpg in Resources */,
 				987AE5341765F1CA00756250 /* Blank-Background@2x.jpg in Resources */,
+				9876860117661BB900A1979D /* search_ego.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
