@@ -84,7 +84,7 @@
 
 -(void) becomeActive
 {
-    [self changeFace:_inactiveFace];
+    [self changeFace:_activeFace];
 }
 
 -(void) explodeAt:(int)index

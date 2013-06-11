@@ -13,6 +13,7 @@
 - (id)initWithDataNumber:(int)dataNumber;
 
 -(void)updateCounter;
+-(BOOL)isReady;
 -(void)hide;
 
 @end

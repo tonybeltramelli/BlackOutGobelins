@@ -174,7 +174,21 @@
 
 -(void)updateCurrentObstacleCounter
 {
-    [(TBSquareCounter *)[_obstacleCounter objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber]] updateCounter];
+    TBSquareCounter *obstacle = (TBSquareCounter *)[_obstacleCounter objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber]];
+    [obstacle updateCounter];
+    
+    if([obstacle isReady])
+    {
+        NSMutableArray *obstacles = [_obstacleGroups objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber]];
+        
+        int i = 0;
+        int length = [obstacles count];
+        
+        for(i = 0; i < length; i++)
+        {
+            [(TBObstacle *)[obstacles objectAtIndex:i] becomeActive];
+        }
+    }
 }
 
 -(NSMutableArray *)getObstacles
@@ -191,6 +205,9 @@
     
     [_obstacleGroups release];
     _obstacleGroups = nil;
+    
+    [_obstacleCounter release];
+    _obstacleCounter = nil;
     
     [super dealloc];
 }

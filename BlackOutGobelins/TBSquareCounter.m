@@ -24,6 +24,7 @@
     int _offsetYb;
     int _currentDataNumber;
     int _totalDataNumber;
+    BOOL _isReady;
 }
 
 - (id)initWithDataNumber:(int)dataNumber
@@ -44,8 +45,8 @@
         
         float directionX = (arc4random() % 10) < 5 ? 1.0f : -1.0f;
         
-        _offsetXa = (20 + (arc4random() % 60)) * directionX;
-        _offsetXb = (20 + (arc4random() % 60)) * - directionX;
+        _offsetXa = (20 + (arc4random() % 90)) * directionX;
+        _offsetXb = (20 + (arc4random() % 90)) * - directionX;
         _offsetYa = -(10 + (arc4random() % 20));
         _offsetYb = -(10 + (arc4random() % 20));
         
@@ -80,11 +81,27 @@
     _currentDataNumber ++;
     
     [_currentLabel setString:[NSString stringWithFormat:@"%d", _currentDataNumber]];
+    
+    _isReady = _currentDataNumber == _totalDataNumber;
 }
 
 -(void)hide
 {
     [super startSchedule];
+}
+
+-(BOOL)isReady
+{
+    return _isReady;
+}
+
+- (void)dealloc
+{
+    _squareBackground = nil;
+    _currentLabel = nil;
+    _totalLabel = nil;
+    
+    [super dealloc];
 }
 
 @end
