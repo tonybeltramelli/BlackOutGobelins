@@ -122,6 +122,8 @@ const float DELAY = 20.0f;
     _gameController = [[TBGameController alloc] initInLayer:self withHero:_hero];
     [_gameController useTouch:TRUE];
     
+    [_obstacleManager buildGroups];
+    
     NSLog(@"%@", [CCSpriteFrameCache sharedSpriteFrameCache]);
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     

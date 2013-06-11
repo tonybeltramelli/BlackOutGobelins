@@ -38,9 +38,65 @@
     return self;
 }
 
--(void)buildGroup
+-(void)buildGroups
 {
+    int i = 0;
+    int length = [_obstacles count];
     
+    int j = 0;
+    
+    for(i = 0; i < length; i++)
+    {
+        CGPoint location = [(TBObstacle *)[_obstacles objectAtIndex:i] getPosition];
+        NSMutableArray *group = [[NSMutableArray alloc] init];
+    
+        for(j = 0; j < length; j++)
+        {
+            TBObstacle *obstacle = (TBObstacle *)[_obstacles objectAtIndex:j];
+            CGPoint obstaclePosition = [obstacle getPosition];
+            CGSize obstacleSize = [obstacle getSize];
+        
+            if((location.x > obstaclePosition.x - (obstacleSize.width * 2)) && (location.x < obstaclePosition.x + (obstacleSize.width * 2)) &&
+               (location.y > obstaclePosition.y - (obstacleSize.height * 2)) && (location.y < obstaclePosition.y + (obstacleSize.height * 2)))
+            {
+                location = [obstacle getPosition];
+                [group addObject:obstacle];
+            }
+        }
+        
+        if(![self isAlreadyInThere:_obstacleGroups with:group]) [_obstacleGroups addObject:group];
+    }
+}
+
+-(BOOL)isAlreadyInThere:(NSMutableArray *)arrayFirst with:(NSMutableArray *)arraySecond
+{
+    int i = 0;
+    int length = [arrayFirst count];
+    
+    int j = 0;
+    int n = 0;
+    
+    int k = 0;
+    int a = [arraySecond count];
+    
+    int similarNumber = 0;
+    
+    for(i = 0; i < length; i++)
+    {
+        n = [[arrayFirst objectAtIndex:i] count];
+        
+        for(j = 0; j < n; j++)
+        {
+            NSMutableArray *arrayFirstElement = [[arrayFirst objectAtIndex:i] objectAtIndex:j];
+            
+            for(k = 0; k < a; k++)
+            {
+                if(arrayFirstElement == [arraySecond objectAtIndex:k]) similarNumber ++;
+            }
+        }
+    }
+    
+    return similarNumber != 0;
 }
 
 -(void)removeObstacleReafFrom:(TBObstacle *)targetObstacle
