@@ -8,6 +8,7 @@
 
 #import "TBObstacle.h"
 #import "TBCharacterFace.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TBObstacle
 {

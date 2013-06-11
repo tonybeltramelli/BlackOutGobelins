@@ -17,6 +17,7 @@
         _startTransitionFrameNumber = 20;
         _loopStartTransitionFrameNumber = 21;
         _loopEndTransitionFrameNumber = 44;
+        _plantNumber = 3;
     }
     return self;
 }

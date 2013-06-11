@@ -13,6 +13,7 @@
     int _startTransitionFrameNumber;
     int _loopStartTransitionFrameNumber;
     int _loopEndTransitionFrameNumber;
+    int _plantNumber;
 }
 
 @end

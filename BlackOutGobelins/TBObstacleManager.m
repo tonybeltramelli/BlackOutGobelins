@@ -10,6 +10,7 @@
 #import "TBObstacleManager.h"
 #import "TBSquareCounter.h"
 #import "TBModel.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TBObstacleManager
 {
@@ -121,6 +122,8 @@
     
     _isFrozen = true;
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion-Obstacle.mp3"];
+    
     [(TBSquareCounter *)[_obstacleCounter objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber] - 1] hide];
     
     int i = 0;
@@ -180,6 +183,8 @@
     if([obstacle isReady])
     {
         NSMutableArray *obstacles = [_obstacleGroups objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber]];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Connexion-Obstacle.mp3"];
         
         int i = 0;
         int length = [obstacles count];

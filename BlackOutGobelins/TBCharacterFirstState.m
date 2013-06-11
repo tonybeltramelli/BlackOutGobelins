@@ -10,6 +10,7 @@
 #import "TBCharacterNamePopin.h"
 #import "TBModel.h"
 #import "TBCharacterData.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TBCharacterFirstState
 {
@@ -43,7 +44,11 @@
 {
     if(isOnRange)
     {
-        if(!_isOnRange) [_gamePopin show];
+        if(!_isOnRange)
+        {
+            [_gamePopin show];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"EGo-Connectacle.mp3"];
+        }
     }else{
         if(_isOnRange) [_gamePopin hide];
     }
@@ -51,6 +56,13 @@
     [_gamePopin setPosition:CGPointMake(CGPointZero.x, [self getSize].height * 0.75f)];
     
     [super connectionOnRange:isOnRange];
+}
+
+-(void) handleConnection:(BOOL)toConnect
+{
+    [super handleConnection:toConnect];
+    
+    if(toConnect) [[SimpleAudioEngine sharedEngine] playEffect:@"Connexion-EGo.mp3"];
 }
 
 -(NSString *)getDialogue

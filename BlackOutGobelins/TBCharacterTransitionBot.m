@@ -10,6 +10,7 @@
 #import "TBConnectionAsset.h"
 #import "TBModel.h"
 #import "TBBotData.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TBCharacterTransitionBot
 {    
@@ -88,6 +89,8 @@
 -(void) handleConnection:(BOOL)toConnect
 {
     _step = toConnect ? 0 : 2;
+    
+    if(_step == 0 && toConnect) [[SimpleAudioEngine sharedEngine] playEffect:@"Connexion-Bot.mp3"];
     
     [self connectionScheduleHandler:nil];
     [super handleConnection:toConnect];
@@ -172,12 +175,16 @@
     
     [self handleConnection:false];
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion-Bot.mp3"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BOT_DISCONNECTED" object:self];
 }
 
 -(void) connectionOnRange:(BOOL)isOnRange
 {
     _connectionAssetPosition = CGPointMake(_gravityCenter.x, _gravityCenter.y - [_currentFace getHeight] / 4);
+    
+    if(isOnRange && !_isOnRange) [[SimpleAudioEngine sharedEngine] playEffect:@"Bot-Connectacle.mp3"];
     
     [super connectionOnRange:isOnRange];
 }

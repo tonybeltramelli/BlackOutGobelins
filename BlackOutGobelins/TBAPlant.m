@@ -8,6 +8,7 @@
 
 #import "TBAPlant.h"
 #import "TBCharacterFace.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TBAPlant
 {
@@ -51,6 +52,8 @@
         _isDiscovered = true;
         
         [_startFace changeAnimation:_startAnimationName from:0 to:_startTransitionFrameNumber];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"Plante%d.mp3", _plantNumber]];
         
         [self schedule:@selector(playLoopHandler:) interval:_startTransitionFrameNumber * [_startFace delay]];
     }
