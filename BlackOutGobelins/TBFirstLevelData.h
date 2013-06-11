@@ -15,5 +15,7 @@
 -(float)getScore;
 -(NSMutableArray *)getCharactersData;
 -(NSMutableArray *)getBotsData;
+-(float *)getBotNumberRelated;
+-(int)getCurrentObstacleNumber;
 
 @end

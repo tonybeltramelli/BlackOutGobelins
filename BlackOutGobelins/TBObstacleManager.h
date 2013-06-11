@@ -16,6 +16,7 @@
 - (id)initWithMainContainerRef:(CCLayer *)mainContainer andEnvironmentContainerRef:(TBEnvironment *)environmentContainer;
 
 -(void)buildGroups;
+-(void)updateCurrentObstacleCounter;
 -(void)removeObstacleReafFrom:(TBObstacle *)targetObstacle;
 -(NSMutableArray *)getObstacles;
 

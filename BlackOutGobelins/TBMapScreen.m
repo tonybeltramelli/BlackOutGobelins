@@ -435,6 +435,8 @@ const float DELAY = 20.0f;
     
     [_progressBar setProgress:[[[TBModel getInstance] getCurrentLevelData] getScore]];
     
+    [_obstacleManager updateCurrentObstacleCounter];
+    
     _toFreeze = FALSE;
 }
 

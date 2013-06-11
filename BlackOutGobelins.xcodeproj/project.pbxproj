@@ -436,6 +436,9 @@
 		98EC383217639397005B59F0 /* finger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98EC383017639397005B59F0 /* finger@2x.png */; };
 		98EC3835176393E0005B59F0 /* TBFingerTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC3834176393E0005B59F0 /* TBFingerTutorial.m */; };
 		98EC88D2174652E500DCDAB1 /* TBCharacterTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */; };
+		98F2F908176727A100B9B774 /* TBSquareCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F2F907176727A100B9B774 /* TBSquareCounter.m */; };
+		98F2F90B1767294B00B9B774 /* rounded_corner_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F9091767294B00B9B774 /* rounded_corner_white.png */; };
+		98F2F90C1767294B00B9B774 /* rounded_corner_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F90A1767294B00B9B774 /* rounded_corner_white@2x.png */; };
 		98F40833170C672300B6DE1A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40832170C672300B6DE1A /* Social.framework */; };
 		98F40837170C673D00B6DE1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F40836170C673D00B6DE1A /* CoreLocation.framework */; };
 		98F4083D170C678300B6DE1A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F4083C170C678300B6DE1A /* FacebookSDK.framework */; };
@@ -1107,6 +1110,10 @@
 		98EC3834176393E0005B59F0 /* TBFingerTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFingerTutorial.m; sourceTree = "<group>"; };
 		98EC88D0174652E500DCDAB1 /* TBCharacterTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacterTransition.h; sourceTree = "<group>"; };
 		98EC88D1174652E500DCDAB1 /* TBCharacterTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterTransition.m; sourceTree = "<group>"; };
+		98F2F906176727A100B9B774 /* TBSquareCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSquareCounter.h; sourceTree = "<group>"; };
+		98F2F907176727A100B9B774 /* TBSquareCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSquareCounter.m; sourceTree = "<group>"; };
+		98F2F9091767294B00B9B774 /* rounded_corner_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rounded_corner_white.png; sourceTree = "<group>"; };
+		98F2F90A1767294B00B9B774 /* rounded_corner_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded_corner_white@2x.png"; sourceTree = "<group>"; };
 		98F40832170C672300B6DE1A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		98F40836170C673D00B6DE1A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		98F4083C170C678300B6DE1A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -1881,6 +1888,7 @@
 		986EB0D1173D609E0085F83C /* special */ = {
 			isa = PBXGroup;
 			children = (
+				98F2F9051767278E00B9B774 /* counter */,
 				985D67E717492B3E005C6372 /* feedback */,
 				986EB0D0173D60970085F83C /* particle */,
 				986EB0C8173D5B2F0085F83C /* line */,
@@ -2722,6 +2730,8 @@
 		98B547DB17612CE7006E7A1F /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				98F2F9091767294B00B9B774 /* rounded_corner_white.png */,
+				98F2F90A1767294B00B9B774 /* rounded_corner_white@2x.png */,
 				98B547DC17612CE7006E7A1F /* mask-568h@2x.png */,
 				98B547DD17612CE7006E7A1F /* mask.png */,
 				98B547DE17612CE7006E7A1F /* mask@2x.png */,
@@ -2780,6 +2790,15 @@
 				98FC645E174A20F5009EA103 /* popin */,
 			);
 			name = ui;
+			sourceTree = "<group>";
+		};
+		98F2F9051767278E00B9B774 /* counter */ = {
+			isa = PBXGroup;
+			children = (
+				98F2F906176727A100B9B774 /* TBSquareCounter.h */,
+				98F2F907176727A100B9B774 /* TBSquareCounter.m */,
+			);
+			name = counter;
 			sourceTree = "<group>";
 		};
 		98FC645E174A20F5009EA103 /* popin */ = {
@@ -3069,6 +3088,8 @@
 				987AE5331765F1CA00756250 /* Blank-Background.jpg in Resources */,
 				987AE5341765F1CA00756250 /* Blank-Background@2x.jpg in Resources */,
 				9876860117661BB900A1979D /* search_ego.mov in Resources */,
+				98F2F90B1767294B00B9B774 /* rounded_corner_white.png in Resources */,
+				98F2F90C1767294B00B9B774 /* rounded_corner_white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3278,6 +3299,7 @@
 				984E116A176131D8009DECEE /* TBSeventhPlant.m in Sources */,
 				98EC382E17636506005B59F0 /* TBBotData.m in Sources */,
 				98EC3835176393E0005B59F0 /* TBFingerTutorial.m in Sources */,
+				98F2F908176727A100B9B774 /* TBSquareCounter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@
     int _currentObstacleNumber;
     int _totalObstacleNumber;
     float *_obstableScoreRelated;
+    float *_botNumberRelated;
     
     float _score;
     float _scoreIncrement;
@@ -32,12 +33,19 @@
         
         _scoreIncrement = 1.0f / 12;
         
+        _botNumberRelated = (float *)malloc(4 * sizeof(float));
+        
+        _botNumberRelated[0] = 1;
+        _botNumberRelated[1] = 2;
+        _botNumberRelated[2] = 4;
+        _botNumberRelated[3] = 5;
+        
         _obstableScoreRelated = (float *)malloc(4 * sizeof(float));
         
-        _obstableScoreRelated[0] = _scoreIncrement;
-        _obstableScoreRelated[1] = _obstableScoreRelated[0] + _scoreIncrement * 2;
-        _obstableScoreRelated[2] = _obstableScoreRelated[1] + _scoreIncrement * 4;
-        _obstableScoreRelated[3] = _obstableScoreRelated[2] + _scoreIncrement * 5;
+        _obstableScoreRelated[0] = _scoreIncrement * _botNumberRelated[0];
+        _obstableScoreRelated[1] = _obstableScoreRelated[0] + _scoreIncrement * _botNumberRelated[1];
+        _obstableScoreRelated[2] = _obstableScoreRelated[1] + _scoreIncrement * _botNumberRelated[2];
+        _obstableScoreRelated[3] = _obstableScoreRelated[2] + _scoreIncrement * _botNumberRelated[3];
         
         _score = 0.0f;
     }
@@ -118,6 +126,16 @@
 -(float)getScore
 {
     return _score;
+}
+
+-(float *)getBotNumberRelated
+{
+    return _botNumberRelated;
+}
+
+-(int)getCurrentObstacleNumber
+{
+    return _currentObstacleNumber;
 }
 
 - (void)dealloc

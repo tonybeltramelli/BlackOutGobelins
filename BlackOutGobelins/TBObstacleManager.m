@@ -8,6 +8,8 @@
 //
 
 #import "TBObstacleManager.h"
+#import "TBSquareCounter.h"
+#import "TBModel.h"
 
 @implementation TBObstacleManager
 {
@@ -16,6 +18,7 @@
     
     NSMutableArray *_obstacles;
     NSMutableArray *_obstacleGroups;
+    NSMutableArray *_obstacleCounter;
     
     BOOL _isFrozen;
     
@@ -32,6 +35,7 @@
         
         _obstacles = [[NSMutableArray alloc] init];
         _obstacleGroups = [[NSMutableArray alloc] init];
+        _obstacleCounter = [[NSMutableArray alloc] init];
         
         _isFrozen = false;
     }
@@ -64,7 +68,19 @@
             }
         }
         
-        if(![self isAlreadyInThere:_obstacleGroups with:group]) [_obstacleGroups addObject:group];
+        if(![self isAlreadyInThere:_obstacleGroups with:group])
+        {
+            float *scoreRelated = [[[TBModel getInstance] getCurrentLevelData] getBotNumberRelated];
+            
+            TBSquareCounter *squareCounter = [[TBSquareCounter alloc] initWithDataNumber:scoreRelated[[_obstacleGroups count]]];
+            TBObstacle *obstacle = (TBObstacle *)[group objectAtIndex:round([group count] / 2)];
+            
+            [squareCounter setPosition:CGPointMake(obstacle.position.x, obstacle.position.y)];
+            [_mainContainer addChild:squareCounter];
+            
+            [_obstacleGroups addObject:group];
+            [_obstacleCounter addObject:squareCounter];
+        }
     }
 }
 
@@ -104,6 +120,8 @@
     if(_isFrozen) return;
     
     _isFrozen = true;
+    
+    [(TBSquareCounter *)[_obstacleCounter objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber] - 1] hide];
     
     int i = 0;
     int length = [_obstacles count];
@@ -152,6 +170,11 @@
         
         [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
+}
+
+-(void)updateCurrentObstacleCounter
+{
+    [(TBSquareCounter *)[_obstacleCounter objectAtIndex:[[[TBModel getInstance] getCurrentLevelData] getCurrentObstacleNumber]] updateCounter];
 }
 
 -(NSMutableArray *)getObstacles
