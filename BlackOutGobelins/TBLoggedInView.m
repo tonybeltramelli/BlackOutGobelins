@@ -117,6 +117,7 @@
 		}
 	}
     
+    /*
     _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
     if ([_moviePlayer respondsToSelector:@selector(loadState)]) {
         [_moviePlayer setControlStyle:MPMovieControlStyleNone];
@@ -130,7 +131,7 @@
                                                  selector:@selector(moviePlayBackDidFinish:)
                                                      name:MPMoviePlayerPlaybackDidFinishNotification
                                                    object:nil];
-    }
+    }*/
 }
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification

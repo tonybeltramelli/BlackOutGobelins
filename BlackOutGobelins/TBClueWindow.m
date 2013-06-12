@@ -59,6 +59,7 @@
     [self addClueWith:CGSizeMake(60, 60) at:CGPointMake(_gravityCenter.x + 180, _gravityCenter.y - 60)];
     
     [((TBClueBox *)[[self children] objectAtIndex:4]) fillWithText:NSLocalizedString(@"CLUE_DOOR", nil)];
+    [((TBClueBox *)[[self children] objectAtIndex:5]) fillWithText:[TBModel getInstance].facebookController.user.schoolName];
     
     _isReady = TRUE;
 }

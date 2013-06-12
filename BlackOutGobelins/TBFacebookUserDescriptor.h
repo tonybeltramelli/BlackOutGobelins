@@ -18,10 +18,17 @@
 @property(nonatomic, assign) NSString *name;
 @property(nonatomic, assign) NSString *profilePictureUrl;
 @property(nonatomic, assign) NSString *location;
+@property(nonatomic, assign) NSString *locationPictureUrl;
+@property(nonatomic, assign) NSString *companyName;
+@property(nonatomic, assign) NSString *companyPictureUrl;
+@property(nonatomic, assign) NSString *positionName;
+@property(nonatomic, assign) NSString *schoolName;
+@property(nonatomic, assign) NSString *schoolPictureUrl;
 
 -(id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser;
 -(id)initWithDictionnary:(NSDictionary *)userData;
 
+-(void)loadExtraData;
 -(void)loadProfilePicture;
 -(NSData *)getProfilePicture;
 

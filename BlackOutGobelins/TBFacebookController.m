@@ -129,6 +129,12 @@
     }
 }
 
+-(void)setUserFromGraph:(NSDictionary<FBGraphUser> *)user
+{
+    _user = [[TBFacebookUserDescriptor alloc] initWithGraphUser:user];
+    [_user loadExtraData];
+}
+
 -(void)setUserFromData:(NSMutableDictionary *)userData
 {
     _user = [[TBFacebookUserDescriptor alloc] initWithDictionnary:userData];
