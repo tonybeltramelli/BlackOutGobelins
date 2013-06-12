@@ -19,6 +19,7 @@
 - (CGPoint)getDoorPosition;
 - (BOOL)isCollisionAt:(CGPoint)position;
 - (BOOL)isObstacleAt:(CGPoint)position;
+- (BOOL)isDoorAt:(CGPoint)position;
 - (void)removeMetaTileAt:(CGPoint)position;
 
 @end

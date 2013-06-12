@@ -78,7 +78,9 @@
 
 - (CGPoint)getDoorPosition
 {
-    return [self getMetaWithKey:@"door" andValue:@"true"];
+    CGPoint doorPosition = [self getMetaWithKey:@"door" andValue:@"true"];
+    
+    return CGPointMake(doorPosition.x + _tileSize.width / 2, doorPosition.y - _tileSize.height / 2);
 }
 
 - (CGPoint)getMetaWithKey:(NSString *)key andValue:(NSString *)value
@@ -139,6 +141,11 @@
 - (BOOL)isObstacleAt:(CGPoint)position
 {
     return [self testTileWithKey:@"obstacle" andValue:@"true" at:position];
+}
+
+- (BOOL)isDoorAt:(CGPoint)position
+{
+    return [self testTileWithKey:@"door" andValue:@"true" at:position];
 }
 
 - (BOOL)testTileWithKey:(NSString *)keyName andValue:(NSString *)value at:(CGPoint)position

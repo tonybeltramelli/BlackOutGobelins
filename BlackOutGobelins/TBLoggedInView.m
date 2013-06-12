@@ -143,14 +143,15 @@
         
         [[_moviePlayer view] setFrame:[self bounds]];
         [self addSubview:[_moviePlayer view]];
+        [self bringSubviewToFront:_label];
+        
         [_moviePlayer play];
     }
 }
 
 - (void)moviePlayBackDidFinish:(NSNotification *)notification
 {
-    [_moviePlayer stop];
-    [_moviePlayer.view removeFromSuperview];
+    [_moviePlayer play];
 }
 
 -(void)hideLoader
@@ -158,6 +159,9 @@
     _loaderView.hidden = TRUE;
     
     [_loaderView stopAnimating];
+    
+    [_moviePlayer stop];
+    [_moviePlayer.view removeFromSuperview];
 }
 
 - (void)dealloc

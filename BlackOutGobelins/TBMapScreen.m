@@ -23,6 +23,7 @@
 #import "TBProgressBar.h"
 #import "TBDialoguePopin.h"
 #import "TBFingerTutorial.h"
+#import "TBClueWindow.h"
 #import "TBModel.h"
 #import "SimpleAudioEngine.h"
 
@@ -45,6 +46,7 @@ const float DELAY = 20.0f;
     NSMutableArray *_plants;
     TBObstacleManager *_obstacleManager;
     TBFingerTutorial *_tutorial;
+    TBClueWindow *_clueWindow;
     
     CGSize _size;
     BOOL _isMoving;
@@ -55,6 +57,7 @@ const float DELAY = 20.0f;
     float _score;
     int _tutorialIncrementer;
     BOOL _isTutorialSeen;
+    BOOL _isOnDoor;
 }
 
 +(CCScene *) scene
@@ -99,6 +102,7 @@ const float DELAY = 20.0f;
         
         _tutorialIncrementer = 0;
         _isTutorialSeen = FALSE;
+        _isOnDoor = FALSE;
     }
     return self;
 }
@@ -129,11 +133,19 @@ const float DELAY = 20.0f;
     
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"First-Level-Loop.mp3" loop:YES];
     
+    [SimpleAudioEngine sharedEngine].effectsVolume = 0.0f;
+    [SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.0f;
+    
     [self scheduleUpdate];
 }
 
 -(void) update:(ccTime)delta
 {
+    _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
+    _environmentContainer.position = _effectContainer.position = _topContainer.position = _mainContainer.position;
+    
+    if(_isOnDoor) return;
+    
     if(_delay > 0.0f)
     {
         _delay -= 0.1f;
@@ -184,9 +196,6 @@ const float DELAY = 20.0f;
     [self handleBotMovements];
     [self reorderIndexes];
     
-    _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
-    _environmentContainer.position = _effectContainer.position = _topContainer.position = _mainContainer.position;
-    
     CGPoint position = [_gameController getTargetPosition];
 
     CGPoint volumicBoundaries = [_hero getVolumicBoundariesFromPositionTarget:position];
@@ -195,6 +204,27 @@ const float DELAY = 20.0f;
     if([_environmentContainer isCollisionAt:target] || [_environmentContainer isObstacleAt:target])
     {
         [_hero collide];
+        return;
+    }
+    
+    if([_environmentContainer isDoorAt:target])
+    {
+        _isOnDoor = TRUE;
+        
+        [_mainContainer reorderChild:_hero z:1];
+        
+        [_hero runAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(_door.position.x, _door.position.y)]];
+        
+        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "dark_mask.png" : "dark_mask-568h.png"]];
+        [mask setAnchorPoint:CGPointZero];
+        [mask setOpacity:0];
+        [self addChild:mask z:1];
+        
+        _clueWindow = [[TBClueWindow alloc] initWithSize:_size];
+        [self addChild:_clueWindow z:1];
+        
+        [mask runAction:[CCFadeIn actionWithDuration:0.6f]];
+        
         return;
     }
     

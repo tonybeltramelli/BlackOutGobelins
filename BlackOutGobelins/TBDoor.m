@@ -18,8 +18,8 @@
     
     int _openedTransitionFrameNumber;
     int _openingTransitionFrameNumber;
-    
     int _step;
+    BOOL _isOpen;
 }
 
 - (id)init
@@ -34,6 +34,8 @@
         _openingAnimationName = @"door_ouverture";
         
         _face = [[TBCharacterFace alloc] initWithStartNumFrame:0 andEndNumFrame:3 withAnimName:@"door_fermee" andFileName:@"" andFilePrefix:@"door"];
+        
+        _isOpen = FALSE;
     }
     return self;
 }
@@ -48,6 +50,9 @@
 
 -(void) openIt
 {
+    if(_isOpen) return;
+    
+    _isOpen = TRUE;
     _step = 0;
     
     [self doorOpeningScheduleHandler:nil];

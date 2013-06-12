@@ -28,6 +28,13 @@
 		9856F1891757688D0072B382 /* TBTopMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9856F1881757688D0072B382 /* TBTopMap.m */; };
 		985D3211174A276D0054795C /* TBCharacterNamePopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 985D3210174A276D0054795C /* TBCharacterNamePopin.m */; };
 		985D67DC174923DB005C6372 /* TBTouchFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 985D67DB174923DB005C6372 /* TBTouchFeedback.m */; };
+		985F0FF917686BE800D83CC1 /* dark_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 985F0FF617686BE800D83CC1 /* dark_mask.png */; };
+		985F0FFA17686BE800D83CC1 /* dark_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 985F0FF717686BE800D83CC1 /* dark_mask@2x.png */; };
+		985F0FFD1768788400D83CC1 /* clue_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 985F0FFB1768788400D83CC1 /* clue_box.png */; };
+		985F0FFE1768788400D83CC1 /* clue_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 985F0FFC1768788400D83CC1 /* clue_box@2x.png */; };
+		985F10061768793500D83CC1 /* TBClueBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 985F10051768793500D83CC1 /* TBClueBox.m */; };
+		985F100917687C2200D83CC1 /* TBClueWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 985F100817687C2200D83CC1 /* TBClueWindow.m */; };
+		985F100B176899F500D83CC1 /* dark_mask-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 985F100A176899F500D83CC1 /* dark_mask-568h@2x.png */; };
 		986338CF17436E2A0014ED3E /* TBFacebookDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 986338CE17436E2A0014ED3E /* TBFacebookDataManager.m */; };
 		986338D4174370110014ED3E /* TBFacebookUserDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 986338D3174370110014ED3E /* TBFacebookUserDescriptor.m */; };
 		98657B99170C2E3B006F3F57 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98657B98170C2E3B006F3F57 /* QuartzCore.framework */; };
@@ -505,6 +512,15 @@
 		985D3210174A276D0054795C /* TBCharacterNamePopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterNamePopin.m; sourceTree = "<group>"; };
 		985D67DA174923DB005C6372 /* TBTouchFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTouchFeedback.h; sourceTree = "<group>"; };
 		985D67DB174923DB005C6372 /* TBTouchFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTouchFeedback.m; sourceTree = "<group>"; };
+		985F0FF617686BE800D83CC1 /* dark_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark_mask.png; sourceTree = "<group>"; };
+		985F0FF717686BE800D83CC1 /* dark_mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark_mask@2x.png"; sourceTree = "<group>"; };
+		985F0FFB1768788400D83CC1 /* clue_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clue_box.png; sourceTree = "<group>"; };
+		985F0FFC1768788400D83CC1 /* clue_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clue_box@2x.png"; sourceTree = "<group>"; };
+		985F10041768793500D83CC1 /* TBClueBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBClueBox.h; sourceTree = "<group>"; };
+		985F10051768793500D83CC1 /* TBClueBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBClueBox.m; sourceTree = "<group>"; };
+		985F100717687C2200D83CC1 /* TBClueWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBClueWindow.h; sourceTree = "<group>"; };
+		985F100817687C2200D83CC1 /* TBClueWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBClueWindow.m; sourceTree = "<group>"; };
+		985F100A176899F500D83CC1 /* dark_mask-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark_mask-568h@2x.png"; sourceTree = "<group>"; };
 		986338CD17436E2A0014ED3E /* TBFacebookDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFacebookDataManager.h; sourceTree = "<group>"; };
 		986338CE17436E2A0014ED3E /* TBFacebookDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFacebookDataManager.m; sourceTree = "<group>"; };
 		986338D2174370110014ED3E /* TBFacebookUserDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFacebookUserDescriptor.h; sourceTree = "<group>"; };
@@ -1267,6 +1283,17 @@
 			name = feedback;
 			sourceTree = "<group>";
 		};
+		985F10031768792300D83CC1 /* clue */ = {
+			isa = PBXGroup;
+			children = (
+				985F10041768793500D83CC1 /* TBClueBox.h */,
+				985F10051768793500D83CC1 /* TBClueBox.m */,
+				985F100717687C2200D83CC1 /* TBClueWindow.h */,
+				985F100817687C2200D83CC1 /* TBClueWindow.m */,
+			);
+			name = clue;
+			sourceTree = "<group>";
+		};
 		986338D017436FE10014ED3E /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -1948,6 +1975,7 @@
 		98814E48174107A700C86F65 /* sets */ = {
 			isa = PBXGroup;
 			children = (
+				985F10031768792300D83CC1 /* clue */,
 				98B2C9D9175930B7009CCFB0 /* common */,
 				98B2C9D217592CA5009CCFB0 /* obstacle */,
 				983CFA001758BE22004B7BCA /* plant */,
@@ -2750,6 +2778,11 @@
 		98B547DB17612CE7006E7A1F /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				985F0FFB1768788400D83CC1 /* clue_box.png */,
+				985F0FFC1768788400D83CC1 /* clue_box@2x.png */,
+				985F100A176899F500D83CC1 /* dark_mask-568h@2x.png */,
+				985F0FF617686BE800D83CC1 /* dark_mask.png */,
+				985F0FF717686BE800D83CC1 /* dark_mask@2x.png */,
 				98F2F9091767294B00B9B774 /* rounded_corner_white.png */,
 				98F2F90A1767294B00B9B774 /* rounded_corner_white@2x.png */,
 				98B547DC17612CE7006E7A1F /* mask-568h@2x.png */,
@@ -3146,6 +3179,11 @@
 				98F2F92917676C1300B9B774 /* Plante5.mp3 in Resources */,
 				98F2F92A17676C1300B9B774 /* Plante6.mp3 in Resources */,
 				98F2F92B17676C1300B9B774 /* Plante7.mp3 in Resources */,
+				985F0FF917686BE800D83CC1 /* dark_mask.png in Resources */,
+				985F0FFA17686BE800D83CC1 /* dark_mask@2x.png in Resources */,
+				985F0FFD1768788400D83CC1 /* clue_box.png in Resources */,
+				985F0FFE1768788400D83CC1 /* clue_box@2x.png in Resources */,
+				985F100B176899F500D83CC1 /* dark_mask-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3356,6 +3394,8 @@
 				98EC382E17636506005B59F0 /* TBBotData.m in Sources */,
 				98EC3835176393E0005B59F0 /* TBFingerTutorial.m in Sources */,
 				98F2F908176727A100B9B774 /* TBSquareCounter.m in Sources */,
+				985F10061768793500D83CC1 /* TBClueBox.m in Sources */,
+				985F100917687C2200D83CC1 /* TBClueWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
