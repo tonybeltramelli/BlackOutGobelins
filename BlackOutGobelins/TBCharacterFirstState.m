@@ -33,7 +33,7 @@
 {
     TBCharacterData *data = [[[[TBModel getInstance] getCurrentLevelData] getCharactersData] objectAtIndex:index];
     
-    _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[data getDescriptor].name similarFriendNumber:[data getDescriptor].mutualFriendsNumber andPictureData:nil];
+    _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[data getDescriptor].name similarFriendNumber:[data getDescriptor].mutualFriendsNumber andPictureUrl:[data getDescriptor].profilePictureUrl];
     
     _dialogue = [data getDialog];
     

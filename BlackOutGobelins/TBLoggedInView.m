@@ -20,33 +20,6 @@
 {
     [super build];
     [self showLoader];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profilePictureIsLoaded:) name:@"PROFILE_PICTURE_LOADED" object:nil];
-    
-    [[TBModel getInstance].facebookController.user loadProfilePicture];
-    
-    NSString *friendOnPictureName = [[TBModel getInstance].facebookDataManager getFriendOnPicture];
-    
-    if([friendOnPictureName isEqualToString:@""])
-    {
-        if ([FBSession.activeSession.permissions indexOfObject:@"user_photos"] == NSNotFound)
-        {
-            [FBSession.activeSession reauthorizeWithReadPermissions:[NSArray arrayWithObject:@"user_photos"] completionHandler:^(FBSession *session, NSError *error)
-             {
-                 if (!error) {
-                 
-                     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
-                     
-                     [[TBModel getInstance].facebookController getFriendOnPicture];
-                 }
-             }];
-        }
-    }
-}
-
--(void) profilePictureIsLoaded:(NSNotification *)notification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PROFILE_PICTURE_LOADED" object:nil];
 }
 
 -(void) friendOnPictureIsLoaded:(NSNotification *)notification
@@ -60,10 +33,11 @@
 {
     NSString *bestFriendName = [[TBModel getInstance].facebookDataManager getBestFriend];
     
-    if([bestFriendName isEqualToString:@""])
-    {
-        [[TBModel getInstance].facebookController getFriendsData];
-    }
+    if([bestFriendName isEqualToString:@""]) [[TBModel getInstance].facebookController getFriendsData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
+    
+    [[TBModel getInstance].facebookController getFriendOnPicture];
 }
 
 -(void)dataLoaded

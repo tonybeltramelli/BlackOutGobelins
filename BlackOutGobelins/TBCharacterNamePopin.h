@@ -10,6 +10,6 @@
 
 @interface TBCharacterNamePopin : TBGamePopin
 
-- (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureData:(NSData *)data;
+- (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureUrl:(NSString *)url;
 
 @end

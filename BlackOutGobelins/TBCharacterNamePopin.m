@@ -8,6 +8,8 @@
 
 #import "TBCharacterNamePopin.h"
 #import "cocos2d.h"
+#import "TBImageLoader.h"
+#import "TBModel.h"
 
 @implementation TBCharacterNamePopin
 {
@@ -15,7 +17,7 @@
     CCLabelTTF *_similarFriendLabel;
 }
 
-- (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureData:(NSData *)data
+- (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureUrl:(NSString *)url
 {
     self = [super initWithSize:CGSizeMake(200, 50)];
     if (self)
@@ -31,9 +33,19 @@
         [_nameLabel setPosition:CGPointMake(50, -5)];
         [_similarFriendLabel setPosition:CGPointMake(50, _nameLabel.position.y - 20)];
         
+        [TBImageLoader loaderWithUrl:url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
+        
         [self hide];
     }
     return self;
+}
+
+-(void) imageIsLoaded:(CCTexture2D *)texture
+{
+    CCSprite *image = [CCSprite spriteWithTexture:texture];
+    [image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
+    [image setPosition:CGPointMake(-_size.width / 2 + image.contentSize.width * image.scale, CGPointZero.y)];
+    [self addChild:image];
 }
 
 - (void)dealloc

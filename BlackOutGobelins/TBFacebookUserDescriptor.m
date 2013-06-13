@@ -9,9 +9,6 @@
 #import "TBFacebookUserDescriptor.h"
 
 @implementation TBFacebookUserDescriptor
-{
-    NSData *_profilePicture;
-}
 
 @synthesize userId = _userId;
 @synthesize name = _name;
@@ -23,6 +20,7 @@
 @synthesize positionName = _positionName;
 @synthesize schoolName = _schoolName;
 @synthesize schoolPictureUrl = _schoolPictureUrl;
+@synthesize age = _age;
 
 const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
@@ -34,9 +32,9 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         
         _userId = _graphUser.id;
         _name = _graphUser.name;
-        _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _profilePictureUrl = [self getPictureFromId:_userId];
         _location = _graphUser.location.name;
-        _locationPictureUrl = [self getPictureFromPageId:_graphUser.location.id];
+        _locationPictureUrl = [self getPictureFromId:_graphUser.location.id];
     }
     return self;
 }
@@ -47,7 +45,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     if (self) {
         _userId = [userData objectForKey:@"USER_ID"];
         _name = [userData objectForKey:@"USER_NAME"];
-        _profilePictureUrl = [[NSString alloc] initWithFormat:@"%@/%@/picture?type=large", GRAPH_API_URL, _userId];
+        _profilePictureUrl = [self getPictureFromId:_userId];
         _location = [userData objectForKey:@"USER_LOCATION"];
         _locationPictureUrl = [userData objectForKey:@"LOCATION_PICTURE_URL"];
         
@@ -55,13 +53,33 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _companyPictureUrl = [userData objectForKey:@"COMPANY_PICTURE_URL"];
         _positionName = [userData objectForKey:@"POSITION_NAME"];
         _schoolName = [userData objectForKey:@"SCHOOL_NAME"];
-        _schoolPictureUrl = [userData objectForKey:@"SCHOOL_PICTURE_URL"];        
+        _schoolPictureUrl = [userData objectForKey:@"SCHOOL_PICTURE_URL"];
+        _age = [userData objectForKey:@"AGE"];
     }
     return self;
 }
 
 -(void)loadExtraData
 {
+    NSString* birthday = [_graphUser objectForKey:@"birthday"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm/dd/yyyy"];
+   
+    NSDate *birthdayDate = [[NSDate alloc] init];
+    birthdayDate = [dateFormatter dateFromString:birthday];
+    
+    [dateFormatter release];
+    dateFormatter = nil;
+    
+    NSDate* now = [NSDate date];
+    NSDateComponents* ageComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:birthdayDate toDate:now options:0];
+    
+    [birthdayDate release];
+    birthdayDate = nil;
+    
+    _age = [[NSString alloc] initWithFormat:@"%d", [ageComponents year]];
+    
     NSArray* worksData = [_graphUser objectForKey:@"work"];
     
     if([worksData count] >= 1)
@@ -75,7 +93,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         NSString *locationName = [location objectForKey:@"name"];
         
         _companyName = [NSString stringWithFormat:@"%@ - %@", employerName, locationName];
-        _companyPictureUrl = [self getPictureFromPageId:[employer objectForKey:@"id"]];
+        _companyPictureUrl = [self getPictureFromId:[employer objectForKey:@"id"]];
         
         NSDictionary *position = [work objectForKey:@"position"];
         _positionName = [position objectForKey:@"name"];
@@ -89,52 +107,18 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         
         NSDictionary *school = [education objectForKey:@"school"];
         _schoolName = [school objectForKey:@"name"];
-        _schoolPictureUrl = [self getPictureFromPageId:[school objectForKey:@"id"]];
+        _schoolPictureUrl = [self getPictureFromId:[school objectForKey:@"id"]];
     }
 }
 
--(NSString *) getPictureFromPageId:(NSString *)pageId
+-(NSString *) getPictureFromId:(NSString *)userId
 {
-    return [NSString stringWithFormat:@"graph.facebook.com/%@/picture", pageId];
-}
-
--(void)loadProfilePicture
-{
-    [self loadPicture:_profilePictureUrl];
-}
-
--(void)loadPicture:(NSString *)urlString
-{    
-    NSMutableURLRequest *urlRequest =
-    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
-                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        timeoutInterval:2];
-    
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest
-                                                                     delegate:self];
-    if (!urlConnection) NSLog(@"Failed to download picture");
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{    
-    _profilePicture = data;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PROFILE_PICTURE_LOADED" object:nil];
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-}
-
--(NSData *)getProfilePicture
-{
-    return _profilePicture;
+    return [[NSString alloc] initWithFormat:@"%@/%@/picture", GRAPH_API_URL, userId];
 }
 
 - (void)dealloc
 {
     _graphUser = nil;
-    _profilePicture = nil;
     
     [super dealloc];
 }

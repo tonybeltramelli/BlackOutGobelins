@@ -8,7 +8,9 @@
 
 #import "TBClueBox.h"
 #import "CCSpriteScale9.h"
+#import "TBImageLoader.h"
 #import "TBResources.h"
+#import "TBModel.h"
 
 @implementation TBClueBox
 {
@@ -69,10 +71,25 @@
 
 -(void)fillWithText:(NSString *)string
 {
-    _label = [CCLabelTTF labelWithString:string dimensions:_size hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:10.0f];
+    _label = [CCLabelTTF labelWithString:string dimensions:CGSizeMake(_size.width - _padding * 2, _size.height - _padding * 2) hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:10.0f];
     _label.color = ccc3(65, 65, 65);
     [_label setPosition:CGPointMake(0.0f, _background.contentSize.height / 2 - _label.contentSize.height / 2 - 6)];
     [self addChild:_label];
+}
+
+-(void)fillWithText:(NSString *)string andImageUrl:(NSString *)url
+{
+    [self fillWithText:string];
+    
+    [TBImageLoader loaderWithUrl:url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
+}
+
+-(void) imageIsLoaded:(CCTexture2D *)texture
+{
+    CCSprite *image = [CCSprite spriteWithTexture:texture];
+    [image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
+    [image setPosition:CGPointMake(CGPointZero.x, - _background.contentSize.height / 2 + ((image.contentSize.height - _padding * 2) * image.scale))];
+    [self addChild:image];
 }
 
 -(void) draw

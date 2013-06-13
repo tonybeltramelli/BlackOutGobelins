@@ -25,3 +25,7 @@
 "BUTTON_LOGIN" = "Commencer l'aventure";
 
 "CLUE_DOOR" = "Qu’avez-vous à dire \nà propos de vous ?";
+
+"CLUE_LOCATION" = "Tu vie à {cityname}.";
+
+"CLUE_AGE" = "\n ans";

@@ -13,6 +13,7 @@
 - (id)initWithSize:(CGSize)size atPosition:(CGPoint)position;
 
 -(void)fillWithText:(NSString *)string;
+-(void)fillWithText:(NSString *)string andImageUrl:(NSString *)url;
 
 -(CGPoint) getRightTopCorner;
 -(CGPoint) getRightBottomCorner;
