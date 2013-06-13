@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980324F3176A092500895728 /* default_facebook_picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 980324F2176A092500895728 /* default_facebook_picture.jpg */; };
 		98173376174D5A8C00E0229F /* TBLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98173375174D5A8C00E0229F /* TBLineData.m */; };
 		981F1884170DBBEB007FF966 /* TBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F1882170DBBEB007FF966 /* TBGameViewController.m */; };
 		981F1885170DBBEB007FF966 /* TBGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981F1883170DBBEB007FF966 /* TBGameViewController.xib */; };
@@ -472,6 +473,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		980324F2176A092500895728 /* default_facebook_picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_facebook_picture.jpg; sourceTree = "<group>"; };
 		98173374174D5A8C00E0229F /* TBLineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLineData.h; sourceTree = "<group>"; };
 		98173375174D5A8C00E0229F /* TBLineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLineData.m; sourceTree = "<group>"; };
 		981F1881170DBBEB007FF966 /* TBGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGameViewController.h; sourceTree = "<group>"; };
@@ -2781,6 +2783,7 @@
 		98B547DB17612CE7006E7A1F /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				980324F2176A092500895728 /* default_facebook_picture.jpg */,
 				985F0FFB1768788400D83CC1 /* clue_box.png */,
 				985F0FFC1768788400D83CC1 /* clue_box@2x.png */,
 				985F100A176899F500D83CC1 /* dark_mask-568h@2x.png */,
@@ -3189,6 +3192,7 @@
 				985F0FFD1768788400D83CC1 /* clue_box.png in Resources */,
 				985F0FFE1768788400D83CC1 /* clue_box@2x.png in Resources */,
 				985F100B176899F500D83CC1 /* dark_mask-568h@2x.png in Resources */,
+				980324F3176A092500895728 /* default_facebook_picture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

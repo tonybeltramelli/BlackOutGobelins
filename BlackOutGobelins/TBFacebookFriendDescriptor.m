@@ -27,9 +27,9 @@
 
 - (void)loadMutualFriends
 {
-    if(!_graphUser) return;
+    if(![self userId] || [[self userId] isEqualToString:@""]) return;
     
-    NSString *graphAPIURL = [NSString stringWithFormat:@"me/mutualfriends/%@/", _graphUser.id];
+    NSString *graphAPIURL = [NSString stringWithFormat:@"me/mutualfriends/%@/", [self userId]];
     
     FBRequest* request = [FBRequest requestForGraphPath:graphAPIURL];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -39,7 +39,7 @@
             NSArray* mutualFriends = [result objectForKey:@"data"];
             _mutualFriendsNumber = [mutualFriends count];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@",_graphUser.id] object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"LOADED_%@", [self userId]] object:self];
         }
     }];
 }

@@ -86,6 +86,8 @@
 
 -(void) imageIsLoaded:(CCTexture2D *)texture
 {
+    if(!texture) return;
+    
     CCSprite *image = [CCSprite spriteWithTexture:texture];
     [image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
     [image setPosition:CGPointMake(CGPointZero.x, - _background.contentSize.height / 2 + ((image.contentSize.height - _padding * 2) * image.scale))];

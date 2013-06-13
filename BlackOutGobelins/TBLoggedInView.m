@@ -20,6 +20,10 @@
 {
     [super build];
     [self showLoader];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
+    
+    [[TBModel getInstance].facebookController getFriendOnPicture];
 }
 
 -(void) friendOnPictureIsLoaded:(NSNotification *)notification
@@ -34,10 +38,6 @@
     NSString *bestFriendName = [[TBModel getInstance].facebookDataManager getBestFriend];
     
     if([bestFriendName isEqualToString:@""]) [[TBModel getInstance].facebookController getFriendsData];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];
-    
-    [[TBModel getInstance].facebookController getFriendOnPicture];
 }
 
 -(void)dataLoaded

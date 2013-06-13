@@ -7,6 +7,7 @@
 //
 
 #import "TBFacebookController.h"
+#import "TBModel.h"
 
 @implementation TBFacebookController
 {
@@ -52,15 +53,27 @@
                     if(friend.id != _user.userId)
                     {
                         _friendOnPicture = [[TBFacebookFriendDescriptor alloc] initWithGraphUser:friend];
-                        _friendOnPicture.pictureUrl = pictureUrl;
+                        _friendOnPicture.pictureUrl = [pictureUrl retain];
                         
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"FRIEND_LOADED" object:nil];
+                        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:[NSString stringWithFormat:@"LOADED_%@", _friendOnPicture.userId] object:nil];
+                        
+                        [_friendOnPicture loadMutualFriends];
+                        
                         return;
                     }
                 }
             }
         }
     }];
+}
+
+-(void) friendOnPictureIsLoaded:(NSNotification *)notification
+{
+    TBFacebookFriendDescriptor *friend = (TBFacebookFriendDescriptor *)[notification object];
+    _friendOnPicture.mutualFriendsNumber = friend.mutualFriendsNumber;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"LOADED_%@", friend.userId] object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FRIEND_LOADED" object:nil];
 }
 
 -(void)getFriendsData
@@ -88,7 +101,7 @@
                 
                 TBFacebookFriendDescriptor *friendDescriptor = [[TBFacebookFriendDescriptor alloc] initWithGraphUser:friend];
             
-                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendIsLoaded:) name:[NSString stringWithFormat:@"LOADED_%@",friend.id] object:nil];
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendIsLoaded:) name:[NSString stringWithFormat:@"LOADED_%@", friend.id] object:nil];
             
                 [friendDescriptor loadMutualFriends];
             }
@@ -99,6 +112,7 @@
 -(void) friendIsLoaded:(NSNotification *)notification
 {
     TBFacebookFriendDescriptor *friend = (TBFacebookFriendDescriptor *)[notification object];
+    
     [_allFriends addObject:friend];
     
     if(_maxMutualFriendsNumber < friend.mutualFriendsNumber)

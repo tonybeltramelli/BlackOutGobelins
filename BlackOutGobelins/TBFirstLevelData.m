@@ -58,10 +58,10 @@
     
     [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].friendOnPicture andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
     [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].bestFriend andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].bestFriend andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].friendOnPicture andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].bestFriend andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].friendOnPicture andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:0] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:1] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:2] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:3] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
 }
 
 -(void)generateBotsData
