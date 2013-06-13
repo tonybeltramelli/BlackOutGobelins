@@ -14,6 +14,8 @@
 
 -(void)fillWithText:(NSString *)string;
 -(void)fillWithText:(NSString *)string andImageUrl:(NSString *)url;
+-(void)fillWithText:(NSString *)string andBigText:(NSString *)bigString;
+-(void)fillWithImageUrl:(NSString *)url;
 
 -(CGPoint) getRightTopCorner;
 -(CGPoint) getRightBottomCorner;

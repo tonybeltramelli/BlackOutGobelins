@@ -24,7 +24,8 @@
 @property(nonatomic, assign) NSString *positionName;
 @property(nonatomic, assign) NSString *schoolName;
 @property(nonatomic, assign) NSString *schoolPictureUrl;
-@property(nonatomic, assign) NSString *age;
+@property(nonatomic) int age;
+@property(nonatomic, assign) NSString *bio;
 
 -(id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser;
 -(id)initWithDictionnary:(NSDictionary *)userData;

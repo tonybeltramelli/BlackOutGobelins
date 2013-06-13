@@ -16,6 +16,8 @@
 {
     CCSpriteScale9 *_background;
     CCLabelTTF *_label;
+    CCLabelTTF *_bigLabel;
+    CCSprite *_image;
     
     CGSize _size;
     int _rangeX;
@@ -77,9 +79,37 @@
     [self addChild:_label];
 }
 
+-(void)fillWithText:(NSString *)string andBigText:(NSString *)bigString
+{
+    BOOL onlyBigText = [string isEqualToString:@""];
+    
+    if(!onlyBigText)[self fillWithText:string];
+    
+    _bigLabel = [CCLabelTTF labelWithString:bigString dimensions:CGSizeMake(_size.width - _padding * 2, _size.height - _padding * 2) hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:onlyBigText ? 16.0f : 32.0f];
+    _bigLabel.color = ccc3(255, 255, 255);
+    [_bigLabel setPosition:CGPointMake(0.0f, onlyBigText ? -10 : _background.contentSize.height / 2 - _label.contentSize.height / 2 - 6)];
+    [self addChild:_bigLabel];
+    
+    if(!onlyBigText) [_label setPosition:CGPointMake(0.0f, - _bigLabel.position.y - _bigLabel.contentSize.height * 0.75)];
+}
+
 -(void)fillWithText:(NSString *)string andImageUrl:(NSString *)url
 {
     [self fillWithText:string];
+    
+    _image = [[CCSprite alloc] initWithFile:@"default_facebook_page_picture.jpg"];
+    [_image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
+    [_image setPosition:CGPointMake(CGPointZero.x, - _background.contentSize.height / 2 + ((_image.contentSize.height - _padding * 2) * _image.scale))];
+    [self addChild:_image];
+    
+    [TBImageLoader loaderWithUrl:url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
+}
+
+-(void)fillWithImageUrl:(NSString *)url
+{
+    _image = [[CCSprite alloc] initWithFile:@"default_facebook_page_picture.jpg"];
+    [_image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
+    [self addChild:_image];
     
     [TBImageLoader loaderWithUrl:url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
 }
@@ -88,10 +118,7 @@
 {
     if(!texture) return;
     
-    CCSprite *image = [CCSprite spriteWithTexture:texture];
-    [image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
-    [image setPosition:CGPointMake(CGPointZero.x, - _background.contentSize.height / 2 + ((image.contentSize.height - _padding * 2) * image.scale))];
-    [self addChild:image];
+    [_image setTexture:texture];
 }
 
 -(void) draw
@@ -146,6 +173,12 @@
 - (void)dealloc
 {
     _background = nil;
+    
+    if(_image)
+    {
+        [_image release];
+        _image = nil;
+    }
     
     [super dealloc];
 }

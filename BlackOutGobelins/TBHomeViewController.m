@@ -56,7 +56,7 @@
     
     if (self.appDelegate.session.state != FBSessionStateCreated)
     {
-        self.appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"user_photos", @"user_birthday", nil]];
+        self.appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"user_photos", @"user_birthday", @"user_about_me", nil]];
         [FBSession setActiveSession: self.appDelegate.session];
     }    
     

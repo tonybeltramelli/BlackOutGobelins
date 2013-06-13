@@ -20,12 +20,12 @@
 
 - (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureUrl:(NSString *)url
 {
-    self = [super initWithSize:CGSizeMake(160, 50)];
+    self = [super initWithSize:CGSizeMake(170, 50)];
     if (self)
     {
         CGSize size = CGSizeMake(_size.width - 50, _size.height);
         
-        NSString *userName = [name length] > 16 ? [NSString stringWithFormat:@"%@…", [name substringWithRange:NSMakeRange(0, 14)]] : name;
+        NSString *userName = [name length] > 18 ? [NSString stringWithFormat:@"%@…", [name substringWithRange:NSMakeRange(0, 16)]] : name;
         
         _nameLabel = [CCLabelTTF labelWithString:userName dimensions:size hAlignment:NSTextAlignmentLeft fontName:@"Helvetica" fontSize:14.0f];
         [self addChild:_nameLabel];
@@ -38,7 +38,7 @@
         
         [TBImageLoader loaderWithUrl:url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
         
-        _image = [[CCSprite alloc] initWithFile:@"default_facebook_picture.jpg"];
+        _image = [[CCSprite alloc] initWithFile:@"default_facebook_profile_picture.jpg"];
         [_image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
         [_image setPosition:CGPointMake(-_size.width / 2 + _image.contentSize.width * _image.scale, CGPointZero.y)];
         [self addChild:_image];
@@ -53,8 +53,6 @@
     if(!texture) return;
     
     [_image setTexture:texture];
-    [_image setScale:[TBModel getInstance].isRetinaDisplay ? 1.0f : 0.5f];
-    [_image setPosition:CGPointMake(-_size.width / 2 + _image.contentSize.width * _image.scale, CGPointZero.y)];
 }
 
 - (void)dealloc

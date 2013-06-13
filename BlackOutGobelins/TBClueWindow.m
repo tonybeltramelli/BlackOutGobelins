@@ -62,7 +62,10 @@
     [((TBClueBox *)[[self children] objectAtIndex:1]) fillWithText:[TBModel getInstance].facebookController.user.schoolName andImageUrl:[TBModel getInstance].facebookController.user.schoolPictureUrl];
     [((TBClueBox *)[[self children] objectAtIndex:5]) fillWithText:[NSString stringWithFormat:@"%@\n%@", [TBModel getInstance].facebookController.user.companyName, [TBModel getInstance].facebookController.user.positionName] andImageUrl:[TBModel getInstance].facebookController.user.companyPictureUrl];
     [((TBClueBox *)[[self children] objectAtIndex:3]) fillWithText:[NSLocalizedString(@"CLUE_LOCATION", nil) stringByReplacingOccurrencesOfString:@"{cityname}" withString:[TBModel getInstance].facebookController.user.location] andImageUrl:[TBModel getInstance].facebookController.user.locationPictureUrl];
-    [((TBClueBox *)[[self children] objectAtIndex:7]) fillWithText:[NSString stringWithFormat:@"%@%@", [TBModel getInstance].facebookController.user.age, NSLocalizedString(@"CLUE_AGE", nil)]];
+    [((TBClueBox *)[[self children] objectAtIndex:7]) fillWithText:NSLocalizedString(@"CLUE_AGE", nil) andBigText:[NSString stringWithFormat:@"%d", [TBModel getInstance].facebookController.user.age]];
+    [((TBClueBox *)[[self children] objectAtIndex:0]) fillWithImageUrl:[TBModel getInstance].facebookController.user.profilePictureUrl];
+    [((TBClueBox *)[[self children] objectAtIndex:6]) fillWithImageUrl:[TBModel getInstance].facebookController.friendOnPicture.profilePictureUrl];
+    [((TBClueBox *)[[self children] objectAtIndex:2]) fillWithText:@"" andBigText:[TBModel getInstance].facebookController.user.name];
     
     _isReady = TRUE;
 }

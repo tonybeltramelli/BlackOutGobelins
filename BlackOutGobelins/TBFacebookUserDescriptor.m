@@ -21,6 +21,7 @@
 @synthesize schoolName = _schoolName;
 @synthesize schoolPictureUrl = _schoolPictureUrl;
 @synthesize age = _age;
+@synthesize bio = _bio;
 
 const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
@@ -54,7 +55,8 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _positionName = [userData objectForKey:@"POSITION_NAME"];
         _schoolName = [userData objectForKey:@"SCHOOL_NAME"];
         _schoolPictureUrl = [userData objectForKey:@"SCHOOL_PICTURE_URL"];
-        _age = [userData objectForKey:@"AGE"];
+        _age = [(NSString *)[userData objectForKey:@"AGE"] integerValue];
+        _bio = [userData objectForKey:@"BIO"];
     }
     return self;
 }
@@ -78,7 +80,8 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
     [birthdayDate release];
     birthdayDate = nil;
     
-    _age = [[NSString alloc] initWithFormat:@"%d", [ageComponents year]];
+    _age = [ageComponents year];
+    _bio = [_graphUser objectForKey:@"bio"];
     
     NSArray* worksData = [_graphUser objectForKey:@"work"];
     

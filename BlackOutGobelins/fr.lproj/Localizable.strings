@@ -28,4 +28,4 @@
 
 "CLUE_LOCATION" = "Tu vie à {cityname}.";
 
-"CLUE_AGE" = "\n ans";
+"CLUE_AGE" = "ans";
