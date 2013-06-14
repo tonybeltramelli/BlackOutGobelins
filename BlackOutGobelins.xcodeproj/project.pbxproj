@@ -19,6 +19,7 @@
 		983CFA071758C18C004B7BCA /* TBAPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 983CFA061758C18C004B7BCA /* TBAPlant.m */; };
 		983FFB64175630680095488B /* TBCharacterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 983FFB63175630680095488B /* TBCharacterData.m */; };
 		9844009117462ACE00C11875 /* TBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9844009017462ACE00C11875 /* TBCharacter.m */; };
+		984CF300176B07060022DDA6 /* second_level.mov in Resources */ = {isa = PBXBuildFile; fileRef = 984CF2FF176B07060022DDA6 /* second_level.mov */; };
 		984E115E17612E87009DECEE /* TBThirdPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E115D17612E87009DECEE /* TBThirdPlant.m */; };
 		984E1161176131A1009DECEE /* TBFourthPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E1160176131A1009DECEE /* TBFourthPlant.m */; };
 		984E1164176131C3009DECEE /* TBFifthPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E1163176131C3009DECEE /* TBFifthPlant.m */; };
@@ -497,6 +498,7 @@
 		983FFB63175630680095488B /* TBCharacterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacterData.m; sourceTree = "<group>"; };
 		9844008F17462ACD00C11875 /* TBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacter.h; sourceTree = "<group>"; };
 		9844009017462ACE00C11875 /* TBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacter.m; sourceTree = "<group>"; };
+		984CF2FF176B07060022DDA6 /* second_level.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = second_level.mov; sourceTree = "<group>"; };
 		984E115C17612E87009DECEE /* TBThirdPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBThirdPlant.h; sourceTree = "<group>"; };
 		984E115D17612E87009DECEE /* TBThirdPlant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBThirdPlant.m; sourceTree = "<group>"; };
 		984E115F176131A1009DECEE /* TBFourthPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFourthPlant.h; sourceTree = "<group>"; };
@@ -1964,6 +1966,7 @@
 			isa = PBXGroup;
 			children = (
 				9876860017661BB900A1979D /* search_ego.mov */,
+				984CF2FF176B07060022DDA6 /* second_level.mov */,
 			);
 			path = videos;
 			sourceTree = "<group>";
@@ -3197,6 +3200,7 @@
 				985F100B176899F500D83CC1 /* dark_mask-568h@2x.png in Resources */,
 				98656160176A12FA007109CE /* default_facebook_page_picture.jpg in Resources */,
 				98656161176A12FA007109CE /* default_facebook_profile_picture.jpg in Resources */,
+				984CF300176B07060022DDA6 /* second_level.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -225,6 +225,9 @@ const float DELAY = 20.0f;
         
         [mask runAction:[CCFadeIn actionWithDuration:0.6f]];
         
+        NSURL *facebookUrl = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", [TBModel getInstance].facebookController.user.userId]];
+        [[UIApplication sharedApplication] openURL:facebookUrl];
+        
         return;
     }
     
