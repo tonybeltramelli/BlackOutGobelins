@@ -65,20 +65,14 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 {
     NSString* birthday = [_graphUser objectForKey:@"birthday"];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setDateFormat:@"mm/dd/yyyy"];
    
-    NSDate *birthdayDate = [[NSDate alloc] init];
+    NSDate *birthdayDate = [[[NSDate alloc] init] autorelease];
     birthdayDate = [dateFormatter dateFromString:birthday];
-    
-    [dateFormatter release];
-    dateFormatter = nil;
     
     NSDate* now = [NSDate date];
     NSDateComponents* ageComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:birthdayDate toDate:now options:0];
-    
-    [birthdayDate release];
-    birthdayDate = nil;
     
     _age = [ageComponents year];
     _bio = [_graphUser objectForKey:@"bio"];

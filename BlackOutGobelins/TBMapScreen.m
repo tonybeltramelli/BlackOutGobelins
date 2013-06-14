@@ -133,8 +133,8 @@ const float DELAY = 20.0f;
     
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"First-Level-Loop.mp3" loop:YES];
     
-    [SimpleAudioEngine sharedEngine].effectsVolume = 0.0f;
-    [SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.0f;
+    //[SimpleAudioEngine sharedEngine].effectsVolume = 0.0f;
+    //[SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.0f;
     
     [self scheduleUpdate];
 }

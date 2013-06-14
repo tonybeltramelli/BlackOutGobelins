@@ -25,9 +25,15 @@
     {
         CGSize size = CGSizeMake(_size.width - 50, _size.height);
         
-        NSString *userName = [name length] > 18 ? [NSString stringWithFormat:@"%@…", [name substringWithRange:NSMakeRange(0, 16)]] : name;
+        UIFont *font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+        CGSize realSize = [name sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
         
-        _nameLabel = [CCLabelTTF labelWithString:userName dimensions:size hAlignment:NSTextAlignmentLeft fontName:@"Helvetica" fontSize:14.0f];
+        while (realSize.width > 110 || realSize.height > 20) {
+            name = [NSString stringWithFormat:@"%@…", [name substringWithRange:NSMakeRange(0, [name length] - 3)]];
+            realSize = [name sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        }
+        
+        _nameLabel = [CCLabelTTF labelWithString:name dimensions:size hAlignment:NSTextAlignmentLeft fontName:@"Helvetica" fontSize:14.0f];
         [self addChild:_nameLabel];
         
         _similarFriendLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d %@", friendNumber, NSLocalizedString(@"POPIN_CHARACTER_SIMILAR_FRIEND", nil)] dimensions:size hAlignment:NSTextAlignmentLeft fontName:@"Helvetica" fontSize:10.0f];
