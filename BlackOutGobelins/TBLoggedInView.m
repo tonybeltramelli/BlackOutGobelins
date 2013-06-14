@@ -6,14 +6,13 @@
 //
 //
 
-#import <MediaPlayer/MediaPlayer.h>
-
 #import "TBLoggedInView.h"
 #import "TBModel.h"
+#import "TBVideoPlayer.h"
 
 @implementation TBLoggedInView
 {
-    MPMoviePlayerController *_moviePlayer;
+    TBVideoPlayer *_videoPlayer;
 }
 
 -(void) build
@@ -80,52 +79,17 @@
     [_label setText:loadingText];
     _label.numberOfLines = lineNumber + 1;
     
-    NSURL *videoURL = nil;
-	NSBundle *bundle = [NSBundle mainBundle];
-	if (bundle)
-	{
-		NSString *moviePath = [bundle pathForResource:@"search_ego" ofType:@"mov"];
-		if (moviePath)
-		{
-			videoURL = [NSURL fileURLWithPath:moviePath];
-		}
-	}
-    
-    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
-    if ([_moviePlayer respondsToSelector:@selector(loadState)]) {
-        [_moviePlayer setControlStyle:MPMovieControlStyleNone];
-        [_moviePlayer setFullscreen:YES];
-        [_moviePlayer prepareToPlay];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(moviePlayerLoadStateDidChange:)
-                                                     name:MPMoviePlayerLoadStateDidChangeNotification
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(moviePlayBackDidFinish:)
-                                                     name:MPMoviePlayerPlaybackDidFinishNotification
-                                                   object:nil];
-    }
+    _videoPlayer = [[TBVideoPlayer alloc] initWithVideoName:@"search_ego" andVideoType:@"mov" loop:TRUE withDelegate:self stateDidChangeCallBack:@selector(moviePlayerLoadStateDidChange:) playBackDidFinishCallBack:@selector(moviePlayBackDidFinish:)];
+    [self addSubview:_videoPlayer];
 }
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
-    if([_moviePlayer loadState] != MPMovieLoadStateUnknown)
-    {
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:MPMoviePlayerLoadStateDidChangeNotification
-                                                      object:nil];
-        
-        [[_moviePlayer view] setFrame:[self bounds]];
-        [self addSubview:[_moviePlayer view]];
-        [self bringSubviewToFront:_label];
-        
-        [_moviePlayer play];
-    }
+    [self bringSubviewToFront:_label];
 }
 
 - (void)moviePlayBackDidFinish:(NSNotification *)notification
 {
-    [_moviePlayer play];
 }
 
 -(void)hideLoader
@@ -134,8 +98,8 @@
     
     [_loaderView stopAnimating];
     
-    [_moviePlayer stop];
-    [_moviePlayer.view removeFromSuperview];
+    [_videoPlayer stop];
+    [_videoPlayer removeFromSuperview];
 }
 
 - (void)dealloc
@@ -144,6 +108,12 @@
     
     [_loaderView release];
     [_label release];
+    
+    if(_videoPlayer)
+    {
+        [_videoPlayer release];
+        _videoPlayer = nil;
+    }
     
     [super dealloc];
 }

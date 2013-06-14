@@ -29,4 +29,6 @@
 
 -(void)setUserFromGraph:(NSDictionary<FBGraphUser> *)user;
 
+-(void)dropBase;
+
 @end

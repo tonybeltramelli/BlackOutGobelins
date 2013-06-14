@@ -26,6 +26,7 @@
 @property(nonatomic, assign) NSString *schoolPictureUrl;
 @property(nonatomic) int age;
 @property(nonatomic, assign) NSString *bio;
+@property(nonatomic) BOOL isDoorOpen;
 
 -(id)initWithGraphUser:(NSDictionary<FBGraphUser> *)graphUser;
 -(id)initWithDictionnary:(NSDictionary *)userData;

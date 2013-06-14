@@ -10,6 +10,7 @@
 
 #import "TBFacebookController.h"
 #import "TBHomeViewController.h"
+#import "TBGameViewController.h"
 #import "TBDatabaseController.h"
 #import "TBFacebookDataManager.h"
 #import "TBFirstLevelData.h"
@@ -20,6 +21,7 @@
 @property (nonatomic, retain) AppDelegate *appDelegate;
 @property (assign, nonatomic) TBFacebookController *facebookController;
 @property (assign, nonatomic) TBFacebookDataManager *facebookDataManager;
+@property (assign, nonatomic) TBGameViewController *gameController;
 
 + (TBModel*)getInstance;
 

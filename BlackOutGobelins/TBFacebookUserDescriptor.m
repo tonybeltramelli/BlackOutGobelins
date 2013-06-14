@@ -22,6 +22,7 @@
 @synthesize schoolPictureUrl = _schoolPictureUrl;
 @synthesize age = _age;
 @synthesize bio = _bio;
+@synthesize isDoorOpen = _isDoorOpen;
 
 const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
 
@@ -36,6 +37,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _profilePictureUrl = [self getPictureFromId:_userId];
         _location = _graphUser.location.name;
         _locationPictureUrl = [self getPictureFromId:_graphUser.location.id];
+        _isDoorOpen = FALSE;
     }
     return self;
 }
@@ -57,6 +59,7 @@ const NSString *GRAPH_API_URL = @"http://graph.facebook.com";
         _schoolPictureUrl = [userData objectForKey:@"SCHOOL_PICTURE_URL"];
         _age = [(NSString *)[userData objectForKey:@"AGE"] integerValue];
         _bio = [userData objectForKey:@"BIO"];
+        _isDoorOpen = [(NSString *)[userData objectForKey:@"IS_DOOR_OPEN"] boolValue];
     }
     return self;
 }

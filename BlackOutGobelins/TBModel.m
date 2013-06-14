@@ -20,6 +20,7 @@ static TBModel* _instance = nil;
 @synthesize appDelegate = _appDelegate;
 @synthesize facebookController = _facebookController;
 @synthesize facebookDataManager = _facebookDataManager;
+@synthesize gameController = _gameController;
 
 +(TBModel*)getInstance
 {

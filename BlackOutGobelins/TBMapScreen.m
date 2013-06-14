@@ -225,9 +225,6 @@ const float DELAY = 20.0f;
         
         [mask runAction:[CCFadeIn actionWithDuration:0.6f]];
         
-        NSURL *facebookUrl = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", [TBModel getInstance].facebookController.user.userId]];
-        [[UIApplication sharedApplication] openURL:facebookUrl];
-        
         return;
     }
     
@@ -385,6 +382,8 @@ const float DELAY = 20.0f;
     if(!_isTutorialSeen) _isTutorialSeen = TRUE;
     
     CGPoint location = [self getContainerPositionFromTouch:touches];
+    
+    if(_isOnDoor) [[TBModel getInstance].gameController loginFacebook];
     
     if(!_isMoving)
     {

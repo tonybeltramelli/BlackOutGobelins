@@ -20,6 +20,7 @@ NSString *SCHOOL_NAME = @"SCHOOL_NAME";
 NSString *SCHOOL_PICTURE_URL = @"SCHOOL_PICTURE_URL";
 NSString *AGE = @"AGE";
 NSString *BIO = @"BIO";
+NSString *IS_DOOR_OPEN = @"IS_DOOR_OPEN";
 
 //bestfriend
 NSString *BESTFRIEND_TABLE_NAME = @"BESTFRIEND";
@@ -67,10 +68,11 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSString *schoolPictureUrl = _facebookController.user.schoolPictureUrl;
     int age = _facebookController.user.age;
     NSString *bio = _facebookController.user.bio;
+    BOOL isDoorOpen = _facebookController.user.isDoorOpen;
     
     [self cleanIfDataAlreadySaved:userId on:USER_TABLE_NAME];
     
-    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT,%@ TEXT",USER_NAME, PROFILE_PICTURE_URL, USER_LOCATION, LOCATION_PICTURE_URL, COMPANY_NAME, COMPANY_PICTURE_URL, POSITION_NAME, SCHOOL_NAME, SCHOOL_PICTURE_URL, AGE, BIO, USER_ID];
+    NSString *requestParams = [NSString stringWithFormat:@"%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT", USER_NAME, PROFILE_PICTURE_URL, USER_LOCATION, LOCATION_PICTURE_URL, COMPANY_NAME, COMPANY_PICTURE_URL, POSITION_NAME, SCHOOL_NAME, SCHOOL_PICTURE_URL, AGE, BIO, IS_DOOR_OPEN, USER_ID];
     
     [_databaseController createTable:USER_TABLE_NAME andParams:requestParams];
     
@@ -87,6 +89,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     [toSave setObject:schoolPictureUrl forKey:SCHOOL_PICTURE_URL];
     [toSave setObject:[NSString stringWithFormat:@"%d", age] forKey:AGE];
     [toSave setObject:bio forKey:BIO];
+    [toSave setObject:isDoorOpen ? @"TRUE" : @"FALSE" forKey:IS_DOOR_OPEN];
     
     [_databaseController insertIntoTable:USER_TABLE_NAME theseRowsAndValues:toSave];
 }
@@ -171,7 +174,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     
     BOOL boo;
     
-    if([result count] > 1)
+    if([result count] >= 1)
     {
         [_databaseController dropTable:tableName];
         boo = FALSE;
@@ -274,6 +277,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
         NSMutableArray *resultSchoolPictureUrl = [_databaseController getRow:SCHOOL_PICTURE_URL fromTable:USER_TABLE_NAME];
         NSMutableArray *resultAge = [_databaseController getRow:AGE fromTable:USER_TABLE_NAME];
         NSMutableArray *resultBio = [_databaseController getRow:BIO fromTable:USER_TABLE_NAME];
+        NSMutableArray *resultIsDoorOpen = [_databaseController getRow:IS_DOOR_OPEN fromTable:USER_TABLE_NAME];
         
         NSMutableDictionary *userData = [[NSMutableDictionary alloc] init];
         [userData setObject:(NSString *)[resultUserIds objectAtIndex:0] forKey:USER_ID];
@@ -288,6 +292,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
         [userData setObject:(NSString *)[resultSchoolPictureUrl objectAtIndex:0] forKey:SCHOOL_PICTURE_URL];
         [userData setObject:(NSString *)[resultAge objectAtIndex:0] forKey:AGE];
         [userData setObject:(NSString *)[resultBio objectAtIndex:0] forKey:BIO];
+        [userData setObject:(NSString *)[resultIsDoorOpen objectAtIndex:0] forKey:IS_DOOR_OPEN];
         
         [_facebookController setUserFromData:userData];
     }
@@ -320,6 +325,14 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     [_facebookController setSomeFriendsFromData:result];
     
     return resultNames;
+}
+
+-(void)dropBase
+{
+    [_databaseController dropTable:USER_TABLE_NAME];
+    [_databaseController dropTable:BESTFRIEND_TABLE_NAME];
+    [_databaseController dropTable:FRIEND_ON_PICTURE_TABLE_NAME];
+    [_databaseController dropTable:SOME_FRIENDS_TABLE_NAME];
 }
 
 - (void)dealloc

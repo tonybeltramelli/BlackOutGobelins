@@ -20,6 +20,7 @@
 		983FFB64175630680095488B /* TBCharacterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 983FFB63175630680095488B /* TBCharacterData.m */; };
 		9844009117462ACE00C11875 /* TBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9844009017462ACE00C11875 /* TBCharacter.m */; };
 		984CF300176B07060022DDA6 /* second_level.mov in Resources */ = {isa = PBXBuildFile; fileRef = 984CF2FF176B07060022DDA6 /* second_level.mov */; };
+		984CF304176B310D0022DDA6 /* TBVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 984CF303176B310D0022DDA6 /* TBVideoPlayer.m */; };
 		984E115E17612E87009DECEE /* TBThirdPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E115D17612E87009DECEE /* TBThirdPlant.m */; };
 		984E1161176131A1009DECEE /* TBFourthPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E1160176131A1009DECEE /* TBFourthPlant.m */; };
 		984E1164176131C3009DECEE /* TBFifthPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E1163176131C3009DECEE /* TBFifthPlant.m */; };
@@ -499,6 +500,8 @@
 		9844008F17462ACD00C11875 /* TBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCharacter.h; sourceTree = "<group>"; };
 		9844009017462ACE00C11875 /* TBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCharacter.m; sourceTree = "<group>"; };
 		984CF2FF176B07060022DDA6 /* second_level.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = second_level.mov; sourceTree = "<group>"; };
+		984CF302176B310D0022DDA6 /* TBVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBVideoPlayer.h; sourceTree = "<group>"; };
+		984CF303176B310D0022DDA6 /* TBVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBVideoPlayer.m; sourceTree = "<group>"; };
 		984E115C17612E87009DECEE /* TBThirdPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBThirdPlant.h; sourceTree = "<group>"; };
 		984E115D17612E87009DECEE /* TBThirdPlant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBThirdPlant.m; sourceTree = "<group>"; };
 		984E115F176131A1009DECEE /* TBFourthPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFourthPlant.h; sourceTree = "<group>"; };
@@ -1261,6 +1264,15 @@
 			name = abstract;
 			sourceTree = "<group>";
 		};
+		984CF301176B30F70022DDA6 /* videoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				984CF302176B310D0022DDA6 /* TBVideoPlayer.h */,
+				984CF303176B310D0022DDA6 /* TBVideoPlayer.m */,
+			);
+			name = videoPlayer;
+			sourceTree = "<group>";
+		};
 		985640AA1755E68400EE750A /* door */ = {
 			isa = PBXGroup;
 			children = (
@@ -1850,6 +1862,7 @@
 		98657D9F170C2FAC006F3F57 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				984CF301176B30F70022DDA6 /* videoPlayer */,
 				98CF26B0175A5AD40081286F /* loader */,
 				989F18AE1730503800EA8183 /* control */,
 				98814E451741078000C86F65 /* element */,
@@ -3414,6 +3427,7 @@
 				985F10061768793500D83CC1 /* TBClueBox.m in Sources */,
 				985F100917687C2200D83CC1 /* TBClueWindow.m in Sources */,
 				98EF696F1769ADFA00728CB1 /* TBImageLoader.m in Sources */,
+				984CF304176B310D0022DDA6 /* TBVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

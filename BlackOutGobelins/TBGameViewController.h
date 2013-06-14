@@ -10,4 +10,6 @@
 
 @interface TBGameViewController : TBAViewController
 
+-(void) loginFacebook;
+
 @end
