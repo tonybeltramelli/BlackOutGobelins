@@ -29,3 +29,5 @@
 "CLUE_LOCATION" = "You live in {cityname}.";
 
 "CLUE_AGE" = "years old";
+
+"PROTECTED" = "data protected";

@@ -54,6 +54,16 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     return self;
 }
 
+-(NSString *)getData:(NSString *)data
+{
+    if([data isEqualToString:@""] || data == nil)
+    {
+        return NSLocalizedString(@"PROTECTED", nil);
+    }else{
+        return data;
+    }
+}
+
 -(void) saveUser
 {
     NSString *userId = _facebookController.user.userId;
@@ -79,16 +89,16 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:userId forKey:USER_ID];
 	[toSave setObject:userName forKey:USER_NAME];
-    [toSave setObject:userProfilePictureUrl forKey:PROFILE_PICTURE_URL];
-    [toSave setObject:userLocation forKey:USER_LOCATION];
-    [toSave setObject:locationPictureUrl forKey:LOCATION_PICTURE_URL];
-    [toSave setObject:companyName forKey:COMPANY_NAME];
-    [toSave setObject:companyPictureUrl forKey:COMPANY_PICTURE_URL];
-    [toSave setObject:positionName forKey:POSITION_NAME];
-    [toSave setObject:schoolName forKey:SCHOOL_NAME];
-    [toSave setObject:schoolPictureUrl forKey:SCHOOL_PICTURE_URL];
-    [toSave setObject:[NSString stringWithFormat:@"%d", age] forKey:AGE];
-    [toSave setObject:bio forKey:BIO];
+    [toSave setObject:[self getData:userProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:[self getData:userLocation] forKey:USER_LOCATION];
+    [toSave setObject:[self getData:locationPictureUrl] forKey:LOCATION_PICTURE_URL];
+    [toSave setObject:[self getData:companyName] forKey:COMPANY_NAME];
+    [toSave setObject:[self getData:companyPictureUrl] forKey:COMPANY_PICTURE_URL];
+    [toSave setObject:[self getData:positionName] forKey:POSITION_NAME];
+    [toSave setObject:[self getData:schoolName] forKey:SCHOOL_NAME];
+    [toSave setObject:[self getData:schoolPictureUrl] forKey:SCHOOL_PICTURE_URL];
+    [toSave setObject:[self getData:[NSString stringWithFormat:@"%d", age]] forKey:AGE];
+    [toSave setObject:[self getData:bio] forKey:BIO];
     [toSave setObject:isDoorOpen ? @"TRUE" : @"FALSE" forKey:IS_DOOR_OPEN];
     
     [_databaseController insertIntoTable:USER_TABLE_NAME theseRowsAndValues:toSave];
