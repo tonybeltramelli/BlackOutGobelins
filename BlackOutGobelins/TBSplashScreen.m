@@ -7,11 +7,17 @@
 //
 
 
+#import <Foundation/Foundation.h>
+
 #import "TBSplashScreen.h"
 #import "TBAssetPreLoader.h"
 #import "TBMapScreen.h"
+#import "CCLabelTTF.h"
 
 @implementation TBSplashScreen
+{
+    CCLabelTTF *_label;
+}
 
 +(CCScene *) scene
 {
@@ -45,6 +51,15 @@
     [preloader setPosition:CGPointMake(size.width / 2, size.height / 2)];
     [self addChild:preloader];
     
+    int n = (arc4random() % 3) + 1;
+    
+    NSString *tipText = [NSString stringWithFormat:@"TIP_%d", n];
+    
+    _label = [CCLabelTTF labelWithString:NSLocalizedString(tipText, nil) dimensions:CGSizeMake(size.width * 0.8, size.height) hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:16.0f];
+    [_label setPosition:CGPointMake(size.width / 2, -20.0f)];
+    [_label setColor:ccc3(200, 200, 200)];
+    [self addChild:_label];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadingComplete:) name:@"PRELOADING_COMPLETE" object:nil];
     
@@ -65,6 +80,8 @@
 
 - (void)dealloc
 {
+    _label = nil;
+    
     [super dealloc];
 }
 

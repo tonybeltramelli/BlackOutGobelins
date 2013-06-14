@@ -39,7 +39,7 @@
         
         _gravityCenter = CGPointMake(4, -10);
         
-        _limit = 500;
+        _limit = 200;
         _isOn = false;
         
         _glowSprite = [CCSprite spriteWithFile:@"fire.png"];
@@ -71,7 +71,7 @@
         
         _isOn = !_isOn;
         
-        _limit = _isOn ? 100 : 500;
+        _limit = _isOn ? 100 : 200;
         
         [_glowSprite runAction:[CCFadeTo actionWithDuration:0.6f opacity:_isOn ? 0 : 255]];
     }

@@ -556,7 +556,7 @@ const float DELAY = 20.0f;
         id element = [[NSClassFromString(className) alloc] init];
         [element drawAt:[[positions objectAtIndex:i] CGPointValue]];
         
-        if([element isKindOfClass:[TBCharacter class]]) [((TBCharacter *)element) getDataAt:i];
+        if([element isKindOfClass:[TBCharacter class]]) [((TBCharacter *)element) getDataAt:[array count]];
         
         [array addObject:element];
         [_mainContainer addChild:(CCLayer *)element];

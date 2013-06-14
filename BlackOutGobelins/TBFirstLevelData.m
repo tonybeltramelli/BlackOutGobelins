@@ -58,10 +58,41 @@
     
     [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].friendOnPicture andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
     [_characterData addObject:[TBCharacterData dataWithDescriptor: [[TBModel getInstance] facebookController].bestFriend andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:0] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:1] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:2] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_BESTFRIEND", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:3] andDialog:NSLocalizedString(@"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:0] andDialog:[self getDialogueAge]]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:1] andDialog:[self getDialogueCity]]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:2] andDialog:NSLocalizedString(@"LOVE_SITUATION", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:3] andDialog:NSLocalizedString(@"WORK", nil)]];
+}
+
+-(NSString *)getDialogueAge
+{
+    NSString *stringName = @"AGE_40_PLUS";
+    
+    if([TBModel getInstance].facebookController.user.age <= 20)
+    {
+        stringName = @"AGE_20";
+    }else if([TBModel getInstance].facebookController.user.age > 20 && [TBModel getInstance].facebookController.user.age <= 25)
+    {
+        stringName = @"AGE_25";
+    }else if([TBModel getInstance].facebookController.user.age > 25 && [TBModel getInstance].facebookController.user.age <= 30)
+    {
+        stringName = @"AGE_30";
+    }else if([TBModel getInstance].facebookController.user.age > 30 && [TBModel getInstance].facebookController.user.age <= 40)
+    {
+        stringName = @"AGE_40";
+    }
+    
+    return NSLocalizedString(stringName, nil);
+}
+
+-(NSString *)getDialogueCity
+{
+    int n = 1; //(arc4random() % 2) + 1;
+    
+    NSString *cityText = [NSString stringWithFormat:@"CITY_%d", n];
+    NSString *rawString = NSLocalizedString(cityText, nil);
+    
+    return [rawString stringByReplacingOccurrencesOfString:@"{cityname}" withString:[TBModel getInstance].facebookController.user.location];
 }
 
 -(void)generateBotsData
@@ -70,16 +101,16 @@
     
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:NSLocalizedString(@"DATA_TYPE_USER_NAME", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.location] andType:NSLocalizedString(@"DATA_TYPE_LOCATION", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:@"Best friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:@"Great buddy name"]];
-    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:@"" andType:@"Friend name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.name] andType:@"Facebook user name"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:NSLocalizedString(@"BEST_FRIEND_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:NSLocalizedString(@"GREAT_BUDDY_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.profilePictureUrl] andType:@"image"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.positionName] andType:NSLocalizedString(@"JOB_POSITION", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.companyName] andType:NSLocalizedString(@"COMPANY_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.schoolName] andType:NSLocalizedString(@"EDUCATION", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.pictureUrl] andType:@"image"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
 }
 
 -(NSString *)getDataFrom:(id)pointer
