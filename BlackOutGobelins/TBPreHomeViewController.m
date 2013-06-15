@@ -58,8 +58,6 @@
         [_textView setHidden:FALSE];
     }
     
-    viewController = [TBHomeViewController alloc];
-    
     [UIView animateWithDuration:0.3 delay:userIsKnown ? 1.2 : 6.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.view setAlpha:0.0f];
