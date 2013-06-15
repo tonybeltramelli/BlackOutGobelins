@@ -124,10 +124,10 @@
         viewToShow = (TBASubView *) _notLoggedView;
     }
     
+    [viewToShow build];
+    
     viewToHide.hidden = TRUE;
     viewToShow.hidden = FALSE;
-    
-    [viewToShow build];
     
     _currentView = viewToShow;
 }

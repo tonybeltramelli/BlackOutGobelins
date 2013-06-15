@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		98173376174D5A8C00E0229F /* TBLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98173375174D5A8C00E0229F /* TBLineData.m */; };
+		9819676D176C920E00B54EBE /* home_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98196767176C920E00B54EBE /* home_background.jpg */; };
+		9819676E176C920E00B54EBE /* home_background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98196768176C920E00B54EBE /* home_background@2x.jpg */; };
+		9819676F176C920E00B54EBE /* home_ego.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196769176C920E00B54EBE /* home_ego.png */; };
+		98196770176C920E00B54EBE /* home_ego@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9819676A176C920E00B54EBE /* home_ego@2x.png */; };
+		98196771176C920E00B54EBE /* home_rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9819676B176C920E00B54EBE /* home_rock.png */; };
+		98196772176C920E00B54EBE /* home_rock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9819676C176C920E00B54EBE /* home_rock@2x.png */; };
+		98196775176CA58A00B54EBE /* connection_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196773176CA58A00B54EBE /* connection_btn.png */; };
+		98196776176CA58A00B54EBE /* connection_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196774176CA58A00B54EBE /* connection_btn@2x.png */; };
 		981F1884170DBBEB007FF966 /* TBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F1882170DBBEB007FF966 /* TBGameViewController.m */; };
 		981F1885170DBBEB007FF966 /* TBGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981F1883170DBBEB007FF966 /* TBGameViewController.xib */; };
 		9829E9E3171EA73300888E4C /* TBFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9829E9E2171EA73300888E4C /* TBFacebookController.m */; };
@@ -478,6 +486,14 @@
 /* Begin PBXFileReference section */
 		98173374174D5A8C00E0229F /* TBLineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLineData.h; sourceTree = "<group>"; };
 		98173375174D5A8C00E0229F /* TBLineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLineData.m; sourceTree = "<group>"; };
+		98196767176C920E00B54EBE /* home_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_background.jpg; sourceTree = "<group>"; };
+		98196768176C920E00B54EBE /* home_background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_background@2x.jpg"; sourceTree = "<group>"; };
+		98196769176C920E00B54EBE /* home_ego.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ego.png; sourceTree = "<group>"; };
+		9819676A176C920E00B54EBE /* home_ego@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_ego@2x.png"; sourceTree = "<group>"; };
+		9819676B176C920E00B54EBE /* home_rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_rock.png; sourceTree = "<group>"; };
+		9819676C176C920E00B54EBE /* home_rock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_rock@2x.png"; sourceTree = "<group>"; };
+		98196773176CA58A00B54EBE /* connection_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connection_btn.png; sourceTree = "<group>"; };
+		98196774176CA58A00B54EBE /* connection_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connection_btn@2x.png"; sourceTree = "<group>"; };
 		981F1881170DBBEB007FF966 /* TBGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGameViewController.h; sourceTree = "<group>"; };
 		981F1882170DBBEB007FF966 /* TBGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGameViewController.m; sourceTree = "<group>"; };
 		981F1883170DBBEB007FF966 /* TBGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBGameViewController.xib; sourceTree = "<group>"; };
@@ -1208,6 +1224,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98196766176C920E00B54EBE /* home */ = {
+			isa = PBXGroup;
+			children = (
+				98196767176C920E00B54EBE /* home_background.jpg */,
+				98196768176C920E00B54EBE /* home_background@2x.jpg */,
+				98196769176C920E00B54EBE /* home_ego.png */,
+				9819676A176C920E00B54EBE /* home_ego@2x.png */,
+				9819676B176C920E00B54EBE /* home_rock.png */,
+				9819676C176C920E00B54EBE /* home_rock@2x.png */,
+				98196773176CA58A00B54EBE /* connection_btn.png */,
+				98196774176CA58A00B54EBE /* connection_btn@2x.png */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		9829E9DB171EA57700888E4C /* facebook */ = {
 			isa = PBXGroup;
 			children = (
@@ -2801,6 +2832,7 @@
 		98B547DB17612CE7006E7A1F /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				98196766176C920E00B54EBE /* home */,
 				9865615E176A12FA007109CE /* default_facebook_page_picture.jpg */,
 				9865615F176A12FA007109CE /* default_facebook_profile_picture.jpg */,
 				985F0FFB1768788400D83CC1 /* clue_box.png */,
@@ -3214,6 +3246,14 @@
 				98656160176A12FA007109CE /* default_facebook_page_picture.jpg in Resources */,
 				98656161176A12FA007109CE /* default_facebook_profile_picture.jpg in Resources */,
 				984CF300176B07060022DDA6 /* second_level.mov in Resources */,
+				9819676D176C920E00B54EBE /* home_background.jpg in Resources */,
+				9819676E176C920E00B54EBE /* home_background@2x.jpg in Resources */,
+				9819676F176C920E00B54EBE /* home_ego.png in Resources */,
+				98196770176C920E00B54EBE /* home_ego@2x.png in Resources */,
+				98196771176C920E00B54EBE /* home_rock.png in Resources */,
+				98196772176C920E00B54EBE /* home_rock@2x.png in Resources */,
+				98196775176CA58A00B54EBE /* connection_btn.png in Resources */,
+				98196776176CA58A00B54EBE /* connection_btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

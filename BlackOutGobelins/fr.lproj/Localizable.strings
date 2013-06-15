@@ -26,7 +26,7 @@
 
 "FACEBOOK_DATA_LOADING" = "Nous traitons vos données, \nil y en a beaucoup !";
 
-"BUTTON_LOGIN" = "Commencer l'aventure";
+"BUTTON_LOGIN" = "  RETROUVE TON E-GO !";
 
 "CLUE_DOOR" = "Qu’avez-vous à dire \nà propos de vous ?";
 
@@ -62,7 +62,7 @@
 
 "JOB_POSITION" = "Ton travail";
 
-"COMPANY_NAME" = "Ton entreprise actuelle";
+"COMPANY_NAME" = "Ton entreprise";
 
 "EDUCATION" = "Tes études";
 

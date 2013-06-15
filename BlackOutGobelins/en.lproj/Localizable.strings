@@ -26,7 +26,7 @@
 
 "FACEBOOK_DATA_LOADING" = "We are processing your data, \nthere are many of them!";
 
-"BUTTON_LOGIN" = "Start the adventure";
+"BUTTON_LOGIN" = "  FIND YOUR E-GO!";
 
 "CLUE_DOOR" = "What have you got to say \nabout yourself?";
 
@@ -62,7 +62,7 @@
 
 "JOB_POSITION" = "Your job";
 
-"COMPANY_NAME" = "Your current company";
+"COMPANY_NAME" = "Your company";
 
 "EDUCATION" = "Your education";
 
