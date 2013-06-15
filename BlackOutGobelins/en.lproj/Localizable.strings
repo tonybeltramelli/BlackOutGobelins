@@ -10,7 +10,7 @@
 
 "CHARACTER_DIALOGUE_BESTFRIEND" = "I'm happy to met you, that was really boring to be alone with a broken bot... He really help me anyway, you should go talk to him before he'll be gone.";
 
-"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Who. You have been really hurted! I remember you but that was not easy. Have you got a picture of yourself?";
+"CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Wow. You have been really hurted! I remember you but that was not easy. Have you got a picture of yourself?";
 
 "DATA_TYPE_USER_NAME" = "Your name";
 
@@ -36,11 +36,11 @@
 
 "PROTECTED" = "data protected";
 
-"TIP_1" = "Vous voulez être le seul à voir certaines publications ? Pensez aux paramètres de confidentialité. (image “moi uniquement”)";
+"TIP_1" = "Vous voulez être le seul à voir certaines publications ? \nPensez aux paramètres de confidentialité. \n(image “moi uniquement”)";
 
 "TIP_2" = "Le Social Graph Search vous permet de faire des recherches parmi les données auxquelles vous avez accès. Faites en bonne usage.";
 
-"TIP_3" = "Envie de connaître vos points communs et de voir vos liens avec un ami ? Pensez à la fonction “Liens d’amitié”.";
+"TIP_3" = "Envie de connaître vos points communs et de voir vos liens avec un ami ? \nPensez à la fonction “Liens d’amitié”.";
 
 "AGE_20" = "Tu passes beaucoup de temps sur Facebook, tu ne devrais pas être en cours ?";
 

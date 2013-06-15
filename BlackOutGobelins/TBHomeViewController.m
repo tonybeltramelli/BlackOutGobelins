@@ -26,12 +26,18 @@
     
     _requestConnection = [[FBRequestConnection alloc] init];
     
+    [(TBASubView *)_notLoggedView build];
+    [(TBASubView *)_loggedView build];
+    
     [self updateView];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [(TBASubView *)_notLoggedView build];
+    [(TBASubView *)_loggedView build];
     
     if (!self.appDelegate.session.isOpen)
     {
@@ -124,7 +130,7 @@
         viewToShow = (TBASubView *) _notLoggedView;
     }
     
-    [viewToShow build];
+    [viewToShow show];
     
     viewToHide.hidden = TRUE;
     viewToShow.hidden = FALSE;

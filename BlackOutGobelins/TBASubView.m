@@ -18,6 +18,12 @@
     return self;
 }
 
--(void) build { }
+-(void) build {
+    _isShown = FALSE;
+}
+
+-(void) show {
+    _isShown = TRUE;
+}
 
 @end

@@ -17,9 +17,17 @@
 
 -(void) build
 {
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
-    
     [super build];
+    
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
+}
+
+-(void) show
+{
+    if(_isShown) return;
+    
+    [super show];
+    
     [self showLoader];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(friendOnPictureIsLoaded:) name:@"FRIEND_LOADED" object:nil];

@@ -15,9 +15,9 @@
 
 -(void) build
 {
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_background.jpg"]];
-    
     [super build];
+    
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"home_background.jpg" : @"home_background-568h@2x.jpg"]];
     
     [_button setTitle:NSLocalizedString(@"BUTTON_LOGIN", nil) forState:UIControlStateNormal];
     
@@ -26,6 +26,13 @@
     [_rockImageView setFrame:CGRectMake(-_rockImageView.image.size.width, 0.0f, _rockImageView.image.size.width, _rockImageView.image.size.height)];
     
     [_egoImageView setFrame:CGRectMake(_rockImageView.image.size.width / 2, _rockImageView.image.size.height, _egoImageView.image.size.width - _margin, _egoImageView.image.size.height)];
+}
+
+-(void) show
+{
+    if(_isShown) return;
+    
+    [super show];
     
     [self performSelector:@selector(animate:) withObject:nil afterDelay:0.5];
 }

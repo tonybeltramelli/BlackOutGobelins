@@ -39,7 +39,7 @@
             [_typeLabel setPosition:CGPointMake(self.contentSize.width / 2 + 5, self.contentSize.height / 2)];
             [_dataLabel setPosition:CGPointMake(_typeLabel.position.x, self.contentSize.height / 2 - 12)]; 
         }else{
-            [self setContentSize:CGSizeMake(30, 30)];
+            [self setContentSize:CGSizeMake(29, 29)];
             
             [TBImageLoader loaderWithUrl:data at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
             

@@ -133,8 +133,8 @@ const float DELAY = 20.0f;
     
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"First-Level-Loop.mp3" loop:YES];
     
-    [SimpleAudioEngine sharedEngine].effectsVolume = 0.0f;
-    [SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.0f;
+    //[SimpleAudioEngine sharedEngine].effectsVolume = 0.0f;
+    //[SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.0f;
     
     [self scheduleUpdate];
 }
@@ -144,7 +144,7 @@ const float DELAY = 20.0f;
     _mainContainer.position = CGPointMake(round(-_hero.position.x + _size.width / 2), round(-_hero.position.y + _size.height / 2));
     _environmentContainer.position = _effectContainer.position = _topContainer.position = _mainContainer.position;
     
-    if(_isOnDoor) return;
+    if(_isOnDoor || _toFreeze) return;
     
     if(_delay > 0.0f)
     {

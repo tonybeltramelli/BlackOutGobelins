@@ -38,10 +38,10 @@
     CCSprite *background;
 	
 	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-		background = [CCSprite spriteWithFile:@"Default.png"];
+		background = [CCSprite spriteWithFile:@"Dark-Background.png"];
 		background.rotation = 90;
 	} else {
-		background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+		background = [CCSprite spriteWithFile:@"Dark-Background~ipad.png"];
 	}
 	background.position = ccp(size.width/2, size.height/2);
 
@@ -55,7 +55,7 @@
     
     NSString *tipText = [NSString stringWithFormat:@"TIP_%d", n];
     
-    _label = [CCLabelTTF labelWithString:NSLocalizedString(tipText, nil) dimensions:CGSizeMake(size.width * 0.8, size.height) hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:16.0f];
+    _label = [CCLabelTTF labelWithString:NSLocalizedString(tipText, nil) dimensions:CGSizeMake(size.width * 0.9, size.height) hAlignment:NSTextAlignmentCenter fontName:@"Helvetica" fontSize:16.0f];
     [_label setPosition:CGPointMake(size.width / 2, -20.0f)];
     [_label setColor:ccc3(200, 200, 200)];
     [self addChild:_label];

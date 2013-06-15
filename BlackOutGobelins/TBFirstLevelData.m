@@ -103,9 +103,9 @@
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.location] andType:NSLocalizedString(@"DATA_TYPE_LOCATION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:NSLocalizedString(@"BEST_FRIEND_NAME", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:NSLocalizedString(@"GREAT_BUDDY_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.profilePictureUrl] andType:@"image"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.positionName] andType:NSLocalizedString(@"JOB_POSITION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.companyName] andType:NSLocalizedString(@"COMPANY_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.profilePictureUrl] andType:@"image"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.schoolName] andType:NSLocalizedString(@"EDUCATION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.pictureUrl] andType:@"image"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];

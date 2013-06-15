@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TBASubView : UIView <NSURLConnectionDelegate>
+{
+    BOOL _isShown;
+}
 
 -(void) build;
+-(void) show;
 
 @end

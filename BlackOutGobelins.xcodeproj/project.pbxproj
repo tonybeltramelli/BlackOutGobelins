@@ -16,6 +16,11 @@
 		98196772176C920E00B54EBE /* home_rock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9819676C176C920E00B54EBE /* home_rock@2x.png */; };
 		98196775176CA58A00B54EBE /* connection_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196773176CA58A00B54EBE /* connection_btn.png */; };
 		98196776176CA58A00B54EBE /* connection_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196774176CA58A00B54EBE /* connection_btn@2x.png */; };
+		9819677A176CBDF400B54EBE /* Dark-Background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196777176CBDF400B54EBE /* Dark-Background-568h@2x.png */; };
+		9819677B176CBDF400B54EBE /* Dark-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196778176CBDF400B54EBE /* Dark-Background.png */; };
+		9819677C176CBDF400B54EBE /* Dark-Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98196779176CBDF400B54EBE /* Dark-Background@2x.png */; };
+		9819677E176CBE7000B54EBE /* Dark-Background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9819677D176CBE7000B54EBE /* Dark-Background~ipad.png */; };
+		98196780176CBFBB00B54EBE /* home_background-568h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9819677F176CBFBB00B54EBE /* home_background-568h@2x.jpg */; };
 		981F1884170DBBEB007FF966 /* TBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F1882170DBBEB007FF966 /* TBGameViewController.m */; };
 		981F1885170DBBEB007FF966 /* TBGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981F1883170DBBEB007FF966 /* TBGameViewController.xib */; };
 		9829E9E3171EA73300888E4C /* TBFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9829E9E2171EA73300888E4C /* TBFacebookController.m */; };
@@ -494,6 +499,11 @@
 		9819676C176C920E00B54EBE /* home_rock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_rock@2x.png"; sourceTree = "<group>"; };
 		98196773176CA58A00B54EBE /* connection_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connection_btn.png; sourceTree = "<group>"; };
 		98196774176CA58A00B54EBE /* connection_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connection_btn@2x.png"; sourceTree = "<group>"; };
+		98196777176CBDF400B54EBE /* Dark-Background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dark-Background-568h@2x.png"; path = "Resources/Dark-Background-568h@2x.png"; sourceTree = "<group>"; };
+		98196778176CBDF400B54EBE /* Dark-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dark-Background.png"; path = "Resources/Dark-Background.png"; sourceTree = "<group>"; };
+		98196779176CBDF400B54EBE /* Dark-Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dark-Background@2x.png"; path = "Resources/Dark-Background@2x.png"; sourceTree = "<group>"; };
+		9819677D176CBE7000B54EBE /* Dark-Background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dark-Background~ipad.png"; path = "Resources/Dark-Background~ipad.png"; sourceTree = "<group>"; };
+		9819677F176CBFBB00B54EBE /* home_background-568h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_background-568h@2x.jpg"; sourceTree = "<group>"; };
 		981F1881170DBBEB007FF966 /* TBGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGameViewController.h; sourceTree = "<group>"; };
 		981F1882170DBBEB007FF966 /* TBGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGameViewController.m; sourceTree = "<group>"; };
 		981F1883170DBBEB007FF966 /* TBGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBGameViewController.xib; sourceTree = "<group>"; };
@@ -1227,6 +1237,7 @@
 		98196766176C920E00B54EBE /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9819677F176CBFBB00B54EBE /* home_background-568h@2x.jpg */,
 				98196767176C920E00B54EBE /* home_background.jpg */,
 				98196768176C920E00B54EBE /* home_background@2x.jpg */,
 				98196769176C920E00B54EBE /* home_ego.png */,
@@ -1419,6 +1430,10 @@
 				987AE52F1765F1CA00756250 /* Blank-Background-568h@2x.jpg */,
 				987AE5301765F1CA00756250 /* Blank-Background.jpg */,
 				987AE5311765F1CA00756250 /* Blank-Background@2x.jpg */,
+				98196777176CBDF400B54EBE /* Dark-Background-568h@2x.png */,
+				98196778176CBDF400B54EBE /* Dark-Background.png */,
+				98196779176CBDF400B54EBE /* Dark-Background@2x.png */,
+				9819677D176CBE7000B54EBE /* Dark-Background~ipad.png */,
 				989F18DC173053CD00EA8183 /* Default-568h@2x.jpg */,
 				989F18DD173053CD00EA8183 /* Default-568h@2x.png */,
 				989F18DE173053CD00EA8183 /* Default-Landscape~ipad.png */,
@@ -3254,6 +3269,11 @@
 				98196772176C920E00B54EBE /* home_rock@2x.png in Resources */,
 				98196775176CA58A00B54EBE /* connection_btn.png in Resources */,
 				98196776176CA58A00B54EBE /* connection_btn@2x.png in Resources */,
+				9819677A176CBDF400B54EBE /* Dark-Background-568h@2x.png in Resources */,
+				9819677B176CBDF400B54EBE /* Dark-Background.png in Resources */,
+				9819677C176CBDF400B54EBE /* Dark-Background@2x.png in Resources */,
+				9819677E176CBE7000B54EBE /* Dark-Background~ipad.png in Resources */,
+				98196780176CBFBB00B54EBE /* home_background-568h@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
