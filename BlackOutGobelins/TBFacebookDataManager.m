@@ -64,6 +64,16 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     }
 }
 
+-(NSString *)getPictureUrl:(NSString *)url
+{
+    if([url isEqualToString:@""] || url == nil)
+    {
+        return @"default_facebook_profile_picture.jpg";
+    }else{
+        return url;
+    }
+}
+
 -(void) saveUser
 {
     NSString *userId = _facebookController.user.userId;
@@ -89,7 +99,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:userId forKey:USER_ID];
 	[toSave setObject:userName forKey:USER_NAME];
-    [toSave setObject:[self getData:userProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:[self getPictureUrl:userProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
     [toSave setObject:[self getData:userLocation] forKey:USER_LOCATION];
     [toSave setObject:[self getData:locationPictureUrl] forKey:LOCATION_PICTURE_URL];
     [toSave setObject:[self getData:companyName] forKey:COMPANY_NAME];
@@ -120,7 +130,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:bestfriendUserId forKey:USER_ID];
 	[toSave setObject:bestfriendName forKey:USER_NAME];
-    [toSave setObject:bestfriendProfilePictureUrl forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:[self getPictureUrl:bestfriendProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
 	[toSave setObject:[NSString stringWithFormat:@"%d", mutualFriendsNumber] forKey:MUTUAL_FRIENDS_NUMBER];
     
     [_databaseController insertIntoTable:BESTFRIEND_TABLE_NAME theseRowsAndValues:toSave];
@@ -143,8 +153,8 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
     NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
     [toSave setObject:friendOnPictureUserId forKey:USER_ID];
 	[toSave setObject:friendOnPictureName forKey:USER_NAME];
-    [toSave setObject:friendProfilePictureUrl forKey:PROFILE_PICTURE_URL];
-    [toSave setObject:friendPictureUrl forKey:PICTURE_URL];
+    [toSave setObject:[self getPictureUrl:friendProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
+    [toSave setObject:[self getPictureUrl:friendPictureUrl] forKey:PICTURE_URL];
     [toSave setObject:[NSString stringWithFormat:@"%d", mutualFriendsNumber] forKey:MUTUAL_FRIENDS_NUMBER];
     
     [_databaseController insertIntoTable:FRIEND_ON_PICTURE_TABLE_NAME theseRowsAndValues:toSave];
@@ -171,7 +181,7 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
         NSMutableDictionary *toSave = [[NSMutableDictionary alloc] init];
         [toSave setObject:userId forKey:USER_ID];
         [toSave setObject:userName forKey:USER_NAME];
-        [toSave setObject:userProfilePictureUrl forKey:PROFILE_PICTURE_URL];
+        [toSave setObject:[self getPictureUrl:userProfilePictureUrl] forKey:PROFILE_PICTURE_URL];
         [toSave setObject:[NSString stringWithFormat:@"%d", mutualFriendsNumber] forKey:MUTUAL_FRIENDS_NUMBER];
         
         [_databaseController insertIntoTable:SOME_FRIENDS_TABLE_NAME theseRowsAndValues:toSave];

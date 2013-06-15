@@ -15,6 +15,7 @@
     int _loadedFriends;
     int _maxMutualFriendsNumber;
     int _maxFriendsNumber;
+    int _numberSomeFriendsToSave;
     
     NSMutableArray *_allFriends;
 }
@@ -23,6 +24,15 @@
 @synthesize bestFriend = _bestFriend;
 @synthesize friendOnPicture = _friendOnPicture;
 @synthesize someFriends = _someFriends;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _numberSomeFriendsToSave = 5;
+    }
+    return self;
+}
 
 -(void)getFriendOnPicture
 {
@@ -130,12 +140,18 @@
         int randomIndex;
         TBFacebookFriendDescriptor *parsedFriend;
         
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < _numberSomeFriendsToSave; i++)
         {
             randomIndex = arc4random() % [_allFriends count];
             parsedFriend = (TBFacebookFriendDescriptor *)[_allFriends objectAtIndex:randomIndex];
             
             [_someFriends addObject:parsedFriend];
+        }
+        
+        if(!_friendOnPicture)
+        {
+            _friendOnPicture = [_someFriends objectAtIndex:_numberSomeFriendsToSave - 1];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FRIEND_LOADED" object:nil];
         }
         
         [[NSNotificationCenter defaultCenter] removeObserver:self];
