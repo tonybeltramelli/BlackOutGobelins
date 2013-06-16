@@ -75,30 +75,7 @@
     [TBModel getInstance].facebookController.user.isDoorOpen = TRUE;
     [[TBModel getInstance].facebookDataManager saveUser];
     
-    if (self.appDelegate.session.isOpen)
-    {
-        [self navigateToFacebookProfile];
-        return;
-    }
-    
-    self.appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"user_photos", @"user_birthday", @"user_about_me", nil]];
-    [FBSession setActiveSession: self.appDelegate.session];
-    
-    [self.appDelegate.session openWithCompletionHandler:^(FBSession *session,
-                                                          FBSessionState status,
-                                                          NSError *error)
-     {
-         if ([[FBSession activeSession] isOpen])
-         {
-             FBRequest *me = [FBRequest requestForMe];
-             [me startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                               NSDictionary<FBGraphUser> *user,
-                                               NSError *error)
-              {
-                  if (!error) [self navigateToFacebookProfile];
-              }];
-         }
-     }];
+    [self navigateToFacebookProfile];
 }
 
 -(void) navigateToFacebookProfile

@@ -16,9 +16,9 @@
 
 "DATA_TYPE_LOCATION" = "Là où tu vis";
 
-"BEST_FRIEND_NAME" = "Nom du meilleur ami";
+"BEST_FRIEND_NAME" = "Meilleur ami";
 
-"GREAT_BUDDY_NAME" = "Nom d'un ami proche";
+"GREAT_BUDDY_NAME" = "Ami proche";
 
 "PREHOME_TEXT" = "Blackout est un jeu d’aventure vous permettant d’explorer votre réseau Facebook et de redécouvrir votre image en ligne de manière inédite. \n \n Pour retrouver votre e-Go et prendre part à l’aventure, vous devez lier votre compte Facebook au jeu. \n \n Vos données ne pourront être utilisées par Blackout ou tout autre éditeur tierce. Vous pouvez prendre connaissance des autorisations accordées à Blackout à chaque instant depuis les options du jeu. \n \n Retrouvez plus d’informations sur www.blackout-lejeu.fr";
 
@@ -42,21 +42,21 @@
 
 "TIP_3" = "Envie de connaître vos points communs et de voir vos liens avec un ami ? \nPensez à la fonction “Liens d’amitié”.";
 
-"AGE_20" = "Tu passes beaucoup de temps sur Facebook, tu ne devrais pas être en cours ?";
+"AGE_20" = "Donnée âge : \nTu passes beaucoup de temps sur Facebook, tu ne devrais pas être en cours ?";
 
-"AGE_25" = "Toujours à l’école ? Tu devrais pas travailler à ton âge ?";
+"AGE_25" = "Donnée âge : \nToujours à l’école ? Tu devrais pas travailler à ton âge ?";
 
-"AGE_30" = "Tu as autant d’amis que ça dans la vraie vie ? Tu sors beaucoup dis donc.";
+"AGE_30" = "Donnée âge : \nTu as autant d’amis que ça dans la vraie vie ? Tu sors beaucoup dis donc.";
 
-"AGE_40" = "Il parait que le travail c’est la santé... Et tu es toujours là sur Facebook ?";
+"AGE_40" = "Donnée âge : \nIl parait que le travail c’est la santé... Et tu es toujours là sur Facebook ?";
 
-"AGE_40_PLUS" = "C’est rare de rencontrer un e-Go aussi vieux par ici.";
+"AGE_40_PLUS" = "Donnée âge : \nC’est rare de rencontrer un e-Go aussi vieux par ici.";
 
-"CITY_1" = "Tu as toujours vécu à {cityname}, tu ne voudrais pas voir ailleurs.";
+"CITY_1" = "Donnée lieu d'habitation : \nTu as toujours vécu à {cityname}, tu ne voudrais pas voir ailleurs.";
 
-"CITY_2" = "{cityname}, ça ne me dit rien. Il y a beaucoup d’habitants ?";
+"CITY_2" = "Donnée lieu d'habitation : \n{cityname}, ça ne me dit rien. Il y a beaucoup d’habitants ?";
 
-"LOVE_SITUATION" = "Petit cachotier";
+"LOVE_SITUATION" = "Donnée situation amoureuse : \nPetit cachotier";
 
 "WORK" = "Il paraît que le travail c’est la santé... \nMouais.";
 
@@ -66,4 +66,4 @@
 
 "EDUCATION" = "Tes études";
 
-"A_FRIEND_NAME" = "Un de tes ami";
+"A_FRIEND_NAME" = "Un ami";

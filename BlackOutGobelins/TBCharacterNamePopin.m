@@ -16,6 +16,8 @@
     CCLabelTTF *_nameLabel;
     CCLabelTTF *_similarFriendLabel;
     CCSprite *_image;
+    CCTexture2D *_texture;
+    NSString *_url;
 }
 
 - (id)initWithName:(NSString *)name similarFriendNumber:(int)friendNumber andPictureUrl:(NSString *)url
@@ -23,6 +25,8 @@
     self = [super initWithSize:CGSizeMake(170, 50)];
     if (self)
     {
+        _url = url;
+        
         CGSize size = CGSizeMake(_size.width - 50, _size.height);
         
         UIFont *font = [UIFont fontWithName:@"Helvetica" size:14.0f];
@@ -54,11 +58,20 @@
     return self;
 }
 
+-(void) show
+{
+    [super show];
+    
+    if(!_texture) [TBImageLoader loaderWithUrl:_url at:self andSelector:@selector(imageIsLoaded:) needTexture:TRUE];
+}
+
 -(void) imageIsLoaded:(CCTexture2D *)texture
 {
-    if(!texture) return;
+    _texture = texture;
     
-    [_image setTexture:texture];
+    if(!_texture) return;
+    
+    [_image setTexture:_texture];
 }
 
 - (void)dealloc
@@ -68,6 +81,11 @@
     
     [_image release];
     _image = nil;
+    
+    [_texture release];
+    _texture = nil;
+    
+    _url = nil;
     
     [super dealloc];
 }

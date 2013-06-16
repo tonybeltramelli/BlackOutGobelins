@@ -15,7 +15,7 @@
 @implementation TBCharacterFirstState
 {
     TBCharacterNamePopin *_gamePopin;
-    NSString *_dialogue;
+    TBCharacterData *_data;
 }
 
 - (id)init
@@ -31,11 +31,9 @@
 
 -(void) getDataAt:(int)index
 {
-    TBCharacterData *data = [[[[TBModel getInstance] getCurrentLevelData] getCharactersData] objectAtIndex:index];
+    _data = [[[[TBModel getInstance] getCurrentLevelData] getCharactersData] objectAtIndex:index];
     
-    _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[data getDescriptor].name similarFriendNumber:[data getDescriptor].mutualFriendsNumber andPictureUrl:[data getDescriptor].profilePictureUrl];
-    
-    _dialogue = [data getDialog];
+    _gamePopin = [[TBCharacterNamePopin alloc] initWithName:[_data getDescriptor].name similarFriendNumber:[_data getDescriptor].mutualFriendsNumber andPictureUrl:[_data getDescriptor].profilePictureUrl];
     
     [self addChild:_gamePopin];
 }
@@ -65,9 +63,9 @@
     if(toConnect) [[SimpleAudioEngine sharedEngine] playEffect:@"Connexion-EGo.mp3"];
 }
 
--(NSString *)getDialogue
+-(NSString *)getDialogueContent
 {
-    return _dialogue;
+    return [_data getDialog];
 }
 
 - (void)dealloc
@@ -76,6 +74,9 @@
     
     [_gamePopin release];
     _gamePopin = nil;
+    
+    [_data release];
+    _data = nil;
     
     [super dealloc];
 }

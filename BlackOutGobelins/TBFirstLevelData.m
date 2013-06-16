@@ -92,7 +92,7 @@
     NSString *cityText = [NSString stringWithFormat:@"CITY_%d", n];
     NSString *rawString = NSLocalizedString(cityText, nil);
     
-    return [rawString stringByReplacingOccurrencesOfString:@"{cityname}" withString:[TBModel getInstance].facebookController.user.location];
+    return [[rawString stringByReplacingOccurrencesOfString:@"{cityname}" withString:[TBModel getInstance].facebookController.user.location] retain];
 }
 
 -(void)generateBotsData
@@ -109,8 +109,8 @@
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.schoolName] andType:NSLocalizedString(@"EDUCATION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.pictureUrl] andType:@"image"]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:1]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:2]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
 }
 
 -(NSString *)getDataFrom:(id)pointer

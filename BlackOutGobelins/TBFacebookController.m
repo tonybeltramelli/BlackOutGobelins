@@ -44,6 +44,8 @@
             NSArray* data = [result objectForKey:@"data"];
             int length = [data count];
             
+            if(length > 100) length = 100;
+            
             for(int i = 0; i < length; i++)
             {
                 FBGraphObject *photo = [data objectAtIndex:i];
@@ -100,6 +102,8 @@
         
             int i = 0;
             int length = [friends count];
+            
+            if(length > 100) length = 100;
         
             _totalFriends = length;
             _loadedFriends = 0;

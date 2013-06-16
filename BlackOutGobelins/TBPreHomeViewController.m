@@ -37,11 +37,11 @@
     [[TBModel getInstance].facebookDataManager getFriendOnPicture];
     [[TBModel getInstance].facebookDataManager getSomeFriends];
     
-    BOOL userIsKnown = [TBModel getInstance].facebookController.user != nil && ![[TBModel getInstance].facebookController.user.name isEqualToString:@""];
+    BOOL isReady = [self isUserKnown:[TBModel getInstance].facebookController.user] && [self isUserKnown:[TBModel getInstance].facebookController.bestFriend] && [self isUserKnown:[TBModel getInstance].facebookController.friendOnPicture] && [[TBModel getInstance].facebookController.someFriends count] != 0;
     
     UIViewController *viewController;
     
-    if(userIsKnown)
+    if(isReady)
     {
         viewController = [TBGameViewController alloc];
         
@@ -58,7 +58,7 @@
         [_textView setHidden:FALSE];
     }
     
-    [UIView animateWithDuration:0.3 delay:userIsKnown ? 1.2 : 6.0 options: UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:0.3 delay:isReady ? 1.2 : 6.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.view setAlpha:0.0f];
                      }
@@ -66,6 +66,11 @@
                          [self.navigationController pushViewController:[[viewController initWithNibName:nil bundle:nil] autorelease] animated:YES];
                          [self removeFromParentViewController];
                      }];
+}
+
+-(BOOL) isUserKnown:(TBFacebookUserDescriptor *)user
+{
+    return (user != nil && ![user.name isEqualToString:@""]);
 }
 
 - (void)dealloc {

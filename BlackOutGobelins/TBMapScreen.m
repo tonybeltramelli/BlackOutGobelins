@@ -430,7 +430,7 @@ const float DELAY = 20.0f;
             
             if([_targetedCharacter isKindOfClass:[TBCharacterFirstState class]])
             {
-                _dialoguePopIn = [[TBDialoguePopin alloc] initWithContent:[((TBCharacterFirstState *) _targetedCharacter) getDialogue]];
+                _dialoguePopIn = [[TBDialoguePopin alloc] initWithContent:[((TBCharacterFirstState *) _targetedCharacter) getDialogueContent]];
                 [self addChild:_dialoguePopIn z:1];
                 
                 [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -552,7 +552,7 @@ const float DELAY = 20.0f;
     int length = [positions count];
     
     for(i = 0; i < length; i++)
-    {
+    {        
         id element = [[NSClassFromString(className) alloc] init];
         [element drawAt:[[positions objectAtIndex:i] CGPointValue]];
         
