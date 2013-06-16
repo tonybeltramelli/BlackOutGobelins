@@ -28,14 +28,14 @@ static ccColor4F hexColorToRGBA(int hexValue, float alpha)
 {
     self = [super init];
     if (self) {
-        CCParticleSystem *particle = [[CCParticleGalaxy alloc] initWithTotalParticles:200];
+        CCParticleSystem *particle = [[CCParticleGalaxy alloc] initWithTotalParticles:120];
         [particle autorelease];
         [self addChild:particle];
         particle.position = location;
         particle.startColor = hexColorToRGBA(hexColor, 0.9f);
         particle.startSize = 10;
         particle.endSize = 1;
-        particle.emissionRate = 200;
+        particle.emissionRate = 120;
         particle.life = 0.5f;
         particle.duration = 0.5f;
         

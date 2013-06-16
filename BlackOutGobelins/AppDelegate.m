@@ -24,7 +24,7 @@
 	_director = (CCDirectorIOS*) [CCDirector sharedDirector];
 	
 	_director.wantsFullScreenLayout = YES;
-	[_director setDisplayStats:YES];
+	[_director setDisplayStats:NO];
 	[_director setAnimationInterval:1.0/60];
 	[_director setDelegate:self];
 	[_director setProjection:kCCDirectorProjection2D];

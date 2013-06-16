@@ -68,7 +68,7 @@
 -(void) imageIsLoaded:(CCTexture2D *)texture
 {
     if(!texture) return;
-    
+
     [_image setTexture:texture];
 }
 

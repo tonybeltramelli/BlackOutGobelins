@@ -209,7 +209,7 @@ const float DELAY = 20.0f;
     
     if([_environmentContainer isDoorAt:target])
     {
-        _isOnDoor = TRUE;
+        _toFreeze = TRUE;
         
         [_mainContainer reorderChild:_hero z:1];
         
@@ -223,12 +223,18 @@ const float DELAY = 20.0f;
         _clueWindow = [[TBClueWindow alloc] initWithSize:_size];
         [self addChild:_clueWindow z:1];
         
-        [mask runAction:[CCFadeIn actionWithDuration:0.6f]];
+        [mask runAction:[CCSequence actionOne:[CCFadeIn actionWithDuration:0.6f] two:[CCCallFunc actionWithTarget:self selector:@selector(doorOpened:)]]];
         
         return;
     }
     
     [_hero walkTo: position];
+}
+
+-(void) doorOpened:(id)sender
+{
+    _isOnDoor = TRUE;
+    _toFreeze = FALSE;
 }
 
 -(void) tutorialIsOver:(NSNotification *)notification

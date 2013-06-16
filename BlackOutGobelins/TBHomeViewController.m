@@ -9,6 +9,7 @@
 #import "TBHomeViewController.h"
 #import "TBGameViewController.h"
 #import "TBLoggedInView.h"
+#import "SimpleAudioEngine.h"
 
 @interface TBHomeViewController ()
 {
@@ -28,6 +29,8 @@
     
     [(TBASubView *)_notLoggedView build];
     [(TBASubView *)_loggedView build];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Home-Sound.mp3" loop:YES];
     
     [self updateView];
 }
@@ -95,6 +98,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [((TBLoggedInView *) _currentView) dataLoaded];
+    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [UIView animateWithDuration:0.3 delay: 1.0 options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
