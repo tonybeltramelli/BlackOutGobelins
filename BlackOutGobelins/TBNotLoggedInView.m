@@ -17,11 +17,11 @@
 {
     [super build];
     
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"home_background.jpg" : @"home_background-568h@2x.jpg"]];
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 && self.frame.size.width != 568 ? @"home_background.jpg" : @"home_background-568h@2x.jpg"]];
     
     [_button setTitle:NSLocalizedString(@"BUTTON_LOGIN", nil) forState:UIControlStateNormal];
     
-    _margin = self.frame.size.height != 568 ? _rockImageView.image.size.width / 4 : 0.0f;
+    _margin = _rockImageView.image.size.width / 4;
     
     [_rockImageView setFrame:CGRectMake(-_rockImageView.image.size.width, 0.0f, _rockImageView.image.size.width, _rockImageView.image.size.height)];
     

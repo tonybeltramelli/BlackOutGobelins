@@ -25,7 +25,7 @@
     _textView.text = NSLocalizedString(@"PREHOME_TEXT", nil);
     _label.text = NSLocalizedString(@"USER_COMEBACK", nil);
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.view.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.view.frame.size.height != 568 && self.view.frame.size.width != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -51,7 +51,7 @@
     }else{
         CGSize contentSize = [_textView.text sizeWithFont:_textView.font constrainedToSize:_textView.frame.size];
         
-        _textView.frame = CGRectMake(_textView.frame.origin.x, [UIScreen mainScreen].bounds.size.height / 2 - contentSize.height, _textView.frame.size.width, _textView.frame.size.height);
+        _textView.frame = CGRectMake(_textView.frame.origin.x, contentSize.height / 2, _textView.frame.size.width, _textView.frame.size.height);
 
         viewController = [TBHomeViewController alloc];
         

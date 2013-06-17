@@ -31,14 +31,14 @@
     if (self) {
         _currentObstacleNumber = 0;
         
-        _scoreIncrement = 1.0f / 12;
+        _scoreIncrement = 1.0f / 10;
         
         _botNumberRelated = (float *)malloc(4 * sizeof(float));
         
         _botNumberRelated[0] = 1;
         _botNumberRelated[1] = 2;
-        _botNumberRelated[2] = 4;
-        _botNumberRelated[3] = 5;
+        _botNumberRelated[2] = 3;
+        _botNumberRelated[3] = 4;
         
         _obstableScoreRelated = (float *)malloc(4 * sizeof(float));
         
@@ -61,7 +61,7 @@
     [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:0] andDialog:[self getDialogueAge]]];
     [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:1] andDialog:[self getDialogueCity]]];
     [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:2] andDialog:NSLocalizedString(@"LOVE_SITUATION", nil)]];
-    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:3] andDialog:NSLocalizedString(@"WORK", nil)]];
+    [_characterData addObject:[TBCharacterData dataWithDescriptor: (TBFacebookFriendDescriptor*)[[[TBModel getInstance] facebookController].someFriends objectAtIndex:3] andDialog:NSLocalizedString(@"ENIGMA", nil)]];
 }
 
 -(NSString *)getDialogueAge
@@ -103,14 +103,12 @@
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.location] andType:NSLocalizedString(@"DATA_TYPE_LOCATION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.bestFriend.name] andType:NSLocalizedString(@"BEST_FRIEND_NAME", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.name] andType:NSLocalizedString(@"GREAT_BUDDY_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.positionName] andType:NSLocalizedString(@"JOB_POSITION", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.companyName] andType:NSLocalizedString(@"COMPANY_NAME", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.profilePictureUrl] andType:@"image"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.positionName] andType:NSLocalizedString(@"JOB_POSITION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.schoolName] andType:NSLocalizedString(@"EDUCATION", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.friendOnPicture.pictureUrl] andType:@"image"]];
+    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:[TBModel getInstance].facebookController.user.companyName] andType:NSLocalizedString(@"COMPANY_NAME", nil)]];
     [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:0]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:1]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
-    [_botsData addObject:[TBBotData dataWithValue:[self getDataFrom:((TBFacebookUserDescriptor *)[[TBModel getInstance].facebookController.someFriends objectAtIndex:2]).name] andType:NSLocalizedString(@"A_FRIEND_NAME", nil)]];
 }
 
 -(NSString *)getDataFrom:(id)pointer

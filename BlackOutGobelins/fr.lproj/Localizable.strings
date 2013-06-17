@@ -8,7 +8,7 @@
 
 "POPIN_CHARACTER_SIMILAR_FRIEND" = "amis en commun";
 
-"CHARACTER_DIALOGUE_BESTFRIEND" = "Je suis content qu’on ai pu rentrer en contact, je commençais à me lasser d’avoir pour seul ami un Bot détraqué... Il m’a bien aidé en tout cas, tu devrais aller le voir avant qu’il y passe.";
+"CHARACTER_DIALOGUE_BESTFRIEND" = "Je suis content qu’on ait pu rentrer en contact, je commençais à me lasser d’avoir pour seul ami un Bot détraqué... Il m’a bien aidé en tout cas, tu devrais aller le voir avant qu’il y passe.";
 
 "CHARACTER_DIALOGUE_FRIEND_ON_PICTURE" = "Wow. T’es salement amoché toi ! Tu me dis quelque chose mais pas facile de t’identifier. Tu aurais pas une photo au moins ?";
 
@@ -20,7 +20,7 @@
 
 "GREAT_BUDDY_NAME" = "Ami proche";
 
-"PREHOME_TEXT" = "Blackout est un jeu d’aventure vous permettant d’explorer votre réseau Facebook et de redécouvrir votre image en ligne de manière inédite. \n \n Pour retrouver votre e-Go et prendre part à l’aventure, vous devez lier votre compte Facebook au jeu. \n \n Vos données ne pourront être utilisées par Blackout ou tout autre éditeur tierce. Vous pouvez prendre connaissance des autorisations accordées à Blackout à chaque instant depuis les options du jeu. \n \n Retrouvez plus d’informations sur www.blackout-lejeu.fr";
+"PREHOME_TEXT" = "Blackout est un jeu d’aventure vous permettant d’explorer votre réseau Facebook et de redécouvrir votre image en ligne de manière inédite. \n \n Vous devez lier votre compte Facebook au jeu. \n \n Vos données ne pourront être utilisées par Blackout ou tout autre éditeur tierce. \n \n Retrouvez plus d’informations sur www.blackout-lejeu.fr";
 
 "USER_COMEBACK" = "Salut {username}! C'est génial de te revoir !";
 
@@ -30,21 +30,21 @@
 
 "CLUE_DOOR" = "Qu’avez-vous à dire \nà propos de vous ?";
 
-"CLUE_LOCATION" = "Tu vie à {cityname}.";
+"CLUE_LOCATION" = "Tu vis à {cityname}.";
 
 "CLUE_AGE" = "ans";
 
 "PROTECTED" = "donnée protégée";
 
-"TIP_1" = "Vous voulez être le seul à voir certaines publications ? \nPensez aux paramètres de confidentialité. \n(image “moi uniquement”)";
+"TIP_1" = "Vous voulez être le seul à voir certaines publications ? \nPensez aux paramètres de confidentialité.";
 
-"TIP_2" = "Le Social Graph Search vous permet de faire des recherches parmi les données auxquelles vous avez accès. Faites en bonne usage.";
+"TIP_2" = "Le Social Graph Search vous permet de faire des recherches parmi les données auxquelles vous avez accès. Faites en bon usage.";
 
 "TIP_3" = "Envie de connaître vos points communs et de voir vos liens avec un ami ? \nPensez à la fonction “Liens d’amitié”.";
 
 "AGE_20" = "Donnée âge : \nTu passes beaucoup de temps sur Facebook, tu ne devrais pas être en cours ?";
 
-"AGE_25" = "Donnée âge : \nToujours à l’école ? Tu devrais pas travailler à ton âge ?";
+"AGE_25" = "Donnée âge : \nToujours à l’école ? Tu ne devrais pas travailler à ton âge ?";
 
 "AGE_30" = "Donnée âge : \nTu as autant d’amis que ça dans la vraie vie ? Tu sors beaucoup dis donc.";
 
@@ -58,7 +58,7 @@
 
 "LOVE_SITUATION" = "Donnée situation amoureuse : \nPetit cachotier";
 
-"WORK" = "Il paraît que le travail c’est la santé... \nMouais.";
+"ENIGMA" = "Tu veux passer dans le cercle supérieur ? La sécurité a été renforcée, impossible pour un e-Go incomplet...  \n \nPrépare-toi à l'énigme de la porte !";
 
 "JOB_POSITION" = "Ton travail";
 

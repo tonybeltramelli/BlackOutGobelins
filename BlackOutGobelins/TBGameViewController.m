@@ -7,7 +7,7 @@
 //
 
 #import "TBGameViewController.h"
-
+#import "TBPreHomeViewController.h"
 #import "cocos2d.h"
 #import "TBSplashScreen.h"
 #import "TBModel.h"
@@ -76,6 +76,15 @@
     [[TBModel getInstance].facebookDataManager saveUser];
     
     [self navigateToFacebookProfile];
+    
+    [UIView animateWithDuration:0.3 delay:0.5 options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self.view setAlpha:0.0f];
+                     }
+                     completion:^(BOOL finished){
+                         [self.navigationController pushViewController:[[[TBPreHomeViewController alloc] initWithNibName:nil bundle:nil] autorelease] animated:YES];
+                         [self removeFromParentViewController];
+                     }];
 }
 
 -(void) navigateToFacebookProfile

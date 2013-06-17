@@ -19,7 +19,7 @@
 {
     [super build];
     
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.frame.size.height != 568 && self.frame.size.width != 568 ? @"Blank-Background.jpg" : @"Blank-Background-568h@2x.jpg"]];
 }
 
 -(void) show

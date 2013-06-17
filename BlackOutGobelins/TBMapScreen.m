@@ -86,7 +86,7 @@ const float DELAY = 20.0f;
         _topContainer = [[TBTopMap alloc] init];
         [self addChild:_topContainer z:1 tag:topContainer];
         
-        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "mask.png" : "mask-568h.png"]];
+        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 && _size.height != 568 ? "mask.png" : "mask-568h.png"]];
         [mask setAnchorPoint:CGPointZero];
         [self addChild:mask z:1];
         
@@ -215,7 +215,7 @@ const float DELAY = 20.0f;
         
         [_hero runAction:[CCMoveTo actionWithDuration:0.5f position:CGPointMake(_door.position.x, _door.position.y)]];
         
-        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 ? "dark_mask.png" : "dark_mask-568h.png"]];
+        CCSprite *mask = [CCSprite spriteWithFile:[TBResources getAsset:_size.width != 568 && _size.height != 568 ? "dark_mask.png" : "dark_mask-568h.png"]];
         [mask setAnchorPoint:CGPointZero];
         [mask setOpacity:0];
         [self addChild:mask z:1];
@@ -389,7 +389,12 @@ const float DELAY = 20.0f;
     
     CGPoint location = [self getContainerPositionFromTouch:touches];
     
-    if(_isOnDoor) [[TBModel getInstance].gameController loginFacebook];
+    if(_isOnDoor)
+    {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        
+        [[TBModel getInstance].gameController loginFacebook];
+    }
     
     if(!_isMoving)
     {

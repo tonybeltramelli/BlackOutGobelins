@@ -55,8 +55,8 @@ NSString *SOME_FRIENDS_TABLE_NAME = @"SOME_FRIENDS";
 }
 
 -(NSString *)getData:(NSString *)data
-{
-    if([data isEqualToString:@""] || data == nil)
+{ 
+    if([data isEqualToString:@""] || data == nil || [data isEqualToString:@"(null)"] || [data isEqualToString:@"null"] || data == NULL)
     {
         return NSLocalizedString(@"PROTECTED", nil);
     }else{

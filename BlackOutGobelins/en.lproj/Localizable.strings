@@ -36,7 +36,7 @@
 
 "PROTECTED" = "data protected";
 
-"TIP_1" = "Vous voulez être le seul à voir certaines publications ? \nPensez aux paramètres de confidentialité. \n(image “moi uniquement”)";
+"TIP_1" = "Vous voulez être le seul à voir certaines publications ? \nPensez aux paramètres de confidentialité.";
 
 "TIP_2" = "Le Social Graph Search vous permet de faire des recherches parmi les données auxquelles vous avez accès. Faites en bonne usage.";
 
@@ -58,7 +58,7 @@
 
 "LOVE_SITUATION" = "Donnée situation amoureuse : \nPetit cachotier";
 
-"WORK" = "Il paraît que le travail c’est la santé... \nMouais.";
+"ENIGMA" = "Tu veux passer dans le cercle supérieur ? La sécurité a été renforcée, impossible pour un e-Go incomplet...  \n \nPrépare-toi à l'énigme de la porte !";
 
 "JOB_POSITION" = "Your job";
 

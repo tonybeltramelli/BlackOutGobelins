@@ -50,17 +50,17 @@
     [self unschedule:@selector(build:)];
     
     [self addClueWith:CGSizeMake(50, 50) at:CGPointMake(_gravityCenter.x - 60, _gravityCenter.y + 110)];
-    [self addClueWith:CGSizeMake(120, 80) at:CGPointMake(_gravityCenter.x - 120, _gravityCenter.y + 30)];
+    [self addClueWith:CGSizeMake(120, 70) at:CGPointMake(_gravityCenter.x - 120, _gravityCenter.y + 30)];
     [self addClueWith:CGSizeMake(150, 50) at:CGPointMake(_gravityCenter.x - 130, _gravityCenter.y - 50)];
     [self addClueWith:CGSizeMake(100, 60) at:CGPointMake(_gravityCenter.x - 50, _gravityCenter.y - 120)];
     [self addClueWith:CGSizeMake(150, 40) at:CGPointMake(_gravityCenter.x + 120, _gravityCenter.y + 120)];
-    [self addClueWith:CGSizeMake(120, 80) at:CGPointMake(_gravityCenter.x + 140, _gravityCenter.y + 30)];
+    [self addClueWith:CGSizeMake(120, 90) at:CGPointMake(_gravityCenter.x + 140, _gravityCenter.y + 30)];
     [self addClueWith:CGSizeMake(50, 50) at:CGPointMake(_gravityCenter.x + 120, _gravityCenter.y - 70)];
     [self addClueWith:CGSizeMake(60, 60) at:CGPointMake(_gravityCenter.x + 180, _gravityCenter.y - 60)];
     
     [((TBClueBox *)[[self children] objectAtIndex:4]) fillWithText:NSLocalizedString(@"CLUE_DOOR", nil)];
-    [((TBClueBox *)[[self children] objectAtIndex:1]) fillWithText:[TBModel getInstance].facebookController.user.schoolName andImageUrl:[TBModel getInstance].facebookController.user.schoolPictureUrl];
-    [((TBClueBox *)[[self children] objectAtIndex:5]) fillWithText:[NSString stringWithFormat:@"%@\n%@", [TBModel getInstance].facebookController.user.companyName, [TBModel getInstance].facebookController.user.positionName] andImageUrl:[TBModel getInstance].facebookController.user.companyPictureUrl];
+    [((TBClueBox *)[[self children] objectAtIndex:1]) fillWithText:[self getDataWithPrefix:NSLocalizedString(@"EDUCATION", nil) andRawData:[TBModel getInstance].facebookController.user.schoolName] andImageUrl:[TBModel getInstance].facebookController.user.schoolPictureUrl];
+    [((TBClueBox *)[[self children] objectAtIndex:5]) fillWithText:[NSString stringWithFormat:@"%@\n%@", [self getDataWithPrefix:NSLocalizedString(@"COMPANY_NAME", nil) andRawData:[TBModel getInstance].facebookController.user.companyName], [self getDataWithPrefix:NSLocalizedString(@"JOB_POSITION", nil) andRawData:[TBModel getInstance].facebookController.user.positionName]] andImageUrl:[TBModel getInstance].facebookController.user.companyPictureUrl];
     [((TBClueBox *)[[self children] objectAtIndex:3]) fillWithText:[NSLocalizedString(@"CLUE_LOCATION", nil) stringByReplacingOccurrencesOfString:@"{cityname}" withString:[TBModel getInstance].facebookController.user.location] andImageUrl:[TBModel getInstance].facebookController.user.locationPictureUrl];
     [((TBClueBox *)[[self children] objectAtIndex:7]) fillWithText:NSLocalizedString(@"CLUE_AGE", nil) andBigText:[NSString stringWithFormat:@"%d", [TBModel getInstance].facebookController.user.age]];
     [((TBClueBox *)[[self children] objectAtIndex:0]) fillWithImageUrl:[TBModel getInstance].facebookController.user.profilePictureUrl];
@@ -68,6 +68,11 @@
     [((TBClueBox *)[[self children] objectAtIndex:2]) fillWithText:@"" andBigText:[TBModel getInstance].facebookController.user.name];
     
     _isReady = TRUE;
+}
+
+-(NSString *)getDataWithPrefix:(NSString *)prefix andRawData:(NSString *)rawData
+{
+    return [[prefix stringByAppendingFormat:@" : \n%@", rawData] retain];
 }
 
 -(void)addClueWith:(CGSize)size at:(CGPoint)position
