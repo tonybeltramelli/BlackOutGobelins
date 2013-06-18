@@ -118,7 +118,7 @@
         return pointer;
     }
     
-    return @"Data protected";
+    return NSLocalizedString(@"PROTECTED", nil);
 }
 
 -(NSMutableArray *)getCharactersData

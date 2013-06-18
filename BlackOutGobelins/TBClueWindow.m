@@ -72,6 +72,11 @@
 
 -(NSString *)getDataWithPrefix:(NSString *)prefix andRawData:(NSString *)rawData
 {
+    if([rawData isEqualToString:@""] || rawData == nil || [rawData isEqualToString:@"(null)"] || [rawData isEqualToString:@"null"] || rawData == NULL)
+    {
+        rawData = NSLocalizedString(@"PROTECTED", nil);
+    }
+    
     return [[prefix stringByAppendingFormat:@" : \n%@", rawData] retain];
 }
 
